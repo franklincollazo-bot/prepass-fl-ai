@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "generate-videos": "node scripts/heygen-sync.js",
+    "update-content": "node scripts/update-lms.js"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "openai": "^4.0.0",
+    "stripe": "^14.0.0",
+    "@supabase/supabase-js": "^2.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.0.0"
+  }
+}

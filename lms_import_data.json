@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": {
+      "en": "Insurance Basics",
+      "es": "Conceptos Básicos de Seguros",
+      "ht": "Baz Asirans",
+      "pt": "Conceitos Básicos de Seguros",
+      "fr": "Bases de l'Assurance"
+    },
+    "content": "Risk vs Speculative Risk, Perils, Hazards."
+  },
+  {
+    "id": 2,
+    "title": {
+      "en": "Medical Expense Insurance",
+      "es": "Pólizas de Gastos Médicos",
+      "ht": "Asirans Depans Medikaman",
+      "pt": "Seguro de Despesas Médicas",
+      "fr": "Assurance Frais Médicaux"
+    },
+    "content": "HMO vs PPO vs POS."
+  },
+  {
+    "id": 3,
+    "title": {
+      "en": "Disability Income",
+      "es": "Ingresos por Discapacidad",
+      "ht": "Revni Andikap",
+      "pt": "Seguro de Invalidez",
+      "fr": "Revenu d'Invalidité"
+    },
+    "content": "Elimination Period, Benefit Period."
+  },
+  {
+    "id": 4,
+    "title": {
+      "en": "Medicare & Social Security",
+      "es": "Medicare y Seguridad Social",
+      "ht": "Medicare ak Sekirite Sosyal",
+      "pt": "Medicare e Segurança Social",
+      "fr": "Medicare et Sécurité Sociale"
+    },
+    "content": "Parts A, B, C, D."
+  },
+  {
+    "id": 5,
+    "title": {
+      "en": "Policy Provisions",
+      "es": "Disposiciones de la Póliza",
+      "ht": "Dispozisyon Polisyen",
+      "pt": "Provisões da Apólice",
+      "fr": "Dispositions de la Police"
+    },
+    "content": "Grace Period, Incontestability."
+  },
+  {
+    "id": 6,
+    "title": {
+      "en": "Taxation of Health Insurance",
+      "es": "Impuestos y Seguros de Salud",
+      "ht": "Taks sou Asirans Sante",
+      "pt": "Tributação de Seguro de Saúde",
+      "fr": "Fiscalité de l'Assurance Maladie"
+    },
+    "content": "Deductibility of premiums, Tax-free benefits."
+  },
+  {
+    "id": 7,
+    "title": {
+      "en": "Florida State Regulations",
+      "es": "Regulaciones de Florida",
+      "ht": "Règleman Leta Florid",
+      "pt": "Regulamentos da Flórida",
+      "fr": "Réglementations de la Floride"
+    },
+    "content": "DFS, OIR, Replacement rules."
+  },
+  {
+    "id": 8,
+    "title": {
+      "en": "Underwriting & Application",
+      "es": "Suscripción y Solicitud",
+      "ht": "Souskripsyon ak Aplikasyon",
+      "pt": "Subscrição e Proposta",
+      "fr": "Souscription et Demande"
+    },
+    "content": "Classification of risks, Field Underwriting."
+  },
+  {
+    "id": 9,
+    "title": {
+      "en": "Ethics & Responsibilities",
+      "es": "Ética y Responsabilidades",
+      "ht": "Etik ak Responsablite",
+      "pt": "Ética e Responsabilidades",
+      "fr": "Éthique et Responsabilités"
+    },
+    "content": "Fiduciary duty, Prohibited practices."
+  },
+  {
+    "id": 10,
+    "title": {
+      "en": "Final Exam Simulator",
+      "es": "Simulador de Examen Final",
+      "ht": "Similatè Egzamen Final",
+      "pt": "Simulador de Exame Final",
+      "fr": "Simulateur d'Examen Final"
+    },
+    "content": "The Oracle AI Tutor active."
+  }
+]
