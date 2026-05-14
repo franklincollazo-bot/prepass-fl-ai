@@ -96,7 +96,7 @@ export default function Dashboard() {
                 height: '100%',
                 border: 'none'
               }}
-              allow="font-presentation"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; gyroscope; microphone"
               allowFullScreen
             ></iframe>
           </div>
@@ -223,7 +223,7 @@ export default function Dashboard() {
           </div>
         </aside>
       </main>
-      <div style={{ opacity: 0, fontSize: '1px' }}>v.1.0.1 - Updated: {new Date().toISOString()}</div>
+      <div style={{ opacity: 0, fontSize: '1px' }}>v.1.0.2 - Force Sync: {new Date().toISOString()}</div>
     </div>
   );
 }
