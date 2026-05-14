@@ -12,6 +12,32 @@ const COLORS = {
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = React.useState('module1');
+  const [query, setQuery] = React.useState('');
+  const [chat, setChat] = React.useState([
+    { role: 'ai', text: '¡Hola! Soy tu tutor de IA de Maná Academy. Estoy listo para ayudarte con el Módulo 1. ¿Tienes alguna duda?' }
+  ]);
+  const [loading, setLoading] = React.useState(false);
+
+  const askTutor = async () => {
+    if (!query) return;
+    setLoading(true);
+    const newChat = [...chat, { role: 'user', text: query }];
+    setChat(newChat);
+    setQuery('');
+
+    try {
+      const res = await fetch('/api/tutor-ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: query, language: 'es' })
+      });
+      const data = await res.json();
+      setChat([...newChat, { role: 'ai', text: data.reply || 'Lo siento, no pude procesar tu consulta ahora.' }]);
+    } catch (err) {
+      setChat([...newChat, { role: 'ai', text: 'Error de conexión con el tutor.' }]);
+    }
+    setLoading(false);
+  };
 
   return (
     <div style={{ 
@@ -167,14 +193,25 @@ export default function Dashboard() {
           <div style={{ padding: '20px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.goldDark}` }}>
             <h3 style={{ color: COLORS.gold, marginTop: 0 }}>🤖 Tutor IA Maná</h3>
             <p style={{ fontSize: '14px', color: COLORS.gray }}>¿Tienes dudas sobre este capítulo? Pregúntame.</p>
-            <div style={{ height: '200px', backgroundColor: COLORS.darkBg, borderRadius: '8px', padding: '10px', fontSize: '13px', overflowY: 'auto', border: `1px solid ${COLORS.border}` }}>
-              <p style={{ color: COLORS.gold }}><strong>Tutor:</strong> ¡Hola! Estoy listo para ayudarte con el Módulo 1. ¿Sabes qué es un contrato Unilateral?</p>
+            <div style={{ height: '300px', backgroundColor: COLORS.darkBg, borderRadius: '8px', padding: '10px', fontSize: '13px', overflowY: 'auto', border: `1px solid ${COLORS.border}`, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {chat.map((msg, i) => (
+                <div key={i} style={{ alignSelf: msg.role === 'ai' ? 'flex-start' : 'flex-end', backgroundColor: msg.role === 'ai' ? COLORS.black : COLORS.gold, color: msg.role === 'ai' ? COLORS.white : COLORS.black, padding: '8px 12px', borderRadius: '8px', maxWidth: '85%' }}>
+                  {msg.text}
+                </div>
+              ))}
+              {loading && <div style={{ color: COLORS.gold, fontSize: '12px' }}>Pensando...</div>}
             </div>
-            <input 
-              type="text" 
-              placeholder="Escribe tu duda aquí..." 
-              style={{ width: '100%', marginTop: '10px', padding: '10px', borderRadius: '4px', border: `1px solid ${COLORS.border}`, backgroundColor: COLORS.darkBg, color: COLORS.white }}
-            />
+            <div style={{ display: 'flex', marginTop: '10px', gap: '5px' }}>
+              <input 
+                type="text" 
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && askTutor()}
+                placeholder="Escribe tu duda..." 
+                style={{ flex: 1, padding: '10px', borderRadius: '4px', border: `1px solid ${COLORS.border}`, backgroundColor: COLORS.darkBg, color: COLORS.white }}
+              />
+              <button onClick={askTutor} style={{ backgroundColor: COLORS.gold, border: 'none', borderRadius: '4px', padding: '0 15px', cursor: 'pointer', fontWeight: 'bold' }}>→</button>
+            </div>
           </div>
 
           <div style={{ padding: '20px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
@@ -186,6 +223,7 @@ export default function Dashboard() {
           </div>
         </aside>
       </main>
+      <div style={{ opacity: 0, fontSize: '1px' }}>v.1.0.1 - Updated: {new Date().toISOString()}</div>
     </div>
   );
 }
