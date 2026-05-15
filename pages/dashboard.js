@@ -72,10 +72,10 @@ export default function Dashboard() {
         <section>
           <div style={{ marginBottom: '20px' }}>
             <h2 style={{ color: COLORS.gold }}>Módulo 1: Fundamentos y Procesos de Campo</h2>
-            <p style={{ color: COLORS.gray }}>Florida Health Insurance (2-40/2-15)</p>
+            <p style={{ color: COLORS.gray }}>Florida Health Insurance (2-40)</p>
           </div>
 
-          {/* Video Player */}
+          {/* Video Player - Updated to YouTube */}
           <div style={{ 
             width: '100%', 
             position: 'relative', 
@@ -87,7 +87,7 @@ export default function Dashboard() {
             boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
           }}>
             <iframe 
-              src="https://app.heygen.com/embed/f919507ba9224f7295740dc50dd18fa0"
+              src="https://www.youtube.com/embed/ZYM-WLADuw4"
               style={{
                 position: 'absolute',
                 top: 0,
@@ -96,7 +96,7 @@ export default function Dashboard() {
                 height: '100%',
                 border: 'none'
               }}
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; gyroscope; microphone"
+              allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>

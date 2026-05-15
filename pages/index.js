@@ -34,11 +34,38 @@ export default function LandingPage() {
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h1 style={{ fontSize: '48px', color: COLORS.gold, marginBottom: '20px' }}>
             MANÁ ACADEMY <br/>
-            <span style={{ color: COLORS.white }}>PrePass FL AI</span>
+            <span style={{ color: COLORS.white }}>PrePass FL AI (2-40)</span>
           </h1>
           <p style={{ fontSize: '20px', color: COLORS.gray, marginBottom: '40px' }}>
             No estudies más, estudia mejor. Destilamos el contenido del examen estatal de Florida para que apruebes a la primera y empieces a producir dinero de inmediato.
           </p>
+          
+          {/* Welcome Video Embed */}
+          <div style={{ 
+            maxWidth: '700px', 
+            margin: '0 auto 40px auto',
+            position: 'relative', 
+            paddingTop: '39.37%', /* Adjust aspect ratio */
+            backgroundColor: COLORS.black, 
+            borderRadius: '12px', 
+            overflow: 'hidden',
+            border: `1px solid ${COLORS.goldDark}`
+          }}>
+            <iframe 
+              src="https://www.youtube.com/embed/ZYM-WLADuw4"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                border: 'none'
+              }}
+              allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+
           <a href="/dashboard" style={{ 
             backgroundColor: COLORS.gold, 
             color: COLORS.black, 
