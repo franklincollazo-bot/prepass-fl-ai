@@ -151,44 +151,61 @@ export default function Dashboard() {
               </p>
             </div>
 
-            {/* Sección de Bonos de Valor */}
+            {/* Sección de Bonos de Valor - Rediseñada Institutional */}
             <div style={{ 
               marginTop: '30px', 
-              padding: '20px', 
-              backgroundColor: 'rgba(197, 160, 89, 0.1)', 
+              padding: '25px', 
+              backgroundColor: '#000000', 
               borderRadius: '12px', 
-              border: `2px dashed ${COLORS.gold}`,
-              textAlign: 'center'
+              border: `2px solid ${COLORS.gold}`,
+              textAlign: 'center',
+              boxShadow: '0 4px 15px rgba(197, 160, 89, 0.2)'
             }}>
-              <h3 style={{ color: COLORS.gold, margin: '0 0 10px 0', fontSize: '20px' }}>🎁 BONOS EXCLUSIVOS INCLUIDOS</h3>
-              <p style={{ fontSize: '14px', marginBottom: '20px', color: COLORS.white }}>
-                Como valor agregado a tu curso, te entregamos estos materiales descargables en cada capítulo:
+              <img src={LOGO_URL} alt="Logo" style={{ width: '60px', marginBottom: '10px' }} />
+              <h3 style={{ color: COLORS.gold, margin: '0 0 10px 0', fontSize: '22px', letterSpacing: '1px' }}>MATERIAL DE ALTO RENDIMIENTO</h3>
+              <p style={{ fontSize: '15px', marginBottom: '25px', color: COLORS.white }}>
+                Descarga las herramientas definitivas para dominar el Módulo 1 y asegurar tu aprobado.
               </p>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                 <a href="/Modulo1_Manual_Completo.html" target="_blank" style={{ 
-                  padding: '12px', 
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  padding: '20px', 
+                  backgroundColor: COLORS.darkBg, 
+                  color: COLORS.gold, 
+                  textDecoration: 'none', 
+                  fontWeight: 'bold', 
+                  borderRadius: '8px',
+                  border: `1px solid ${COLORS.gold}`,
+                  transition: 'transform 0.2s'
+                }}>
+                  <span style={{ fontSize: '24px', marginBottom: '5px' }}>📖</span>
+                  <span>MANUAL MAESTRO</span>
+                  <span style={{ fontSize: '10px', color: COLORS.white, marginTop: '5px' }}>Conceptos y Leyes</span>
+                </a>
+                <a href="/Modulo1_Guia_Estudio.html" target="_blank" style={{ 
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  padding: '20px', 
                   backgroundColor: COLORS.gold, 
                   color: COLORS.black, 
                   textDecoration: 'none', 
                   fontWeight: 'bold', 
-                  borderRadius: '6px',
-                  fontSize: '13px'
+                  borderRadius: '8px',
+                  border: `1px solid ${COLORS.gold}`,
+                  transition: 'transform 0.2s'
                 }}>
-                  📄 Material del Curso (PDF)
-                </a>
-                <a href="/Modulo1_Guia_Estudio.html" target="_blank" style={{ 
-                  padding: '12px', 
-                  backgroundColor: COLORS.white, 
-                  color: COLORS.black, 
-                  textDecoration: 'none', 
-                  fontWeight: 'bold', 
-                  borderRadius: '6px',
-                  fontSize: '13px'
-                }}>
-                  🎯 Las 25 Preguntas Frecuentes
+                  <span style={{ fontSize: '24px', marginBottom: '5px' }}>🎯</span>
+                  <span>GUÍA DE ESTUDIO</span>
+                  <span style={{ fontSize: '10px', color: COLORS.black, marginTop: '5px' }}>Top 25 Preguntas Examen</span>
                 </a>
               </div>
+              <p style={{ marginTop: '20px', fontSize: '12px', color: COLORS.gray }}>
+                Recomendación: Estudia el Manual Maestro primero, luego memoriza la Guía de Estudio.
+              </p>
             </div>
           </div>
         </section>
