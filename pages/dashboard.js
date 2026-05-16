@@ -130,7 +130,7 @@ export default function Dashboard() {
             boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
           }}>
             <iframe 
-              src="https://www.youtube.com/embed/j78YXziYc6E"
+              src="https://www.youtube.com/embed/gqAzJHhPFlI"
               style={{
                 position: 'absolute',
                 top: 0,
@@ -283,7 +283,7 @@ export default function Dashboard() {
           </div>
         </aside>
       </main>
-      <div style={{ opacity: 0, fontSize: '1px' }}>v.1.0.2 - Force Sync: {new Date().toISOString()}</div>
+      <div style={{ opacity: 0, fontSize: '1px' }}>v.1.0.3 - Force Sync: {new Date().toISOString()}</div>
     </div>
   );
 }
