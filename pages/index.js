@@ -98,7 +98,7 @@ export default function LandingPage() {
             ></iframe>
           </div>
 
-          <a href="/dashboard" style={{ 
+          <a href="/inscripcion" style={{ 
             backgroundColor: COLORS.gold, 
             color: COLORS.black, 
             padding: '16px 32px', 
@@ -108,7 +108,7 @@ export default function LandingPage() {
             textDecoration: 'none',
             display: 'inline-block'
           }}>
-            Entrar a la Academia - $49
+            Registrarme e Inscribirme - $49
           </a>
         </div>
       </section>
