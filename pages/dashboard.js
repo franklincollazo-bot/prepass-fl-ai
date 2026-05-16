@@ -92,7 +92,7 @@ export default function Dashboard() {
             boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
           }}>
             <iframe 
-              src="https://www.youtube.com/embed/ZYM-WLADuw4"
+              src="https://www.youtube.com/embed/j78YXziYc6E"
               style={{
                 position: 'absolute',
                 top: 0,
