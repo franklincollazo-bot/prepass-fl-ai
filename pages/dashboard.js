@@ -2,13 +2,15 @@ import React from 'react';
 
 const COLORS = {
   black: '#000000',
-  darkBg: '#121212',
-  gold: '#D4AF37',
+  darkBg: '#0A1B33',
+  gold: '#C5A059',
   goldDark: '#9A7B2C',
   white: '#FFFFFF',
-  gray: '#64748b',
-  border: '#334155'
+  gray: '#94a3b8',
+  border: '#1e293b'
 };
+
+const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png";
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = React.useState('module1');
@@ -48,15 +50,18 @@ export default function Dashboard() {
     }}>
       {/* Navbar */}
       <nav style={{ 
-        padding: '20px 40px', 
-        borderBottom: `1px solid ${COLORS.goldDark}`, 
+        padding: '10px 40px', 
+        borderBottom: `2px solid ${COLORS.gold}`, 
         display: 'flex', 
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: COLORS.black
+        backgroundColor: '#000000'
       }}>
-        <div style={{ fontSize: '24px', fontWeight: 'bold', color: COLORS.gold }}>
-          MANÁ ACADEMY <span style={{ color: COLORS.white, fontSize: '14px', fontWeight: 'normal' }}>| PrePass FL AI</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <img src={LOGO_URL} alt="Logo" style={{ height: '50px' }} />
+          <div style={{ fontSize: '20px', fontWeight: 'bold', color: COLORS.gold, letterSpacing: '1px' }}>
+            MANÁ ACADEMY <span style={{ color: COLORS.white, fontSize: '12px', fontWeight: 'normal' }}>| PrePass FL AI</span>
+          </div>
         </div>
         <div style={{ display: 'flex', gap: '20px' }}>
           <button style={{ background: 'none', border: 'none', color: COLORS.white, cursor: 'pointer' }}>Inicio</button>
@@ -150,7 +155,7 @@ export default function Dashboard() {
             <div style={{ 
               marginTop: '30px', 
               padding: '20px', 
-              backgroundColor: 'rgba(212, 175, 55, 0.1)', 
+              backgroundColor: 'rgba(197, 160, 89, 0.1)', 
               borderRadius: '12px', 
               border: `2px dashed ${COLORS.gold}`,
               textAlign: 'center'

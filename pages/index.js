@@ -3,13 +3,15 @@ import Head from 'next/head';
 
 const COLORS = {
   black: '#000000',
-  darkBg: '#121212',
-  gold: '#D4AF37',
+  darkBg: '#0A1B33',
+  gold: '#C5A059',
   goldDark: '#9A7B2C',
   white: '#FFFFFF',
-  gray: '#64748b',
-  border: '#334155'
+  gray: '#94a3b8',
+  border: '#1e293b'
 };
+
+const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png";
 
 export default function LandingPage() {
   return (
@@ -26,15 +28,16 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section style={{ 
-        padding: '80px 20px', 
+        padding: '60px 20px', 
         textAlign: 'center', 
-        backgroundColor: COLORS.black,
-        borderBottom: `1px solid ${COLORS.goldDark}`
+        backgroundColor: '#000000',
+        borderBottom: `2px solid ${COLORS.gold}`
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '48px', color: COLORS.gold, marginBottom: '20px' }}>
-            MANÁ ACADEMY <br/>
-            <span style={{ color: COLORS.white }}>PrePass FL AI (2-40)</span>
+          <img src={LOGO_URL} alt="Maná Academy Logo" style={{ width: '180px', marginBottom: '20px' }} />
+          <h1 style={{ fontSize: '42px', color: COLORS.gold, marginBottom: '20px', letterSpacing: '1px' }}>
+            PASIÓN POR TU ÉXITO <br/>
+            <span style={{ color: COLORS.white, fontSize: '32px' }}>PrePass FL AI (2-40)</span>
           </h1>
           <p style={{ fontSize: '20px', color: COLORS.gray, marginBottom: '40px' }}>
             No estudies más, estudia mejor. Destilamos el contenido del examen estatal de Florida para que apruebes a la primera y empieces a producir dinero de inmediato.
