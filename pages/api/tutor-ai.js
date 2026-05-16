@@ -15,31 +15,33 @@ CONTENIDO DETALLADO MÓDULO 1:
 1. FUNDAMENTOS DEL CONTRATO:
 - Acuerdo (Oferta y Aceptación): La oferta ocurre cuando el solicitante envía la aplicación y paga la prima inicial. La aceptación ocurre cuando el asegurador emite la póliza.
 - Consideración: Valor intercambiado. Para el asegurado: prima + declaraciones en solicitud. Para el asegurador: promesa de pagar beneficios.
-- Partes Competentes: Capacidad legal, edad legal y lucidez mental.
-- Propósito Legal: Interés asegurable y conformidad con la ley.
+- Partes Competentes: Capacidad legal, edad legal (18+) y lucidez mental.
+- Propósito Legal: Interés asegurable (debe existir al momento de la SOLICITUD) y conformidad con la ley.
 
 2. CARACTERÍSTICAS LEGALES:
 - Adhesión (Adhesion): Preparado por una parte (asegurador). El asegurado "se adhiere" sin negociar. Ambigüedades se resuelven a favor del asegurado.
-- Aleatorio (Aleatory): Intercambio desigual de valores. Las primas pagadas son pequeñas frente al beneficio por muerte o reclamo.
+- Aleatorio (Aleatory): Intercambio desigual de valores. Las primas pagadas son pequeñas frente al beneficio.
 - Unilateral: Solo una parte (asegurador) hace una promesa exigible legalmente.
-- Condicional: El cumplimiento depende de que ocurran condiciones específicas (como la pérdida cubierta).
+- Condicional: El cumplimiento depende de que ocurran condiciones específicas.
 
 3. PROCESOS DE CAMPO Y SUSCRIPCIÓN:
 - El Agente es el "Suscriptor de Campo". Debe prevenir la Selección Adversa.
 - Recibo Condicional: Cobertura efectiva desde la fecha de solicitud o examen médico (lo último), SI el riesgo es aceptable.
 - Declaración de Buena Salud: Obligatoria si la prima no se pagó con la solicitud.
+- Firmas requeridas: Agente, Solicitante y Dueño de la póliza (si aplica).
 
 4. PRÁCTICAS DESLEALES EN FLORIDA (UNFAIR TRADE PRACTICES):
-- Misrepresentation (Tergiversación): Engañar sobre términos o beneficios.
+- Misrepresentation (Tergiversación): Mentir sobre términos o beneficios propios.
 - Twisting: Mentir sobre la competencia para forzar reemplazo.
-- Churning: Reemplazo interno para ganar comisión.
+- Churning: Reemplazo interno innecesario para ganar comisión.
 - Sliding: Agregar coberturas extras sin permiso.
 - Rebating: Dar regalos o parte de la comisión para vender.
 - Defamation (Difamación): Mentir sobre la solvencia de otra aseguradora.
 - Coercion/Boycott: Obligar a comprar para obtener otro servicio.
 - Unfair Discrimination: Diferentes primas para mismo riesgo/clase.
 - False Advertising: Anuncios engañosos.
-- Misrepresentation en solicitud: Mentir en la aplicación (pérdida de beneficios si es material).
+- Regla de Reemplazo: Obliga a dar el "Aviso de Reemplazo" firmado.
+- Free Look (Examen Libre): 10 días en salud general (30 días en Medicare/Mayores 65).
 `;
 
 export default async function handler(req, res) {

@@ -9,56 +9,140 @@
         .printable-page {
             width: 215.9mm;
             height: 279.4mm;
-            padding: 25.4mm;
+            padding: 20mm 25.4mm;
             margin: 0 auto 20px auto;
             background: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
-        .header { background: var(--navy); color: var(--gold); padding: 15px; text-align: center; border-bottom: 4px solid var(--gold); }
+        .header { background: var(--navy); color: var(--gold); padding: 15px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 10px; }
         .logo-small { width: 50px; }
-        .q-box { border: 1px solid #eee; padding: 12px; margin-bottom: 10px; border-left: 4px solid var(--gold); page-break-inside: avoid; }
-        .question { font-weight: bold; color: var(--navy); font-size: 13px; }
-        .answer { font-size: 13px; color: #555; margin-top: 5px; }
-        .footer { position: absolute; bottom: 20mm; left: 0; right: 0; text-align: center; font-size: 10px; color: #999; }
-        @media print { body { background: none; padding: 0; } .printable-page { margin: 0; box-shadow: none; width: 100%; height: 100%; } .no-print { display: none; } }
+        .q-box { border: 1px solid #eee; padding: 10px; margin-bottom: 8px; border-left: 4px solid var(--gold); page-break-inside: avoid; }
+        .question { font-weight: bold; color: var(--navy); font-size: 12px; }
+        .answer { font-size: 12px; color: #444; margin-top: 3px; }
+        .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; padding-top: 10px; border-top: 1px solid #eee; }
+        @media print { body { background: none; padding: 0; } .printable-page { margin: 0; box-shadow: none; page-break-after: always; width: 100%; height: 100%; } .no-print { display: none; } }
         .print-btn { position: fixed; bottom: 30px; right: 30px; background-color: var(--gold); color: black; padding: 15px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; z-index: 100; border: none; cursor: pointer; }
     </style>
 </head>
 <body>
     <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR GUÍA DE PREGUNTAS</button>
+    
     <div class="printable-page">
         <div class="header">
             <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
-            <h1 style="margin:5px 0; font-size:20px;">TOP 25 PREGUNTAS CLAVE - MÓDULO 1</h1>
-            <div style="color:white; font-size:11px;">Exclusivo para Estudiantes de Maná Academy</div>
+            <h1 style="margin:5px 0; font-size:18px;">TOP 25 PREGUNTAS CLAVE - MÓDULO 1</h1>
+            <div style="color:white; font-size:10px;">Prepárate para el Examen Estatal (2-40)</div>
         </div>
         
-        <div style="margin-top:20px;">
-            <div class="q-box">
-                <div class="question">1. ¿Qué constituye la "Consideración" por parte del asegurado?</div>
-                <div class="answer">Respuesta: El pago de la prima y las declaraciones hechas en la solicitud.</div>
-            </div>
-            <div class="q-box">
-                <div class="question">2. ¿Qué característica del contrato indica que la aseguradora prepara el contrato y el asegurado lo acepta sin negociar?</div>
-                <div class="answer">Respuesta: Contrato de Adhesión (Adhesion).</div>
-            </div>
-            <div class="q-box">
-                <div class="question">3. ¿Qué ocurre en un contrato Aleatorio (Aleatory)?</div>
-                <div class="answer">Respuesta: Existe un intercambio desigual de valores (primas pequeñas vs grandes beneficios).</div>
-            </div>
-            <div class="q-box">
-                <div class="question">4. ¿Qué es el "Twisting" en Florida?</div>
-                <div class="answer">Respuesta: Una declaración engañosa para inducir a un cliente a cancelar su seguro actual y comprar uno nuevo con otra empresa.</div>
-            </div>
-            <div class="q-box">
-                <div class="question">5. ¿Qué debe obtener un agente si entrega una póliza en la que no se pagó la prima inicial?</div>
-                <div class="answer">Respuesta: El pago de la prima y una Declaración de Buena Salud firmada.</div>
-            </div>
-            <!-- Mas preguntas siguiendo el mismo patron -->
+        <div class="q-box">
+            <div class="question">1. ¿Qué constituye la "Consideración" por parte del asegurado?</div>
+            <div class="answer">El pago de la prima inicial y las declaraciones hechas en la solicitud.</div>
         </div>
-        <div class="footer">© 2026 Maná Academy. Prohibida su reproducción.</div>
+        <div class="q-box">
+            <div class="question">2. ¿Qué característica del contrato indica que la aseguradora lo prepara y el cliente solo lo acepta?</div>
+            <div class="answer">Contrato de Adhesión (Adhesion).</div>
+        </div>
+        <div class="q-box">
+            <div class="question">3. ¿Qué ocurre en un contrato Aleatorio (Aleatory)?</div>
+            <div class="answer">Intercambio desigual de valores (primas pequeñas vs grandes beneficios).</div>
+        </div>
+        <div class="q-box">
+            <div class="question">4. ¿Por qué el contrato de seguros es Unilateral?</div>
+            <div class="answer">Porque solo la aseguradora está obligada por ley a cumplir su promesa de pago.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">5. ¿Qué significa que un contrato sea Condicional?</div>
+            <div class="answer">Que el pago de beneficios depende de que ocurra un evento específico (el siniestro).</div>
+        </div>
+        <div class="q-box">
+            <div class="question">6. ¿Cuándo se considera que hay "Acuerdo" (Oferta y Aceptación)?</div>
+            <div class="answer">Cuando el solicitante envía la prima + solicitud (Oferta) y la aseguradora emite la póliza (Aceptación).</div>
+        </div>
+        <div class="q-box">
+            <div class="question">7. ¿Quiénes son Partes Competentes para firmar un contrato?</div>
+            <div class="answer">Personas mayores de 18 años, con salud mental y sobrias.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">8. ¿En qué momento debe existir el Interés Asegurable en un seguro de salud?</div>
+            <div class="answer">Al momento de la solicitud (application), no necesariamente al momento del reclamo.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">9. ¿Qué es el Twisting?</div>
+            <div class="answer">Mentir sobre una póliza externa para inducir al cliente a cancelar su seguro y cambiarse contigo.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">10. ¿Qué es el Churning?</div>
+            <div class="answer">Reemplazo interno innecesario de pólizas dentro de la misma empresa para generar comisiones.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">11. ¿Qué es el Sliding (Deslizamiento)?</div>
+            <div class="answer">Añadir coberturas o servicios adicionales sin el consentimiento del cliente o diciendo que son gratis.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">12. ¿Es legal el Rebating (Rebajas) en Florida?</div>
+            <div class="answer">No, está prohibido dar parte de la comisión o regalos valiosos para inducir la compra.</div>
+        </div>
+        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
+    </div>
+
+    <div class="printable-page">
+        <div class="q-box">
+            <div class="question">13. ¿Qué es la Difamación?</div>
+            <div class="answer">Hacer críticas maliciosas o falsas sobre la solvencia financiera de otra aseguradora.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">14. ¿Qué es la Coacción (Coercion)?</div>
+            <div class="answer">Obligar o forzar a un cliente a comprar un seguro para obtener otro beneficio o servicio.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">15. ¿Qué es la Discriminación Injusta?</div>
+            <div class="answer">Cobrar primas diferentes a personas de la misma clase, riesgo y esperanza de vida.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">16. ¿Qué es la Publicidad Falsa?</div>
+            <div class="answer">Publicar anuncios engañosos sobre los beneficios, costos o condiciones de una póliza.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">17. ¿Cuál es la diferencia entre Misrepresentation y Twisting?</div>
+            <div class="answer">Misrepresentation es mentir sobre tu propia póliza. Twisting es mentir sobre la ajena.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">18. ¿Para qué sirve el Recibo Condicional?</div>
+            <div class="answer">Provee cobertura desde la fecha de solicitud si el cliente es asegurable según las normas.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">19. ¿Cuándo se requiere la Declaración de Buena Salud?</div>
+            <div class="answer">Cuando la prima inicial NO se pagó al momento de la solicitud.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">20. ¿Qué es la Selección Adversa?</div>
+            <div class="answer">La tendencia de personas con más riesgos de salud a buscar seguro antes que los sanos.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">21. ¿Cuál es la función del Agente como Suscriptor de Campo?</div>
+            <div class="answer">Evaluar el riesgo inicialmente y asegurar que la información en la solicitud sea veraz.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">22. ¿Qué son las Representaciones en una solicitud?</div>
+            <div class="answer">Declaraciones que el cliente cree que son verdad a su mejor saber y entender.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">23. ¿Qué exige la Regla de Reemplazo en Florida?</div>
+            <div class="answer">Entregar un "Aviso de Reemplazo" firmado si la nueva póliza sustituye a una existente.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">24. ¿Cuántos días dura el Período de Examen Libre (Free Look) en salud?</div>
+            <div class="answer">Normalmente 10 días desde que el cliente recibe la póliza física.</div>
+        </div>
+        <div class="q-box">
+            <div class="question">25. ¿Quién debe firmar obligatoriamente la solicitud de seguro?</div>
+            <div class="answer">El Agente, el Solicitante y el dueño de la póliza (si es distinto al solicitante).</div>
+        </div>
+        <div class="footer">© 2026 Maná Academy. Página 2/2</div>
     </div>
 </body>
 </html>
