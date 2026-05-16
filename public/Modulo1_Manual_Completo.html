@@ -4,83 +4,197 @@
     <meta charset="UTF-8">
     <title>Manual Maestro Módulo 1 - Maná Academy</title>
     <style>
-        :root { --gold: #C5A059; --black: #000000; --navy: #0A1B33; --white: #ffffff; }
-        body { font-family: 'Helvetica', Arial, sans-serif; line-height: 1.5; color: #333; margin: 0; }
-        .page { width: 210mm; padding: 25mm; margin: auto; background: white; box-sizing: border-box; position: relative; overflow: hidden; min-height: 297mm; }
-        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 80px; color: rgba(197, 160, 89, 0.05); pointer-events: none; z-index: 0; white-space: nowrap; font-weight: bold; }
-        .logo-header { text-align: center; margin-bottom: 10px; }
-        .logo-header img { width: 80px; }
-        .header { border-bottom: 3px solid var(--gold); padding-bottom: 5px; margin-bottom: 20px; text-align: center; background: var(--navy); color: var(--gold); padding: 15px; }
-        .header h1 { margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 2px; }
-        .section-header { background: var(--navy); color: var(--gold); padding: 8px 15px; font-weight: bold; margin-top: 25px; border-left: 5px solid var(--gold); }
-        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 15px; margin: 15px 0; border-radius: 5px; font-style: italic; }
-        .pro-tip:before { content: "💡 CONSEJO DE FRANKLIN: "; font-weight: bold; color: var(--gold); }
-        h2 { color: var(--navy); border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
-        @media print { .page { margin: 0; box-shadow: none; page-break-after: always; } body { background: none; } }
+        :root { 
+            --gold: #C5A059; 
+            --navy: #0A1B33; 
+            --black: #000000;
+        }
+        
+        /* Configuración para pantalla */
+        body { 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 20px;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        /* Contenedor Tamaño Carta (Letter) */
+        .printable-page {
+            width: 215.9mm; /* 8.5 inches */
+            height: 279.4mm; /* 11 inches */
+            padding: 25.4mm; /* 1 inch margin all around */
+            margin: 0 auto 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Marca de agua */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 80px;
+            color: rgba(197, 160, 89, 0.05);
+            pointer-events: none;
+            white-space: nowrap;
+            font-weight: bold;
+            z-index: 0;
+        }
+
+        /* Estilos de contenido */
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            background-color: var(--navy);
+            color: var(--gold);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        .logo-small {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 8px 12px;
+            font-weight: bold;
+            margin-top: 20px;
+            border-left: 4px solid var(--gold);
+            font-size: 16px;
+        }
+
+        h2 { color: var(--navy); font-size: 18px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        p, li { font-size: 13px; line-height: 1.6; color: #333; }
+        
+        .pro-tip {
+            background: #fffdf0;
+            border: 1px solid var(--gold);
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            font-size: 10px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Ajustes para Impresión */
+        @media print {
+            body { background: none; padding: 0; }
+            .printable-page { 
+                margin: 0; 
+                box-shadow: none; 
+                page-break-after: always;
+                width: 100%;
+                height: 100%;
+            }
+            .no-print { display: none; }
+        }
+
+        /* Botón Flotante para imprimir */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--gold);
+            color: black;
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-<div class="page">
-    <div class="watermark">MANÁ ACADEMY</div>
-    <div class="logo-header">
-        <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" alt="Maná Academy Logo">
+    <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR / DESCARGAR PDF</button>
+
+    <!-- PÁGINA 1 -->
+    <div class="printable-page">
+        <div class="watermark">MANÁ ACADEMY</div>
+        <div class="content">
+            <div class="header">
+                <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
+                <h1>Manual Maestro - Módulo 1</h1>
+                <div style="color: white; font-size: 12px;">PrePass FL AI • Florida Health Insurance (2-40)</div>
+            </div>
+
+            <h2>Introducción y Fundamentos</h2>
+            <p>Este manual contiene los pilares legales y técnicos requeridos para aprobar el examen estatal de seguros de Florida. La metodología de Maná Academy se enfoca en el contenido de alto impacto ("Time is Money").</p>
+
+            <div class="section-title">PILAR 1: LOS 4 ELEMENTOS DEL CONTRATO LEGAL</div>
+            <ul>
+                <li><strong>Acuerdo (Oferta y Aceptación):</strong> La oferta es la solicitud pagada; la aceptación es la emisión de la póliza.</li>
+                <li><strong>Consideración:</strong> Valor intercambiado. Cliente: prima + declaraciones. Aseguradora: promesa de pago.</li>
+                <li><strong>Partes Competentes:</strong> Edad legal, salud mental y sin influencias de sustancias.</li>
+                <li><strong>Propósito Legal:</strong> Debe existir interés asegurable y cumplir la ley.</li>
+            </ul>
+
+            <div class="section-title">PILAR 2: CARACTERÍSTICAS DEL CONTRATO</div>
+            <ul>
+                <li><strong>Adhesión:</strong> El asegurador dicta las reglas; el cliente las acepta tal cual.</li>
+                <li><strong>Aleatorio:</strong> El intercambio de valores no es igualitario.</li>
+                <li><strong>Unilateral:</strong> Solo una parte (asegurador) está obligada legalmente.</li>
+                <li><strong>Condicional:</strong> El pago depende de la ocurrencia de un evento cubierto.</li>
+            </ul>
+
+            <div class="pro-tip"><b>CONSEJO DE FRANKLIN:</b> Si el cliente miente en un "Dato Material" (información que afectaría la emisión del riesgo), la aseguradora puede anular el contrato.</div>
+        </div>
+        <div class="footer">© 2026 Maná Academy. Prohibida su reproducción. Página 1/2</div>
     </div>
-    <div class="header">
-        <h1>Módulo 1: Fundamentos y Procesos de Campo</h1>
-        <div style="color: white; font-size: 14px;">PrePass FL AI • Maná Insurance Advisors</div>
+
+    <!-- PÁGINA 2 -->
+    <div class="printable-page">
+        <div class="watermark">MANÁ ACADEMY</div>
+        <div class="content">
+            <div class="section-title">PILAR 3: EL AGENTE COMO SUSCRIPTOR DE CAMPO</div>
+            <p>Tu labor como agente es la primera línea de filtrado para la compañía:</p>
+            <ul>
+                <li><strong>Recibo Condicional:</strong> La cobertura inicia en la fecha de solicitud o examen médico (lo que ocurra al último), si el cliente es asegurable.</li>
+                <li><strong>Entrega de Póliza:</strong> Si no hubo pago inicial, debes recolectar la prima y obtener una "Declaración de Buena Salud".</li>
+            </ul>
+
+            <div class="section-title">PILAR 4: REGLAS DE FLORIDA</div>
+            <ul>
+                <li><strong>Regla de Reemplazo:</strong> Obligación de entregar el "Aviso de Reemplazo" y comparación de beneficios.</li>
+                <li><strong>Twisting:</strong> Inducir a cancelar una póliza ajena con mentiras para vender la propia.</li>
+                <li><strong>Churning:</strong> Usar valores de una póliza propia para comprar otra y ganar comisión.</li>
+            </ul>
+
+            <div class="pro-tip"><b>REGLA DE ORO:</b> Ante cualquier duda del cliente durante el estudio, recuérdale usar el Tutor IA en el Dashboard de Maná Academy.</div>
+        </div>
+        <div class="footer">© 2026 Maná Academy. Prohibida su reproducción. Página 2/2</div>
     </div>
-
-    <h2>Introducción al Negocio de Seguros</h2>
-    <p>Entrar en la industria de seguros en Florida requiere más que solo vender; requiere entender la <b>naturaleza legal</b> de lo que protegemos. Este módulo desglosa cómo se construye un contrato y cuál es tu responsabilidad ética como agente frente a la aseguradora y el cliente.</p>
-
-    <div class="section-header">PILAR 1: LA ANATOMÍA DEL CONTRATO LEGAL</div>
-    <p>Para que un contrato de seguro sea válido ante la ley de Florida, debe cumplir con cuatro requisitos innegociables. Si falta uno, el contrato no existe:</p>
-    <ul>
-        <li><b>Acuerdo (Oferta y Aceptación):</b> El cliente hace la oferta al entregar la solicitud y el dinero. La aseguradora acepta al emitir la póliza.</li>
-        <li><b>Consideración (El Intercambio):</b> No hay contrato sin "pago". Para el cliente, es la prima; para la aseguradora, es la promesa de pagar el reclamo.</li>
-        <li><b>Partes Competentes:</b> Ambas partes deben tener lucidez mental, ser mayores de edad y no estar bajo influencias de sustancias.</li>
-        <li><b>Propósito Legal:</b> El contrato no puede promover algo ilegal o ir contra el orden público.</li>
-    </ul>
-
-    <div class="pro-tip">Recuerda: la "Consideración" es la Prima + las declaraciones en la solicitud. Sin ambas, no hay contraprestación.</div>
-
-    <div class="section-header">PILAR 2: CARACTERÍSTICAS ÚNICAS DEL CONTRATO DE SEGURO</div>
-    <p>Los seguros no son como comprar un auto. Tienen reglas especiales que debes conocer:</p>
-    <ul>
-        <li><b>Contrato de Adhesión:</b> La aseguradora escribe las reglas. El cliente "se adhiere" a ellas. Por eso, ante una duda legal, el juez siempre le da la razón al cliente.</li>
-        <li><b>Aleatorio:</b> Es un juego de probabilidades. El cliente puede pagar $50 y recibir $100,000 en beneficios. Los valores intercambiados nunca son iguales.</li>
-        <li><b>Unilateral:</b> Solo la compañía de seguros está legalmente obligada a cumplir su promesa. El cliente puede dejar de pagar cuando quiera (aunque perderá la cobertura).</li>
-    </ul>
-</div>
-
-<div class="page">
-    <div class="watermark">MANÁ ACADEMY</div>
-    <div class="section-header">PILAR 3: EL AGENTE COMO SUSCRIPTOR DE CAMPO</div>
-    <p>Tú eres la primera línea de defensa de la aseguradora. El <b>"Field Underwriting"</b> es tu proceso de observar lo que los papeles no dicen.</p>
-    
-    <h3>El Proceso de Solicitud</h3>
-    <p>Cada dato en la solicitud es vital. Si hay un error, no uses corrector; tacha, corrige y pide al cliente que ponga sus iniciales. La firma del agente y del solicitante es obligatoria.</p>
-
-    <h3>Garantías vs. Representaciones</h3>
-    <p>En Florida, la ley trata las respuestas del cliente como <b>Representaciones</b> (lo que él cree que es verdad). Una <b>Garantía</b> es una verdad absoluta. Si el cliente miente en algo importante (Dato Material), la póliza puede ser anulada.</p>
-
-    <div class="pro-tip">Si entregas una póliza y el cliente no ha pagado, ¡ALERTA! Debes obtener una "Declaración de Buena Salud" firmada antes de soltar el documento.</div>
-
-    <div class="section-header">PILAR 4: REGLAS ESPECÍFICAS DE FLORIDA</div>
-    <p>Florida tiene leyes estrictas para proteger al consumidor de malas prácticas:</p>
-    <ul>
-        <li><b>Regla de Reemplazo (Replacement Rule):</b> Si un cliente va a cancelar una póliza vieja para comprar la tuya, debes entregarle un "Aviso de Reemplazo" firmado. El objetivo es evitar el <i>Twisting</i> (mentir sobre la póliza vieja para ganar comisión).</li>
-        <li><b>Uso de Divulgaciones:</b> Es obligatorio entregar un Resumen de la Póliza y una Guía del Comprador antes de aceptar el dinero inicial.</li>
-    </ul>
-
-    <div class="footer">
-        © 2026 Maná Academy - PrePass FL AI. Este material es propiedad exclusiva de Franklin Collazo.
-    </div>
-</div>
 
 </body>
 </html>
