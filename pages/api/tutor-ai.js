@@ -23,31 +23,23 @@ CONTENIDO DETALLADO MÓDULO 1:
 - Aleatorio (Aleatory): Intercambio desigual de valores. Las primas pagadas son pequeñas frente al beneficio por muerte o reclamo.
 - Unilateral: Solo una parte (asegurador) hace una promesa exigible legalmente.
 - Condicional: El cumplimiento depende de que ocurran condiciones específicas (como la pérdida cubierta).
-- Personal: El contrato es entre la aseguradora y el individuo; no se puede transferir a otro sin consentimiento de la empresa.
 
-3. PROCESOS DE CAMPO Y SUSCRIPCIÓN (FIELD UNDERWRITING):
-- El Agente es el "Suscriptor de Campo". Debe prevenir la Selección Adversa (riesgos pobres que buscan seguro más que los normales).
-- Solicitud (Application): Es el documento principal. Se divide en Parte 1 (Info General) y Parte 2 (Historial Médico).
-- Firmas Requeridas: Agente y Solicitante (y dueño si es distinto).
-- Cambios en Solicitud: Tachar, corregir, iniciales del cliente. Nunca borrar o usar corrector.
-- Recibo Condicional: Cobertura efectiva desde la fecha de solicitud o examen médico (lo último), SI el riesgo es aceptable según las normas de la empresa.
-- Entrega de Póliza: Si la prima no se pagó con la solicitud, el agente debe recolectar la prima y obtener una "Declaración de Buena Salud" firmada por el asegurado al momento de la entrega.
+3. PROCESOS DE CAMPO Y SUSCRIPCIÓN:
+- El Agente es el "Suscriptor de Campo". Debe prevenir la Selección Adversa.
+- Recibo Condicional: Cobertura efectiva desde la fecha de solicitud o examen médico (lo último), SI el riesgo es aceptable.
+- Declaración de Buena Salud: Obligatoria si la prima no se pagó con la solicitud.
 
-4. FUENTES DE INFORMACIÓN Y PRIVACIDAD:
-- MIB (Medical Information Bureau): Organización sin fines de lucro de aseguradoras. Almacena info médica codificada para detectar fraudes.
-- FCRA (Fair Credit Reporting Act): Protege la privacidad del consumidor. El asegurador debe avisar al cliente si se solicita un informe de crédito o investigación.
-- Informes de Agente: El agente comunica sus observaciones sobre el estilo de vida del cliente a la aseguradora.
-- Exámenes Médicos: Pagados por la aseguradora. Pueden incluir APS (Declaración de Médico Tratante) o exámenes de paramédicos.
-
-5. OTROS CONCEPTOS:
-- Riesgo Puro (Asegurable): Solo pérdida. Riesgo Especulativo (No asegurable): Ganancia o pérdida.
-- Peligro (Peril): Causa de pérdida. Peligro Físico, Moral (honestidad), Morale (descuido).
-- Garantía (Warranty): Verdad absoluta. Representación (Representation): Verdad según el leal saber y entender.
-
-6. REGLAS ESPECÍFICAS DE FLORIDA:
-- Regla de Reemplazo: El agente debe entregar un "Aviso de Reemplazo" firmado por él y el cliente si se va a sustituir una póliza existente. Se debe entregar una comparación de beneficios.
-- Twisting: Práctica ilegal de inducir a un cliente a cancelar su póliza actual mediante declaraciones engañosas para venderle una nueva.
-- Churning: Práctica ilegal de usar los valores de una póliza existente para comprar otra con la misma empresa con el fin de generar comisiones adicionales.
+4. PRÁCTICAS DESLEALES EN FLORIDA (UNFAIR TRADE PRACTICES):
+- Misrepresentation (Tergiversación): Engañar sobre términos o beneficios.
+- Twisting: Mentir sobre la competencia para forzar reemplazo.
+- Churning: Reemplazo interno para ganar comisión.
+- Sliding: Agregar coberturas extras sin permiso.
+- Rebating: Dar regalos o parte de la comisión para vender.
+- Defamation (Difamación): Mentir sobre la solvencia de otra aseguradora.
+- Coercion/Boycott: Obligar a comprar para obtener otro servicio.
+- Unfair Discrimination: Diferentes primas para mismo riesgo/clase.
+- False Advertising: Anuncios engañosos.
+- Misrepresentation en solicitud: Mentir en la aplicación (pérdida de beneficios si es material).
 `;
 
 export default async function handler(req, res) {
@@ -81,12 +73,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ reply: aiMessage });
   } catch (error) {
     console.error('AI Tutor Error:', error);
-    // Return detailed error only in development or for debugging
-    return res.status(500).json({ 
-      error: 'Internal Server Error', 
-      details: error.message,
-      code: error.code,
-      status: error.status 
-    });
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 }

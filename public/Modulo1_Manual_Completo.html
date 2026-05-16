@@ -10,7 +10,6 @@
             --black: #000000;
         }
         
-        /* Configuración para pantalla */
         body { 
             background-color: #f4f4f4; 
             margin: 0; 
@@ -18,11 +17,10 @@
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
         }
 
-        /* Contenedor Tamaño Carta (Letter) */
         .printable-page {
-            width: 215.9mm; /* 8.5 inches */
-            height: 279.4mm; /* 11 inches */
-            padding: 25.4mm; /* 1 inch margin all around */
+            width: 215.9mm;
+            height: 279.4mm;
+            padding: 25.4mm;
             margin: 0 auto 20px auto;
             background: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -33,7 +31,6 @@
             flex-direction: column;
         }
 
-        /* Marca de agua */
         .watermark {
             position: absolute;
             top: 50%;
@@ -47,7 +44,6 @@
             z-index: 0;
         }
 
-        /* Estilos de contenido */
         .content {
             position: relative;
             z-index: 1;
@@ -62,37 +58,29 @@
             margin-bottom: 25px;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-            text-transform: uppercase;
-        }
-
-        .logo-small {
-            width: 60px;
-            margin-bottom: 10px;
-        }
+        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .logo-small { width: 60px; margin-bottom: 10px; }
 
         .section-title {
             background: var(--navy);
             color: var(--gold);
             padding: 8px 12px;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 15px;
             border-left: 4px solid var(--gold);
-            font-size: 16px;
+            font-size: 14px;
         }
 
-        h2 { color: var(--navy); font-size: 18px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        p, li { font-size: 13px; line-height: 1.6; color: #333; }
+        h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
+        p, li { font-size: 12px; line-height: 1.5; color: #333; margin-bottom: 5px; }
         
         .pro-tip {
             background: #fffdf0;
             border: 1px solid var(--gold);
-            padding: 12px;
-            margin: 15px 0;
+            padding: 10px;
+            margin: 10px 0;
             border-radius: 4px;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .footer {
@@ -101,23 +89,15 @@
             font-size: 10px;
             color: #999;
             border-top: 1px solid #eee;
-            padding-top: 15px;
+            padding-top: 10px;
         }
 
-        /* Ajustes para Impresión */
         @media print {
             body { background: none; padding: 0; }
-            .printable-page { 
-                margin: 0; 
-                box-shadow: none; 
-                page-break-after: always;
-                width: 100%;
-                height: 100%;
-            }
+            .printable-page { margin: 0; box-shadow: none; page-break-after: always; width: 100%; height: 100%; }
             .no-print { display: none; }
         }
 
-        /* Botón Flotante para imprimir */
         .print-btn {
             position: fixed;
             bottom: 30px;
@@ -139,61 +119,72 @@
 
     <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR / DESCARGAR PDF</button>
 
-    <!-- PÁGINA 1 -->
     <div class="printable-page">
         <div class="watermark">MANÁ ACADEMY</div>
         <div class="content">
             <div class="header">
                 <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
                 <h1>Manual Maestro - Módulo 1</h1>
-                <div style="color: white; font-size: 12px;">PrePass FL AI • Florida Health Insurance (2-40)</div>
+                <div style="color: white; font-size: 11px;">PrePass FL AI • Florida Health (2-40)</div>
             </div>
 
             <h2>Introducción y Fundamentos</h2>
-            <p>Este manual contiene los pilares legales y técnicos requeridos para aprobar el examen estatal de seguros de Florida. La metodología de Maná Academy se enfoca en el contenido de alto impacto ("Time is Money").</p>
+            <p>Este manual contiene los pilares legales y técnicos requeridos para aprobar el examen estatal de seguros de Florida.</p>
 
-            <div class="section-title">PILAR 1: LOS 4 ELEMENTOS DEL CONTRATO LEGAL</div>
+            <div class="section-title">PILAR 1: ELEMENTOS DEL CONTRATO LEGAL</div>
             <ul>
-                <li><strong>Acuerdo (Oferta y Aceptación):</strong> La oferta es la solicitud pagada; la aceptación es la emisión de la póliza.</li>
+                <li><strong>Acuerdo (Oferta y Aceptación):</strong> Oferta = Solicitud + Prima. Aceptación = Emisión de póliza.</li>
                 <li><strong>Consideración:</strong> Valor intercambiado. Cliente: prima + declaraciones. Aseguradora: promesa de pago.</li>
-                <li><strong>Partes Competentes:</strong> Edad legal, salud mental y sin influencias de sustancias.</li>
-                <li><strong>Propósito Legal:</strong> Debe existir interés asegurable y cumplir la ley.</li>
+                <li><strong>Partes Competentes:</strong> Edad legal, salud mental, no bajo efectos de drogas.</li>
+                <li><strong>Propósito Legal:</strong> Interés asegurable y cumplimiento de la ley.</li>
             </ul>
 
             <div class="section-title">PILAR 2: CARACTERÍSTICAS DEL CONTRATO</div>
             <ul>
-                <li><strong>Adhesión:</strong> El asegurador dicta las reglas; el cliente las acepta tal cual.</li>
-                <li><strong>Aleatorio:</strong> El intercambio de valores no es igualitario.</li>
-                <li><strong>Unilateral:</strong> Solo una parte (asegurador) está obligada legalmente.</li>
-                <li><strong>Condicional:</strong> El pago depende de la ocurrencia de un evento cubierto.</li>
+                <li><strong>Adhesión:</strong> El asegurador dicta; el cliente acepta tal cual. Ambigüedad a favor del asegurado.</li>
+                <li><strong>Aleatorio:</strong> Intercambio de valores desigual.</li>
+                <li><strong>Unilateral:</strong> Solo el asegurador está obligado legalmente a cumplir.</li>
+                <li><strong>Condicional:</strong> El pago depende de que ocurra el evento.</li>
             </ul>
 
-            <div class="pro-tip"><b>CONSEJO DE FRANKLIN:</b> Si el cliente miente en un "Dato Material" (información que afectaría la emisión del riesgo), la aseguradora puede anular el contrato.</div>
+            <div class="section-title">PILAR 3: EL AGENTE COMO SUSCRIPTOR DE CAMPO</div>
+            <ul>
+                <li><strong>Selección Adversa:</strong> Riesgos pobres que buscan seguro más que los normales. Tu labor es evitarlos.</li>
+                <li><strong>Recibo Condicional:</strong> Cobertura inicia en la fecha de solicitud o examen (lo último), si es asegurable.</li>
+                <li><strong>Representación vs Garantía:</strong> Declaraciones del cliente son representaciones (verdad a su saber). Garantía es verdad absoluta.</li>
+            </ul>
         </div>
-        <div class="footer">© 2026 Maná Academy. Prohibida su reproducción. Página 1/2</div>
+        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
     </div>
 
-    <!-- PÁGINA 2 -->
     <div class="printable-page">
         <div class="watermark">MANÁ ACADEMY</div>
         <div class="content">
-            <div class="section-title">PILAR 3: EL AGENTE COMO SUSCRIPTOR DE CAMPO</div>
-            <p>Tu labor como agente es la primera línea de filtrado para la compañía:</p>
+            <div class="section-title">PILAR 4: REGLAS DE FLORIDA Y PRÁCTICAS DESLEALES</div>
+            <p>Florida define las siguientes como prácticas engañosas o desleales (Unfair Trade Practices):</p>
             <ul>
-                <li><strong>Recibo Condicional:</strong> La cobertura inicia en la fecha de solicitud o examen médico (lo que ocurra al último), si el cliente es asegurable.</li>
-                <li><strong>Entrega de Póliza:</strong> Si no hubo pago inicial, debes recolectar la prima y obtener una "Declaración de Buena Salud".</li>
+                <li><strong>Regla de Reemplazo:</strong> Obligación de entregar "Aviso de Reemplazo" si se sustituye una póliza.</li>
+                <li><strong>Twisting (Tergiversación):</strong> Mentir sobre una póliza ajena para inducir al reemplazo.</li>
+                <li><strong>Churning:</strong> Reemplazo interno innecesario para generar comisiones.</li>
+                <li><strong>Sliding (Deslizamiento):</strong> Agregar coberturas extras sin consentimiento del cliente.</li>
+                <li><strong>Rebating (Rebajas):</strong> Dar parte de la comisión o regalos para inducir la compra (prohibido).</li>
+                <li><strong>Difamación:</strong> Críticas maliciosas sobre la solvencia de otra aseguradora.</li>
+                <li><strong>Coacción/Boicot:</strong> Forzar al cliente a comprar un seguro para obtener otro servicio.</li>
+                <li><strong>Discriminación Injusta:</strong> Cobrar primas distintas a personas del mismo riesgo/clase.</li>
+                <li><strong>Publicidad Falsa:</strong> Anuncios engañosos sobre beneficios o costos.</li>
+                <li><strong>Tergiversación (Misrepresentation):</strong> Engañar sobre los términos o beneficios de la propia póliza.</li>
             </ul>
 
-            <div class="section-title">PILAR 4: REGLAS DE FLORIDA</div>
-            <ul>
-                <li><strong>Regla de Reemplazo:</strong> Obligación de entregar el "Aviso de Reemplazo" y comparación de beneficios.</li>
-                <li><strong>Twisting:</strong> Inducir a cancelar una póliza ajena con mentiras para vender la propia.</li>
-                <li><strong>Churning:</strong> Usar valores de una póliza propia para comprar otra y ganar comisión.</li>
-            </ul>
-
-            <div class="pro-tip"><b>REGLA DE ORO:</b> Ante cualquier duda del cliente durante el estudio, recuérdale usar el Tutor IA en el Dashboard de Maná Academy.</div>
+            <div class="pro-tip"><b>ESTO VIENE EN EL EXAMEN:</b> La <b>Tergiversación</b> ocurre si mientes sobre lo que tu póliza ofrece. El <b>Twisting</b> ocurre si mientes sobre la póliza de "la competencia" para que se cambien contigo.</div>
+            
+            <div class="section-title">PROCESO FINAL DE ENTREGA</div>
+            <p>Si la prima no se pagó con la solicitud, al entregar la póliza debes:</p>
+            <ol>
+                <li>Cobrar la prima.</li>
+                <li>Obtener la <strong>Declaración de Buena Salud</strong> firmada.</li>
+            </ol>
         </div>
-        <div class="footer">© 2026 Maná Academy. Prohibida su reproducción. Página 2/2</div>
+        <div class="footer">© 2026 Maná Academy. Página 2/2</div>
     </div>
 
 </body>
