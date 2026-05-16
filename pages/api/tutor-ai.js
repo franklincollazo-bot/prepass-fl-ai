@@ -43,6 +43,11 @@ CONTENIDO DETALLADO MÓDULO 1:
 - Riesgo Puro (Asegurable): Solo pérdida. Riesgo Especulativo (No asegurable): Ganancia o pérdida.
 - Peligro (Peril): Causa de pérdida. Peligro Físico, Moral (honestidad), Morale (descuido).
 - Garantía (Warranty): Verdad absoluta. Representación (Representation): Verdad según el leal saber y entender.
+
+6. REGLAS ESPECÍFICAS DE FLORIDA:
+- Regla de Reemplazo: El agente debe entregar un "Aviso de Reemplazo" firmado por él y el cliente si se va a sustituir una póliza existente. Se debe entregar una comparación de beneficios.
+- Twisting: Práctica ilegal de inducir a un cliente a cancelar su póliza actual mediante declaraciones engañosas para venderle una nueva.
+- Churning: Práctica ilegal de usar los valores de una póliza existente para comprar otra con la misma empresa con el fin de generar comisiones adicionales.
 `;
 
 export default async function handler(req, res) {
