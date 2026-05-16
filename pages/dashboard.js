@@ -42,24 +42,62 @@ export default function Dashboard() {
   };
 
   return (
-    <div style={{ 
+    <div className="dashboard-container" style={{ 
       backgroundColor: COLORS.darkBg, 
       color: COLORS.white, 
       minHeight: '100vh', 
       fontFamily: 'system-ui, -apple-system, sans-serif' 
     }}>
+      <style jsx global>{`
+        .dashboard-main {
+          display: grid;
+          grid-template-columns: 1fr 350px;
+          gap: 30px;
+          padding: 40px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .nav-container {
+          padding: 10px 40px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #000000;
+          border-bottom: 2px solid ${COLORS.gold};
+        }
+        .info-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        .bonos-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+        }
+        @media (max-width: 900px) {
+          .dashboard-main {
+            grid-template-columns: 1fr;
+            padding: 20px;
+          }
+          .nav-container {
+            padding: 10px 20px;
+            flex-direction: column;
+            gap: 15px;
+          }
+          .info-grid, .bonos-grid {
+            grid-template-columns: 1fr;
+          }
+          .logo-text {
+            font-size: 16px !important;
+          }
+        }
+      `}</style>
       {/* Navbar */}
-      <nav style={{ 
-        padding: '10px 40px', 
-        borderBottom: `2px solid ${COLORS.gold}`, 
-        display: 'flex', 
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        backgroundColor: '#000000'
-      }}>
+      <nav className="nav-container">
         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <img src={LOGO_URL} alt="Logo" style={{ height: '50px' }} />
-          <div style={{ fontSize: '20px', fontWeight: 'bold', color: COLORS.gold, letterSpacing: '1px' }}>
+          <div className="logo-text" style={{ fontSize: '20px', fontWeight: 'bold', color: COLORS.gold, letterSpacing: '1px' }}>
             MANÁ ACADEMY <span style={{ color: COLORS.white, fontSize: '12px', fontWeight: 'normal' }}>| PrePass FL AI</span>
           </div>
         </div>
@@ -71,7 +109,7 @@ export default function Dashboard() {
       </nav>
 
       {/* Main Content */}
-      <main style={{ padding: '40px', maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px' }}>
+      <main className="dashboard-main">
         
         {/* Course Area */}
         <section>
@@ -115,7 +153,7 @@ export default function Dashboard() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div className="info-grid">
               {/* Concepto 1 */}
               <div style={{ padding: '20px', backgroundColor: COLORS.darkBg, borderRadius: '8px', border: `1px solid ${COLORS.border}` }}>
                 <h3 style={{ color: COLORS.gold, marginTop: 0 }}>📋 El Contrato en Simple</h3>
@@ -167,7 +205,7 @@ export default function Dashboard() {
                 Descarga las herramientas definitivas para dominar el Módulo 1 y asegurar tu aprobado.
               </p>
               
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+              <div className="bonos-grid">
                 <a href="/Modulo1_Manual_Completo.html" target="_blank" style={{ 
                   display: 'flex',
                   flexDirection: 'column',
