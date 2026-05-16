@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Manual Maestro Módulo 2 - Maná Academy</title>
+    <style>
+        :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
+        body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
+        .printable-page {
+            width: 215.9mm;
+            height: 279.4mm;
+            padding: 25.4mm;
+            margin: 0 auto 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .watermark {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg);
+            font-size: 80px; color: rgba(197, 160, 89, 0.05); pointer-events: none; white-space: nowrap; font-weight: bold; z-index: 0;
+        }
+        .content { position: relative; z-index: 1; }
+        .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
+        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .logo-small { width: 60px; margin-bottom: 10px; }
+        .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
+        h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
+        p, li { font-size: 12px; line-height: 1.5; color: #333; margin-bottom: 5px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
+        .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+        @media print { body { background: none; padding: 0; } .printable-page { margin: 0; box-shadow: none; page-break-after: always; width: 100%; height: 100%; } .no-print { display: none; } }
+        .print-btn { position: fixed; bottom: 30px; right: 30px; background-color: var(--gold); color: black; padding: 15px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; z-index: 100; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR / DESCARGAR PDF</button>
+
+    <div class="printable-page">
+        <div class="watermark">MANÁ ACADEMY</div>
+        <div class="content">
+            <div class="header">
+                <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
+                <h1>Manual Maestro - Módulo 2</h1>
+                <div style="color: white; font-size: 11px;">PrePass FL AI • Tipos de Pólizas de Salud</div>
+            </div>
+
+            <h2>Introducción a las Pólizas de Salud</h2>
+            <p>Este módulo cubre las estructuras de los planes de salud, desde los tradicionales hasta los modernos sistemas administrados (Managed Care).</p>
+
+            <div class="section-title">PILAR 1: PLANES DE GASTOS MÉDICOS MAYORES</div>
+            <p>Diseñados para cubrir pérdidas catastróficas. Conceptos clave:</p>
+            <ul>
+                <li><strong>Deducible:</strong> Cantidad que el asegurado paga antes de que la aseguradora empiece a pagar. Puede ser por año o por causa.</li>
+                <li><strong>Coseguro (Coinsurance):</strong> Reparto de gastos (ej. 80/20). La aseguradora paga el 80% y el cliente el 20%.</li>
+                <li><strong>Stop-Loss (Límite de Gasto de Bolsillo):</strong> El punto máximo que el asegurado paga. Una vez alcanzado, la aseguradora paga el 100%.</li>
+            </ul>
+
+            <div class="section-title">PILAR 2: HMO vs PPO vs POS</div>
+            <ul>
+                <li><strong>HMO (Health Maintenance Organization):</strong> Se enfoca en la prevención. Usa una red cerrada. Requiere un Médico de Cuidado Primario (PCP) que actúa como "Gatekeeper". Si sales de la red, NO hay cobertura (excepto emergencias).</li>
+                <li><strong>PPO (Preferred Provider Organization):</strong> Red de proveedores que ofrecen descuentos. Puedes ir fuera de la red pagando más. No requiere Gatekeeper.</li>
+                <li><strong>POS (Point of Service):</strong> Híbrido. Puedes elegir un PCP (HMO) o ir fuera de la red (PPO) en el momento del servicio.</li>
+            </ul>
+
+            <div class="section-title">PILAR 3: SEGURO DE INGRESO POR DISCAPACIDAD (DISABILITY)</div>
+            <p>Reemplaza el ingreso perdido. No paga facturas médicas.</p>
+            <ul>
+                <li><strong>Período de Eliminación:</strong> Período de espera desde que ocurre la discapacidad hasta que se pagan beneficios (actúa como deducible de tiempo).</li>
+                <li><strong>Período de Beneficio:</strong> Cuánto tiempo durarán los pagos (ej. 2 años, 5 años, hasta los 65).</li>
+                <li><strong>Discapacidad Presuntiva:</strong> Pérdida de vista, habla, oído o dos extremidades. Se presume discapacidad total inmediata.</li>
+            </ul>
+        </div>
+        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
+    </div>
+
+    <div class="printable-page">
+        <div class="watermark">MANÁ ACADEMY</div>
+        <div class="content">
+            <div class="section-title">PILAR 4: SEGURO GRUPAL vs INDIVIDUAL</div>
+            <ul>
+                <li><strong>Contrato Maestro:</strong> En planes grupales, el empleador es el dueño de la póliza y recibe el Contrato Maestro.</li>
+                <li><strong>Certificado de Seguro:</strong> Los empleados no reciben la póliza, reciben un Certificado que detalla su cobertura.</li>
+                <li><strong>Conversión:</strong> Derecho de convertir el plan grupal a uno individual sin examen médico si dejas el empleo (generalmente dentro de los 31 días).</li>
+            </ul>
+
+            <div class="section-title">PILAR 5: PÓLIZAS DE RIESGO LIMITADO Y AD&D</div>
+            <ul>
+                <li><strong>AD&D (Accidental Death & Dismemberment):</strong> Paga una Suma Principal por muerte accidental o pérdida de dos extremidades/vista. Paga una Suma de Capital por pérdida de una extremidad o un ojo.</li>
+                <li><strong>Pólizas de Enfermedad Temida:</strong> Cubren solo una condición específica (ej. Cáncer).</li>
+            </ul>
+
+            <div class="pro-tip"><b>DATO DE EXAMEN:</b> En una <b>HMO</b>, el proveedor recibe un pago fijo por mes por cada miembro, se use el servicio o no. Esto se llama <b>Capitación</b>. En una <b>PPO</b>, se paga por servicio (Fee-for-service) con descuento.</div>
+            
+            <div class="section-title">CONCEPTOS FINALES: COORDINACIÓN DE BENEFICIOS (COB)</div>
+            <p>Evita que un asegurado gane dinero de un reclamo si tiene dos pólizas (ej. la suya y la de su cónyuge). La póliza primaria paga primero; la secundaria paga lo que sobre hasta el límite total.</p>
+        </div>
+        <div class="footer">© 2026 Maná Academy. Página 2/2</div>
+    </div>
+</body>
+</html>

@@ -42,6 +42,33 @@ CONTENIDO DETALLADO MÓDULO 1:
 - False Advertising: Anuncios engañosos.
 - Regla de Reemplazo: Obliga a dar el "Aviso de Reemplazo" firmado.
 - Free Look (Examen Libre): 10 días en salud general (30 días en Medicare/Mayores 65).
+
+CONTENIDO DETALLADO MÓDULO 2 (TIPOS DE PÓLIZAS):
+
+1. GASTOS MÉDICOS MAYORES:
+- Deducible: Pago inicial del asegurado.
+- Coseguro (Coinsurance): Reparto de gastos (ej. 80/20).
+- Stop-Loss: Límite máximo de gasto de bolsillo para el cliente.
+
+2. SISTEMAS ADMINISTRADOS (MANAGED CARE):
+- HMO: Red cerrada, requiere Médico de Cuidado Primario (PCP) como Gatekeeper. Pago por Capitación. Prevención es prioridad.
+- PPO: Red abierta, descuentos con proveedores preferidos. Puedes salir de la red pagando más. No requiere Gatekeeper.
+- POS: Híbrido entre HMO y PPO.
+
+3. INGRESO POR DISCAPACIDAD (DISABILITY):
+- Reemplaza ingreso, no paga facturas médicas.
+- Período de Eliminación: Espera antes del pago (deducible de tiempo).
+- Período de Beneficio: Duración de los pagos.
+- Discapacidad Presuntiva: Pérdida total de vista, habla, oído o dos extremidades.
+
+4. SEGUROS GRUPALES:
+- Contrato Maestro (Dueño: Empleador).
+- Certificado de Seguro (Para el empleado).
+- Conversión: 31 días para cambiar a individual sin examen médico.
+
+5. OTROS:
+- AD&D: Suma Principal (Muerte/2 extremidades) vs Suma de Capital (1 extremidad).
+- Dental y Visión: Coberturas específicas y limitadas.
 `;
 
 export default async function handler(req, res) {

@@ -15,12 +15,40 @@ const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.
 export default function Dashboard() {
   const [activeTab, setActiveTab] = React.useState('module1');
   const [query, setQuery] = React.useState('');
-  const [chat, setChat] = React.useState([
-    { role: 'ai', text: '¡Hola! Soy tu tutor de IA de Maná Academy. Estoy listo para ayudarte con el Módulo 1. ¿Tienes alguna duda?' }
-  ]);
   const [loading, setLoading] = React.useState(false);
+  const [activeModule, setActiveModule] = React.useState(1);
+
+  const modules = {
+    1: {
+      title: "Módulo 1: Fundamentos y Procesos de Campo",
+      subtitle: "Florida Health Insurance (2-40)",
+      videoUrl: "https://www.youtube.com/embed/gqAzJHhPFlI",
+      manual: "/Modulo1_Manual_Completo.html",
+      guia: "/Modulo1_Guia_Estudio.html",
+      pilar1: "📋 El Contrato en Simple",
+      pilar1Text: "Olvídate de tecnicismos. Para el examen solo importa que el contrato tiene 4 partes: Acuerdo, Consideración, Capacidad y Legal.",
+      pilar2: "⚖️ Reglas del Juego",
+      pilar2Text: "Conceptos clave: Adhesión (la empresa manda), Aleatorio (intercambio desigual) y Unilateral (solo la empresa firma promesa legal).",
+      reglaOro: "Si el cliente no pagó al principio, antes de darle la póliza, tiene que firmar que sigue sano (Declaración de Buena Salud). ¡No hay más vueltas!"
+    },
+    2: {
+      title: "Módulo 2: Tipos de Pólizas de Salud",
+      subtitle: "HMO, PPO, Disability e Ingresos",
+      videoUrl: "https://www.youtube.com/embed/j78YXziYc6E", // Placeholder hasta que Franklin pase el nuevo
+      manual: "/Modulo2_Manual_Completo.html",
+      guia: "/Modulo2_Guia_Estudio.html",
+      pilar1: "🏥 HMO vs PPO",
+      pilar1Text: "HMO: Red cerrada y Gatekeeper (Médico Primario). PPO: Libertad de elegir médico fuera de la red pagando un poco más.",
+      pilar2: "♿ Disability Income",
+      pilar2Text: "Paga el sueldo del cliente, no las facturas médicas. El 'Período de Eliminación' es el tiempo que espera el cliente antes de cobrar.",
+      reglaOro: "Dato de Examen: La Capitación es el pago fijo mensual que recibe el médico de una HMO, independientemente de cuántas veces lo visite el paciente."
+    }
+  };
+
+  const currentModule = modules[activeModule];
 
   const askTutor = async () => {
+
     if (!query) return;
     setLoading(true);
     const newChat = [...chat, { role: 'user', text: query }];
@@ -113,12 +141,46 @@ export default function Dashboard() {
         
         {/* Course Area */}
         <section>
-          <div style={{ marginBottom: '20px' }}>
-            <h2 style={{ color: COLORS.gold }}>Módulo 1: Fundamentos y Procesos de Campo</h2>
-            <p style={{ color: COLORS.gray }}>Florida Health Insurance (2-40)</p>
+          {/* Selector de Módulos */}
+          <div style={{ display: 'flex', gap: '10px', marginBottom: '30px' }}>
+            <button 
+              onClick={() => setActiveModule(1)}
+              style={{ 
+                flex: 1, 
+                padding: '12px', 
+                backgroundColor: activeModule === 1 ? COLORS.gold : COLORS.black, 
+                color: activeModule === 1 ? COLORS.black : COLORS.white, 
+                border: `1px solid ${COLORS.gold}`, 
+                borderRadius: '8px', 
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Módulo 1
+            </button>
+            <button 
+              onClick={() => setActiveModule(2)}
+              style={{ 
+                flex: 1, 
+                padding: '12px', 
+                backgroundColor: activeModule === 2 ? COLORS.gold : COLORS.black, 
+                color: activeModule === 2 ? COLORS.black : COLORS.white, 
+                border: `1px solid ${COLORS.gold}`, 
+                borderRadius: '8px', 
+                cursor: 'pointer',
+                fontWeight: 'bold'
+              }}
+            >
+              Módulo 2
+            </button>
           </div>
 
-          {/* Video Player - Updated to YouTube */}
+          <div style={{ marginBottom: '20px' }}>
+            <h2 style={{ color: COLORS.gold }}>{currentModule.title}</h2>
+            <p style={{ color: COLORS.gray }}>{currentModule.subtitle}</p>
+          </div>
+
+          {/* Video Player */}
           <div style={{ 
             width: '100%', 
             position: 'relative', 
@@ -130,7 +192,7 @@ export default function Dashboard() {
             boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
           }}>
             <iframe 
-              src="https://www.youtube.com/embed/gqAzJHhPFlI"
+              src={currentModule.videoUrl}
               style={{
                 position: 'absolute',
                 top: 0,
@@ -156,36 +218,25 @@ export default function Dashboard() {
             <div className="info-grid">
               {/* Concepto 1 */}
               <div style={{ padding: '20px', backgroundColor: COLORS.darkBg, borderRadius: '8px', border: `1px solid ${COLORS.border}` }}>
-                <h3 style={{ color: COLORS.gold, marginTop: 0 }}>📋 El Contrato en Simple</h3>
+                <h3 style={{ color: COLORS.gold, marginTop: 0 }}>{currentModule.pilar1}</h3>
                 <p style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                  Olvídate de tecnicismos. Para el examen solo importa que el contrato tiene <strong>4 partes</strong>:
+                  {currentModule.pilar1Text}
                 </p>
-                <ul style={{ paddingLeft: '20px', fontSize: '14px' }}>
-                  <li><strong>Acuerdo:</strong> Alguien pide (cliente) y alguien da (empresa).</li>
-                  <li><strong>Consideración:</strong> El cliente paga la prima, la empresa promete pagar el reclamo.</li>
-                  <li><strong>Capacidad:</strong> Tienes que estar sano mentalmente y ser mayor de edad.</li>
-                  <li><strong>Legal:</strong> No puedes asegurar algo para hacer trampa.</li>
-                </ul>
               </div>
 
               {/* Concepto 2 */}
               <div style={{ padding: '20px', backgroundColor: COLORS.darkBg, borderRadius: '8px', border: `1px solid ${COLORS.border}` }}>
-                <h3 style={{ color: COLORS.gold, marginTop: 0 }}>⚖️ Reglas del Juego</h3>
+                <h3 style={{ color: COLORS.gold, marginTop: 0 }}>{currentModule.pilar2}</h3>
                 <p style={{ fontSize: '15px', lineHeight: '1.6' }}>
-                  Lo que el estado te va a preguntar sobre el tipo de contrato:
+                  {currentModule.pilar2Text}
                 </p>
-                <ul style={{ paddingLeft: '20px', fontSize: '14px' }}>
-                  <li><strong>Adhesión:</strong> La empresa pone las reglas. El cliente acepta o no.</li>
-                  <li><strong>Aleatorio:</strong> El intercambio de dinero no es igual (pagas poco, recibes mucho).</li>
-                  <li><strong>Unilateral:</strong> Solo la aseguradora está obligada por ley a cumplir su promesa.</li>
-                </ul>
               </div>
             </div>
 
             <div style={{ marginTop: '20px', padding: '20px', backgroundColor: COLORS.gold, color: COLORS.black, borderRadius: '8px', textAlign: 'center' }}>
               <h4 style={{ margin: '0 0 5px 0' }}>💡 REGLA DE ORO DE FRANKLIN</h4>
               <p style={{ margin: 0, fontWeight: '600' }}>
-                Si el cliente no pagó al principio, <strong>antes de darle la póliza</strong>, tiene que firmar que sigue sano (Declaración de Buena Salud). ¡No hay más vueltas!
+                {currentModule.reglaOro}
               </p>
             </div>
 
@@ -202,11 +253,11 @@ export default function Dashboard() {
               <img src={LOGO_URL} alt="Logo" style={{ width: '60px', marginBottom: '10px' }} />
               <h3 style={{ color: COLORS.gold, margin: '0 0 10px 0', fontSize: '22px', letterSpacing: '1px' }}>MATERIAL DE ALTO RENDIMIENTO</h3>
               <p style={{ fontSize: '15px', marginBottom: '25px', color: COLORS.white }}>
-                Descarga las herramientas definitivas para dominar el Módulo 1 y asegurar tu aprobado.
+                Descarga las herramientas definitivas para dominar el {activeModule === 1 ? 'Módulo 1' : 'Módulo 2'} y asegurar tu aprobado.
               </p>
               
               <div className="bonos-grid">
-                <a href="/Modulo1_Manual_Completo.html" target="_blank" style={{ 
+                <a href={currentModule.manual} target="_blank" style={{ 
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -223,7 +274,7 @@ export default function Dashboard() {
                   <span>MANUAL MAESTRO</span>
                   <span style={{ fontSize: '10px', color: COLORS.white, marginTop: '5px' }}>Conceptos y Leyes</span>
                 </a>
-                <a href="/Modulo1_Guia_Estudio.html" target="_blank" style={{ 
+                <a href={currentModule.guia} target="_blank" style={{ 
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
@@ -247,6 +298,7 @@ export default function Dashboard() {
             </div>
           </div>
         </section>
+
 
         {/* Sidebar / AI Tutor */}
         <aside style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
