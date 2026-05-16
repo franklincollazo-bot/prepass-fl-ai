@@ -17,6 +17,9 @@ export default function Dashboard() {
   const [query, setQuery] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [activeModule, setActiveModule] = React.useState(1);
+  const [chat, setChat] = React.useState([
+    { role: 'ai', text: '¡Hola! Soy tu tutor de Maná Academy. ¿En qué puedo ayudarte hoy?' }
+  ]);
 
   const modules = {
     1: {
