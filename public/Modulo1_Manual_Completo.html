@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <title>Manual Maestro Módulo 1 - Maná Academy</title>
     <style>
-        :root { --gold: #D4AF37; --black: #000000; --white: #ffffff; }
+        :root { --gold: #C5A059; --black: #000000; --navy: #0A1B33; --white: #ffffff; }
         body { font-family: 'Helvetica', Arial, sans-serif; line-height: 1.5; color: #333; margin: 0; }
-        .page { width: 210mm; padding: 25mm; margin: auto; background: white; box-sizing: border-box; }
-        .header { border-bottom: 3px solid var(--gold); padding-bottom: 10px; margin-bottom: 30px; text-align: center; background: var(--black); color: var(--gold); padding: 20px; }
+        .page { width: 210mm; padding: 25mm; margin: auto; background: white; box-sizing: border-box; position: relative; overflow: hidden; min-height: 297mm; }
+        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 80px; color: rgba(197, 160, 89, 0.05); pointer-events: none; z-index: 0; white-space: nowrap; font-weight: bold; }
+        .logo-header { text-align: center; margin-bottom: 10px; }
+        .logo-header img { width: 80px; }
+        .header { border-bottom: 3px solid var(--gold); padding-bottom: 5px; margin-bottom: 20px; text-align: center; background: var(--navy); color: var(--gold); padding: 15px; }
         .header h1 { margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 2px; }
-        .section-header { background: var(--black); color: var(--gold); padding: 8px 15px; font-weight: bold; margin-top: 25px; border-left: 5px solid var(--gold); }
+        .section-header { background: var(--navy); color: var(--gold); padding: 8px 15px; font-weight: bold; margin-top: 25px; border-left: 5px solid var(--gold); }
         .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 15px; margin: 15px 0; border-radius: 5px; font-style: italic; }
         .pro-tip:before { content: "💡 CONSEJO DE FRANKLIN: "; font-weight: bold; color: var(--gold); }
-        h2 { color: var(--black); border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+        h2 { color: var(--navy); border-bottom: 1px solid #ddd; padding-bottom: 5px; }
         ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
-        th { background: var(--gold); color: var(--black); padding: 10px; text-align: left; }
-        td { padding: 10px; border-bottom: 1px solid #eee; }
         .footer { margin-top: 50px; text-align: center; font-size: 12px; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
         @media print { .page { margin: 0; box-shadow: none; page-break-after: always; } body { background: none; } }
     </style>
@@ -58,6 +58,7 @@
 </div>
 
 <div class="page">
+    <div class="watermark">MANÁ ACADEMY</div>
     <div class="section-header">PILAR 3: EL AGENTE COMO SUSCRIPTOR DE CAMPO</div>
     <p>Tú eres la primera línea de defensa de la aseguradora. El <b>"Field Underwriting"</b> es tu proceso de observar lo que los papeles no dicen.</p>
     
@@ -69,35 +70,11 @@
 
     <div class="pro-tip">Si entregas una póliza y el cliente no ha pagado, ¡ALERTA! Debes obtener una "Declaración de Buena Salud" firmada antes de soltar el documento.</div>
 
-    <div class="section-header">LAS 25 PREGUNTAS CLAVE DEL EXAMEN ESTATAL</div>
-    <table>
-        <thead>
-            <tr><th>Pregunta</th><th>Respuesta Maestra</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>1. ¿Qué es el interés asegurable?</td><td>La posibilidad de pérdida financiera. Debe existir al momento de la solicitud.</td></tr>
-            <tr><td>2. ¿Función del MIB?</td><td>Evitar que los clientes mientan a varias aseguradoras sobre su salud.</td></tr>
-            <tr><td>3. ¿Qué es la Ley FCRA?</td><td>Protege al consumidor. Si pides un reporte de crédito, debes avisar al cliente.</td></tr>
-            <tr><td>4. ¿Contrato Condicional?</td><td>La aseguradora solo paga SI ocurre el evento (muerte o enfermedad).</td></tr>
-            <tr><td>5. ¿Selección Adversa?</td><td>Cuando la gente enferma busca seguro más que la gente sana. Tu trabajo es evitar esto.</td></tr>
-        </tbody>
-    </table>
-
     <div class="section-header">PILAR 4: REGLAS ESPECÍFICAS DE FLORIDA</div>
     <p>Florida tiene leyes estrictas para proteger al consumidor de malas prácticas:</p>
     <ul>
         <li><b>Regla de Reemplazo (Replacement Rule):</b> Si un cliente va a cancelar una póliza vieja para comprar la tuya, debes entregarle un "Aviso de Reemplazo" firmado. El objetivo es evitar el <i>Twisting</i> (mentir sobre la póliza vieja para ganar comisión).</li>
         <li><b>Uso de Divulgaciones:</b> Es obligatorio entregar un Resumen de la Póliza y una Guía del Comprador antes de aceptar el dinero inicial.</li>
-    </ul>
-
-    <div class="footer">
-        © 2026 Maná Academy - PrePass FL AI. Este material es propiedad exclusiva de Franklin Collazo.
-    </div>
-</div>
-
-</body>
-</html>
- el dinero inicial.</li>
     </ul>
 
     <div class="footer">
