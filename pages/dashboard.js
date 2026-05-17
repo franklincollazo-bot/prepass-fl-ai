@@ -32,8 +32,17 @@ export default function Dashboard() {
     setLoading(true);
     try {
       const res = await fetch(`/api/questions?chapterId=${activeModule}`);
-      const data = await res.json();
-      setExamQuestions(data);
+      let data = await res.json();
+      
+      // ALEATORIZACIÓN: Mezclar preguntas y sus opciones
+      const shuffledQuestions = data
+        .sort(() => Math.random() - 0.5) // Mezcla el orden de las preguntas
+        .map(q => ({
+          ...q,
+          options: [...q.options].sort(() => Math.random() - 0.5) // Mezcla las opciones dentro de cada pregunta
+        }));
+
+      setExamQuestions(shuffledQuestions);
       setShowExam(true);
       setExamResult(null);
       setCurrentQuestionIndex(0);
