@@ -60,6 +60,68 @@ const QUESTIONS_POOL = {
       options: ["Churning", "Twisting", "Sliding", "Rebating"],
       answer: "Twisting"
     }
+  ],
+  2: [
+    {
+      id: 11,
+      question: "¿Cuál es el objetivo principal de un 'Stop-Loss' en una póliza de Gastos Médicos Mayores?",
+      options: ["Pagar el deducible del asegurado", "Limitar el riesgo de la aseguradora", "Limitar la responsabilidad financiera máxima del asegurado", "Evitar que el asegurado cancele la póliza"],
+      answer: "Limitar la responsabilidad financiera máxima del asegurado"
+    },
+    {
+      id: 12,
+      question: "¿Qué sistema de salud utiliza un 'Gatekeeper' (Médico de cabecera) para controlar el acceso a especialistas?",
+      options: ["PPO", "HMO", "Medicare", "Indemnización tradicional"],
+      answer: "HMO"
+    },
+    {
+      id: 13,
+      question: "En una póliza de discapacidad, el tiempo que debe pasar entre el inicio de la incapacidad y el comienzo de los beneficios se llama:",
+      options: ["Período de prueba", "Período de gracia", "Período de eliminación", "Período de espera legal"],
+      answer: "Período de eliminación"
+    },
+    {
+      id: 14,
+      question: "¿Qué parte de Medicare cubre principalmente los gastos de hospitalización?",
+      options: ["Parte A", "Parte B", "Parte C", "Parte D"],
+      answer: "Parte A"
+    },
+    {
+      id: 15,
+      question: "La cláusula de 'Coseguro' (80/20) se activa después de que:",
+      options: ["Se paga la prima anual", "Se satisface el deducible", "Termina el período de gracia", "Se aprueba el reclamo"],
+      answer: "Se satisface el deducible"
+    },
+    {
+      id: 16,
+      question: "En una PPO, si el asegurado utiliza un médico fuera de la red (Out-of-Network):",
+      options: ["La aseguradora no paga nada", "Los beneficios se reducen y los costos aumentan para el asegurado", "La aseguradora paga el 100%", "El asegurado es penalizado con una multa estatal"],
+      answer: "Los beneficios se reducen y los costos aumentan para el asegurado"
+    },
+    {
+      id: 17,
+      question: "¿Cuál de las siguientes se considera una Actividad de la Vida Diaria (ADL) para calificar beneficios de Long-Term Care?",
+      options: ["Conducir un vehículo", "Cocinar para la familia", "Bañarse o vestirse solo", "Pagar las cuentas"],
+      answer: "Bañarse o vestirse solo"
+    },
+    {
+      id: 18,
+      question: "Una póliza de discapacidad 'Non-Cancellable' garantiza que:",
+      options: ["La aseguradora puede aumentar las primas cada año", "Las primas no pueden aumentar y la póliza no puede ser cancelada hasta los 65 años", "El asegurado puede cancelar cuando quiera sin aviso", "La aseguradora puede cambiar los beneficios si el asegurado cambia de empleo"],
+      answer: "Las primas no pueden aumentar y la póliza no puede ser cancelada hasta los 65 años"
+    },
+    {
+      id: 19,
+      question: "Medicaid es un programa de salud financiado por:",
+      options: ["Solo el gobierno federal", "Solo donaciones privadas", "El gobierno federal y estatal para personas de bajos ingresos", "Solo el estado de Florida"],
+      answer: "El gobierno federal y estatal para personas de bajos ingresos"
+    },
+    {
+      id: 20,
+      question: "La definición de incapacidad más restrictiva para el asegurado es:",
+      options: ["Propia ocupación (Own Occupation)", "Cualquier ocupación (Any Occupation)", "Incapacidad parcial", "Incapacidad residual"],
+      answer: "Cualquier ocupación (Any Occupation)"
+    }
   ]
 };
 

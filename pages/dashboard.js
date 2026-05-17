@@ -107,19 +107,29 @@ export default function Dashboard() {
     },
     2: {
       title: "Capítulo 2: Tipos de Pólizas de Salud",
-      subtitle: "HMO, PPO, Disability e Ingresos",
+      subtitle: "HMO, PPO, Disability y Programas de Gobierno",
       manual: "/Modulo2_Manual_Completo.html",
       guia: "/Modulo2_Guia_Estudio.html",
       subtopics: [
         {
-          title: "2.1 Gastos Médicos Mayores",
+          title: "2.1 Gastos Médicos Mayores (Major Medical)",
           videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
-          summary: "Deducibles, Coseguro (80/20) y Stop-Loss. Cómo proteger al cliente de gastos catastróficos."
+          summary: "Domina los conceptos de Deducible (lo que paga el cliente primero), Coseguro (el porcentaje compartido 80/20) y el Stop-Loss (límite máximo de gastos de bolsillo)."
         },
         {
-          title: "2.2 HMO, PPO y Cuidado Administrado",
+          title: "2.2 HMO vs PPO (Cuidado Administrado)",
           videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
-          summary: "Gatekeepers, Capitación y redes de proveedores. Diferencias críticas para asesorar correctamente."
+          summary: "Diferencia crítica: HMO requiere Gatekeeper y red cerrada. PPO ofrece libre elección de médicos fuera de red a un costo mayor. Entiende la Capitación."
+        },
+        {
+          title: "2.3 Seguro de Ingreso por Incapacidad",
+          videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
+          summary: "Protección del 'sueldo'. Aprende sobre el Período de Eliminación (deducible de tiempo) y la diferencia entre Propia Ocupación vs Cualquier Ocupación."
+        },
+        {
+          title: "2.4 Medicare, Medicaid y LTC",
+          videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
+          summary: "Medicare para mayores de 65 (Parte A Hospital, Parte B Médico). Medicaid para bajos ingresos. Cuidados a Largo Plazo (LTC) basados en ADLs (bañarse, vestirse)."
         }
       ]
     }
