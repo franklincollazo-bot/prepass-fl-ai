@@ -79,9 +79,9 @@ export default function Dashboard() {
       guia: "/Capitulo1_Guia_Estudio.html",
       subtopics: [
         {
-          title: "1.1 El Riesgo y su Gestión (STARR)",
-          videoUrl: "https://www.youtube.com/embed/gqAzJHhPFlI",
-          summary: "Aprende la diferencia entre Riesgo Puro y Especulativo, Peligros vs Riesgos, y los métodos STARR para manejar la incertidumbre financiera."
+          title: "1.1 El Riesgo y la Ciencia del STARR",
+          videoUrl: "https://www.youtube.com/embed/1gUQaOIrbdM",
+          summary: "Domina la base del seguro: Riesgo Puro vs. Especulativo. Aprende el acrónimo STARR (Sharing, Transfer, Avoidance, Reduction, Retention) para identificar cómo se gestiona la incertidumbre financiera en el examen estatal."
         },
         {
           title: "1.2 Aseguradoras y Ley de Agencia",
