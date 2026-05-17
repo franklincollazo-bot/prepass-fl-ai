@@ -504,13 +504,24 @@ export default function Dashboard() {
             </div>
           )}
 
-          {/* Sección de Valor: Tiempo es Dinero */}
+          {/* Sección de Valor Dinámica */}
           <div style={{ marginTop: '40px', padding: '40px', backgroundColor: COLORS.navy, borderRadius: '16px', boxShadow: '0 15px 40px rgba(10, 27, 51, 0.2)' }}>
             <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <h2 style={{ color: COLORS.gold, fontSize: '32px', margin: '0 0 15px 0' }}>Estudia Menos, Gana Más</h2>
-              <p style={{ color: COLORS.white, fontSize: '19px', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6' }}>
-                "¡Tu tiempo es oro y nosotros lo sabemos! Atrás quedaron las interminables horas de cansancio en un aula de clases tradicional. Hemos revolucionado el aprendizaje: transformamos días de estudio pesado en videos estratégicos, ágiles y directos al grano. Domina el examen sin rellenos, aprueba a la primera y empieza a generar ingresos de inmediato. ¡El éxito no espera!"
-              </p>
+              {activeModule === 1 ? (
+                <>
+                  <h2 style={{ color: COLORS.gold, fontSize: '32px', margin: '0 0 15px 0' }}>Estudia Menos, Gana Más</h2>
+                  <p style={{ color: COLORS.white, fontSize: '19px', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6' }}>
+                    "¡Tu tiempo es oro y nosotros lo sabemos! Atrás quedaron las interminables horas de cansancio en un aula de clases tradicional. Hemos revolucionado el aprendizaje: transformamos días de estudio pesado en videos estratégicos, ágiles y directos al grano. Domina el examen sin rellenos, aprueba a la primera y empieza a generar ingresos de inmediato. ¡El éxito no espera!"
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h2 style={{ color: COLORS.gold, fontSize: '32px', margin: '0 0 15px 0' }}>¡Ya eres parte del 1%!</h2>
+                  <p style={{ color: COLORS.white, fontSize: '19px', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6' }}>
+                    "Haber superado el Capítulo 1 no fue casualidad, fue tu determinación. Has demostrado que tienes la disciplina de un campeón y que tu hambre de éxito es real. Estás en el camino correcto hacia la libertad financiera y cada lección te acerca más a esa vida que visualizaste. No eres un estudiante más, eres un futuro líder de la industria. ¡Sigue con esa mentalidad ganadora, el Capítulo 2 es tu siguiente victoria!"
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Sección de Bonos de Valor */}
