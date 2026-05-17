@@ -583,7 +583,7 @@ export default function Dashboard() {
           </div>
         </aside>
       </main>
-      <div style={{ opacity: 0, fontSize: '1px' }}>v.2.0.1 - Fresh Theme: {new Date().toISOString()}</div>
+      <div style={{ opacity: 0, fontSize: '1px' }}>v.2.0.2 - Force Build: {new Date().toISOString()}</div>
     </div>
   );
 }
