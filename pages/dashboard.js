@@ -302,13 +302,16 @@ export default function Dashboard() {
                       backgroundColor: COLORS.gold,
                       color: COLORS.black,
                       border: 'none',
-                      borderRadius: '6px',
-                      fontSize: '14px',
+                      borderRadius: '8px',
+                      fontSize: '15px',
                       cursor: 'pointer',
-                      fontWeight: 'bold'
+                      fontWeight: 'bold',
+                      boxShadow: '0 4px 15px rgba(197, 160, 89, 0.4)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px'
                     }}
                   >
-                    📝 TOMAR EXAMEN (Finalizar Cap.)
+                    📝 TOMAR EXAMEN FINAL
                   </button>
                 </nav>
 
@@ -439,7 +442,7 @@ export default function Dashboard() {
             <div style={{ textAlign: 'center', marginBottom: '30px' }}>
               <h2 style={{ color: COLORS.gold, fontSize: '28px', margin: '0 0 10px 0' }}>Estudia Menos, Gana Más</h2>
               <p style={{ color: COLORS.white, fontSize: '18px', maxWidth: '800px', margin: '0 auto' }}>
-                "No te enviamos a leer un manual de 500 páginas. Hemos destilado las 3 horas de clase de Franklin en videos precisos por subtema. Tu tiempo es dinero; aprueba rápido y empieza a vender."
+                "No te enviamos a leer un manual de 500 páginas. Hemos destilado las clases regulares de Franklin en el aula presencial en videos precisos por subtema. Tu tiempo es dinero; aprueba rápido y empieza a vender."
               </p>
             </div>
 
