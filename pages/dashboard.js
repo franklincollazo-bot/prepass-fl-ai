@@ -18,9 +18,58 @@ export default function Dashboard() {
   const [loading, setLoading] = React.useState(false);
   const [activeModule, setActiveModule] = React.useState(1);
   const [activeSubtopic, setActiveSubtopic] = React.useState(0);
+  const [showExam, setShowExam] = React.useState(false);
+  const [examQuestions, setExamQuestions] = React.useState([]);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
+  const [answers, setAnswers] = React.useState({});
+  const [examResult, setExamResult] = React.useState(null);
+  const [unlockedChapters, setUnlockedChapters] = React.useState([1]);
   const [chat, setChat] = React.useState([
     { role: 'ai', text: '¡Hola! Soy tu tutor de Maná Academy. ¿En qué puedo ayudarte hoy?' }
   ]);
+
+  const startExam = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/questions?chapterId=${activeModule}`);
+      const data = await res.json();
+      setExamQuestions(data);
+      setShowExam(true);
+      setExamResult(null);
+      setCurrentQuestionIndex(0);
+      setAnswers({});
+    } catch (e) {
+      console.error(e);
+    }
+    setLoading(false);
+  };
+
+  const handleAnswer = (option) => {
+    setAnswers({ ...answers, [currentQuestionIndex]: option });
+  };
+
+  const nextQuestion = () => {
+    if (currentQuestionIndex < examQuestions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      finishExam();
+    }
+  };
+
+  const finishExam = () => {
+    let score = 0;
+    examQuestions.forEach((q, i) => {
+      if (answers[i] === q.answer) score++;
+    });
+    const percentage = (score / examQuestions.length) * 100;
+    setExamResult(percentage);
+    
+    if (percentage >= 80) {
+      if (!unlockedChapters.includes(activeModule + 1)) {
+        setUnlockedChapters([...unlockedChapters, activeModule + 1]);
+      }
+    }
+  };
 
   const chapters = {
     1: {
@@ -183,88 +232,207 @@ export default function Dashboard() {
         <section>
           {/* Selector de Capítulos */}
           <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-            {Object.keys(chapters).map((key) => (
-              <button 
-                key={key}
-                onClick={() => { setActiveModule(Number(key)); setActiveSubtopic(0); }}
-                style={{ 
-                  flex: 1, 
-                  padding: '12px', 
-                  backgroundColor: activeModule === Number(key) ? COLORS.gold : COLORS.black, 
-                  color: activeModule === Number(key) ? COLORS.black : COLORS.white, 
-                  border: `1px solid ${COLORS.gold}`, 
-                  borderRadius: '8px', 
-                  cursor: 'pointer',
-                  fontWeight: 'bold'
-                }}
-              >
-                Capítulo {key}
-              </button>
-            ))}
-          </div>
-
-          <div style={{ marginBottom: '25px', padding: '20px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.goldDark}` }}>
-            <h2 style={{ color: COLORS.gold, margin: '0 0 5px 0' }}>{currentChapter.title}</h2>
-            <p style={{ color: COLORS.gray, margin: 0 }}>{currentChapter.subtitle}</p>
-          </div>
-
-          <div className="course-layout" style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '20px' }}>
-            {/* Sidebar de Subtemas */}
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <h4 style={{ color: COLORS.gold, margin: '0 0 10px 0', fontSize: '14px' }}>SUBTEMAS DEL CAPÍTULO</h4>
-              {currentChapter.subtopics.map((sub, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveSubtopic(index)}
-                  style={{
-                    textAlign: 'left',
-                    padding: '10px',
-                    backgroundColor: activeSubtopic === index ? COLORS.gold : 'transparent',
-                    color: activeSubtopic === index ? COLORS.black : COLORS.white,
-                    border: `1px solid ${COLORS.gold}`,
-                    borderRadius: '6px',
-                    fontSize: '13px',
-                    cursor: 'pointer',
-                    fontWeight: activeSubtopic === index ? 'bold' : 'normal'
+            {Object.keys(chapters).map((key) => {
+              const isUnlocked = unlockedChapters.includes(Number(key));
+              return (
+                <button 
+                  key={key}
+                  disabled={!isUnlocked}
+                  onClick={() => { setActiveModule(Number(key)); setActiveSubtopic(0); setShowExam(false); }}
+                  style={{ 
+                    flex: 1, 
+                    padding: '12px', 
+                    backgroundColor: activeModule === Number(key) ? COLORS.gold : (isUnlocked ? COLORS.black : '#1e1e1e'), 
+                    color: activeModule === Number(key) ? COLORS.black : (isUnlocked ? COLORS.white : COLORS.gray), 
+                    border: `1px solid ${isUnlocked ? COLORS.gold : '#333'}`, 
+                    borderRadius: '8px', 
+                    cursor: isUnlocked ? 'pointer' : 'not-allowed',
+                    fontWeight: 'bold',
+                    opacity: isUnlocked ? 1 : 0.5,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '10px'
                   }}
                 >
-                  {sub.title}
+                  Capítulo {key} {!isUnlocked && '🔒'}
                 </button>
-              ))}
-            </nav>
-
-            {/* Video y Resumen */}
-            <div>
-              <div style={{ 
-                width: '100%', 
-                position: 'relative', 
-                paddingTop: '56.25%', 
-                backgroundColor: COLORS.black, 
-                borderRadius: '12px', 
-                overflow: 'hidden',
-                border: `1px solid ${COLORS.goldDark}`,
-                boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
-              }}>
-                <iframe 
-                  src={currentSubtopic.videoUrl}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none'
-                  }}
-                  allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#000', borderRadius: '8px', borderLeft: `4px solid ${COLORS.gold}` }}>
-                <h3 style={{ color: COLORS.gold, margin: '0 0 10px 0' }}>{currentSubtopic.title}</h3>
-                <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>{currentSubtopic.summary}</p>
-              </div>
-            </div>
+              );
+            })}
           </div>
+
+          {!showExam ? (
+            <>
+              <div style={{ marginBottom: '25px', padding: '20px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.goldDark}` }}>
+                <h2 style={{ color: COLORS.gold, margin: '0 0 5px 0' }}>{currentChapter.title}</h2>
+                <p style={{ color: COLORS.gray, margin: 0 }}>{currentChapter.subtitle}</p>
+              </div>
+
+              <div className="course-layout" style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '20px' }}>
+                {/* Sidebar de Subtemas */}
+                <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <h4 style={{ color: COLORS.gold, margin: '0 0 10px 0', fontSize: '14px' }}>SUBTEMAS DEL CAPÍTULO</h4>
+                  {currentChapter.subtopics.map((sub, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveSubtopic(index)}
+                      style={{
+                        textAlign: 'left',
+                        padding: '10px',
+                        backgroundColor: activeSubtopic === index ? COLORS.gold : 'transparent',
+                        color: activeSubtopic === index ? COLORS.black : COLORS.white,
+                        border: `1px solid ${COLORS.gold}`,
+                        borderRadius: '6px',
+                        fontSize: '13px',
+                        cursor: 'pointer',
+                        fontWeight: activeSubtopic === index ? 'bold' : 'normal'
+                      }}
+                    >
+                      {sub.title}
+                    </button>
+                  ))}
+                  
+                  {/* Botón de Examen al final de la lista */}
+                  <button
+                    onClick={startExam}
+                    style={{
+                      marginTop: '20px',
+                      textAlign: 'center',
+                      padding: '15px',
+                      backgroundColor: COLORS.gold,
+                      color: COLORS.black,
+                      border: 'none',
+                      borderRadius: '6px',
+                      fontSize: '14px',
+                      cursor: 'pointer',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    📝 TOMAR EXAMEN (Finalizar Cap.)
+                  </button>
+                </nav>
+
+                {/* Video y Resumen */}
+                <div>
+                  <div style={{ 
+                    width: '100%', 
+                    position: 'relative', 
+                    paddingTop: '56.25%', 
+                    backgroundColor: COLORS.black, 
+                    borderRadius: '12px', 
+                    overflow: 'hidden',
+                    border: `1px solid ${COLORS.goldDark}`,
+                    boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
+                  }}>
+                    <iframe 
+                      src={currentSubtopic.videoUrl}
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        border: 'none'
+                      }}
+                      allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#000', borderRadius: '8px', borderLeft: `4px solid ${COLORS.gold}` }}>
+                    <h3 style={{ color: COLORS.gold, margin: '0 0 10px 0' }}>{currentSubtopic.title}</h3>
+                    <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>{currentSubtopic.summary}</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            /* EXAM UI */
+            <div style={{ padding: '30px', backgroundColor: COLORS.black, borderRadius: '12px', border: `2px solid ${COLORS.gold}` }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
+                <h2 style={{ color: COLORS.gold, margin: 0 }}>Examen de Certificación - Capítulo {activeModule}</h2>
+                <button onClick={() => setShowExam(false)} style={{ background: 'none', border: 'none', color: COLORS.gray, cursor: 'pointer' }}>Cancelar</button>
+              </div>
+
+              {examResult === null ? (
+                <>
+                  <div style={{ marginBottom: '20px' }}>
+                    <p style={{ color: COLORS.gray, fontSize: '14px' }}>Pregunta {currentQuestionIndex + 1} de {examQuestions.length}</p>
+                    <div style={{ height: '4px', width: '100%', backgroundColor: COLORS.border, borderRadius: '2px' }}>
+                      <div style={{ height: '100%', width: `${((currentQuestionIndex + 1) / examQuestions.length) * 100}%`, backgroundColor: COLORS.gold }}></div>
+                    </div>
+                  </div>
+
+                  <h3 style={{ fontSize: '20px', marginBottom: '30px', lineHeight: '1.4' }}>{examQuestions[currentQuestionIndex].question}</h3>
+                  
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                    {examQuestions[currentQuestionIndex].options.map((option, i) => (
+                      <button
+                        key={i}
+                        onClick={() => handleAnswer(option)}
+                        style={{
+                          textAlign: 'left',
+                          padding: '20px',
+                          borderRadius: '8px',
+                          border: `1px solid ${answers[currentQuestionIndex] === option ? COLORS.gold : COLORS.border}`,
+                          backgroundColor: answers[currentQuestionIndex] === option ? COLORS.gold : COLORS.darkBg,
+                          color: answers[currentQuestionIndex] === option ? COLORS.black : COLORS.white,
+                          cursor: 'pointer',
+                          fontWeight: answers[currentQuestionIndex] === option ? 'bold' : 'normal',
+                          fontSize: '16px'
+                        }}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+
+                  <button
+                    disabled={!answers[currentQuestionIndex]}
+                    onClick={nextQuestion}
+                    style={{
+                      marginTop: '40px',
+                      width: '100%',
+                      padding: '18px',
+                      backgroundColor: answers[currentQuestionIndex] ? COLORS.gold : COLORS.border,
+                      color: COLORS.black,
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontWeight: 'bold',
+                      fontSize: '18px',
+                      cursor: answers[currentQuestionIndex] ? 'pointer' : 'not-allowed'
+                    }}
+                  >
+                    {currentQuestionIndex < examQuestions.length - 1 ? 'Siguiente Pregunta' : 'Finalizar Examen'}
+                  </button>
+                </>
+              ) : (
+                <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                  <div style={{ fontSize: '60px', marginBottom: '20px' }}>{examResult >= 80 ? '🎯' : '❌'}</div>
+                  <h2 style={{ fontSize: '32px', color: examResult >= 80 ? COLORS.gold : '#ff4444' }}>Tu Puntaje: {Math.round(examResult)}%</h2>
+                  <p style={{ fontSize: '18px', marginBottom: '40px' }}>
+                    {examResult >= 80 
+                      ? '¡Felicidades! Has aprobado el capítulo. El siguiente módulo ha sido desbloqueado.' 
+                      : 'No has alcanzado el 80% requerido. Repasa el material y vuelve a intentarlo.'}
+                  </p>
+                  
+                  <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
+                    <button 
+                      onClick={startExam}
+                      style={{ padding: '15px 30px', backgroundColor: COLORS.gold, color: COLORS.black, border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}
+                    >
+                      Reintentar Examen
+                    </button>
+                    <button 
+                      onClick={() => setShowExam(false)}
+                      style={{ padding: '15px 30px', backgroundColor: 'transparent', color: COLORS.white, border: `1px solid ${COLORS.gold}`, borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}
+                    >
+                      Volver al Capítulo
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Sección de Valor: Tiempo es Dinero */}
           <div style={{ marginTop: '30px', padding: '30px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.goldDark}` }}>
