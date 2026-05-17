@@ -89,9 +89,9 @@ export default function Dashboard() {
           summary: "Como agente, tus actos representan legalmente a la aseguradora. Domina los tres tipos de autoridad (Expresa, Implícita y Aparente) y entiende tu responsabilidad fiduciaria para evitar el 'commingling'."
         },
         {
-          title: "1.3 El Contrato Legal (ALCAL)",
-          videoUrl: "https://www.youtube.com/embed/gqAzJHhPFlI",
-          summary: "Los 4 elementos esenciales: Acuerdo (Oferta/Aceptación), Legalidad (Interés Asegurable), Consideración y Capacidad."
+          title: "1.3 El Contrato Legal: El Escudo ALCAL",
+          videoUrl: "https://app.heygen.com/embeds/01b891eff6c44b83b9ac98d514418cc5",
+          summary: "Para que un contrato de seguros sea válido, debe cumplir con los 4 pilares fundamentales del acrónimo ALCAL: Acuerdo, Legalidad, Consideración y Capacidad Legal. Domina estos requisitos para responder correctamente las preguntas de base legal."
         },
         {
           title: "1.4 Características Únicas del Contrato",
