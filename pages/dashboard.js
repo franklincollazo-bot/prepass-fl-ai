@@ -311,7 +311,7 @@ export default function Dashboard() {
                       letterSpacing: '1px'
                     }}
                   >
-                    📝 TOMAR EXAMEN FINAL
+                    📝 TOMAR EXAMEN DE ESTE CAPÍTULO
                   </button>
                 </nav>
 
@@ -409,14 +409,37 @@ export default function Dashboard() {
                   </button>
                 </>
               ) : (
-                <div style={{ textAlign: 'center', padding: '40px 0' }}>
+                <div style={{ textAlign: 'center', padding: '20px 0' }}>
                   <div style={{ fontSize: '60px', marginBottom: '20px' }}>{examResult >= 80 ? '🎯' : '❌'}</div>
-                  <h2 style={{ fontSize: '32px', color: examResult >= 80 ? COLORS.gold : '#ff4444' }}>Tu Puntaje: {Math.round(examResult)}%</h2>
-                  <p style={{ fontSize: '18px', marginBottom: '40px' }}>
+                  <h2 style={{ fontSize: '32px', color: examResult >= 80 ? COLORS.gold : '#ff4444', margin: '0 0 10px 0' }}>Tu Puntaje: {Math.round(examResult)}%</h2>
+                  <p style={{ fontSize: '18px', marginBottom: '30px', color: COLORS.white }}>
                     {examResult >= 80 
                       ? '¡Felicidades! Has aprobado el capítulo. El siguiente módulo ha sido desbloqueado.' 
                       : 'No has alcanzado el 80% requerido. Repasa el material y vuelve a intentarlo.'}
                   </p>
+                  
+                  {/* Revisión de Respuestas */}
+                  <div style={{ textAlign: 'left', backgroundColor: COLORS.darkBg, borderRadius: '12px', padding: '20px', marginBottom: '30px', maxHeight: '400px', overflowY: 'auto', border: `1px solid ${COLORS.border}` }}>
+                    <h3 style={{ color: COLORS.gold, marginTop: 0, borderBottom: `1px solid ${COLORS.border}`, paddingBottom: '10px' }}>Revisión de Respuestas</h3>
+                    {examQuestions.map((q, i) => {
+                      const isCorrect = answers[i] === q.answer;
+                      return (
+                        <div key={i} style={{ marginBottom: '20px', paddingBottom: '15px', borderBottom: `1px solid ${COLORS.border}` }}>
+                          <p style={{ fontWeight: 'bold', fontSize: '14px', marginBottom: '8px', color: COLORS.white }}>{i + 1}. {q.question}</p>
+                          <div style={{ fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                            <div style={{ color: isCorrect ? '#4ade80' : '#ff4444' }}>
+                              <strong>Tu respuesta:</strong> {answers[i] || 'No respondida'} {isCorrect ? '✓' : '✗'}
+                            </div>
+                            {!isCorrect && (
+                              <div style={{ color: COLORS.gold }}>
+                                <strong>Respuesta correcta:</strong> {q.answer}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                   
                   <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                     <button 
