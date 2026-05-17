@@ -59,6 +59,36 @@ const QUESTIONS_POOL = {
       question: "Inducir a un cliente a reemplazar su póliza actual mediante comparaciones engañosas de otra compañía se llama:",
       options: ["Churning", "Twisting", "Sliding", "Rebating"],
       answer: "Twisting"
+    },
+    {
+      id: 101,
+      question: "¿Cómo se llama la tendencia de las personas con mayor probabilidad de pérdida a buscar seguro con más frecuencia?",
+      options: ["Riesgo Moral", "Selección Adversa", "Riesgo Morale", "Distribución de Pérdidas"],
+      answer: "Selección Adversa"
+    },
+    {
+      id: 102,
+      question: "Un cliente que deja de cerrar la puerta de su casa con llave porque sabe que tiene seguro está demostrando un:",
+      options: ["Riesgo Físico", "Riesgo Moral", "Riesgo Morale (Actitud)", "Peligro Especulativo"],
+      answer: "Riesgo Morale (Actitud)"
+    },
+    {
+      id: 103,
+      question: "En un contrato de seguros, la 'Consideración' por parte de la aseguradora es:",
+      options: ["El pago de la prima", "Las declaraciones en la solicitud", "La promesa de pagar beneficios cubiertos", "La firma del agente"],
+      answer: "La promesa de pagar beneficios cubiertos"
+    },
+    {
+      id: 104,
+      question: "¿Cuál de los siguientes es un ejemplo de un Riesgo Físico (Physical Hazard)?",
+      options: ["Un cliente deshonesto", "Cables eléctricos expuestos", "Falta de cuidado por tener seguro", "Fumar en la cama"],
+      answer: "Cables eléctricos expuestos"
+    },
+    {
+      id: 105,
+      question: "¿Qué tipo de aseguradora es propiedad de sus clientes (dueños de pólizas) y puede pagar dividendos?",
+      options: ["Compañía de Acciones (Stock)", "Compañía Mutua", "Aseguradora Fraternal", "Recíproca"],
+      answer: "Compañía Mutua"
     }
   ],
   2: [
@@ -121,6 +151,36 @@ const QUESTIONS_POOL = {
       question: "La definición de incapacidad más restrictiva para el asegurado es:",
       options: ["Propia ocupación (Own Occupation)", "Cualquier ocupación (Any Occupation)", "Incapacidad parcial", "Incapacidad residual"],
       answer: "Cualquier ocupación (Any Occupation)"
+    },
+    {
+      id: 201,
+      question: "Una póliza de salud que solo cubre una enfermedad específica, como el cáncer, se conoce como:",
+      options: ["Póliza de Gastos Médicos Mayores", "Póliza de Riesgo Limitado (Dread Disease)", "Póliza de Indemnización Hospitalaria", "Seguro Complementario de Medicare"],
+      answer: "Póliza de Riesgo Limitado (Dread Disease)"
+    },
+    {
+      id: 202,
+      question: "¿Bajo COBRA, cuántos empleados debe tener una empresa para estar obligada a ofrecer la continuación de beneficios?",
+      options: ["5 o más", "10 o más", "20 o más", "50 o más"],
+      answer: "20 o más"
+    },
+    {
+      id: 203,
+      question: "La provisión que evita que una persona cobre beneficios de dos pólizas de salud por más del 100% del gasto se llama:",
+      options: ["Coseguro", "Coordinación de Beneficios", "Subrogación", "Doble Indemnización"],
+      answer: "Coordinación de Beneficios"
+    },
+    {
+      id: 204,
+      question: "¿Cuál es el período de inscripción abierta anual de Medicare?",
+      options: ["1 de enero al 31 de marzo", "15 de octubre al 7 de diciembre", "1 de julio al 15 de septiembre", "Todo el año"],
+      answer: "15 de octubre al 7 de diciembre"
+    },
+    {
+      id: 205,
+      question: "Una póliza de 'Blanket Insurance' (Seguro de Manta) se usa comúnmente para:",
+      options: ["Individuos de alto riesgo", "Grupos que cambian constantemente, como estudiantes en un viaje", "Solo empleados gubernamentales", "Personas mayores de 80 años"],
+      answer: "Grupos que cambian constantemente, como estudiantes en un viaje"
     }
   ]
 };
