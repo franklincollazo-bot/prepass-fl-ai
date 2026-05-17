@@ -80,7 +80,7 @@ export default function Dashboard() {
       subtopics: [
         {
           title: "1.1 El Riesgo y la Ciencia del STARR",
-          videoUrl: "https://www.youtube.com/embed/1gUQaOIrbdM",
+          videoUrl: "https://app.heygen.com/embeds/cf8b4c9ddeda4705ad5e3b0e26c7217c",
           summary: "Domina la base del seguro: Riesgo Puro vs. Especulativo. Aprende el acrónimo STARR (Sharing, Transfer, Avoidance, Reduction, Retention) para identificar cómo se gestiona la incertidumbre financiera en el examen estatal."
         },
         {
