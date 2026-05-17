@@ -3,13 +3,13 @@ import Head from 'next/head';
 
 const COLORS = {
   black: '#000000',
-  darkBg: '#F8FAFC', // Fondo más claro y fresco
+  darkBg: '#F4F1EA', // Tono Arena/Beige equilibrado
   navy: '#0A1B33',
   gold: '#C5A059',
   goldDark: '#9A7B2C',
   white: '#FFFFFF',
   gray: '#64748b',
-  border: '#E2E8F0' // Borde sutil
+  border: '#D1CEC7' // Borde acorde al tono arena
 };
 
 const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png";
