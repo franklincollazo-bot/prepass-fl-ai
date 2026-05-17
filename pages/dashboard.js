@@ -84,9 +84,9 @@ export default function Dashboard() {
           summary: "Domina la base del seguro: Riesgo Puro vs. Especulativo. Aprende el acrónimo STARR (Sharing, Transfer, Avoidance, Reduction, Retention) para identificar cómo se gestiona la incertidumbre financiera en el examen estatal."
         },
         {
-          title: "1.2 Aseguradoras y Ley de Agencia",
-          videoUrl: "https://www.youtube.com/embed/gqAzJHhPFlI",
-          summary: "Stock vs Mutual Companies. Entiende la autoridad Expresa, Implícita y Aparente del agente, y tu responsabilidad fiduciaria."
+          title: "1.2 Tú eres la Compañía: Ley de Agencia y Ética",
+          videoUrl: "https://app.heygen.com/embeds/816ae97e0ee845f8973190d466a39ba6",
+          summary: "Como agente, tus actos representan legalmente a la aseguradora. Domina los tres tipos de autoridad (Expresa, Implícita y Aparente) y entiende tu responsabilidad fiduciaria para evitar el 'commingling'."
         },
         {
           title: "1.3 El Contrato Legal (ALCAL)",
