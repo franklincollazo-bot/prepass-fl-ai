@@ -433,6 +433,29 @@ export default function Dashboard() {
                 <div style={{ textAlign: 'center', padding: '20px 0' }}>
                   <div style={{ fontSize: '70px', marginBottom: '20px' }}>{examResult >= 80 ? '🎯' : '❌'}</div>
                   <h2 style={{ fontSize: '36px', color: examResult >= 80 ? '#059669' : '#dc2626', margin: '0 0 10px 0' }}>Tu Puntaje: {Math.round(examResult)}%</h2>
+                  
+                  {examResult >= 80 && (
+                    <div style={{ 
+                      marginTop: '30px', 
+                      marginBottom: '30px', 
+                      padding: '20px', 
+                      backgroundColor: COLORS.navy, 
+                      borderRadius: '16px', 
+                      border: `2px solid ${COLORS.gold}`,
+                      boxShadow: '0 10px 30px rgba(197, 160, 89, 0.3)'
+                    }}>
+                      <h3 style={{ color: COLORS.gold, marginBottom: '15px' }}>🏆 MENSAJE PARA TI: TU MENTALIDAD GANADORA</h3>
+                      <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: '12px', overflow: 'hidden' }}>
+                        <iframe 
+                          src="https://app.heygen.com/embeds/TU_LINK_VIDEO_MOTIVADOR" 
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                          allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    </div>
+                  )}
+
                   <p style={{ fontSize: '18px', marginBottom: '30px', color: COLORS.navy, fontWeight: '500' }}>
                     {examResult >= 80 
                       ? '¡Felicidades! Has aprobado el capítulo. El siguiente módulo ha sido desbloqueado.' 
