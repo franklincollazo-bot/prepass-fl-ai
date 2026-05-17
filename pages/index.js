@@ -3,12 +3,13 @@ import Head from 'next/head';
 
 const COLORS = {
   black: '#000000',
-  darkBg: '#0A1B33',
+  darkBg: '#F8FAFC', // Fondo más claro y fresco
+  navy: '#0A1B33',
   gold: '#C5A059',
   goldDark: '#9A7B2C',
   white: '#FFFFFF',
-  gray: '#94a3b8',
-  border: '#1e293b'
+  gray: '#64748b',
+  border: '#E2E8F0' // Borde sutil
 };
 
 const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png";
@@ -17,7 +18,7 @@ export default function LandingPage() {
   return (
     <div style={{ 
       backgroundColor: COLORS.darkBg, 
-      color: COLORS.white, 
+      color: COLORS.navy, 
       minHeight: '100vh', 
       fontFamily: 'system-ui, -apple-system, sans-serif' 
     }}>
@@ -59,8 +60,8 @@ export default function LandingPage() {
       <section className="hero-section" style={{ 
         padding: '60px 20px', 
         textAlign: 'center', 
-        backgroundColor: '#000000',
-        borderBottom: `2px solid ${COLORS.gold}`
+        backgroundColor: COLORS.navy,
+        borderBottom: `3px solid ${COLORS.gold}`
       }}>
         <div style={{ maxWidth: '800px', margin: '0 auto' }}>
           <img src={LOGO_URL} alt="Maná Academy Logo" style={{ width: '150px', maxWidth: '100%', marginBottom: '20px' }} />
@@ -68,7 +69,7 @@ export default function LandingPage() {
             PASIÓN POR TU ÉXITO <br/>
             <span className="hero-subtitle">PrePass FL AI (2-40)</span>
           </h1>
-          <p style={{ fontSize: '18px', color: COLORS.gray, marginBottom: '40px' }}>
+          <p style={{ fontSize: '18px', color: COLORS.white, marginBottom: '40px', opacity: 0.8 }}>
             No estudies más, estudia mejor. Destilamos el contenido del examen estatal de Florida para que apruebes a la primera y empieces a producir dinero de inmediato.
           </p>
           
@@ -81,7 +82,8 @@ export default function LandingPage() {
             backgroundColor: COLORS.black, 
             borderRadius: '12px', 
             overflow: 'hidden',
-            border: `1px solid ${COLORS.goldDark}`
+            border: `2px solid ${COLORS.gold}`,
+            boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
           }}>
             <iframe 
               src="https://www.youtube.com/embed/ZYM-WLADuw4"
@@ -106,7 +108,8 @@ export default function LandingPage() {
             fontSize: '18px', 
             fontWeight: 'bold', 
             textDecoration: 'none',
-            display: 'inline-block'
+            display: 'inline-block',
+            boxShadow: '0 4px 15px rgba(197, 160, 89, 0.4)'
           }}>
             Registrarme e Inscribirme - $49
           </a>
@@ -114,24 +117,25 @@ export default function LandingPage() {
       </section>
 
       {/* Features */}
-      <section style={{ padding: '60px 20px', maxWidth: '1200px', margin: '0 auto' }}>
+      <section style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
         <div className="features-grid">
-          <div style={{ padding: '30px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
-            <h3 style={{ color: COLORS.gold }}>🚀 Eficiencia Total</h3>
-            <p style={{ color: COLORS.gray }}>Eliminamos el relleno. Solo lo que el Estado de Florida evalúa.</p>
+          <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+            <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🚀 Eficiencia Total</h3>
+            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Eliminamos el relleno. Solo lo que el Estado de Florida evalúa para que tu tiempo rinda al máximo.</p>
           </div>
-          <div style={{ padding: '30px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
-            <h3 style={{ color: COLORS.gold }}>🤖 Tutor IA 24/7</h3>
-            <p style={{ color: COLORS.gray }}>Nuestra IA está entrenada con el manual oficial para resolver tus dudas al instante.</p>
+          <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+            <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🤖 Tutor IA 24/7</h3>
+            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Nuestra IA está entrenada con el manual oficial para resolver tus dudas técnicas al instante, sin esperas.</p>
           </div>
-          <div style={{ padding: '30px', backgroundColor: COLORS.black, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
-            <h3 style={{ color: COLORS.gold }}>🎥 Mentoría con IA</h3>
-            <p style={{ color: COLORS.gray }}>Videos dinámicos que explican lo complejo de forma sencilla.</p>
+          <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+            <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🎥 Mentoría con IA</h3>
+            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Videos dinámicos con avatares de IA que explican los conceptos más complejos de forma sencilla y directa.</p>
           </div>
         </div>
       </section>
 
-      <footer style={{ padding: '40px', textAlign: 'center', color: COLORS.gray, fontSize: '14px' }}>
+      <footer style={{ padding: '60px 40px', textAlign: 'center', color: COLORS.gray, fontSize: '14px', backgroundColor: COLORS.white, borderTop: `1px solid ${COLORS.border}` }}>
+        <img src={LOGO_URL} alt="Logo" style={{ height: '30px', opacity: 0.5, marginBottom: '10px' }} /><br/>
         © 2026 Maná Academy | Una iniciativa de Maná Insurance Advisors
       </footer>
     </div>
