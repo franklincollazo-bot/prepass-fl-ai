@@ -465,7 +465,7 @@ export default function Dashboard() {
             <div style={{ textAlign: 'center', marginBottom: '30px' }}>
               <h2 style={{ color: COLORS.gold, fontSize: '28px', margin: '0 0 10px 0' }}>Estudia Menos, Gana Más</h2>
               <p style={{ color: COLORS.white, fontSize: '18px', maxWidth: '800px', margin: '0 auto' }}>
-                "No te enviamos a leer un manual de 500 páginas. Hemos destilado las clases regulares de Franklin en el aula presencial en videos precisos por subtema. Tu tiempo es dinero; aprueba rápido y empieza a vender."
+                "¡Tu tiempo es oro y nosotros lo sabemos! Atrás quedaron las interminables horas de cansancio en un aula de clases tradicional. Hemos revolucionado el aprendizaje: transformamos días de estudio pesado en videos estratégicos, ágiles y directos al grano. Domina el examen sin rellenos, aprueba a la primera y empieza a generar ingresos de inmediato. ¡El éxito no espera!"
               </p>
             </div>
 
