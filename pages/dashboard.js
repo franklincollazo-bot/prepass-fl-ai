@@ -2,13 +2,13 @@ import React from 'react';
 
 const COLORS = {
   black: '#000000',
-  darkBg: '#F4F1EA', // Tono Arena/Beige equilibrado
+  darkBg: '#F5E6CC', // Beige más cálido y definido
   navy: '#0A1B33',
   gold: '#C5A059',
   goldDark: '#9A7B2C',
   white: '#FFFFFF',
   gray: '#64748b',
-  border: '#D1CEC7' // Borde acorde al tono arena
+  border: '#D9CBB0' // Borde cálido para el beige
 };
 
 const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png";
