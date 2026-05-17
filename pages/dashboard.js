@@ -348,7 +348,7 @@ export default function Dashboard() {
                         height: '100%',
                         border: 'none'
                       }}
-                      allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                       allowFullScreen
                     ></iframe>
                   </div>
