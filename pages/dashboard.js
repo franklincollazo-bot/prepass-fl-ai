@@ -94,9 +94,9 @@ export default function Dashboard() {
           summary: "Para que un contrato de seguros sea válido, debe cumplir con los 4 pilares fundamentales del acrónimo ALCAL: Acuerdo, Legalidad, Consideración y Capacidad Legal. Domina estos requisitos para responder correctamente las preguntas de base legal."
         },
         {
-          title: "1.4 Características Únicas del Contrato",
-          videoUrl: "https://www.youtube.com/embed/gqAzJHhPFlI",
-          summary: "Dominio de Adhesión, Aleatorio, Unilateral y Condicional. Conceptos que Pearson VUE pregunta en cada examen."
+          title: "1.4 Las Cláusulas que Pearson ama preguntar",
+          videoUrl: "https://app.heygen.com/embeds/3284d46ca0e64e86a5aa8c84cb9660b8",
+          summary: "El contrato de seguros es único. Domina conceptos críticos como Adhesión, Aleatorio, Unilateral y Condicional. Entiende por qué las ambigüedades siempre favorecen al cliente y cómo Pearson VUE evalúa estos términos."
         },
         {
           title: "1.5 Conceptos Avanzados y Protección",
