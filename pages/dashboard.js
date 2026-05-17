@@ -108,9 +108,9 @@ export default function Dashboard() {
           summary: "El contrato de seguros es único. Domina conceptos críticos como Adhesión, Aleatorio, Unilateral y Condicional. Entiende por qué las ambigüedades siempre favorecen al cliente y cómo Pearson VUE evalúa estos términos."
         },
         {
-          title: "1.5 Conceptos Avanzados y Protección",
-          videoUrl: "https://www.youtube.com/embed/gqAzJHhPFlI",
-          summary: "Representaciones vs Garantías. El rol del MIB y la ley FCRA en la suscripción de riesgos de salud."
+          title: "1.5 Suscripción, MIB y la Ley FCRA",
+          videoUrl: "https://app.heygen.com/embeds/3c5c55a1cb434dce8caff51c35e8d1fe",
+          summary: "Concluye el capítulo dominando el proceso de suscripción. Aprende a diferenciar Representaciones de Garantías, descubre cómo el MIB protege a la industria y cómo la Ley FCRA garantiza la privacidad del historial crediticio del cliente."
         }
       ]
     },
