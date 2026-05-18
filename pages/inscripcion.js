@@ -210,7 +210,7 @@ export default function Inscripcion() {
             <strong>Cláusula de Ética y Neutralidad Profesional:</strong> Maná Academy es una institución educativa independiente comprometida con la excelencia en la formación de profesionales de seguros en el estado de Florida. Respetamos íntegramente las afiliaciones actuales de nuestros estudiantes y nos comprometemos a no interferir en relaciones contractuales preexistentes con otras agencias debidamente reportadas en este formulario. Los datos proporcionados tienen fines educativos y de registro administrativo, garantizando la privacidad y el cumplimiento de las normativas de competencia leal de la industria.
           </p>
           <div style={{ fontSize: '14px', color: COLORS.navy, fontWeight: '500' }}>
-            © 2026 Maná Academy | Tu éxito es nuestra misión.
+            © 2026 Maná Academy | Una iniciativa de <a href="https://www.manainsuranceadvisors.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.navy, textDecoration: 'none', fontWeight: 'bold' }}>Maná Insurance Advisors</a>
           </div>
         </div>
       </footer>

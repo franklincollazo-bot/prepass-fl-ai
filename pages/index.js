@@ -133,21 +133,19 @@ export default function LandingPage() {
               </div>
             )}
 
-            <video 
-              ref={videoRef}
-              onTimeUpdate={handleTimeUpdate}
-              src="/videos/heygen_intro.mp4"
-              controls 
-              autoPlay
-              muted
+            {/* HeyGen Embed Masterclass */}
+            <iframe 
+              src="https://app.heygen.com/embeds/976a82841af9490a93ff0a9f9a6f1383"
               style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover'
+                border: 'none'
               }}
+              allow="fullscreen; encrypted-media; picture-in-picture"
+              allowFullScreen
             />
           </div>
 
@@ -190,7 +188,7 @@ export default function LandingPage() {
 
       <footer style={{ padding: '60px 40px', textAlign: 'center', color: COLORS.gray, fontSize: '14px', backgroundColor: COLORS.white, borderTop: `1px solid ${COLORS.border}` }}>
         <img src={LOGO_URL} alt="Logo" style={{ height: '30px', opacity: 0.5, marginBottom: '10px' }} /><br/>
-        © 2026 Maná Academy | Una iniciativa de Maná Insurance Advisors
+        © 2026 Maná Academy | Una iniciativa de <a href="https://www.manainsuranceadvisors.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.navy, textDecoration: 'none', fontWeight: 'bold' }}>Maná Insurance Advisors</a>
       </footer>
 
       <style jsx global>{`
