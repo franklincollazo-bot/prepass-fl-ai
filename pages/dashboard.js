@@ -63,12 +63,75 @@ export default function Dashboard() {
   const [query, setQuery] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [dynamicText, setDynamicText] = React.useState(null);
+  const [examState, setExamState] = React.useState({ questions: [], currentIndex: 0, answers: [], results: null });
+  const [performanceHistory, setPerformanceHistory] = React.useState([]);
   const videoRef = React.useRef(null);
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
+    const savedHistory = localStorage.getItem('performanceHistory');
+    if (savedHistory) setPerformanceHistory(JSON.parse(savedHistory));
   }, []);
+
+  const startExam = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch(`/api/questions?chapterId=${activeModule}`);
+      const data = await res.json();
+      setExamState({ questions: data, currentIndex: 0, answers: [], results: null });
+      setShowExam(true);
+    } catch (e) {
+      console.error(e);
+    }
+    setLoading(false);
+  };
+
+  const handleAnswer = (option) => {
+    const newAnswers = [...examState.answers, option];
+    if (examState.currentIndex < examState.questions.length - 1) {
+      setExamState({ ...examState, currentIndex: examState.currentIndex + 1, answers: newAnswers });
+    } else {
+      // Finish Exam
+      let score = 0;
+      examState.questions.forEach((q, i) => {
+        if (q.answer === newAnswers[i]) score++;
+      });
+      const finalScore = (score / examState.questions.length) * 100;
+      const resultEntry = { date: new Date().toISOString(), chapter: activeModule, score: finalScore };
+      const newHistory = [...performanceHistory, resultEntry];
+      setPerformanceHistory(newHistory);
+      localStorage.setItem('performanceHistory', JSON.stringify(newHistory));
+      setExamState({ ...examState, answers: newAnswers, results: { score: finalScore, correct: score, total: examState.questions.length } });
+      
+      if (finalScore >= 80 && !unlockedChapters.includes(activeModule + 1)) {
+        setUnlockedChapters([...unlockedChapters, activeModule + 1]);
+      }
+    }
+  };
+
+  const getReadinessInfo = () => {
+    if (performanceHistory.length === 0) return { percent: 0, advice: "Aún no has tomado exámenes. ¡Comienza uno para medir tu nivel!", status: "N/A" };
+    
+    const avgScore = performanceHistory.reduce((acc, curr) => acc + curr.score, 0) / performanceHistory.length;
+    let advice = "";
+    let status = "";
+    
+    if (avgScore >= 85) {
+      advice = "¡Dominio Total! Estás listo para el examen estatal. Tu consistencia es clave.";
+      status = "LISTO";
+    } else if (avgScore >= 70) {
+      advice = "Buen camino. Revisa las preguntas falladas en el Capítulo " + activeModule + " para llegar al 90%.";
+      status = "CERCA";
+    } else {
+      advice = "Necesitas reforzar fundamentos. Lee el Manual Maestro y enfócate en los 'Exam Traps'.";
+      status = "EN PROCESO";
+    }
+    
+    return { percent: Math.round(avgScore), advice, status };
+  };
+
+  const readiness = getReadinessInfo();
 
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
@@ -154,7 +217,7 @@ export default function Dashboard() {
                   </div>
                 ))}
                 <div 
-                  onClick={() => setShowExam(true)}
+                  onClick={startExam}
                   style={{
                     padding: '15px',
                     backgroundColor: showExam ? COLORS.goldDark : COLORS.gold,
@@ -168,7 +231,7 @@ export default function Dashboard() {
                     border: `1px solid ${COLORS.goldDark}`
                   }}
                 >
-                  📝 EXAMEN DE CAPÍTULO
+                  {loading ? 'CARGANDO...' : '📝 EXAMEN DE CAPÍTULO'}
                 </div>
               </div>
 
@@ -191,12 +254,55 @@ export default function Dashboard() {
                     />
                   </div>
                 ) : (
-                  <div style={{ padding: '40px', textAlign: 'center', backgroundColor: '#f8fafc', borderRadius: '12px' }}>
-                    <h2>Simulador de Examen: Capítulo {activeModule}</h2>
-                    <p>Entrena con el modelo de Pearson VUE y Doble Aleatoriedad.</p>
-                    <button style={{ padding: '15px 40px', backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '50px', fontWeight: 'bold', cursor: 'pointer', marginTop: '20px' }}>
-                      Comenzar Examen
-                    </button>
+                  <div style={{ padding: '30px', backgroundColor: '#f8fafc', borderRadius: '12px', border: `1px solid ${COLORS.border}`, minHeight: '400px' }}>
+                    {!examState.results ? (
+                      <>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+                          <span style={{ fontWeight: 'bold', color: COLORS.navy }}>Pregunta {examState.currentIndex + 1} de {examState.questions.length}</span>
+                          <span style={{ color: COLORS.goldDark, fontWeight: 'bold' }}>CAPÍTULO {activeModule}</span>
+                        </div>
+                        <h2 style={{ fontSize: '20px', marginBottom: '30px' }}>{examState.questions[examState.currentIndex]?.question}</h2>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                          {examState.questions[examState.currentIndex]?.options.map((opt, i) => (
+                            <button 
+                              key={i}
+                              onClick={() => handleAnswer(opt)}
+                              style={{ padding: '15px', textAlign: 'left', backgroundColor: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: '10px', cursor: 'pointer', transition: 'all 0.2s' }}
+                              onMouseOver={e => e.target.style.borderColor = COLORS.gold}
+                              onMouseOut={e => e.target.style.borderColor = COLORS.border}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <div style={{ textAlign: 'center', padding: '20px' }}>
+                        <div style={{ fontSize: '64px', marginBottom: '10px' }}>{examState.results.score >= 80 ? '🎯' : '📚'}</div>
+                        <h2 style={{ fontSize: '28px', color: COLORS.navy }}>¡Examen Finalizado!</h2>
+                        <div style={{ fontSize: '48px', fontWeight: 'bold', color: examState.results.score >= 80 ? '#10b981' : COLORS.goldDark, margin: '20px 0' }}>
+                          {examState.results.score}%
+                        </div>
+                        <p style={{ color: COLORS.gray, fontSize: '18px' }}>Has acertado {examState.results.correct} de {examState.results.total} preguntas.</p>
+                        
+                        {examState.results.score >= 80 ? (
+                          <div style={{ marginTop: '20px', padding: '15px', backgroundColor: '#ecfdf5', color: '#065f46', borderRadius: '10px', border: '1px solid #10b981' }}>
+                            <strong>¡Excelente!</strong> Has desbloqueado el siguiente capítulo.
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: '20px', padding: '15px', backgroundColor: '#fff7ed', color: '#9a3412', borderRadius: '10px', border: '1px solid #f97316' }}>
+                            <strong>Sigue intentándolo.</strong> Necesitas un 80% para desbloquear el siguiente nivel.
+                          </div>
+                        )}
+                        
+                        <button 
+                          onClick={() => setShowExam(false)}
+                          style={{ marginTop: '30px', padding: '12px 30px', backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '50px', fontWeight: 'bold', cursor: 'pointer' }}
+                        >
+                          Volver a la Lección
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -205,6 +311,23 @@ export default function Dashboard() {
         </section>
 
         <aside style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+          <div style={{ padding: '25px', backgroundColor: COLORS.navy, borderRadius: '12px', color: COLORS.white, border: `1px solid ${COLORS.gold}`, boxShadow: '0 10px 20px rgba(10, 27, 51, 0.2)' }}>
+            <h3 style={{ margin: '0 0 15px 0', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ fontSize: '20px' }}>⚖️</span> Readiness Estatal
+            </h3>
+            <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '5px' }}>
+              <span style={{ fontSize: '36px', fontWeight: 'bold', color: COLORS.gold }}>{readiness.percent}%</span>
+              <span style={{ fontSize: '12px', opacity: 0.8 }}>Puntaje Promedio</span>
+            </div>
+            <div style={{ height: '6px', width: '100%', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden', marginBottom: '15px' }}>
+              <div style={{ width: `${readiness.percent}%`, height: '100%', backgroundColor: COLORS.gold }}></div>
+            </div>
+            <div style={{ fontSize: '13px', lineHeight: '1.5', padding: '12px', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '8px', borderLeft: `3px solid ${COLORS.gold}` }}>
+              <strong>Consejo del Mentor:</strong><br/>
+              {readiness.advice}
+            </div>
+          </div>
+
           <div style={{ padding: '25px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
             <h3 style={{ color: COLORS.navy, marginTop: 0 }}>🤖 Tutor IA Maná</h3>
             <div style={{ height: '300px', backgroundColor: '#f8fafc', borderRadius: '10px', padding: '15px', overflowY: 'auto', border: `1px solid ${COLORS.border}`, display: 'flex', flexDirection: 'column', gap: '10px' }}>
