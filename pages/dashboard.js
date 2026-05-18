@@ -582,10 +582,28 @@ export default function Dashboard() {
                 No solo te damos la licencia, te damos la plataforma para triunfar. Únete a <strong>Maná Insurance Advisors</strong>.
               </p>
               <button 
-                onClick={() => window.open('https://mana-advisors.com/careers', '_blank')}
-                style={{ width: '100%', padding: '12px', backgroundColor: COLORS.gold, color: COLORS.black, border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', fontSize: '12px' }}
+                onClick={() => window.open('https://www.manainsuranceadvisors.com/agentes/', '_blank')}
+                onMouseOver={(e) => e.currentTarget.style.backgroundColor = COLORS.goldDark}
+                onMouseOut={(e) => e.currentTarget.style.backgroundColor = COLORS.gold}
+                style={{ 
+                  width: '100%', 
+                  padding: '14px', 
+                  backgroundColor: COLORS.gold, 
+                  color: COLORS.black, 
+                  border: 'none', 
+                  borderRadius: '8px', 
+                  fontWeight: 'bold', 
+                  cursor: 'pointer', 
+                  fontSize: '13px',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(197, 160, 89, 0.4)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px'
+                }}
               >
-                APLICAR A LA AGENCIA
+                💼 APLICAR A LA AGENCIA
               </button>
             </div>
           )}
