@@ -368,8 +368,22 @@ export default function Dashboard() {
                             <strong>¡Excelente!</strong> Has desbloqueado el siguiente capítulo.
                           </div>
                         ) : (
-                          <div style={{ marginTop: '20px', padding: '15px', backgroundColor: '#fff7ed', color: '#9a3412', borderRadius: '10px', border: '1px solid #f97316' }}>
-                            <strong>Sigue intentándolo.</strong> Necesitas un 80% para desbloquear el siguiente nivel.
+                          <div style={{ marginTop: '20px', textAlign: 'left', padding: '20px', backgroundColor: '#fff7ed', color: '#9a3412', borderRadius: '10px', border: '1px solid #f97316' }}>
+                            <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px', textAlign: 'center' }}>⚠️ EL EXAMEN ESTÁ DISEÑADO PARA QUE FALLES</div>
+                            <p style={{ fontSize: '14px', marginBottom: '15px', lineHeight: '1.4' }}>
+                              No te desanimes. Pearson VUE no solo evalúa tu conocimiento, evalúa tu <strong>atención</strong>. El estado quiere asegurarse de que solo los más detallistas obtengan la licencia.
+                            </p>
+                            <div style={{ backgroundColor: 'rgba(255,255,255,0.5)', padding: '15px', borderRadius: '8px' }}>
+                              <strong style={{ display: 'block', marginBottom: '10px', fontSize: '13px' }}>3 CONSEJOS PARA DOMINAR LAS TRAMPAS:</strong>
+                              <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '13px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                                <li><strong>Busca la "Palabra Venenosa":</strong> Si la pregunta dice <em>EXCEPTO, NO, FALSO</em> o <em>SIEMPRE</em>, detente. La respuesta correcta suele ser la que parece "diferente" al resto.</li>
+                                <li><strong>Identifica el "Distractor Brillante":</strong> Pearson pondrá una respuesta que es técnicamente cierta en el mundo real, pero que NO responde lo que la pregunta pidió.</li>
+                                <li><strong>La Regla de los 5 Segundos:</strong> Antes de hacer clic, lee la pregunta por segunda vez. ¿Estás respondiendo lo que preguntaron o lo que <em>creíste</em> que preguntaron?</li>
+                              </ul>
+                            </div>
+                            <p style={{ marginTop: '15px', fontSize: '13px', fontWeight: 'bold', textAlign: 'center' }}>
+                              ¡LEE BIEN ANTES DE RESPONDER! Tu licencia depende de tu vista.
+                            </p>
                           </div>
                         )}
                         
