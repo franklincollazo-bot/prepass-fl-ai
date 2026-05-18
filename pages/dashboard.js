@@ -37,19 +37,24 @@ const CHAPTERS_DATA = {
         summary: "Domina los conceptos de Autoridad Expresa, Implícita y Aparente del agente de seguros."
       },
       {
-        title: "1.3 Elementos Legales del Contrato (ALCAL)",
+        title: "1.3 Elementos Legales (ALCAL)",
         videoUrl: "https://app.heygen.com/embeds/01b891eff6c44b83b9ac98d514418cc5",
         summary: "Acuerdo, Consideración, Partes Competentes y Propósito Legal."
       },
       {
-        title: "1.4 Características: Adhesión y Aleatorio",
+        title: "1.4 Características del Contrato",
         videoUrl: "https://app.heygen.com/embeds/3284d46ca0e64e86a5aa8c84cb9660b8",
-        summary: "Por qué las ambigüedades favorecen al asegurado y el carácter desigual de los contratos."
+        summary: "Adhesión, Aleatorio, Unilateral y Condicional. Por qué las ambigüedades favorecen al cliente."
       },
       {
-        title: "1.5 Ética y Leyes: Prácticas Desleales",
+        title: "1.5 Suscripción: MIB y Ley FCRA",
         videoUrl: "https://app.heygen.com/embeds/3c5c55a1cb434dce8caff51c35e8d1fe",
-        summary: "Domina las prácticas prohibidas: Twisting, Churning, Sliding, Rebating y Coerción. Incluye MIB y Ley FCRA."
+        summary: "Cómo las aseguradoras investigan el riesgo médico y de crédito legalmente."
+      },
+      {
+        title: "1.6 Ética y Leyes: Prácticas Desleales",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_ETHICS",
+        summary: "Domina las prácticas prohibidas en Florida: Twisting, Churning, Sliding, Rebating y Coerción."
       }
     ]
   },
