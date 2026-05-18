@@ -32,24 +32,24 @@ const CHAPTERS_DATA = {
         summary: "Aprende a identificar los riesgos y cómo las aseguradoras los gestionan a través del acrónimo STARR."
       },
       {
-        title: "1.2 Elementos Legales del Contrato (ALCAL)",
+        title: "1.2 El Agente: Poderes y Autoridad",
         videoUrl: "https://app.heygen.com/embeds/816ae97e0ee845f8973190d466a39ba6",
+        summary: "Domina los conceptos de Autoridad Expresa, Implícita y Aparente del agente de seguros."
+      },
+      {
+        title: "1.3 Elementos Legales del Contrato (ALCAL)",
+        videoUrl: "https://app.heygen.com/embeds/01b891eff6c44b83b9ac98d514418cc5",
         summary: "Acuerdo, Consideración, Partes Competentes y Propósito Legal."
       },
       {
-        title: "1.3 Características: Adhesión y Aleatorio",
-        videoUrl: "https://app.heygen.com/embeds/01b891eff6c44b83b9ac98d514418cc5",
+        title: "1.4 Características: Adhesión y Aleatorio",
+        videoUrl: "https://app.heygen.com/embeds/3284d46ca0e64e86a5aa8c84cb9660b8",
         summary: "Por qué las ambigüedades favorecen al asegurado y el carácter desigual de los contratos."
       },
       {
-        title: "1.4 Suscripción: El MIB y la Ley FCRA",
-        videoUrl: "https://app.heygen.com/embeds/3284d46ca0e64e86a5aa8c84cb9660b8",
-        summary: "Cómo las aseguradoras investigan el riesgo médico y de crédito."
-      },
-      {
-        title: "1.5 Ética y Leyes: Twisting vs Churning",
+        title: "1.5 Suscripción y Ética: MIB, FCRA y Twisting",
         videoUrl: "https://app.heygen.com/embeds/3c5c55a1cb434dce8caff51c35e8d1fe",
-        summary: "Protege tu licencia evitando prácticas desleales y cumpliendo los periodos de Free Look."
+        summary: "Protege tu licencia evitando prácticas desleales como Twisting/Churning y conoce la Ley FCRA."
       }
     ]
   },
