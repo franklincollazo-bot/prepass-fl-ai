@@ -416,13 +416,28 @@ export default function Dashboard() {
                         </div>
                       </div>
                     )}
-                    <video 
-                      ref={videoRef}
-                      onTimeUpdate={handleTimeUpdate}
-                      src={currentChapter?.subtopics[activeSubtopic].videoUrl}
-                      controls 
-                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                    />
+                    {currentChapter?.subtopics[activeSubtopic].videoUrl.includes('PLACEHOLDER') ? (
+                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0f172a', color: COLORS.gold }}>
+                        <div style={{ fontSize: '48px', marginBottom: '20px' }}>🎬</div>
+                        <h3 style={{ margin: 0 }}>VIDEO EN PRODUCCIÓN</h3>
+                        <p style={{ opacity: 0.7, fontSize: '14px', marginTop: '10px' }}>El Avatar Frank está preparando esta lección magistral.</p>
+                      </div>
+                    ) : currentChapter?.subtopics[activeSubtopic].videoUrl.includes('heygen.com') ? (
+                      <iframe 
+                        src={currentChapter?.subtopics[activeSubtopic].videoUrl}
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                        allow="fullscreen; encrypted-media; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <video 
+                        ref={videoRef}
+                        onTimeUpdate={handleTimeUpdate}
+                        src={currentChapter?.subtopics[activeSubtopic].videoUrl}
+                        controls 
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                      />
+                    )}
                   </div>
                 ) : (
                   <div style={{ padding: '30px', backgroundColor: '#f8fafc', borderRadius: '12px', border: `1px solid ${COLORS.border}`, minHeight: '400px' }}>
