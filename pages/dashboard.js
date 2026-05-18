@@ -53,7 +53,7 @@ const CHAPTERS_DATA = {
       },
       {
         title: "1.6 Ética y Leyes: Prácticas Desleales",
-        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_ETHICS",
+        videoUrl: "https://app.heygen.com/embeds/4f78d27571724087b35f7714ce9c97ae",
         summary: "Domina las prácticas que el examinador pone a prueba: Twisting, Churning, Sliding, Rebating y Coerción."
       }
     ]
