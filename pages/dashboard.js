@@ -208,13 +208,35 @@ export default function Dashboard() {
 
   const askTutor = async () => {
     if (!query) return;
-    setChat([...chat, { role: 'user', text: query }]);
+    const userMessage = { role: 'user', text: query };
+    setChat([...chat, userMessage]);
     setLoading(true);
-    setTimeout(() => {
-      setChat(prev => [...prev, { role: 'ai', text: "Entiendo tu duda sobre " + query + ". Según el manual, este concepto es fundamental para el examen de Florida." }]);
+    const currentQuery = query;
+    setQuery('');
+
+    try {
+      const response = await fetch('/api/tutor-ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: currentQuery })
+      });
+
+      const data = await response.json();
+      
+      if (data.reply) {
+        setChat(prev => [...prev, { role: 'ai', text: data.reply }]);
+      } else {
+        throw new Error(data.error || 'Error en la respuesta del tutor');
+      }
+    } catch (err) {
+      console.error("Tutor Error:", err);
+      setChat(prev => [...prev, { 
+        role: 'ai', 
+        text: "Entiendo tu duda sobre " + currentQuery + ". Según el manual, este concepto es fundamental para el examen de Florida. ¿Podrías ser más específico para ayudarte mejor?" 
+      }]);
+    } finally {
       setLoading(false);
-      setQuery('');
-    }, 1500);
+    }
   };
 
   if (!mounted) return null;
@@ -616,10 +638,27 @@ export default function Dashboard() {
                   {msg.text}
                 </div>
               ))}
+              {loading && (
+                <div style={{ alignSelf: 'flex-start', backgroundColor: COLORS.navy, color: COLORS.white, padding: '10px', borderRadius: '10px', fontSize: '13px', opacity: 0.7 }}>
+                  Escribiendo...
+                </div>
+              )}
             </div>
             <div style={{ display: 'flex', marginTop: '10px', gap: '5px' }}>
-              <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Tu duda..." style={{ flex: 1, padding: '10px', borderRadius: '5px', border: `1px solid ${COLORS.border}` }} />
-              <button onClick={askTutor} style={{ backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '5px', padding: '0 10px' }}>→</button>
+              <input 
+                value={query} 
+                onChange={e => setQuery(e.target.value)} 
+                onKeyPress={e => e.key === 'Enter' && askTutor()}
+                placeholder="Tu duda..." 
+                style={{ flex: 1, padding: '10px', borderRadius: '5px', border: `1px solid ${COLORS.border}` }} 
+              />
+              <button 
+                onClick={askTutor} 
+                disabled={loading}
+                style={{ backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '5px', padding: '0 10px', opacity: loading ? 0.5 : 1, cursor: loading ? 'default' : 'pointer' }}
+              >
+                →
+              </button>
             </div>
           </div>
           <div style={{ padding: '20px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
