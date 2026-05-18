@@ -418,13 +418,26 @@ export default function Dashboard() {
                       </div>
                     )}
                     {currentChapter?.subtopics[activeSubtopic].videoUrl.includes('PLACEHOLDER') ? (
-                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#0f172a', color: COLORS.gold }}>
-                        <div style={{ fontSize: '48px', marginBottom: '20px' }}>🎬</div>
-                        <h3 style={{ margin: 0 }}>VIDEO EN PRODUCCIÓN</h3>
-                        <p style={{ opacity: 0.7, fontSize: '14px', marginTop: '10px' }}>El Avatar Frank está preparando esta lección magistral.</p>
+                      <div style={{ 
+                        position: 'absolute', 
+                        top: 0, 
+                        left: 0, 
+                        width: '100%', 
+                        height: '100%', 
+                        display: 'flex', 
+                        flexDirection: 'column', 
+                        alignItems: 'center', 
+                        justifyContent: 'center', 
+                        background: 'linear-gradient(135deg, #0A1B33 0%, #1a2a44 100%)', 
+                        borderRadius: '12px' 
+                      }}>
+                        <div style={{ color: COLORS.gold, fontSize: '2.5rem', marginBottom: '1.5rem' }}>✨</div>
+                        <h3 style={{ color: COLORS.white, margin: 0, fontSize: '1.4rem' }}>Clase en Producción Maestra</h3>
+                        <p style={{ color: COLORS.gold, opacity: 0.9, fontSize: '1rem', marginTop: '10px' }}>El Avatar Frank está preparando esta lección magistral.</p>
                       </div>
                     ) : currentChapter?.subtopics[activeSubtopic].videoUrl.includes('heygen.com') ? (
                       <iframe 
+                        key={currentChapter?.subtopics[activeSubtopic].videoUrl}
                         src={currentChapter?.subtopics[activeSubtopic].videoUrl}
                         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
                         allow="fullscreen; encrypted-media; picture-in-picture"
