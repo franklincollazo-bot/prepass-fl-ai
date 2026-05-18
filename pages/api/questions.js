@@ -2,230 +2,160 @@ const QUESTIONS_POOL = {
   1: [
     {
       id: 1,
-      question: "¿Qué organización sin fines de lucro ayuda a las aseguradoras a detectar fraude mediante el intercambio de información médica?",
-      options: ["OIR", "MIB", "FCRA", "NAIC"],
-      answer: "MIB"
+      question: "Todas las siguientes organizaciones ayudan a regular la industria de seguros en Florida, EXCEPTO:",
+      options: ["MIB (Medical Information Bureau)", "OIR (Office of Insurance Regulation)", "DFS (Department of Financial Services)", "La Legislatura de Florida"],
+      answer: "MIB (Medical Information Bureau)"
     },
     {
       id: 2,
-      question: "¿En qué momento debe existir el interés asegurable en una póliza de salud?",
-      options: ["Al momento del reclamo", "Al momento de la solicitud", "Al momento de la entrega", "Al momento del examen médico"],
-      answer: "Al momento de la solicitud"
+      question: "¿Cuál de los siguientes NO es un elemento necesario para que un contrato de seguro sea legalmente vinculante?",
+      options: ["Acuerdo (Oferta y Aceptación)", "Consideración", "Propósito Legal", "Autoridad Aparente"],
+      answer: "Autoridad Aparente"
     },
     {
       id: 3,
-      question: "Si una póliza de seguro es un contrato de Adhesión, ¿cómo se resuelven las ambigüedades en el texto?",
-      options: ["A favor de la aseguradora", "A favor del asegurado", "Se anula el contrato", "A favor del agente"],
-      answer: "A favor del asegurado"
+      question: "En un contrato de Adhesión, si existe una ambigüedad en el lenguaje de la póliza, ¿cuál de los siguientes enunciados es CORRECTO?",
+      options: ["El tribunal favorecerá a la aseguradora", "La póliza se anula inmediatamente", "El tribunal favorecerá al asegurado debido al carácter del contrato", "El agente es responsable de pagar los daños"],
+      answer: "El tribunal favorecerá al asegurado debido al carácter del contrato"
     },
     {
       id: 4,
-      question: "¿Qué tipo de autoridad no está escrita pero es necesaria para que el agente realice sus funciones?",
-      options: ["Autoridad Expresa", "Autoridad Implícita", "Autoridad Aparente", "Autoridad Fiduciaria"],
-      answer: "Autoridad Implícita"
+      question: "Todas las siguientes son formas de autoridad de un agente, EXCEPTO:",
+      options: ["Autoridad Expresa", "Autoridad Fiduciaria", "Autoridad Implícita", "Autoridad Aparente"],
+      answer: "Autoridad Fiduciaria"
     },
     {
       id: 5,
-      question: "Mezclar los fondos de las primas de los clientes con los fondos personales del agente se conoce como:",
-      options: ["Twisting", "Sliding", "Commingling", "Churning"],
-      answer: "Commingling"
+      question: "¿Cuál de las siguientes prácticas NO se considera una violación ética en Florida?",
+      options: ["Twisting", "Sliding", "Commingling", "Reemplazo de póliza con divulgación completa"],
+      answer: "Reemplazo de póliza con divulgación completa"
     },
     {
       id: 6,
-      question: "El método STARR de manejo de riesgos incluye 'Transfer'. ¿Cuál es el ejemplo principal de transferencia?",
-      options: ["No conducir un auto", "Instalar alarmas", "Comprar una póliza de seguro", "Ahorrar dinero para emergencias"],
-      answer: "Comprar una póliza de seguro"
+      question: "El método STARR de manejo de riesgos incluye todos los siguientes, EXCEPTO:",
+      options: ["Avoidance (Evitar)", "Reduction (Reducir)", "Speculation (Especulación)", "Retention (Retener)"],
+      answer: "Speculation (Especulación)"
     },
     {
       id: 7,
-      question: "¿Cuál es el período de examen libre (Free Look) para seguros de salud en Florida (regla general)?",
-      options: ["10 días", "20 días", "30 días", "14 días"],
-      answer: "10 días"
+      question: "Respecto al período de examen libre (Free Look) en Florida, ¿cuál de los siguientes enunciados es FALSO?",
+      options: ["Comienza cuando la póliza es entregada al asegurado", "Permite la devolución total de la prima", "Dura 10 días para pólizas de salud generales", "Dura 60 días para todas las pólizas de Medicare Supplement"],
+      answer: "Dura 60 días para todas las pólizas de Medicare Supplement"
     },
     {
       id: 8,
-      question: "Un peligro (Peril) se define como:",
-      options: ["Una condición que aumenta la pérdida", "La causa de la pérdida", "La incertidumbre de pérdida", "La deshonestidad del cliente"],
-      answer: "La causa de la pérdida"
+      question: "Todas las siguientes son definiciones de un Riesgo (Hazard), EXCEPTO:",
+      options: ["Una condición física que aumenta la pérdida", "La causa de la pérdida (Peril)", "Una actitud de descuido (Morale)", "Una intención deshonesta (Moral)"],
+      answer: "La causa de la pérdida (Peril)"
     },
     {
       id: 9,
-      question: "¿Qué ley federal garantiza que el solicitante sea notificado si se solicita un reporte de investigación del consumidor?",
-      options: ["HIPAA", "MIB Act", "Fair Credit Reporting Act (FCRA)", "Social Security Act"],
-      answer: "Fair Credit Reporting Act (FCRA)"
+      question: "Bajo la ley FCRA, un solicitante NO tiene derecho a realizar cuál de las siguientes acciones:",
+      options: ["Saber qué hay en su reporte", "Ser notificado si se solicita un reporte de investigación", "Recibir el pago de una indemnización por solo aparecer en el MIB", "Pedir que se corrija información errónea"],
+      answer: "Recibir el pago de una indemnización por solo aparecer en el MIB"
     },
     {
       id: 10,
-      question: "Inducir a un cliente a reemplazar su póliza actual mediante comparaciones engañosas de otra compañía se llama:",
-      options: ["Churning", "Twisting", "Sliding", "Rebating"],
-      answer: "Twisting"
-    },
-    {
-      id: 101,
-      question: "¿Cómo se llama la tendencia de las personas con mayor probabilidad de pérdida a buscar seguro con más frecuencia?",
-      options: ["Riesgo Moral", "Selección Adversa", "Riesgo Morale", "Distribución de Pérdidas"],
-      answer: "Selección Adversa"
-    },
-    {
-      id: 102,
-      question: "Un cliente que deja de cerrar la puerta de su casa con llave porque sabe que tiene seguro está demostrando un:",
-      options: ["Riesgo Físico", "Riesgo Moral", "Riesgo Morale (Actitud)", "Peligro Especulativo"],
-      answer: "Riesgo Morale (Actitud)"
-    },
-    {
-      id: 103,
-      question: "En un contrato de seguros, la 'Consideración' por parte de la aseguradora es:",
-      options: ["El pago de la prima", "Las declaraciones en la solicitud", "La promesa de pagar beneficios cubiertos", "La firma del agente"],
-      answer: "La promesa de pagar beneficios cubiertos"
-    },
-    {
-      id: 104,
-      question: "¿Cuál de los siguientes es un ejemplo de un Riesgo Físico (Physical Hazard)?",
-      options: ["Un cliente deshonesto", "Cables eléctricos expuestos", "Falta de cuidado por tener seguro", "Fumar en la cama"],
-      answer: "Cables eléctricos expuestos"
-    },
-    {
-      id: 105,
-      question: "¿Qué tipo de aseguradora es propiedad de sus clientes (dueños de pólizas) y puede pagar dividendos?",
-      options: ["Compañía de Acciones (Stock)", "Compañía Mutua", "Aseguradora Fraternal", "Recíproca"],
-      answer: "Compañía Mutua"
+      question: "¿Cuál de los siguientes NO es un ejemplo de Twisting?",
+      options: [
+        "Comparaciones engañosas para inducir el reemplazo",
+        "Tergiversación de beneficios para ganar una comisión",
+        "Informar al cliente sobre los beneficios reales de su póliza actual",
+        "Ocultar cláusulas de exclusión de la nueva póliza"
+      ],
+      answer: "Informar al cliente sobre los beneficios reales de su póliza actual"
     }
   ],
   2: [
     {
       id: 1,
-      question: "¿Qué tipo de plan de salud requiere que el asegurado elija un Médico de Atención Primaria (Gatekeeper)?",
-      options: ["PPO", "HMO", "POS", "Indemnización"],
-      answer: "HMO"
+      question: "Todas las siguientes son características de un plan HMO, EXCEPTO:",
+      options: ["Enfoque en el cuidado preventivo", "Elección libre de cualquier médico fuera de la red sin referido", "Uso de un Médico de Atención Primaria (Gatekeeper)", "Servicios proporcionados por una red específica"],
+      answer: "Elección libre de cualquier médico fuera de la red sin referido"
     },
     {
       id: 2,
-      question: "Un asegurado tiene una póliza de Gastos Médicos Mayores con un deducible de $500 y un coseguro de 80/20. Si el asegurado incurre en una factura médica de $2,500, ¿cuánto es el monto TOTAL que el asegurado debe pagar de su bolsillo?",
+      question: "Un asegurado con una póliza de Gastos Médicos Mayores (Deducible $500, Coseguro 80/20) incurre en una factura de $2,500. ¿Cuál de los siguientes cálculos para determinar el pago del asegurado es INCORRECTO?",
       options: [
-        "$500",
-        "$900",
-        "$400",
-        "$2,000"
+        "Pagar primero el deducible de $500",
+        "Pagar el 20% de los $2,000 restantes ($400)",
+        "Pagar un total de $900 de su bolsillo",
+        "Pagar el 20% de los $2,500 totales ($500)"
       ],
-      answer: "$900"
+      answer: "Pagar el 20% de los $2,500 totales ($500)"
     },
     {
       id: 3,
-      question: "¿Cuál de los siguientes es un objetivo principal del 'Gatekeeper' en un HMO?",
+      question: "¿Cuál de las siguientes NO es una función del 'Gatekeeper' en un HMO?",
       options: [
-        "Aumentar las ganancias de los accionistas",
-        "Controlar los costos y coordinar el acceso a especialistas",
-        "Garantizar que todos los reclamos sean pagados al 100%",
-        "Auditar las finanzas del asegurado"
+        "Controlar el acceso a especialistas",
+        "Coordinar el cuidado de salud del miembro",
+        "Aprobar el pago de dividendos a los accionistas",
+        "Reducir costos evitando visitas innecesarias a especialistas"
       ],
-      answer: "Controlar los costos y coordinar el acceso a especialistas"
-    },
-    {
-      id: 12,
-      question: "En una póliza de Seguro de Ingreso por Incapacidad, el 'Período de Eliminación' actúa como:",
-      options: [
-        "Un deducible de tiempo",
-        "Un período de gracia",
-        "Una cláusula de suicidio",
-        "Un beneficio adicional"
-      ],
-      answer: "Un deducible de tiempo"
-    },
-    {
-      id: 13,
-      question: "Una empresa compra una póliza de Seguro de Discapacidad de Persona Clave (Key Person) para su mejor vendedor. ¿Cuál es el tratamiento fiscal de esta póliza?",
-      options: [
-        "Las primas son deducibles y los beneficios son gravables",
-        "Las primas NO son deducibles y los beneficios son libres de impuestos",
-        "Tanto las primas como los beneficios son deducibles",
-        "Las primas son deducibles y los beneficios son libres de impuestos"
-      ],
-      answer: "Las primas NO son deducibles y los beneficios son libres de impuestos"
-    },
-    {
-      id: 14,
-      question: "¿Cuál de las siguientes NO es una característica típica de un plan PPO?",
-      options: [
-        "Libertad para elegir proveedores fuera de la red",
-        "Uso obligatorio de un Gatekeeper para todas las consultas",
-        "Copagos más bajos cuando se usa la red preferida",
-        "Deducibles anuales"
-      ],
-      answer: "Uso obligatorio de un Gatekeeper para todas las consultas"
-    },
-
-    {
-      id: 3,
-      question: "¿Cuál es el objetivo principal del 'Gatekeeper' en un HMO?",
-      options: [
-        "Aumentar las primas",
-        "Controlar los costos y referir a especialistas",
-        "Vender pólizas adicionales",
-        "Auditar a la aseguradora"
-      ],
-      answer: "Controlar los costos y referir a especialistas"
+      answer: "Aprobar el pago de dividendos a los accionistas"
     },
     {
       id: 4,
-      question: "Si un asegurado tiene un plan PPO y decide atenderse con un proveedor fuera de la red (Out-of-Network), ¿qué sucede?",
+      question: "Respecto al Período de Eliminación en un seguro de Incapacidad, ¿cuál de los siguientes enunciados es CORRECTO?",
       options: [
-        "El seguro no cubre nada",
-        "El seguro cubre el 100%",
-        "El seguro cubre una parte, pero el costo para el asegurado es mayor",
-        "El asegurado es expulsado del plan"
+        "Es un deducible de tiempo",
+        "Es el tiempo que el asegurado debe esperar antes de que los beneficios comiencen",
+        "Mientras más largo sea, menor será la prima",
+        "Todas las anteriores son correctas"
       ],
-      answer: "El seguro cubre una parte, pero el costo para el asegurado es mayor"
+      answer: "Todas las anteriores son correctas"
     },
     {
       id: 5,
-      question: "¿Qué porcentaje de coseguro es el más común en las pólizas de Gastos Médicos Mayores?",
-      options: ["50/50", "100/0", "80/20", "10/90"],
-      answer: "80/20"
+      question: "En una póliza de Persona Clave (Key Person Disability), todos los siguientes enunciados son falsos, EXCEPTO:",
+      options: [
+        "La empresa paga las primas y recibe los beneficios",
+        "Las primas son deducibles de impuestos para la empresa",
+        "Los beneficios son gravables para el empleado clave",
+        "El empleado clave es el dueño de la póliza"
+      ],
+      answer: "La empresa paga las primas y recibe los beneficios"
     },
     {
       id: 6,
-      question: "¿Cuál de los siguientes servicios suele estar cubierto al 100% por un HMO para prevenir enfermedades?",
-      options: ["Cirugía estética", "Cuidado preventivo y exámenes físicos", "Medicina alternativa", "Equipos de gimnasio"],
-      answer: "Cuidado preventivo y exámenes físicos"
+      question: "¿Cuál de los siguientes NO es un beneficio típico cubierto por Medicare Parte A?",
+      options: ["Hospitalización", "Cuidado en un hogar de ancianos especializado", "Cuidado de hospicio", "Servicios médicos y quirúrgicos (Outpatient)"],
+      answer: "Servicios médicos y quirúrgicos (Outpatient)"
     },
     {
       id: 7,
-      question: "Un plan de salud que combina características de HMO y PPO se conoce como:",
-      options: ["POS (Point of Service)", "Medicare", "Medicaid", "TRICARE"],
-      answer: "POS (Point of Service)"
+      question: "Todas las siguientes son letras correspondientes a las partes de Medicare, EXCEPTO:",
+      options: ["Parte A - Hospital", "Parte B - Médicos", "Parte E - Medicamentos Recetados", "Parte C - Medicare Advantage"],
+      answer: "Parte E - Medicamentos Recetados"
     },
     {
       id: 8,
-      question: "En el contexto de seguros de salud, ¿qué significa 'In-Network'?",
+      question: "Respecto a Medicaid, ¿cuál de los siguientes enunciados es FALSO?",
       options: [
-        "Proveedores que han firmado un contrato con la aseguradora",
-        "Médicos que solo atienden emergencias",
-        "Cualquier hospital del estado",
-        "Proveedores internacionales"
+        "Es un programa federal administrado por el estado",
+        "Está destinado a personas con recursos financieros limitados",
+        "Se financia exclusivamente con las primas de los asegurados",
+        "Proporciona asistencia médica a familias e individuos de bajos ingresos"
       ],
-      answer: "Proveedores que han firmado un contrato con la aseguradora"
+      answer: "Se financia exclusivamente con las primas de los asegurados"
     },
     {
       id: 9,
-      question: "¿Qué sucede cuando el asegurado alcanza su límite de 'Stop-Loss'?",
+      question: "Bajo la ley de Florida, todas las siguientes son prácticas desleales de reclamos, EXCEPTO:",
       options: [
-        "La aseguradora cancela la póliza inmediatamente",
-        "La aseguradora paga el 100% de los gastos cubiertos por el resto del año de la póliza",
-        "El asegurado debe pagar el doble de deducible el próximo año",
-        "Se suspenden los beneficios por 30 días"
+        "Negar un reclamo sin una investigación razonable",
+        "No responder oportunamente a las comunicaciones sobre un reclamo",
+        "Pagar un reclamo dentro de los 30 días posteriores a la prueba de pérdida",
+        "Ofrecer un acuerdo mucho menor al valor real del reclamo"
       ],
-      answer: "La aseguradora paga el 100% de los gastos cubiertos por el resto del año de la póliza"
+      answer: "Pagar un reclamo dentro de los 30 días posteriores a la prueba de pérdida"
     },
     {
-      id: 15,
-      question: "En Florida, ¿cuál es el propósito de la cláusula de 'Período de Prueba' (Probationary Period) en una póliza de salud grupal?",
-      options: [
-        "Permitir que el asegurado cancele la póliza sin penalización",
-        "Excluir la cobertura de enfermedades preexistentes durante un tiempo inicial",
-        "Darle tiempo a la aseguradora para investigar el fraude",
-        "Evitar reclamos inmediatos por enfermedades que el asegurado ya tenía antes de la póliza"
-      ],
-      answer: "Evitar reclamos inmediatos por enfermedades que el asegurado ya tenía antes de la póliza"
+      id: 10,
+      question: "¿Cuál de las siguientes NO es una causa de pérdida (Peril)?",
+      options: ["Fuego", "Accidente", "Cables eléctricos en mal estado", "Enfermedad"],
+      answer: "Cables eléctricos en mal estado"
     }
   ]
 };
