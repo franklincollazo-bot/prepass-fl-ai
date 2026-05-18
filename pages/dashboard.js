@@ -559,7 +559,10 @@ export default function Dashboard() {
                                 <li><strong>Identifica el "Distractor Brillante":</strong> Pearson pondrá una respuesta que es técnicamente cierta en el mundo real, pero que NO responde lo que la pregunta pidió.</li>
                                 <li><strong>La Regla de los 5 Segundos:</strong> Antes de hacer clic, lee la pregunta por segunda vez. ¿Estás respondiendo lo que preguntaron o lo que <em>creíste</em> que preguntaron?</li>
                               </ul>
-                            </div>
+      <footer style={{ padding: '20px', textAlign: 'center', borderTop: `1px solid ${COLORS.border}`, marginTop: '40px', color: COLORS.gray, fontSize: '12px' }}>
+        &copy; 2026 Maná Academy - PrePass FL AI v2.1.5 | Capítulo 1 Completo al 100%
+      </footer>
+    </div>
                             <p style={{ marginTop: '15px', fontSize: '13px', fontWeight: 'bold', textAlign: 'center' }}>
                               ¡LEE BIEN ANTES DE RESPONDER! Tu licencia depende de tu vista.
                             </p>
