@@ -96,6 +96,9 @@ export default function Dashboard() {
   const [examState, setExamState] = React.useState({ questions: [], currentIndex: 0, answers: [], results: null });
   const [performanceHistory, setPerformanceHistory] = React.useState([]);
   const [errorRadar, setErrorRadar] = React.useState({});
+  const [showSurvey, setShowSurvey] = React.useState(false);
+  const [surveyStep, setSurveyStep] = React.useState(0);
+  const [surveyResponses, setSurveyResponses] = React.useState({});
   const videoRef = React.useRef(null);
   const [mounted, setMounted] = React.useState(false);
 
@@ -149,8 +152,17 @@ export default function Dashboard() {
       
       if (finalScore >= 80 && !unlockedChapters.includes(activeModule + 1)) {
         setUnlockedChapters([...unlockedChapters, activeModule + 1]);
+        setShowSurvey(true);
       }
     }
+  };
+
+  const handleSurveySubmit = (e) => {
+    e.preventDefault();
+    console.log("Feedback Recibido:", surveyResponses);
+    setShowSurvey(false);
+    setSurveyStep(0);
+    // In a real app, send to API here
   };
 
   const getReadinessInfo = () => {
@@ -213,6 +225,71 @@ export default function Dashboard() {
       </nav>
 
       <main style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px', padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
+        
+        {showSurvey && (
+          <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(10,27,51,0.95)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+            <div style={{ backgroundColor: COLORS.white, padding: '40px', borderRadius: '15px', maxWidth: '600px', width: '100%', border: `2px solid ${COLORS.gold}` }}>
+              <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+                <div style={{ fontSize: '32px', marginBottom: '10px' }}>🚀</div>
+                <h2 style={{ color: COLORS.navy, margin: 0 }}>Feedback de Vanguardia</h2>
+                <p style={{ color: COLORS.gray, fontSize: '14px' }}>Ayúdanos a mantener Maná Academy como el curso #1 de Florida.</p>
+              </div>
+
+              {surveyStep === 0 && (
+                <div>
+                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>1. ¿Qué tan clara fue la explicación técnica de este capítulo?</h3>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '30px' }}>
+                    {[1, 2, 3, 4, 5].map(n => (
+                      <button key={n} onClick={() => { setSurveyResponses({ ...surveyResponses, clarity: n }); setSurveyStep(1); }} style={{ width: '50px', height: '50px', borderRadius: '25px', border: `2px solid ${COLORS.gold}`, backgroundColor: surveyResponses.clarity === n ? COLORS.gold : 'transparent', fontWeight: 'bold', cursor: 'pointer' }}>{n}</button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {surveyStep === 1 && (
+                <div>
+                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>2. ¿Sientes que el simulador imita las "trampas" de Pearson VUE?</h3>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
+                    {["Totalmente", "A veces", "Necesita más dificultad"].map(opt => (
+                      <button key={opt} onClick={() => { setSurveyResponses({ ...surveyResponses, simulation: opt }); setSurveyStep(2); }} style={{ padding: '15px', borderRadius: '10px', border: `1px solid ${COLORS.border}`, textAlign: 'left', cursor: 'pointer', backgroundColor: 'transparent' }}>{opt}</button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {surveyStep === 2 && (
+                <div>
+                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>3. ¿Qué concepto técnico te generó más confusión en este módulo?</h3>
+                  <textarea 
+                    style={{ width: '100%', height: '100px', padding: '15px', borderRadius: '10px', border: `1px solid ${COLORS.border}`, marginBottom: '20px', fontSize: '14px' }}
+                    placeholder="Escribe aquí el tema que debemos reforzar..."
+                    onBlur={(e) => setSurveyResponses({ ...surveyResponses, criticalPoint: e.target.value })}
+                  />
+                  <button 
+                    onClick={() => setSurveyStep(3)}
+                    style={{ width: '100%', padding: '15px', backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}
+                  >
+                    SIGUIENTE
+                  </button>
+                </div>
+              )}
+
+              {surveyStep === 3 && (
+                <div style={{ textAlign: 'center' }}>
+                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>¡Gracias por ayudarnos a mejorar!</h3>
+                  <p style={{ fontSize: '14px', marginBottom: '30px' }}>Tus comentarios han sido guardados para el equipo de Maná Academy.</p>
+                  <button 
+                    onClick={() => setShowSurvey(false)}
+                    style={{ width: '100%', padding: '15px', backgroundColor: COLORS.gold, color: COLORS.black, border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}
+                  >
+                    CERRAR Y CONTINUAR
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         <section>
           <div style={{ display: 'flex', gap: '10px', marginBottom: '25px' }}>
             {[1, 2, 3, 4, 5, 6].map(num => (
@@ -379,6 +456,12 @@ export default function Dashboard() {
                         {examState.results.score >= 80 ? (
                           <div style={{ marginTop: '20px', padding: '15px', backgroundColor: '#ecfdf5', color: '#065f46', borderRadius: '10px', border: '1px solid #10b981' }}>
                             <strong>¡Excelente!</strong> Has desbloqueado el siguiente capítulo.
+                            <button 
+                              onClick={() => setShowSurvey(true)}
+                              style={{ display: 'block', margin: '15px auto 0', padding: '10px 20px', backgroundColor: '#059669', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: 'bold' }}
+                            >
+                              COMPARTIR FEEDBACK (+5 PTS)
+                            </button>
                           </div>
                         ) : (
                           <div style={{ marginTop: '20px', textAlign: 'left', padding: '20px', backgroundColor: '#fff7ed', color: '#9a3412', borderRadius: '10px', border: '1px solid #f97316' }}>
