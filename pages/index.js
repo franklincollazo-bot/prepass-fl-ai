@@ -177,7 +177,7 @@ export default function LandingPage() {
           </div>
           <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
             <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🤖 Doble Aleatoriedad</h3>
-            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Nuestro motor mezcla preguntas y opciones. No memorizas posiciones, dominas conceptos bajo el modelo de Pearson VUE.</p>
+            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Nuestro motor mezcla preguntas y opciones. No memorizas posiciones, dominas conceptos bajo el modelo de el examinador.</p>
           </div>
           <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
             <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🎥 Dinamismo Masterclass</h3>

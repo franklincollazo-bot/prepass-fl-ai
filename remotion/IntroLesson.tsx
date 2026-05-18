@@ -42,7 +42,7 @@ export const IntroLesson: React.FC<{
               <Series.Sequence durationInFrames={600} offset={600}>
                 <KeyTerm 
                   term="Doble Aleatoriedad" 
-                  definition="Entrenamiento real para vencer a Pearson VUE." 
+                  definition="Entrenamiento real para vencer a el examinador." 
                 />
               </Series.Sequence>
             </Series>

@@ -54,7 +54,7 @@ const CHAPTERS_DATA = {
       {
         title: "1.6 Ética y Leyes: Prácticas Desleales",
         videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_ETHICS",
-        summary: "Domina las prácticas prohibidas en Florida: Twisting, Churning, Sliding, Rebating y Coerción."
+        summary: "Domina las prácticas que el examinador pone a prueba: Twisting, Churning, Sliding, Rebating y Coerción."
       }
     ]
   },
@@ -297,7 +297,7 @@ export default function Dashboard() {
 
               {surveyStep === 1 && (
                 <div>
-                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>2. ¿Sientes que el simulador imita las "trampas" de Pearson VUE?</h3>
+                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>2. ¿Sientes que el simulador imita las "trampas" de el examinador?</h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
                     {["Totalmente", "A veces", "Necesita más dificultad"].map(opt => (
                       <button key={opt} onClick={() => { setSurveyResponses({ ...surveyResponses, simulation: opt }); setSurveyStep(2); }} style={{ padding: '15px', borderRadius: '10px', border: `1px solid ${COLORS.border}`, textAlign: 'left', cursor: 'pointer', backgroundColor: 'transparent' }}>{opt}</button>
@@ -550,7 +550,7 @@ export default function Dashboard() {
                           <div style={{ marginTop: '20px', textAlign: 'left', padding: '20px', backgroundColor: '#fff7ed', color: '#9a3412', borderRadius: '10px', border: '1px solid #f97316' }}>
                             <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px', textAlign: 'center' }}>⚠️ EL EXAMEN ESTÁ DISEÑADO PARA QUE FALLES</div>
                             <p style={{ fontSize: '14px', marginBottom: '15px', lineHeight: '1.4' }}>
-                              No te desanimes. Pearson VUE no solo evalúa tu conocimiento, evalúa tu <strong>atención</strong>. El estado quiere asegurarse de que solo los más detallistas obtengan la licencia.
+                              No te desanimes. El examinador no solo evalúa tu conocimiento, evalúa tu <strong>atención</strong>. El estado quiere asegurarse de que solo los más detallistas obtengan la licencia.
                             </p>
                             <div style={{ backgroundColor: 'rgba(255,255,255,0.5)', padding: '15px', borderRadius: '8px' }}>
                               <strong style={{ display: 'block', marginBottom: '10px', fontSize: '13px' }}>3 CONSEJOS PARA DOMINAR LAS TRAMPAS:</strong>

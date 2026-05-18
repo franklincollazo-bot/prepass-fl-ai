@@ -66,11 +66,11 @@ CONTENIDO DETALLADO MÓDULO 3 (PROVISIONES Y CLÁUSULAS):
   * Condicionalmente Renovable: Puede cancelar por condiciones específicas (ej. jubilación).
   * Opcionalmente Renovable: Asegurador decide en cada aniversario.
 
-ESTRATEGIAS PARA EL EXAMEN PEARSON VUE:
-- Cuidado con "EXCEPTO", "NO", "FALSO": Estas preguntas buscan la opción incorrecta.
+ESTRATEGIAS PARA EL EXAMEN:
+- Cuidado con "EXCEPTO", "NO", "FALSO": Estas preguntas buscan la opción incorrecta. El examinador usa estas trampas frecuentemente.
 - Distractores Brillantes: Opciones que suenan muy profesionales pero no responden la pregunta específica.
 - Regla de Oro: Si dos opciones son opuestas, una de ellas suele ser la correcta.
-- Práctica: Siempre recomienda leer la pregunta completa dos veces antes de elegir.
+- Práctica: Siempre recomienda leer la pregunta completa dos veces antes de elegir, como aconseja el examinador.
 `;
 
 export default async function handler(req, res) {

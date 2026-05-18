@@ -30,7 +30,7 @@
    - 5.2 Las 11 Disposiciones Opcionales
 
 6. **Capítulo 6: Simulador Maestro "The Oracle"**
-   - Entrenamiento con 100 preguntas tipo examen Pearson VUE.
+   - Entrenamiento con 100 preguntas tipo examen de el examinador.
 
 ---
 
