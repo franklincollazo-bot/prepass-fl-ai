@@ -69,6 +69,12 @@ CONTENIDO DETALLADO MÓDULO 2 (TIPOS DE PÓLIZAS):
 5. OTROS:
 - AD&D: Suma Principal (Muerte/2 extremidades) vs Suma de Capital (1 extremidad).
 - Dental y Visión: Coberturas específicas y limitadas.
+
+ESTRATEGIAS PARA EL EXAMEN PEARSON VUE:
+- Cuidado con "EXCEPTO", "NO", "FALSO": Estas preguntas buscan la opción incorrecta.
+- Distractores Brillantes: Opciones que suenan muy profesionales pero no responden la pregunta específica.
+- Regla de Oro: Si dos opciones son opuestas, una de ellas suele ser la correcta.
+- Práctica: Siempre recomienda leer la pregunta completa dos veces antes de elegir.
 `;
 
 export default async function handler(req, res) {
