@@ -44,31 +44,27 @@ CONTENIDO DETALLADO MÓDULO 1:
 - Free Look (Examen Libre): 10 días en salud general (30 días en Medicare/Suplementos). El tiempo empieza al ENTREGAR la póliza.
 
 CONTENIDO DETALLADO MÓDULO 2 (TIPOS DE PÓLIZAS):
+- Incapacidad (Disability): Own Occ (su ocupación) vs Any Occ (cualquier ocupación). Período de Eliminación (deducible de tiempo) y Período de Beneficio.
+- Gastos Médicos Mayores: Deducible, Coseguro (80/20), Stop-Loss (límite de bolsillo).
+- HMO: Gatekeeper (Médico de Cuidado Primario), Copagos, Red Cerrada, Capitación.
+- PPO: Red Abierta, Proveedores Preferidos, Mayores costos fuera de la red.
+- COBRA: 18 meses (despido), 36 meses (muerte/divorcio). Aplicable a grupos de 20+ empleados.
+- Conversión Grupal: 31 días para convertir a individual sin prueba de asegurabilidad.
+- Medicare: Parte A (Hospital), Parte B (Médicos), Parte C (Advantage), Parte D (Medicamentos).
+- Medicaid: Para personas con bajos ingresos y recursos.
 
-1. GASTOS MÉDICOS MAYORES:
-- Deducible: Pago inicial del asegurado.
-- Coseguro (Coinsurance): Reparto de gastos (ej. 80/20).
-- Stop-Loss: Límite máximo de gasto de bolsillo para el cliente.
-
-2. SISTEMAS ADMINISTRADOS (MANAGED CARE):
-- HMO: Red cerrada, requiere Médico de Cuidado Primario (PCP) como Gatekeeper. Pago por Capitación. Prevención es prioridad.
-- PPO: Red abierta, descuentos con proveedores preferidos. Puedes salir de la red pagando más. No requiere Gatekeeper.
-- POS: Híbrido entre HMO y PPO.
-
-3. INGRESO POR DISCAPACIDAD (DISABILITY):
-- Reemplaza ingreso, no paga facturas médicas.
-- Período de Eliminación: Espera antes del pago (deducible de tiempo).
-- Período de Beneficio: Duración de los pagos.
-- Discapacidad Presuntiva: Pérdida total de vista, habla, oído o dos extremidades.
-
-4. SEGUROS GRUPALES:
-- Contrato Maestro (Dueño: Empleador).
-- Certificado de Seguro (Para el empleado).
-- Conversión: 31 días para cambiar a individual sin examen médico.
-
-5. OTROS:
-- AD&D: Suma Principal (Muerte/2 extremidades) vs Suma de Capital (1 extremidad).
-- Dental y Visión: Coberturas específicas y limitadas.
+CONTENIDO DETALLADO MÓDULO 3 (PROVISIONES Y CLÁUSULAS):
+- Contrato Completo (Entire Contract): Póliza + Aplicación + Endosos. Solo un oficial de la compañía puede hacer cambios.
+- Período de Gracia: 7 días (semanal), 10 días (mensual), 31 días (demás).
+- Reincorporación (Reinstatement): Automática tras 45 días si no hay rechazo. Cobertura de accidentes inmediata; enfermedades tras 10 días.
+- Aviso de Reclamo: 20 días. Formas de Reclamo: 15 días. Prueba de Pérdida: 90 días.
+- Límite de Tiempo en Ciertas Defensas: 2 años (Incontestabilidad).
+- Examen Físico y Autopsia: Asegurador paga los costos.
+- Renovabilidad:
+  * No Cancelable: No cambia prima ni beneficios.
+  * Renovable Garantizado: Puede subir la prima por clase, pero no cancelar.
+  * Condicionalmente Renovable: Puede cancelar por condiciones específicas (ej. jubilación).
+  * Opcionalmente Renovable: Asegurador decide en cada aniversario.
 
 ESTRATEGIAS PARA EL EXAMEN PEARSON VUE:
 - Cuidado con "EXCEPTO", "NO", "FALSO": Estas preguntas buscan la opción incorrecta.

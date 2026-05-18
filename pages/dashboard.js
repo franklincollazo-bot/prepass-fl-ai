@@ -54,30 +54,48 @@ const CHAPTERS_DATA = {
     ]
   },
   2: {
-    title: "Capítulo 2: Tipos de Pólizas de Salud",
-    subtitle: "HMO, PPO, Disability y Programas de Gobierno",
+    title: "Capítulo 2: Tipos de Pólizas",
+    subtitle: "Incapacidad, Gastos Médicos y Planes Grupales",
     manual: "/Modulo2_Manual_Completo.html",
     guia: "/Modulo2_Guia_Estudio.html",
     subtopics: [
       {
-        title: "2.1 Gastos Médicos Mayores (Major Medical)",
-        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_1_PLACEHOLDER",
-        summary: "Deducibles, Coseguro (80/20) y el Stop-Loss."
+        title: "2.1 Seguro de Ingreso por Discapacidad",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_1",
+        summary: "Diferencia entre Own Occ y Any Occ, y la importancia de los períodos de eliminación."
       },
       {
-        title: "2.2 El Club del HMO vs La Libertad del PPO",
-        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_2_PLACEHOLDER",
-        summary: "Gatekeeper (PCP) en el HMO y la flexibilidad de la red en el PPO."
+        title: "2.2 Gastos Médicos: Básicos vs Mayores",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_2",
+        summary: "Análisis de deducibles, coseguro y el límite de stop-loss."
       },
       {
-        title: "2.3 Seguro de Incapacidad (Disability)",
-        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_3_PLACEHOLDER",
-        summary: "Protección del ingreso, Períodos de Eliminación y Beneficio."
+        title: "2.3 HMO y PPO: Cuidado Administrado",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_3",
+        summary: "Cómo funcionan las redes, el rol del Gatekeeper y el pago por capitación."
       },
       {
-        title: "2.4 Medicare y Medicaid",
-        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_4_PLACEHOLDER",
-        summary: "Las 4 partes de Medicare y el soporte estatal de Medicaid."
+        title: "2.4 Seguros Grupales y COBRA",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_4",
+        summary: "Reglas de elegibilidad, conversión y la ley COBRA para la continuidad de cobertura."
+      }
+    ]
+  },
+  3: {
+    title: "Capítulo 3: Provisiones y Cláusulas",
+    subtitle: "Reglas Obligatorias y Derechos del Asegurado",
+    manual: "/Modulo3_Manual_Completo.html",
+    guia: "/Modulo3_Guia_Estudio.html",
+    subtopics: [
+      {
+        title: "3.1 Provisiones Obligatorias NAIC",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_3_1",
+        summary: "Período de gracia, reincorporación y los límites de tiempo para reclamos."
+      },
+      {
+        title: "3.2 Derechos de Renovabilidad",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_3_2",
+        summary: "Diferencias entre pólizas No Cancelables, Garantizadas y Opcionales."
       }
     ]
   }

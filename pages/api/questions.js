@@ -112,103 +112,75 @@ const QUESTIONS_POOL = {
   2: [
     {
       id: 1,
-      topic: "HMO",
-      question: "Todas las siguientes son características de un plan HMO, EXCEPTO:",
-      options: ["Enfoque en el cuidado preventivo", "Elección libre de cualquier médico fuera de la red sin referido", "Uso de un Médico de Atención Primaria (Gatekeeper)", "Servicios proporcionados por una red específica"],
-      answer: "Elección libre de cualquier médico fuera de la red sin referido"
+      topic: "Incapacidad",
+      question: "En una póliza de discapacidad, el 'Período de Eliminación' actúa como:",
+      options: ["Un límite de beneficio", "Un deducible de tiempo", "Una exclusión de enfermedad", "Un período de gracia"],
+      answer: "Un deducible de tiempo"
     },
     {
       id: 2,
-      topic: "Cálculos",
-      question: "Un asegurado con una póliza de Gastos Médicos Mayores (Deducible $500, Coseguro 80/20) incurre en una factura de $2,500. ¿Cuál de los siguientes cálculos para determinar el pago del asegurado es INCORRECTO?",
-      options: [
-        "Pagar primero el deducible de $500",
-        "Pagar el 20% de los $2,000 restantes ($400)",
-        "Pagar un total de $900 de su bolsillo",
-        "Pagar el 20% de los $2,500 totales ($500)"
-      ],
-      answer: "Pagar el 20% de los $2,500 totales ($500)"
+      topic: "HMO",
+      question: "¿Cómo se llama el médico que controla el acceso a especialistas en un plan HMO?",
+      options: ["Ajustador", "Suscriptor", "Gatekeeper (Médico de Cuidado Primario)", "Director Médico"],
+      answer: "Gatekeeper (Médico de Cuidado Primario)"
     },
     {
       id: 3,
-      topic: "Gatekeeper",
-      question: "¿Cuál de las siguientes NO es una función del 'Gatekeeper' en un HMO?",
-      options: [
-        "Controlar el acceso a especialistas",
-        "Coordinar el cuidado de salud del miembro",
-        "Aprobar el pago de dividendos a los accionistas",
-        "Reducir costos evitando visitas innecesarias a especialistas"
-      ],
-      answer: "Aprobar el pago de dividendos a los accionistas"
+      topic: "COBRA",
+      question: "Bajo COBRA, ¿cuál es el período máximo de continuación de cobertura para un empleado despedido (por causa no grave)?",
+      options: ["12 meses", "18 meses", "24 meses", "36 meses"],
+      answer: "18 meses"
     },
     {
       id: 4,
-      topic: "Disability",
-      question: "Respecto al Período de Eliminación en un seguro de Incapacidad, ¿cuál de los siguientes enunciados es CORRECTO?",
-      options: [
-        "Es un deducible de tiempo",
-        "Es el tiempo que el asegurado debe esperar antes de que los beneficios comiencen",
-        "Mientras más largo sea, menor será la prima",
-        "Todas las anteriores son correctas"
-      ],
-      answer: "Todas las anteriores son correctas"
+      topic: "Medicare",
+      question: "¿Qué parte de Medicare cubre los servicios de hospitalización?",
+      options: ["Parte A", "Parte B", "Parte C", "Parte D"],
+      answer: "Parte A"
     },
     {
       id: 5,
-      topic: "Key Person",
-      question: "En una póliza de Persona Clave (Key Person Disability), todos los siguientes enunciados son falsos, EXCEPTO:",
-      options: [
-        "La empresa paga las primas y recibe los beneficios",
-        "Las primas son deducibles de impuestos para la empresa",
-        "Los beneficios son gravables para el empleado clave",
-        "El empleado clave es el dueño de la póliza"
-      ],
-      answer: "La empresa paga las primas y recibe los beneficios"
+      topic: "Conversión",
+      question: "El período de conversión para cambiar de un seguro grupal a uno individual sin prueba de asegurabilidad es de:",
+      options: ["10 días", "30 días", "31 días", "45 días"],
+      answer: "31 días"
+    }
+  ],
+  3: [
+    {
+      id: 1,
+      topic: "Provisiones Obligatorias",
+      question: "Según la provisión de 'Contrato Completo', ¿quién tiene autoridad para realizar cambios en una póliza de seguro?",
+      options: ["El agente", "El asegurado", "Un oficial ejecutivo de la compañía", "El beneficiario"],
+      answer: "Un oficial ejecutivo de la compañía"
     },
     {
-      id: 6,
-      topic: "Medicare",
-      question: "¿Cuál de los siguientes NO es un beneficio típico cubierto por Medicare Parte A?",
-      options: ["Hospitalización", "Cuidado en un hogar de ancianos especializado", "Cuidado de hospicio", "Servicios médicos y quirúrgicos (Outpatient)"],
-      answer: "Servicios médicos y quirúrgicos (Outpatient)"
+      id: 2,
+      topic: "Incontestabilidad",
+      question: "El 'Límite de Tiempo en Ciertas Defensas' (Time Limit on Certain Defenses) generalmente prohíbe al asegurador negar un reclamo por declaraciones erróneas después de:",
+      options: ["1 año", "2 años", "3 años", "5 años"],
+      answer: "2 años"
     },
     {
-      id: 7,
-      topic: "Medicare Parts",
-      question: "Todas las siguientes son letras correspondientes a las partes de Medicare, EXCEPTO:",
-      options: ["Parte A - Hospital", "Parte B - Médicos", "Parte E - Medicamentos Recetados", "Parte C - Medicare Advantage"],
-      answer: "Parte E - Medicamentos Recetados"
+      id: 3,
+      topic: "Aviso de Reclamo",
+      question: "Un asegurado debe notificar al asegurador sobre un reclamo dentro de los ___ días posteriores a la pérdida:",
+      options: ["10 días", "15 días", "20 días", "90 días"],
+      answer: "20 días"
     },
     {
-      id: 8,
-      topic: "Medicaid",
-      question: "Respecto a Medicaid, ¿cuál de los siguientes enunciados es FALSO?",
-      options: [
-        "Es un programa federal administrado por el estado",
-        "Está destinado a personas con recursos financieros limitados",
-        "Se financia exclusivamente con las primas de los asegurados",
-        "Proporciona asistencia médica a familias e individuos de bajos ingresos"
-      ],
-      answer: "Se financia exclusivamente con las primas de los asegurados"
+      id: 4,
+      topic: "Reincorporación",
+      question: "Si el asegurador no rechaza una solicitud de reincorporación, la póliza se considera reincorporada automáticamente después de ___ días:",
+      options: ["10 días", "30 días", "45 días", "60 días"],
+      answer: "45 días"
     },
     {
-      id: 9,
-      topic: "Prácticas de Reclamos",
-      question: "Bajo la ley de Florida, todas las siguientes son prácticas desleales de reclamos, EXCEPTO:",
-      options: [
-        "Negar un reclamo sin una investigación razonable",
-        "No responder oportunamente a las comunicaciones sobre un reclamo",
-        "Pagar un reclamo dentro de los 30 días posteriores a la prueba de pérdida",
-        "Ofrecer un acuerdo mucho menor al valor real del reclamo"
-      ],
-      answer: "Pagar un reclamo dentro de los 30 días posteriores a la prueba de pérdida"
-    },
-    {
-      id: 10,
-      topic: "Perils",
-      question: "¿Cuál de las siguientes NO es una causa de pérdida (Peril)?",
-      options: ["Fuego", "Accidente", "Cables eléctricos en mal estado", "Enfermedad"],
-      answer: "Cables eléctricos en mal estado"
+      id: 5,
+      topic: "Renovabilidad",
+      question: "¿Cuál de las siguientes cláusulas de renovación ofrece la mayor protección al asegurado (no se puede cancelar ni cambiar la prima)?",
+      options: ["Cancelable", "Opcionalmente Renovable", "Renovable Garantizada", "No Cancelable"],
+      answer: "No Cancelable"
     }
   ]
 };
