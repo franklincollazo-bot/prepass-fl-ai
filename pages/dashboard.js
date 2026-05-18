@@ -411,21 +411,22 @@ export default function Dashboard() {
                 </div>
 
                 <div 
-                  onClick={startExam}
+                  onClick={showExam ? () => setShowExam(false) : startExam}
                   style={{
                     padding: '15px',
-                    backgroundColor: showExam ? COLORS.goldDark : COLORS.gold,
-                    color: COLORS.black,
+                    backgroundColor: showExam ? '#ef4444' : COLORS.gold,
+                    color: showExam ? COLORS.white : COLORS.black,
                     borderRadius: '10px',
                     cursor: 'pointer',
                     fontSize: '14px',
                     fontWeight: 'bold',
                     textAlign: 'center',
                     marginTop: '20px',
-                    border: `1px solid ${COLORS.goldDark}`
+                    border: showExam ? 'none' : `1px solid ${COLORS.goldDark}`,
+                    transition: 'all 0.3s'
                   }}
                 >
-                  {loading ? 'CARGANDO...' : '📝 EXAMEN DE CAPÍTULO'}
+                  {loading ? 'CARGANDO...' : showExam ? '✕ CERRAR EXAMEN' : '📝 INICIAR EXAMEN DE CAPÍTULO'}
                 </div>
               </div>
 
@@ -479,10 +480,15 @@ export default function Dashboard() {
                   <div style={{ padding: '30px', backgroundColor: '#f8fafc', borderRadius: '12px', border: `1px solid ${COLORS.border}`, minHeight: '400px' }}>
                     {!examState.results ? (
                       <>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
-                          <span style={{ fontWeight: 'bold', color: COLORS.navy }}>Pregunta {examState.currentIndex + 1} de {examState.questions.length}</span>
-                          <span style={{ color: COLORS.goldDark, fontWeight: 'bold' }}>CAPÍTULO {activeModule}</span>
-                        </div>
+                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+                           <span style={{ fontWeight: 'bold', color: COLORS.navy }}>Pregunta {examState.currentIndex + 1} de {examState.questions.length}</span>
+                           <button 
+                             onClick={() => setShowExam(false)}
+                             style={{ background: 'none', border: 'none', color: COLORS.gray, cursor: 'pointer', fontSize: '12px', fontWeight: 'bold' }}
+                           >
+                             ✕ CANCELAR EXAMEN
+                           </button>
+                         </div>
                         <h2 style={{ fontSize: '20px', marginBottom: '30px' }}>{examState.questions[examState.currentIndex]?.question}</h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                           {examState.questions[examState.currentIndex]?.options.map((opt, i) => (

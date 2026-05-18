@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const COLORS = {
   black: '#000000',
@@ -27,6 +28,7 @@ export default function Inscripcion() {
   });
 
   const [submitted, setSubmitted] = React.useState(false);
+  const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,16 +40,31 @@ export default function Inscripcion() {
     console.log('Formulario enviado:', formData);
     localStorage.setItem('userRegistration', JSON.stringify(formData));
     setSubmitted(true);
+    // Redirigir automáticamente después de 2 segundos
+    setTimeout(() => {
+      router.push('/dashboard');
+    }, 2500);
   };
 
   if (submitted) {
     return (
       <div style={{ backgroundColor: COLORS.darkBg, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: COLORS.navy, fontFamily: 'system-ui' }}>
-        <div style={{ textAlign: 'center', padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 40px rgba(0,0,0,0.05)', maxWidth: '500px' }}>
-          <img src={LOGO_URL} style={{ width: '80px', marginBottom: '20px' }} />
-          <h2 style={{ color: COLORS.navy, fontSize: '28px', marginBottom: '15px' }}>¡Registro Recibido!</h2>
-          <p style={{ lineHeight: '1.6' }}>Gracias <strong>{formData.nombre}</strong>. Nos pondremos en contacto contigo pronto para completar tu inscripción.</p>
-          <button onClick={() => window.location.href = '/'} style={{ marginTop: '25px', backgroundColor: COLORS.navy, color: COLORS.white, padding: '12px 24px', border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer' }}>Volver al Inicio</button>
+        <div style={{ textAlign: 'center', padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `2px solid ${COLORS.gold}`, boxShadow: '0 20px 60px rgba(0,0,0,0.1)', maxWidth: '500px' }}>
+          <div style={{ fontSize: '50px', marginBottom: '20px' }}>🎉</div>
+          <h2 style={{ color: COLORS.navy, fontSize: '28px', marginBottom: '15px' }}>¡Registro Exitoso!</h2>
+          <p style={{ lineHeight: '1.6', fontSize: '16px', color: COLORS.gray }}>
+            Bienvenido, <strong>{formData.nombre}</strong>. <br/>
+            Estamos preparando tu aula virtual...
+          </p>
+          <div style={{ marginTop: '30px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <button 
+              onClick={() => router.push('/dashboard')} 
+              style={{ backgroundColor: COLORS.navy, color: COLORS.white, padding: '15px 30px', border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer', fontSize: '16px', boxShadow: '0 5px 15px rgba(10,27,51,0.3)' }}
+            >
+              EMPEZAR CURSO AHORA
+            </button>
+            <p style={{ fontSize: '12px', color: COLORS.gray }}>Serás redirigido automáticamente en unos segundos.</p>
+          </div>
         </div>
       </div>
     );
