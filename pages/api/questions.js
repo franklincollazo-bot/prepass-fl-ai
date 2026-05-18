@@ -107,6 +107,13 @@ const QUESTIONS_POOL = {
       question: "Un banco le dice a un solicitante de préstamo que el préstamo solo será aprobado si compra su seguro a través de una agencia específica. Esto es un ejemplo de:",
       options: ["Rebating", "Coerción", "Discriminación Unfair", "Publicidad Falsa"],
       answer: "Coerción"
+    },
+    {
+      id: 15,
+      topic: "Difamación",
+      question: "Un agente hace circular un folleto que afirma falsamente que un competidor está a punto de declararse en quiebra. Esta práctica desleal se conoce como:",
+      options: ["Twisting", "Sliding", "Difamación", "Churning"],
+      answer: "Difamación"
     }
   ],
   2: [
