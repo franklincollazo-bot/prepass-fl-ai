@@ -204,8 +204,15 @@ export default function Inscripcion() {
         </div>
       </main>
 
-      <footer style={{ textAlign: 'center', padding: '40px', color: COLORS.gray, fontSize: '14px' }}>
-        © 2026 Maná Academy | Tu éxito es nuestra misión.
+      <footer style={{ textAlign: 'center', padding: '60px 20px', backgroundColor: '#f8fafc', borderTop: `1px solid ${COLORS.border}`, marginTop: '40px' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <p style={{ fontSize: '12px', lineHeight: '1.8', color: COLORS.gray, textAlign: 'justify', marginBottom: '30px', fontStyle: 'italic', padding: '20px', backgroundColor: COLORS.white, borderRadius: '10px', border: `1px solid ${COLORS.border}` }}>
+            <strong>Cláusula de Ética y Neutralidad Profesional:</strong> Maná Academy es una institución educativa independiente comprometida con la excelencia en la formación de profesionales de seguros en el estado de Florida. Respetamos íntegramente las afiliaciones actuales de nuestros estudiantes y nos comprometemos a no interferir en relaciones contractuales preexistentes con otras agencias debidamente reportadas en este formulario. Los datos proporcionados tienen fines educativos y de registro administrativo, garantizando la privacidad y el cumplimiento de las normativas de competencia leal de la industria.
+          </p>
+          <div style={{ fontSize: '14px', color: COLORS.navy, fontWeight: '500' }}>
+            © 2026 Maná Academy | Tu éxito es nuestra misión.
+          </div>
+        </div>
       </footer>
 
       <style jsx>{`
