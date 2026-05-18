@@ -22,7 +22,8 @@ export default function Inscripcion() {
     direccion: '',
     statusLegal: 'Ciudadano',
     fuente: 'Referido',
-    fuenteDetalle: ''
+    fuenteDetalle: '',
+    yaReclutado: 'No'
   });
 
   const [submitted, setSubmitted] = React.useState(false);
@@ -35,7 +36,7 @@ export default function Inscripcion() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Formulario enviado:', formData);
-    // Aquí se integraría con Supabase o un API de email
+    localStorage.setItem('userRegistration', JSON.stringify(formData));
     setSubmitted(true);
   };
 
@@ -166,6 +167,33 @@ export default function Inscripcion() {
                   style={{ width: '100%', padding: '14px', borderRadius: '8px', border: `1px solid ${COLORS.border}`, backgroundColor: '#fcfcfc', color: COLORS.navy, fontSize: '15px' }}
                 />
               )}
+            </div>
+
+            {/* Ya Reclutado */}
+            <div>
+              <label style={{ display: 'block', marginBottom: '10px', fontSize: '14px', fontWeight: '600', color: COLORS.navy }}>¿Ya estás siendo reclutado por alguna agencia de seguros?</label>
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                  <input 
+                    type="radio" 
+                    name="yaReclutado" 
+                    value="Si" 
+                    checked={formData.yaReclutado === 'Si'} 
+                    onChange={handleChange}
+                    style={{ accentColor: COLORS.navy }}
+                  /> Si
+                </label>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+                  <input 
+                    type="radio" 
+                    name="yaReclutado" 
+                    value="No" 
+                    checked={formData.yaReclutado === 'No'} 
+                    onChange={handleChange}
+                    style={{ accentColor: COLORS.navy }}
+                  /> No
+                </label>
+              </div>
             </div>
 
             <button type="submit" style={{ marginTop: '15px', backgroundColor: COLORS.gold, color: COLORS.black, padding: '18px', borderRadius: '10px', fontSize: '18px', fontWeight: 'bold', border: 'none', cursor: 'pointer', transition: 'all 0.3s', boxShadow: '0 4px 15px rgba(197, 160, 89, 0.4)' }}>

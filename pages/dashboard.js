@@ -99,6 +99,7 @@ export default function Dashboard() {
   const [showSurvey, setShowSurvey] = React.useState(false);
   const [surveyStep, setSurveyStep] = React.useState(0);
   const [surveyResponses, setSurveyResponses] = React.useState({});
+  const [userReg, setUserReg] = React.useState(null);
   const videoRef = React.useRef(null);
   const [mounted, setMounted] = React.useState(false);
 
@@ -108,6 +109,8 @@ export default function Dashboard() {
     if (savedHistory) setPerformanceHistory(JSON.parse(savedHistory));
     const savedRadar = localStorage.getItem('errorRadar');
     if (savedRadar) setErrorRadar(JSON.parse(savedRadar));
+    const savedReg = localStorage.getItem('userRegistration');
+    if (savedReg) setUserReg(JSON.parse(savedReg));
   }, []);
 
   const startExam = async () => {
@@ -539,6 +542,22 @@ export default function Dashboard() {
               >
                 REPASAR MANUAL TÉCNICO
               </div>
+            </div>
+          )}
+
+          {(!userReg || userReg.yaReclutado === 'No') && (
+            <div style={{ padding: '25px', backgroundColor: COLORS.navy, borderRadius: '12px', color: COLORS.white, border: `2px solid ${COLORS.gold}`, boxShadow: '0 10px 25px rgba(10, 27, 51, 0.3)' }}>
+              <img src={LOGO_URL} style={{ height: '30px', margin: '0 auto 15px', display: 'block' }} />
+              <h3 style={{ margin: '0 0 10px 0', fontSize: '15px', textAlign: 'center', color: COLORS.gold }}>¿BUSCAS UNA AGENCIA?</h3>
+              <p style={{ fontSize: '12px', textAlign: 'center', lineHeight: '1.4', marginBottom: '20px', opacity: 0.9 }}>
+                No solo te damos la licencia, te damos la plataforma para triunfar. Únete a <strong>Maná Insurance Advisors</strong>.
+              </p>
+              <button 
+                onClick={() => window.open('https://mana-advisors.com/careers', '_blank')}
+                style={{ width: '100%', padding: '12px', backgroundColor: COLORS.gold, color: COLORS.black, border: 'none', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', fontSize: '12px' }}
+              >
+                APLICAR A LA AGENCIA
+              </button>
             </div>
           )}
 
