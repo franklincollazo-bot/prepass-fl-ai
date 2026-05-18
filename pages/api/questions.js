@@ -2,60 +2,70 @@ const QUESTIONS_POOL = {
   1: [
     {
       id: 1,
+      topic: "Regulación",
       question: "Todas las siguientes organizaciones ayudan a regular la industria de seguros en Florida, EXCEPTO:",
       options: ["MIB (Medical Information Bureau)", "OIR (Office of Insurance Regulation)", "DFS (Department of Financial Services)", "La Legislatura de Florida"],
       answer: "MIB (Medical Information Bureau)"
     },
     {
       id: 2,
+      topic: "Elementos Legales",
       question: "¿Cuál de los siguientes NO es un elemento necesario para que un contrato de seguro sea legalmente vinculante?",
       options: ["Acuerdo (Oferta y Aceptación)", "Consideración", "Propósito Legal", "Autoridad Aparente"],
       answer: "Autoridad Aparente"
     },
     {
       id: 3,
+      topic: "Tipos de Contrato",
       question: "En un contrato de Adhesión, si existe una ambigüedad en el lenguaje de la póliza, ¿cuál de los siguientes enunciados es CORRECTO?",
       options: ["El tribunal favorecerá a la aseguradora", "La póliza se anula inmediatamente", "El tribunal favorecerá al asegurado debido al carácter del contrato", "El agente es responsable de pagar los daños"],
       answer: "El tribunal favorecerá al asegurado debido al carácter del contrato"
     },
     {
       id: 4,
+      topic: "Autoridad",
       question: "Todas las siguientes son formas de autoridad de un agente, EXCEPTO:",
       options: ["Autoridad Expresa", "Autoridad Fiduciaria", "Autoridad Implícita", "Autoridad Aparente"],
       answer: "Autoridad Fiduciaria"
     },
     {
       id: 5,
+      topic: "Ética",
       question: "¿Cuál de las siguientes prácticas NO se considera una violación ética en Florida?",
       options: ["Twisting", "Sliding", "Commingling", "Reemplazo de póliza con divulgación completa"],
       answer: "Reemplazo de póliza con divulgación completa"
     },
     {
       id: 6,
+      topic: "STARR",
       question: "El método STARR de manejo de riesgos incluye todos los siguientes, EXCEPTO:",
       options: ["Avoidance (Evitar)", "Reduction (Reducir)", "Speculation (Especulación)", "Retention (Retener)"],
       answer: "Speculation (Especulación)"
     },
     {
       id: 7,
+      topic: "Free Look",
       question: "Respecto al período de examen libre (Free Look) en Florida, ¿cuál de los siguientes enunciados es FALSO?",
       options: ["Comienza cuando la póliza es entregada al asegurado", "Permite la devolución total de la prima", "Dura 10 días para pólizas de salud generales", "Dura 60 días para todas las pólizas de Medicare Supplement"],
       answer: "Dura 60 días para todas las pólizas de Medicare Supplement"
     },
     {
       id: 8,
+      topic: "Hazards",
       question: "Todas las siguientes son definiciones de un Riesgo (Hazard), EXCEPTO:",
       options: ["Una condición física que aumenta la pérdida", "La causa de la pérdida (Peril)", "Una actitud de descuido (Morale)", "Una intención deshonesta (Moral)"],
       answer: "La causa de la pérdida (Peril)"
     },
     {
       id: 9,
+      topic: "FCRA",
       question: "Bajo la ley FCRA, un solicitante NO tiene derecho a realizar cuál de las siguientes acciones:",
       options: ["Saber qué hay en su reporte", "Ser notificado si se solicita un reporte de investigación", "Recibir el pago de una indemnización por solo aparecer en el MIB", "Pedir que se corrija información errónea"],
       answer: "Recibir el pago de una indemnización por solo aparecer en el MIB"
     },
     {
       id: 10,
+      topic: "Twisting",
       question: "¿Cuál de los siguientes NO es un ejemplo de Twisting?",
       options: [
         "Comparaciones engañosas para inducir el reemplazo",
@@ -69,12 +79,14 @@ const QUESTIONS_POOL = {
   2: [
     {
       id: 1,
+      topic: "HMO",
       question: "Todas las siguientes son características de un plan HMO, EXCEPTO:",
       options: ["Enfoque en el cuidado preventivo", "Elección libre de cualquier médico fuera de la red sin referido", "Uso de un Médico de Atención Primaria (Gatekeeper)", "Servicios proporcionados por una red específica"],
       answer: "Elección libre de cualquier médico fuera de la red sin referido"
     },
     {
       id: 2,
+      topic: "Cálculos",
       question: "Un asegurado con una póliza de Gastos Médicos Mayores (Deducible $500, Coseguro 80/20) incurre en una factura de $2,500. ¿Cuál de los siguientes cálculos para determinar el pago del asegurado es INCORRECTO?",
       options: [
         "Pagar primero el deducible de $500",
@@ -86,6 +98,7 @@ const QUESTIONS_POOL = {
     },
     {
       id: 3,
+      topic: "Gatekeeper",
       question: "¿Cuál de las siguientes NO es una función del 'Gatekeeper' en un HMO?",
       options: [
         "Controlar el acceso a especialistas",
@@ -97,6 +110,7 @@ const QUESTIONS_POOL = {
     },
     {
       id: 4,
+      topic: "Disability",
       question: "Respecto al Período de Eliminación en un seguro de Incapacidad, ¿cuál de los siguientes enunciados es CORRECTO?",
       options: [
         "Es un deducible de tiempo",
@@ -108,6 +122,7 @@ const QUESTIONS_POOL = {
     },
     {
       id: 5,
+      topic: "Key Person",
       question: "En una póliza de Persona Clave (Key Person Disability), todos los siguientes enunciados son falsos, EXCEPTO:",
       options: [
         "La empresa paga las primas y recibe los beneficios",
@@ -119,18 +134,21 @@ const QUESTIONS_POOL = {
     },
     {
       id: 6,
+      topic: "Medicare",
       question: "¿Cuál de los siguientes NO es un beneficio típico cubierto por Medicare Parte A?",
       options: ["Hospitalización", "Cuidado en un hogar de ancianos especializado", "Cuidado de hospicio", "Servicios médicos y quirúrgicos (Outpatient)"],
       answer: "Servicios médicos y quirúrgicos (Outpatient)"
     },
     {
       id: 7,
+      topic: "Medicare Parts",
       question: "Todas las siguientes son letras correspondientes a las partes de Medicare, EXCEPTO:",
       options: ["Parte A - Hospital", "Parte B - Médicos", "Parte E - Medicamentos Recetados", "Parte C - Medicare Advantage"],
       answer: "Parte E - Medicamentos Recetados"
     },
     {
       id: 8,
+      topic: "Medicaid",
       question: "Respecto a Medicaid, ¿cuál de los siguientes enunciados es FALSO?",
       options: [
         "Es un programa federal administrado por el estado",
@@ -142,6 +160,7 @@ const QUESTIONS_POOL = {
     },
     {
       id: 9,
+      topic: "Prácticas de Reclamos",
       question: "Bajo la ley de Florida, todas las siguientes son prácticas desleales de reclamos, EXCEPTO:",
       options: [
         "Negar un reclamo sin una investigación razonable",
@@ -153,6 +172,7 @@ const QUESTIONS_POOL = {
     },
     {
       id: 10,
+      topic: "Perils",
       question: "¿Cuál de las siguientes NO es una causa de pérdida (Peril)?",
       options: ["Fuego", "Accidente", "Cables eléctricos en mal estado", "Enfermedad"],
       answer: "Cables eléctricos en mal estado"

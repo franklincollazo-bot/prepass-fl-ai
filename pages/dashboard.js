@@ -95,6 +95,7 @@ export default function Dashboard() {
   const [dynamicText, setDynamicText] = React.useState(null);
   const [examState, setExamState] = React.useState({ questions: [], currentIndex: 0, answers: [], results: null });
   const [performanceHistory, setPerformanceHistory] = React.useState([]);
+  const [errorRadar, setErrorRadar] = React.useState({});
   const videoRef = React.useRef(null);
   const [mounted, setMounted] = React.useState(false);
 
@@ -102,6 +103,8 @@ export default function Dashboard() {
     setMounted(true);
     const savedHistory = localStorage.getItem('performanceHistory');
     if (savedHistory) setPerformanceHistory(JSON.parse(savedHistory));
+    const savedRadar = localStorage.getItem('errorRadar');
+    if (savedRadar) setErrorRadar(JSON.parse(savedRadar));
   }, []);
 
   const startExam = async () => {
@@ -118,7 +121,17 @@ export default function Dashboard() {
   };
 
   const handleAnswer = (option) => {
+    const currentQ = examState.questions[examState.currentIndex];
     const newAnswers = [...examState.answers, option];
+    
+    // Track errors for the Radar
+    if (option !== currentQ.answer) {
+      const newRadar = { ...errorRadar };
+      newRadar[currentQ.topic] = (newRadar[currentQ.topic] || 0) + 1;
+      setErrorRadar(newRadar);
+      localStorage.setItem('errorRadar', JSON.stringify(newRadar));
+    }
+
     if (examState.currentIndex < examState.questions.length - 1) {
       setExamState({ ...examState, currentIndex: examState.currentIndex + 1, answers: newAnswers });
     } else {
@@ -419,6 +432,32 @@ export default function Dashboard() {
               {readiness.advice}
             </div>
           </div>
+
+          {Object.keys(errorRadar).length > 0 && (
+            <div style={{ padding: '25px', backgroundColor: '#fff', borderRadius: '12px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+              <h3 style={{ margin: '0 0 15px 0', fontSize: '16px', color: COLORS.navy, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '20px' }}>🎯</span> Radar de Errores
+              </h3>
+              <p style={{ fontSize: '12px', color: COLORS.gray, marginBottom: '15px' }}>Temas que necesitas reforzar prioritariamente:</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {Object.entries(errorRadar)
+                  .sort((a, b) => b[1] - a[1])
+                  .slice(0, 3)
+                  .map(([topic, count]) => (
+                    <div key={topic} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', backgroundColor: '#fef2f2', borderRadius: '6px', border: '1px solid #fee2e2' }}>
+                      <span style={{ fontSize: '13px', fontWeight: '500', color: '#991b1b' }}>{topic}</span>
+                      <span style={{ fontSize: '11px', backgroundColor: '#991b1b', color: '#fff', padding: '2px 6px', borderRadius: '10px' }}>{count} fallos</span>
+                    </div>
+                  ))}
+              </div>
+              <div 
+                onClick={() => window.open(currentChapter?.manual, '_blank')}
+                style={{ marginTop: '15px', padding: '10px', backgroundColor: COLORS.navy, color: '#fff', borderRadius: '8px', fontSize: '12px', textAlign: 'center', cursor: 'pointer', fontWeight: 'bold' }}
+              >
+                REPASAR MANUAL TÉCNICO
+              </div>
+            </div>
+          )}
 
           <div style={{ padding: '25px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
             <h3 style={{ color: COLORS.navy, marginTop: 0 }}>🤖 Tutor IA Maná</h3>
