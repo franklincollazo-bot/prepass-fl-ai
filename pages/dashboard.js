@@ -246,6 +246,54 @@ export default function Dashboard() {
                     {sub.title}
                   </div>
                 ))}
+
+                <div style={{ marginTop: '20px', borderTop: `1px solid ${COLORS.border}`, paddingTop: '20px' }}>
+                  <h4 style={{ fontSize: '12px', color: COLORS.gray, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Material de Apoyo</h4>
+                  <a 
+                    href={currentChapter?.manual} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      padding: '12px',
+                      backgroundColor: '#fff',
+                      color: COLORS.navy,
+                      borderRadius: '8px',
+                      fontSize: '13px',
+                      fontWeight: 'bold',
+                      textDecoration: 'none',
+                      border: `1px solid ${COLORS.border}`,
+                      marginBottom: '10px',
+                      boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+                    }}
+                  >
+                    📖 MANUAL MAESTRO (PDF)
+                  </a>
+                  <a 
+                    href={currentChapter?.guia} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      padding: '12px',
+                      backgroundColor: '#fff',
+                      color: COLORS.navy,
+                      borderRadius: '8px',
+                      fontSize: '13px',
+                      fontWeight: 'bold',
+                      textDecoration: 'none',
+                      border: `1px solid ${COLORS.border}`,
+                      boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+                    }}
+                  >
+                    💡 25 PREGUNTAS CLAVE
+                  </a>
+                </div>
+
                 <div 
                   onClick={startExam}
                   style={{
