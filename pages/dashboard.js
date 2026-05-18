@@ -29,6 +29,26 @@ const CHAPTERS_DATA = {
         title: "1.1 Conceptos de Seguro y Riesgo (STARR)",
         videoUrl: "https://app.heygen.com/embeds/e913a649171f49b183492ed4876b6d80",
         summary: "Aprende a identificar los riesgos y cómo las aseguradoras los gestionan a través del acrónimo STARR."
+      },
+      {
+        title: "1.2 Elementos Legales del Contrato (ALCAL)",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_1_2_PLACEHOLDER",
+        summary: "Acuerdo, Consideración, Partes Competentes y Propósito Legal."
+      },
+      {
+        title: "1.3 Características: Adhesión y Aleatorio",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_1_3_PLACEHOLDER",
+        summary: "Por qué las ambigüedades favorecen al asegurado y el carácter desigual de los contratos."
+      },
+      {
+        title: "1.4 Suscripción: El MIB y la Ley FCRA",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_1_4_PLACEHOLDER",
+        summary: "Cómo las aseguradoras investigan el riesgo médico y de crédito."
+      },
+      {
+        title: "1.5 Ética y Leyes: Twisting vs Churning",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_1_5_PLACEHOLDER",
+        summary: "Protege tu licencia evitando prácticas desleales y cumpliendo los periodos de Free Look."
       }
     ]
   },
@@ -47,6 +67,16 @@ const CHAPTERS_DATA = {
         title: "2.2 El Club del HMO vs La Libertad del PPO",
         videoUrl: "https://app.heygen.com/embeds/VIDEO_2_2_PLACEHOLDER",
         summary: "Gatekeeper (PCP) en el HMO y la flexibilidad de la red en el PPO."
+      },
+      {
+        title: "2.3 Seguro de Incapacidad (Disability)",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_3_PLACEHOLDER",
+        summary: "Protección del ingreso, Períodos de Eliminación y Beneficio."
+      },
+      {
+        title: "2.4 Medicare y Medicaid",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_4_PLACEHOLDER",
+        summary: "Las 4 partes de Medicare y el soporte estatal de Medicaid."
       }
     ]
   }
