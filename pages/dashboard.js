@@ -1,3 +1,4 @@
+// v2.1.0 - Stable Video Engine
 import React from 'react';
 
 const COLORS = {
@@ -27,7 +28,7 @@ const CHAPTERS_DATA = {
       },
       {
         title: "1.1 Conceptos de Seguro y Riesgo (STARR)",
-        videoUrl: "https://app.heygen.com/embeds/e913a649171f49b183492ed4876b6d80",
+        videoUrl: "https://app.heygen.com/embeds/976a82841af9490a93ff0a9f9a6f1383",
         summary: "Aprende a identificar los riesgos y cómo las aseguradoras los gestionan a través del acrónimo STARR."
       },
       {
