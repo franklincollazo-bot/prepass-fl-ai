@@ -31,17 +31,17 @@ CONTENIDO DETALLADO MÓDULO 1:
 - Firmas requeridas: Agente, Solicitante y Dueño de la póliza (si aplica).
 
 4. PRÁCTICAS DESLEALES EN FLORIDA (UNFAIR TRADE PRACTICES):
-- Misrepresentation (Tergiversación): Mentir sobre términos o beneficios propios.
-- Twisting: Mentir sobre la competencia para forzar reemplazo.
-- Churning: Reemplazo interno innecesario para ganar comisión.
-- Sliding: Agregar coberturas extras sin permiso.
-- Rebating: Dar regalos o parte de la comisión para vender.
-- Defamation (Difamación): Mentir sobre la solvencia de otra aseguradora.
-- Coercion/Boycott: Obligar a comprar para obtener otro servicio.
-- Unfair Discrimination: Diferentes primas para mismo riesgo/clase.
-- False Advertising: Anuncios engañosos.
-- Regla de Reemplazo: Obliga a dar el "Aviso de Reemplazo" firmado.
-- Free Look (Examen Libre): 10 días en salud general (30 días en Medicare/Mayores 65).
+- Misrepresentation (Tergiversación): Mentir sobre términos, beneficios o dividendos de una póliza propia.
+- Twisting: Engañar a un cliente para que reemplace su póliza actual de OTRA compañía por una nueva, perjudicándolo para ganar comisión.
+- Churning: Engañar a un cliente para que reemplace su póliza actual de la MISMA compañía por una nueva, usando los valores de la anterior para ganar comisión (Reemplazo Interno).
+- Sliding: Agregar coberturas o servicios extras a una póliza sin el consentimiento informado del cliente o decir que son obligatorios cuando no lo son.
+- Rebating: Dar cualquier incentivo (parte de la comisión, regalos caros, etc.) que no esté especificado en la póliza para inducir la venta.
+- Defamation (Difamación): Hacer declaraciones falsas o maliciosas sobre la situación financiera de OTRA aseguradora.
+- Coercion/Boycott: Usar fuerza o presión para restringir el comercio o forzar a un cliente a comprar a un agente específico.
+- Unfair Discrimination: Cobrar diferentes tarifas a personas del mismo riesgo o clase.
+- False Advertising: Anuncios engañosos en cualquier medio.
+- Regla de Reemplazo: Proceso legal que obliga a dar el "Aviso de Reemplazo" firmado por el cliente y el agente.
+- Free Look (Examen Libre): 10 días en salud general (30 días en Medicare/Suplementos). El tiempo empieza al ENTREGAR la póliza.
 
 CONTENIDO DETALLADO MÓDULO 2 (TIPOS DE PÓLIZAS):
 

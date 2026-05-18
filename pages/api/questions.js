@@ -74,6 +74,39 @@ const QUESTIONS_POOL = {
         "Ocultar cláusulas de exclusión de la nueva póliza"
       ],
       answer: "Informar al cliente sobre los beneficios reales de su póliza actual"
+    },
+    {
+      id: 11,
+      topic: "Churning",
+      question: "¿Cuál es la diferencia principal entre Twisting y Churning?",
+      options: [
+        "Twisting es con la competencia; Churning es reemplazo interno con la misma aseguradora",
+        "Twisting es legal; Churning es ilegal",
+        "Twisting requiere permiso del DFS; Churning no",
+        "No hay diferencia, son términos intercambiables"
+      ],
+      answer: "Twisting es con la competencia; Churning es reemplazo interno con la misma aseguradora"
+    },
+    {
+      id: 12,
+      topic: "Rebating",
+      question: "La práctica de ofrecer una parte de la comisión del agente al solicitante como incentivo para comprar se conoce como:",
+      options: ["Sliding", "Rebating", "Coerción", "Defamation"],
+      answer: "Rebating"
+    },
+    {
+      id: 13,
+      topic: "Sliding",
+      question: "Un agente incluye automáticamente un seguro de muerte accidental en una póliza de salud sin que el cliente lo solicite ni sea informado. Esta práctica se llama:",
+      options: ["Churning", "Twisting", "Sliding", "Boycott"],
+      answer: "Sliding"
+    },
+    {
+      id: 14,
+      topic: "Coerción",
+      question: "Un banco le dice a un solicitante de préstamo que el préstamo solo será aprobado si compra su seguro a través de una agencia específica. Esto es un ejemplo de:",
+      options: ["Rebating", "Coerción", "Discriminación Unfair", "Publicidad Falsa"],
+      answer: "Coerción"
     }
   ],
   2: [

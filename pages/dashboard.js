@@ -47,9 +47,9 @@ const CHAPTERS_DATA = {
         summary: "Por qué las ambigüedades favorecen al asegurado y el carácter desigual de los contratos."
       },
       {
-        title: "1.5 Suscripción y Ética: MIB, FCRA y Twisting",
+        title: "1.5 Ética y Leyes: Prácticas Desleales",
         videoUrl: "https://app.heygen.com/embeds/3c5c55a1cb434dce8caff51c35e8d1fe",
-        summary: "Protege tu licencia evitando prácticas desleales como Twisting/Churning y conoce la Ley FCRA."
+        summary: "Domina las prácticas prohibidas: Twisting, Churning, Sliding, Rebating y Coerción. Incluye MIB y Ley FCRA."
       }
     ]
   },
