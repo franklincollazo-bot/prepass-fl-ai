@@ -2,631 +2,239 @@ import React from 'react';
 
 const COLORS = {
   black: '#000000',
-  darkBg: '#F5E6CC', // Beige más cálido y definido
+  darkBg: '#F5E6CC', 
   navy: '#0A1B33',
   gold: '#C5A059',
   goldDark: '#9A7B2C',
   white: '#FFFFFF',
   gray: '#64748b',
-  border: '#D9CBB0' // Borde cálido para el beige
+  border: '#D9CBB0'
 };
 
 const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png";
 
+const CHAPTERS_DATA = {
+  1: {
+    title: "Capítulo 1: Introducción y Conceptos Básicos",
+    subtitle: "Mentalidad de Éxito y el Negocio de los Seguros",
+    manual: "/Modulo1_Manual_Completo.html",
+    guia: "/Modulo1_Guia_Estudio.html",
+    subtopics: [
+      {
+        title: "1.0 Introducción: La Nueva Era de Seguros",
+        videoUrl: "/videos/heygen_intro.mp4",
+        summary: "Bienvenido a Maná Academy. Descubre por qué PrePass FLAI es la herramienta definitiva para obtener tu licencia en tiempo récord."
+      },
+      {
+        title: "1.1 Conceptos de Seguro y Riesgo (STARR)",
+        videoUrl: "https://app.heygen.com/embeds/e913a649171f49b183492ed4876b6d80",
+        summary: "Aprende a identificar los riesgos y cómo las aseguradoras los gestionan a través del acrónimo STARR."
+      }
+    ]
+  },
+  2: {
+    title: "Capítulo 2: Tipos de Pólizas de Salud",
+    subtitle: "HMO, PPO, Disability y Programas de Gobierno",
+    manual: "/Modulo2_Manual_Completo.html",
+    guia: "/Modulo2_Guia_Estudio.html",
+    subtopics: [
+      {
+        title: "2.1 Gastos Médicos Mayores (Major Medical)",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_1_PLACEHOLDER",
+        summary: "Deducibles, Coseguro (80/20) y el Stop-Loss."
+      },
+      {
+        title: "2.2 El Club del HMO vs La Libertad del PPO",
+        videoUrl: "https://app.heygen.com/embeds/VIDEO_2_2_PLACEHOLDER",
+        summary: "Gatekeeper (PCP) en el HMO y la flexibilidad de la red en el PPO."
+      }
+    ]
+  }
+};
+
 export default function Dashboard() {
-  const [query, setQuery] = React.useState('');
-  const [loading, setLoading] = React.useState(false);
   const [activeModule, setActiveModule] = React.useState(1);
   const [activeSubtopic, setActiveSubtopic] = React.useState(0);
   const [showExam, setShowExam] = React.useState(false);
-  const [examQuestions, setExamQuestions] = React.useState([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
-  const [answers, setAnswers] = React.useState({});
-  const [examResult, setExamResult] = React.useState(null);
-  const [unlockedChapters, setUnlockedChapters] = React.useState([1]);
+  const [unlockedChapters, setUnlockedChapters] = React.useState([1, 2]);
   const [chat, setChat] = React.useState([
     { role: 'ai', text: '¡Hola! Soy tu tutor de Maná Academy. ¿En qué puedo ayudarte hoy?' }
   ]);
+  const [query, setQuery] = React.useState('');
+  const [loading, setLoading] = React.useState(false);
+  const [dynamicText, setDynamicText] = React.useState(null);
+  const videoRef = React.useRef(null);
+  const [mounted, setMounted] = React.useState(false);
 
-  const startExam = async () => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/questions?chapterId=${activeModule}`);
-      let data = await res.json();
-      
-      // ALEATORIZACIÓN: Mezclar preguntas y sus opciones
-      const shuffledQuestions = data
-        .sort(() => Math.random() - 0.5) // Mezcla el orden de las preguntas
-        .map(q => ({
-          ...q,
-          options: [...q.options].sort(() => Math.random() - 0.5) // Mezcla las opciones dentro de cada pregunta
-        }));
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
-      setExamQuestions(shuffledQuestions);
-      setShowExam(true);
-      setExamResult(null);
-      setCurrentQuestionIndex(0);
-      setAnswers({});
-    } catch (e) {
-      console.error(e);
-    }
-    setLoading(false);
-  };
-
-  const handleAnswer = (option) => {
-    setAnswers({ ...answers, [currentQuestionIndex]: option });
-  };
-
-  const nextQuestion = () => {
-    if (currentQuestionIndex < examQuestions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const time = videoRef.current.currentTime;
+    if (activeModule === 1 && activeSubtopic === 0) {
+      if (time > 2 && time < 10) setDynamicText("EL TIEMPO ES DINERO");
+      else if (time > 25 && time < 35) setDynamicText("EFICIENCIA AI");
+      else if (time > 45 && time < 55) setDynamicText("STARR");
+      else if (time > 80 && time < 95) setDynamicText("DOBLE ALEATORIEDAD");
+      else setDynamicText(null);
     } else {
-      finishExam();
+      setDynamicText(null);
     }
   };
-
-  const finishExam = () => {
-    let score = 0;
-    examQuestions.forEach((q, i) => {
-      if (answers[i] === q.answer) score++;
-    });
-    const percentage = (score / examQuestions.length) * 100;
-    setExamResult(percentage);
-    
-    if (percentage >= 80) {
-      if (!unlockedChapters.includes(activeModule + 1)) {
-        setUnlockedChapters([...unlockedChapters, activeModule + 1]);
-      }
-    }
-  };
-
-  const chapters = {
-    1: {
-      title: "Capítulo 1: Fundamentos y Ley de Contratos",
-      subtitle: "La base legal y técnica del seguro (2-40)",
-      manual: "/Capitulo1_Manual_Maestro.html",
-      guia: "/Capitulo1_Guia_Estudio.html",
-      subtopics: [
-        {
-          title: "1.1 El Riesgo y la Ciencia del STARR",
-          videoUrl: "https://app.heygen.com/embeds/cf8b4c9ddeda4705ad5e3b0e26c7217c",
-          summary: "Domina la base del seguro: Riesgo Puro vs. Especulativo. Aprende el acrónimo STARR (Sharing, Transfer, Avoidance, Reduction, Retention) para identificar cómo se gestiona la incertidumbre financiera en el examen estatal."
-        },
-        {
-          title: "1.2 Tú eres la Compañía: Ley de Agencia y Ética",
-          videoUrl: "https://app.heygen.com/embeds/816ae97e0ee845f8973190d466a39ba6",
-          summary: "Como agente, tus actos representan legalmente a la aseguradora. Domina los tres tipos de autoridad (Expresa, Implícita y Aparente) y entiende tu responsabilidad fiduciaria para evitar el 'commingling'."
-        },
-        {
-          title: "1.3 El Contrato Legal: El Escudo ALCAL",
-          videoUrl: "https://app.heygen.com/embeds/01b891eff6c44b83b9ac98d514418cc5",
-          summary: "Para que un contrato de seguros sea válido, debe cumplir con los 4 pilares fundamentales del acrónimo ALCAL: Acuerdo, Legalidad, Consideración y Capacidad Legal. Domina estos requisitos para responder correctamente las preguntas de base legal."
-        },
-        {
-          title: "1.4 Las Cláusulas que Pearson ama preguntar",
-          videoUrl: "https://app.heygen.com/embeds/3284d46ca0e64e86a5aa8c84cb9660b8",
-          summary: "El contrato de seguros es único. Domina conceptos críticos como Adhesión, Aleatorio, Unilateral y Condicional. Entiende por qué las ambigüedades siempre favorecen al cliente y cómo Pearson VUE evalúa estos términos."
-        },
-        {
-          title: "1.5 Suscripción, MIB y la Ley FCRA",
-          videoUrl: "https://app.heygen.com/embeds/3c5c55a1cb434dce8caff51c35e8d1fe",
-          summary: "Concluye el capítulo dominando el proceso de suscripción. Aprende a diferenciar Representaciones de Garantías, descubre cómo el MIB protege a la industria y cómo la Ley FCRA garantiza la privacidad del historial crediticio del cliente."
-        }
-      ]
-    },
-    2: {
-      title: "Capítulo 2: Tipos de Pólizas de Salud",
-      subtitle: "HMO, PPO, Disability y Programas de Gobierno",
-      manual: "/Modulo2_Manual_Completo.html",
-      guia: "/Modulo2_Guia_Estudio.html",
-      subtopics: [
-        {
-          title: "2.1 Gastos Médicos Mayores (Major Medical)",
-          videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
-          summary: "Domina los conceptos de Deducible (lo que paga el cliente primero), Coseguro (el porcentaje compartido 80/20) y el Stop-Loss (límite máximo de gastos de bolsillo)."
-        },
-        {
-          title: "2.2 HMO vs PPO (Cuidado Administrado)",
-          videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
-          summary: "Diferencia crítica: HMO requiere Gatekeeper y red cerrada. PPO ofrece libre elección de médicos fuera de red a un costo mayor. Entiende la Capitación."
-        },
-        {
-          title: "2.3 Seguro de Ingreso por Incapacidad",
-          videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
-          summary: "Protección del 'sueldo'. Aprende sobre el Período de Eliminación (deducible de tiempo) y la diferencia entre Propia Ocupación vs Cualquier Ocupación."
-        },
-        {
-          title: "2.4 Medicare, Medicaid y LTC",
-          videoUrl: "https://www.youtube.com/embed/j78YXziYc6E",
-          summary: "Medicare para mayores de 65 (Parte A Hospital, Parte B Médico). Medicaid para bajos ingresos. Cuidados a Largo Plazo (LTC) basados en ADLs (bañarse, vestirse)."
-        }
-      ]
-    }
-  };
-
-  const currentChapter = chapters[activeModule];
-  const currentSubtopic = currentChapter.subtopics[activeSubtopic] || currentChapter.subtopics[0];
 
   const askTutor = async () => {
     if (!query) return;
+    setChat([...chat, { role: 'user', text: query }]);
     setLoading(true);
-    setChat(prev => [...prev, { role: 'user', text: query }]);
-    const currentQuery = query;
-    setQuery('');
-
-    try {
-      const res = await fetch('/api/tutor-ai', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: currentQuery })
-      });
-      const data = await res.json();
-      setChat(prev => [...prev, { role: 'ai', text: data.reply }]);
-    } catch (e) {
-      setChat(prev => [...prev, { role: 'ai', text: 'Error de conexión. Intenta de nuevo.' }]);
-    }
-    setLoading(false);
+    setTimeout(() => {
+      setChat(prev => [...prev, { role: 'ai', text: "Entiendo tu duda sobre " + query + ". Según el manual, este concepto es fundamental para el examen de Florida." }]);
+      setLoading(false);
+      setQuery('');
+    }, 1500);
   };
 
+  if (!mounted) return null;
+
+  const currentChapter = CHAPTERS_DATA[activeModule];
+
   return (
-    <div className="dashboard-container" style={{ 
-      backgroundColor: COLORS.darkBg, 
-      color: COLORS.navy, 
-      minHeight: '100vh', 
-      fontFamily: 'system-ui, -apple-system, sans-serif' 
-    }}>
-      <style jsx global>{`
-        .dashboard-main {
-          display: grid;
-          grid-template-columns: 1fr 350px;
-          gap: 30px;
-          padding: 40px;
-          max-width: 1400px;
-          margin: 0 auto;
-        }
-        .nav-container {
-          padding: 10px 40px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background-color: ${COLORS.navy};
-          border-bottom: 3px solid ${COLORS.gold};
-        }
-        .course-layout {
-          display: grid;
-          grid-template-columns: 280px 1fr;
-          gap: 25px;
-        }
-        .info-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 20px;
-        }
-        .bonos-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 20px;
-        }
-        @media (max-width: 1100px) {
-          .dashboard-main {
-            grid-template-columns: 1fr;
-            padding: 20px;
-          }
-          .course-layout {
-            grid-template-columns: 1fr;
-          }
-          .nav-container {
-            padding: 10px 20px;
-            flex-direction: column;
-            gap: 15px;
-          }
-          .info-grid, .bonos-grid {
-            grid-template-columns: 1fr;
-          }
-          .logo-text {
-            font-size: 16px !important;
-          }
-        }
-      `}</style>
-      {/* Navbar */}
-      <nav className="nav-container">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-          <img src={LOGO_URL} alt="Logo" style={{ height: '50px' }} />
-          <div className="logo-text" style={{ fontSize: '20px', fontWeight: 'bold', color: COLORS.gold, letterSpacing: '1px' }}>
-            MANÁ ACADEMY <span style={{ color: COLORS.white, fontSize: '12px', fontWeight: 'normal' }}>| PrePass FL AI</span>
-          </div>
-        </div>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <button style={{ background: 'none', border: 'none', color: COLORS.white, cursor: 'pointer' }}>Inicio</button>
-          <button style={{ background: 'none', border: 'none', color: COLORS.white, cursor: 'pointer' }}>Mi Perfil</button>
-          <button style={{ backgroundColor: COLORS.gold, color: COLORS.black, padding: '8px 16px', border: 'none', borderRadius: '4px', fontWeight: '600', cursor: 'pointer' }}>Salir</button>
-        </div>
+    <div className="dashboard-container" style={{ backgroundColor: COLORS.darkBg, color: COLORS.navy, minHeight: '100vh', fontFamily: 'system-ui' }}>
+      <nav style={{ padding: '10px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.navy, borderBottom: `3px solid ${COLORS.gold}` }}>
+        <img src={LOGO_URL} alt="Logo" style={{ height: '50px' }} />
+        <div style={{ color: COLORS.white, fontWeight: 'bold' }}>MANÁ ACADEMY | PREPASS FL AI</div>
       </nav>
 
-      {/* Main Content */}
-      <main className="dashboard-main">
-        
-        {/* Course Area */}
+      <main style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px', padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
         <section>
-          {/* Selector de Capítulos */}
           <div style={{ display: 'flex', gap: '10px', marginBottom: '25px' }}>
-            {Object.keys(chapters).map((key) => {
-              const isUnlocked = unlockedChapters.includes(Number(key));
-              const isActive = activeModule === Number(key);
-              return (
-                <button 
-                  key={key}
-                  disabled={!isUnlocked}
-                  onClick={() => { setActiveModule(Number(key)); setActiveSubtopic(0); setShowExam(false); }}
-                  style={{ 
-                    flex: 1, 
-                    padding: '12px', 
-                    backgroundColor: isActive ? COLORS.gold : (isUnlocked ? COLORS.white : '#f1f5f9'), 
-                    color: isActive ? COLORS.black : (isUnlocked ? COLORS.navy : COLORS.gray), 
-                    border: `1px solid ${isActive ? COLORS.gold : (isUnlocked ? COLORS.gold : '#cbd5e1')}`, 
-                    borderRadius: '8px', 
-                    cursor: isUnlocked ? 'pointer' : 'not-allowed',
-                    fontWeight: 'bold',
-                    opacity: isUnlocked ? 1 : 0.7,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '10px',
-                    boxShadow: isActive ? '0 4px 12px rgba(197, 160, 89, 0.3)' : 'none'
-                  }}
-                >
-                  Capítulo {key} {!isUnlocked && '🔒'}
-                </button>
-              );
-            })}
+            {[1, 2, 3, 4, 5, 6].map(num => (
+              <button 
+                key={num}
+                onClick={() => { setActiveModule(num); setActiveSubtopic(0); setShowExam(false); }}
+                style={{
+                  padding: '12px 20px',
+                  backgroundColor: activeModule === num ? COLORS.gold : (unlockedChapters.includes(num) ? COLORS.white : '#e2e8f0'),
+                  color: activeModule === num ? COLORS.black : COLORS.navy,
+                  border: `1px solid ${COLORS.border}`,
+                  borderRadius: '8px',
+                  fontWeight: 'bold',
+                  cursor: unlockedChapters.includes(num) ? 'pointer' : 'not-allowed',
+                  opacity: unlockedChapters.includes(num) ? 1 : 0.6
+                }}
+              >
+                Cap. {num}
+              </button>
+            ))}
           </div>
 
-          {!showExam ? (
-            <>
-              <div style={{ marginBottom: '25px', padding: '20px', backgroundColor: COLORS.white, borderRadius: '12px', borderLeft: `5px solid ${COLORS.gold}`, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-                <h2 style={{ color: COLORS.navy, margin: '0 0 5px 0' }}>{currentChapter.title}</h2>
-                <p style={{ color: COLORS.gray, margin: 0, fontSize: '14px' }}>{currentChapter.subtitle}</p>
-              </div>
+          <div style={{ backgroundColor: COLORS.white, padding: '30px', borderRadius: '15px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
+            <h1 style={{ margin: '0 0 10px 0', color: COLORS.navy }}>{currentChapter?.title}</h1>
+            <p style={{ color: COLORS.gray, marginBottom: '30px' }}>{currentChapter?.subtitle}</p>
 
-              <div className="course-layout">
-                {/* Sidebar de Subtemas */}
-                <nav style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                  <h4 style={{ color: COLORS.navy, margin: '0 0 10px 0', fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Subtemas del Capítulo</h4>
-                  {currentChapter.subtopics.map((sub, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveSubtopic(index)}
-                      style={{
-                        textAlign: 'left',
-                        padding: '12px',
-                        backgroundColor: activeSubtopic === index ? COLORS.navy : COLORS.white,
-                        color: activeSubtopic === index ? COLORS.white : COLORS.navy,
-                        border: `1px solid ${activeSubtopic === index ? COLORS.navy : COLORS.border}`,
-                        borderRadius: '8px',
-                        fontSize: '13px',
-                        cursor: 'pointer',
-                        fontWeight: activeSubtopic === index ? 'bold' : '500',
-                        boxShadow: activeSubtopic === index ? '0 4px 10px rgba(10, 27, 51, 0.2)' : 'none'
-                      }}
-                    >
-                      {sub.title}
-                    </button>
-                  ))}
-                  
-                  {/* Botón de Examen al final de la lista */}
-                  <button
-                    onClick={startExam}
+            <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '25px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {currentChapter?.subtopics.map((sub, i) => (
+                  <div 
+                    key={i}
+                    onClick={() => { setActiveSubtopic(i); setShowExam(false); }}
                     style={{
-                      marginTop: '20px',
-                      textAlign: 'center',
                       padding: '15px',
-                      backgroundColor: COLORS.gold,
-                      color: COLORS.black,
-                      border: 'none',
-                      borderRadius: '8px',
-                      fontSize: '15px',
-                      cursor: 'pointer',
-                      fontWeight: 'bold',
-                      boxShadow: '0 4px 15px rgba(197, 160, 89, 0.4)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '1px'
-                    }}
-                  >
-                    📝 TOMAR EXAMEN DE ESTE CAPÍTULO
-                  </button>
-                </nav>
-
-                {/* Video y Resumen */}
-                <div>
-                  <div style={{ 
-                    width: '100%', 
-                    position: 'relative', 
-                    paddingTop: '56.25%', 
-                    backgroundColor: COLORS.black, 
-                    borderRadius: '12px', 
-                    overflow: 'hidden',
-                    boxShadow: '0 10px 30px rgba(0,0,0,0.15)'
-                  }}>
-                    <iframe 
-                      src={currentSubtopic.videoUrl}
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        border: 'none'
-                      }}
-                      allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                  <div style={{ marginTop: '20px', padding: '25px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}`, boxShadow: '0 2px 8px rgba(0,0,0,0.03)' }}>
-                    <h3 style={{ color: COLORS.navy, margin: '0 0 10px 0' }}>{currentSubtopic.title}</h3>
-                    <p style={{ fontSize: '15px', lineHeight: '1.7', margin: 0, color: COLORS.navy }}>{currentSubtopic.summary}</p>
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : (
-            /* EXAM UI */
-            <div style={{ padding: '30px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
-                <h2 style={{ color: COLORS.navy, margin: 0 }}>Examen de Certificación - Capítulo {activeModule}</h2>
-                <button onClick={() => setShowExam(false)} style={{ background: 'none', border: 'none', color: COLORS.gray, cursor: 'pointer', fontSize: '14px' }}>Cerrar examen</button>
-              </div>
-
-              {examResult === null ? (
-                <>
-                  <div style={{ marginBottom: '30px' }}>
-                    <p style={{ color: COLORS.gray, fontSize: '14px', marginBottom: '10px' }}>Pregunta {currentQuestionIndex + 1} de {examQuestions.length}</p>
-                    <div style={{ height: '6px', width: '100%', backgroundColor: '#f1f5f9', borderRadius: '3px' }}>
-                      <div style={{ height: '100%', width: `${((currentQuestionIndex + 1) / examQuestions.length) * 100}%`, backgroundColor: COLORS.gold, borderRadius: '3px' }}></div>
-                    </div>
-                  </div>
-
-                  <h3 style={{ fontSize: '20px', marginBottom: '30px', lineHeight: '1.4', color: COLORS.navy }}>{examQuestions[currentQuestionIndex].question}</h3>
-                  
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                    {examQuestions[currentQuestionIndex].options.map((option, i) => (
-                      <button
-                        key={i}
-                        onClick={() => handleAnswer(option)}
-                        style={{
-                          textAlign: 'left',
-                          padding: '20px',
-                          borderRadius: '10px',
-                          border: `2px solid ${answers[currentQuestionIndex] === option ? COLORS.gold : COLORS.border}`,
-                          backgroundColor: answers[currentQuestionIndex] === option ? '#fffbeb' : COLORS.white,
-                          color: COLORS.navy,
-                          cursor: 'pointer',
-                          fontWeight: answers[currentQuestionIndex] === option ? 'bold' : '500',
-                          fontSize: '16px',
-                          transition: 'all 0.2s'
-                        }}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-
-                  <button
-                    disabled={!answers[currentQuestionIndex]}
-                    onClick={nextQuestion}
-                    style={{
-                      marginTop: '40px',
-                      width: '100%',
-                      padding: '18px',
-                      backgroundColor: answers[currentQuestionIndex] ? COLORS.navy : '#cbd5e1',
-                      color: COLORS.white,
-                      border: 'none',
+                      backgroundColor: activeSubtopic === i ? COLORS.navy : '#f8fafc',
+                      color: activeSubtopic === i ? COLORS.white : COLORS.navy,
                       borderRadius: '10px',
-                      fontWeight: 'bold',
-                      fontSize: '18px',
-                      cursor: answers[currentQuestionIndex] ? 'pointer' : 'not-allowed'
+                      cursor: 'pointer',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      border: `1px solid ${activeSubtopic === i ? COLORS.navy : COLORS.border}`
                     }}
                   >
-                    {currentQuestionIndex < examQuestions.length - 1 ? 'Siguiente Pregunta' : 'Finalizar Examen'}
-                  </button>
-                </>
-              ) : (
-                <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                  <div style={{ fontSize: '70px', marginBottom: '20px' }}>{examResult >= 80 ? '🎯' : '❌'}</div>
-                  <h2 style={{ fontSize: '36px', color: examResult >= 80 ? '#059669' : '#dc2626', margin: '0 0 10px 0' }}>Tu Puntaje: {Math.round(examResult)}%</h2>
-                  
-                  {examResult >= 80 && (
-                    <div style={{ 
-                      marginTop: '30px', 
-                      marginBottom: '30px', 
-                      padding: '20px', 
-                      backgroundColor: COLORS.navy, 
-                      borderRadius: '16px', 
-                      border: `2px solid ${COLORS.gold}`,
-                      boxShadow: '0 10px 30px rgba(197, 160, 89, 0.3)'
-                    }}>
-                      <h3 style={{ color: COLORS.gold, marginBottom: '15px' }}>🏆 MENSAJE PARA TI: TU MENTALIDAD GANADORA</h3>
-                      <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: '12px', overflow: 'hidden' }}>
-                        <iframe 
-                          src="https://app.heygen.com/embeds/TU_LINK_VIDEO_MOTIVADOR" 
-                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-                          allow="autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                    </div>
-                  )}
-
-                  <p style={{ fontSize: '18px', marginBottom: '30px', color: COLORS.navy, fontWeight: '500' }}>
-                    {examResult >= 80 
-                      ? '¡Felicidades! Has aprobado el capítulo. El siguiente módulo ha sido desbloqueado.' 
-                      : 'No has alcanzado el 80% requerido. Repasa el material y vuelve a intentarlo.'}
-                  </p>
-                  
-                  {/* Revisión de Respuestas */}
-                  <div style={{ textAlign: 'left', backgroundColor: '#f8fafc', borderRadius: '12px', padding: '25px', marginBottom: '30px', maxHeight: '400px', overflowY: 'auto', border: `1px solid ${COLORS.border}` }}>
-                    <h3 style={{ color: COLORS.navy, marginTop: 0, borderBottom: `2px solid ${COLORS.gold}`, paddingBottom: '10px', fontSize: '18px' }}>Revisión de Respuestas</h3>
-                    {examQuestions.map((q, i) => {
-                      const isCorrect = answers[i] === q.answer;
-                      return (
-                        <div key={i} style={{ marginBottom: '20px', paddingBottom: '15px', borderBottom: `1px solid ${COLORS.border}` }}>
-                          <p style={{ fontWeight: 'bold', fontSize: '15px', marginBottom: '8px', color: COLORS.navy }}>{i + 1}. {q.question}</p>
-                          <div style={{ fontSize: '14px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                            <div style={{ color: isCorrect ? '#059669' : '#dc2626', fontWeight: '600' }}>
-                              <strong>Tu respuesta:</strong> {answers[i] || 'No respondida'} {isCorrect ? '✓' : '✗'}
-                            </div>
-                            {!isCorrect && (
-                              <div style={{ color: '#9a7b2c' }}>
-                                <strong>Respuesta correcta:</strong> {q.answer}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
+                    {sub.title}
                   </div>
-                  
-                  <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-                    <button 
-                      onClick={startExam}
-                      style={{ padding: '15px 35px', backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}
-                    >
-                      Reintentar Examen
-                    </button>
-                    <button 
-                      onClick={() => setShowExam(false)}
-                      style={{ padding: '15px 35px', backgroundColor: 'transparent', color: COLORS.navy, border: `2px solid ${COLORS.navy}`, borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}
-                    >
-                      Volver al Capítulo
-                    </button>
-                  </div>
+                ))}
+                <div 
+                  onClick={() => setShowExam(true)}
+                  style={{
+                    padding: '15px',
+                    backgroundColor: showExam ? COLORS.goldDark : COLORS.gold,
+                    color: COLORS.black,
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    fontSize: '14px',
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    marginTop: '20px',
+                    border: `1px solid ${COLORS.goldDark}`
+                  }}
+                >
+                  📝 EXAMEN DE CAPÍTULO
                 </div>
-              )}
-            </div>
-          )}
+              </div>
 
-          {/* Sección de Valor Dinámica */}
-          <div style={{ marginTop: '40px', padding: '40px', backgroundColor: COLORS.navy, borderRadius: '16px', boxShadow: '0 15px 40px rgba(10, 27, 51, 0.2)' }}>
-            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-              {activeModule === 1 ? (
-                <>
-                  <h2 style={{ color: COLORS.gold, fontSize: '32px', margin: '0 0 15px 0' }}>Estudia Menos, Gana Más</h2>
-                  <p style={{ color: COLORS.white, fontSize: '19px', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6' }}>
-                    "¡Tu tiempo es oro y nosotros lo sabemos! Atrás quedaron las interminables horas de cansancio en un aula de clases tradicional. Hemos revolucionado el aprendizaje: transformamos días de estudio pesado en videos estratégicos, ágiles y directos al grano. Domina el examen sin rellenos, aprueba a la primera y empieza a generar ingresos de inmediato. ¡El éxito no espera!"
-                  </p>
-                </>
-              ) : (
-                <>
-                  <h2 style={{ color: COLORS.gold, fontSize: '32px', margin: '0 0 15px 0' }}>¡Ya eres parte del 1%!</h2>
-                  <p style={{ color: COLORS.white, fontSize: '19px', maxWidth: '900px', margin: '0 auto', lineHeight: '1.6' }}>
-                    "Haber superado el Capítulo 1 no fue casualidad, fue tu determinación. Has demostrado que tienes la disciplina de un campeón y que tu hambre de éxito es real. Estás en el camino correcto hacia la libertad financiera y cada lección te acerca más a esa vida que visualizaste. No eres un estudiante más, eres un futuro líder de la industria. ¡Sigue con esa mentalidad ganadora, el Capítulo 2 es tu siguiente victoria!"
-                  </p>
-                </>
-              )}
-            </div>
-
-            {/* Sección de Bonos de Valor */}
-            <div style={{ 
-              marginTop: '30px', 
-              padding: '30px', 
-              backgroundColor: 'rgba(255,255,255,0.05)', 
-              borderRadius: '12px', 
-              border: `1px solid ${COLORS.gold}`,
-              textAlign: 'center'
-            }}>
-              <img src={LOGO_URL} alt="Logo" style={{ width: '60px', marginBottom: '15px' }} />
-              <h3 style={{ color: COLORS.gold, margin: '0 0 10px 0', fontSize: '24px', letterSpacing: '1px' }}>RECURSOS DEL CAPÍTULO {activeModule}</h3>
-              <p style={{ color: COLORS.white, fontSize: '15px', marginBottom: '25px', opacity: 0.9 }}>Material descargable para tu preparación final.</p>
-              
-              <div className="bonos-grid">
-                <a href={currentChapter.manual} target="_blank" style={{ 
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  padding: '25px', 
-                  backgroundColor: COLORS.white, 
-                  color: COLORS.navy, 
-                  textDecoration: 'none', 
-                  fontWeight: 'bold', 
-                  borderRadius: '12px',
-                  border: `2px solid ${COLORS.gold}`,
-                  transition: 'transform 0.2s',
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
-                }}>
-                  <span style={{ fontSize: '28px', marginBottom: '8px' }}>📖</span>
-                  <span>MANUAL MAESTRO</span>
-                  <span style={{ fontSize: '11px', color: COLORS.gray, marginTop: '5px', fontWeight: 'normal' }}>Toda la teoría legal</span>
-                </a>
-                <a href={currentChapter.guia} target="_blank" style={{ 
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  padding: '25px', 
-                  backgroundColor: COLORS.gold, 
-                  color: COLORS.black, 
-                  textDecoration: 'none', 
-                  fontWeight: 'bold', 
-                  borderRadius: '12px',
-                  border: `2px solid ${COLORS.gold}`,
-                  transition: 'transform 0.2s',
-                  boxShadow: '0 5px 15px rgba(197, 160, 89, 0.4)'
-                }}>
-                  <span style={{ fontSize: '28px', marginBottom: '8px' }}>🎯</span>
-                  <span>GUÍA DE 50 PREGUNTAS</span>
-                  <span style={{ fontSize: '11px', color: COLORS.black, marginTop: '5px', fontWeight: 'normal', opacity: 0.8 }}>Simulador de Examen</span>
-                </a>
+              <div>
+                {!showExam ? (
+                  <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', backgroundColor: COLORS.black, borderRadius: '12px', overflow: 'hidden' }}>
+                    {dynamicText && (
+                      <div style={{ position: 'absolute', top: '10%', width: '100%', zIndex: 10, display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ color: COLORS.gold, fontSize: '32px', fontWeight: 'bold', backgroundColor: 'rgba(10, 27, 51, 0.8)', padding: '10px 30px', borderRadius: '50px', border: `2px solid ${COLORS.gold}`, animation: 'fadeInUp 0.5s' }}>
+                          {dynamicText}
+                        </div>
+                      </div>
+                    )}
+                    <video 
+                      ref={videoRef}
+                      onTimeUpdate={handleTimeUpdate}
+                      src={currentChapter?.subtopics[activeSubtopic].videoUrl}
+                      controls 
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                    />
+                  </div>
+                ) : (
+                  <div style={{ padding: '40px', textAlign: 'center', backgroundColor: '#f8fafc', borderRadius: '12px' }}>
+                    <h2>Simulador de Examen: Capítulo {activeModule}</h2>
+                    <p>Entrena con el modelo de Pearson VUE y Doble Aleatoriedad.</p>
+                    <button style={{ padding: '15px 40px', backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '50px', fontWeight: 'bold', cursor: 'pointer', marginTop: '20px' }}>
+                      Comenzar Examen
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Sidebar / AI Tutor */}
         <aside style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-          <div style={{ padding: '25px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)', position: 'sticky', top: '20px' }}>
-            <h3 style={{ color: COLORS.navy, marginTop: 0, fontSize: '18px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span>🤖</span> Tutor IA Maná
-            </h3>
-            <p style={{ fontSize: '13px', color: COLORS.gray, marginBottom: '20px' }}>Pregúntame cualquier duda técnica del capítulo.</p>
-            <div style={{ height: '400px', backgroundColor: '#f8fafc', borderRadius: '10px', padding: '15px', fontSize: '14px', overflowY: 'auto', border: `1px solid ${COLORS.border}`, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div style={{ padding: '25px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
+            <h3 style={{ color: COLORS.navy, marginTop: 0 }}>🤖 Tutor IA Maná</h3>
+            <div style={{ height: '300px', backgroundColor: '#f8fafc', borderRadius: '10px', padding: '15px', overflowY: 'auto', border: `1px solid ${COLORS.border}`, display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {chat.map((msg, i) => (
-                <div key={i} style={{ 
-                  alignSelf: msg.role === 'ai' ? 'flex-start' : 'flex-end', 
-                  backgroundColor: msg.role === 'ai' ? COLORS.navy : COLORS.gold, 
-                  color: msg.role === 'ai' ? COLORS.white : COLORS.black, 
-                  padding: '10px 14px', 
-                  borderRadius: '12px', 
-                  maxWidth: '90%',
-                  fontSize: '13px',
-                  lineHeight: '1.4',
-                  boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
-                }}>
+                <div key={i} style={{ alignSelf: msg.role === 'ai' ? 'flex-start' : 'flex-end', backgroundColor: msg.role === 'ai' ? COLORS.navy : COLORS.gold, color: msg.role === 'ai' ? COLORS.white : COLORS.black, padding: '10px', borderRadius: '10px', fontSize: '13px', maxWidth: '85%' }}>
                   {msg.text}
                 </div>
               ))}
-              {loading && <div style={{ color: COLORS.navy, fontSize: '12px', fontWeight: 'bold' }}>El tutor está analizando...</div>}
             </div>
-            <div style={{ display: 'flex', marginTop: '15px', gap: '8px' }}>
-              <input 
-                type="text" 
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyPress={(e) => e.key === 'Enter' && askTutor()}
-                placeholder="Escribe tu duda..." 
-                style={{ flex: 1, padding: '12px', borderRadius: '8px', border: `1px solid ${COLORS.border}`, backgroundColor: COLORS.white, color: COLORS.navy, fontSize: '14px' }}
-              />
-              <button onClick={askTutor} style={{ backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '8px', padding: '0 15px', cursor: 'pointer', fontWeight: 'bold' }}>→</button>
+            <div style={{ display: 'flex', marginTop: '10px', gap: '5px' }}>
+              <input value={query} onChange={e => setQuery(e.target.value)} placeholder="Tu duda..." style={{ flex: 1, padding: '10px', borderRadius: '5px', border: `1px solid ${COLORS.border}` }} />
+              <button onClick={askTutor} style={{ backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '5px', padding: '0 10px' }}>→</button>
             </div>
           </div>
-
-          <div style={{ padding: '20px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 10px rgba(0,0,0,0.03)' }}>
-            <h3 style={{ color: COLORS.navy, marginTop: 0, fontSize: '16px' }}>Tu Avance Académico</h3>
-            <div style={{ height: '8px', width: '100%', backgroundColor: '#f1f5f9', borderRadius: '4px', overflow: 'hidden', margin: '15px 0' }}>
-              <div style={{ width: `${(unlockedChapters.length / 6) * 100}%`, height: '100%', backgroundColor: COLORS.gold, borderRadius: '4px' }}></div>
+          <div style={{ padding: '20px', backgroundColor: COLORS.white, borderRadius: '12px', border: `1px solid ${COLORS.border}` }}>
+            <h3 style={{ color: COLORS.navy, marginTop: 0, fontSize: '16px' }}>Tu Avance</h3>
+            <div style={{ height: '8px', width: '100%', backgroundColor: '#e2e8f0', borderRadius: '4px', overflow: 'hidden', margin: '10px 0' }}>
+              <div style={{ width: `${(unlockedChapters.length / 6) * 100}%`, height: '100%', backgroundColor: COLORS.gold }}></div>
             </div>
-            <p style={{ fontSize: '13px', color: COLORS.gray }}>{unlockedChapters.length} de 6 Capítulos desbloqueados</p>
+            <p style={{ fontSize: '12px', color: COLORS.gray }}>{unlockedChapters.length} de 6 completados</p>
           </div>
         </aside>
       </main>
-      <div style={{ opacity: 0, fontSize: '1px' }}>v.2.0.2 - Force Build: {new Date().toISOString()}</div>
+
+      <style jsx global>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }

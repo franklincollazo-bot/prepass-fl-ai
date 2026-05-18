@@ -4,16 +4,21 @@
     "build": "next build",
     "start": "next start",
     "generate-videos": "node scripts/heygen-sync.js",
-    "update-content": "node scripts/update-lms.js"
+    "update-content": "node scripts/update-lms.js",
+    "remotion": "remotion preview remotion/Root.tsx"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "openai": "^4.0.0",
-    "stripe": "^14.0.0",
+    "@remotion/cli": "^4.0.462",
+    "@remotion/player": "^4.0.462",
     "@supabase/supabase-js": "^2.0.0",
     "axios": "^1.6.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "next": "latest",
+    "openai": "^4.0.0",
+    "react": "latest",
+    "react-confetti": "^6.4.0",
+    "react-dom": "latest",
+    "remotion": "^4.0.462",
+    "stripe": "^14.0.0"
   }
 }

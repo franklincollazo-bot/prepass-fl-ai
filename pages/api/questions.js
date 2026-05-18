@@ -93,97 +93,144 @@ const QUESTIONS_POOL = {
   ],
   2: [
     {
-      id: 11,
-      question: "¿Cuál es el objetivo principal de un 'Stop-Loss' en una póliza de Gastos Médicos Mayores?",
-      options: ["Pagar el deducible del asegurado", "Limitar el riesgo de la aseguradora", "Limitar la responsabilidad financiera máxima del asegurado", "Evitar que el asegurado cancele la póliza"],
-      answer: "Limitar la responsabilidad financiera máxima del asegurado"
-    },
-    {
-      id: 12,
-      question: "¿Qué sistema de salud utiliza un 'Gatekeeper' (Médico de cabecera) para controlar el acceso a especialistas?",
-      options: ["PPO", "HMO", "Medicare", "Indemnización tradicional"],
+      id: 1,
+      question: "¿Qué tipo de plan de salud requiere que el asegurado elija un Médico de Atención Primaria (Gatekeeper)?",
+      options: ["PPO", "HMO", "POS", "Indemnización"],
       answer: "HMO"
     },
     {
+      id: 2,
+      question: "Un asegurado tiene una póliza de Gastos Médicos Mayores con un deducible de $500 y un coseguro de 80/20. Si el asegurado incurre en una factura médica de $2,500, ¿cuánto es el monto TOTAL que el asegurado debe pagar de su bolsillo?",
+      options: [
+        "$500",
+        "$900",
+        "$400",
+        "$2,000"
+      ],
+      answer: "$900"
+    },
+    {
+      id: 3,
+      question: "¿Cuál de los siguientes es un objetivo principal del 'Gatekeeper' en un HMO?",
+      options: [
+        "Aumentar las ganancias de los accionistas",
+        "Controlar los costos y coordinar el acceso a especialistas",
+        "Garantizar que todos los reclamos sean pagados al 100%",
+        "Auditar las finanzas del asegurado"
+      ],
+      answer: "Controlar los costos y coordinar el acceso a especialistas"
+    },
+    {
+      id: 12,
+      question: "En una póliza de Seguro de Ingreso por Incapacidad, el 'Período de Eliminación' actúa como:",
+      options: [
+        "Un deducible de tiempo",
+        "Un período de gracia",
+        "Una cláusula de suicidio",
+        "Un beneficio adicional"
+      ],
+      answer: "Un deducible de tiempo"
+    },
+    {
       id: 13,
-      question: "En una póliza de discapacidad, el tiempo que debe pasar entre el inicio de la incapacidad y el comienzo de los beneficios se llama:",
-      options: ["Período de prueba", "Período de gracia", "Período de eliminación", "Período de espera legal"],
-      answer: "Período de eliminación"
+      question: "Una empresa compra una póliza de Seguro de Discapacidad de Persona Clave (Key Person) para su mejor vendedor. ¿Cuál es el tratamiento fiscal de esta póliza?",
+      options: [
+        "Las primas son deducibles y los beneficios son gravables",
+        "Las primas NO son deducibles y los beneficios son libres de impuestos",
+        "Tanto las primas como los beneficios son deducibles",
+        "Las primas son deducibles y los beneficios son libres de impuestos"
+      ],
+      answer: "Las primas NO son deducibles y los beneficios son libres de impuestos"
     },
     {
       id: 14,
-      question: "¿Qué parte de Medicare cubre principalmente los gastos de hospitalización?",
-      options: ["Parte A", "Parte B", "Parte C", "Parte D"],
-      answer: "Parte A"
+      question: "¿Cuál de las siguientes NO es una característica típica de un plan PPO?",
+      options: [
+        "Libertad para elegir proveedores fuera de la red",
+        "Uso obligatorio de un Gatekeeper para todas las consultas",
+        "Copagos más bajos cuando se usa la red preferida",
+        "Deducibles anuales"
+      ],
+      answer: "Uso obligatorio de un Gatekeeper para todas las consultas"
+    },
+
+    {
+      id: 3,
+      question: "¿Cuál es el objetivo principal del 'Gatekeeper' en un HMO?",
+      options: [
+        "Aumentar las primas",
+        "Controlar los costos y referir a especialistas",
+        "Vender pólizas adicionales",
+        "Auditar a la aseguradora"
+      ],
+      answer: "Controlar los costos y referir a especialistas"
+    },
+    {
+      id: 4,
+      question: "Si un asegurado tiene un plan PPO y decide atenderse con un proveedor fuera de la red (Out-of-Network), ¿qué sucede?",
+      options: [
+        "El seguro no cubre nada",
+        "El seguro cubre el 100%",
+        "El seguro cubre una parte, pero el costo para el asegurado es mayor",
+        "El asegurado es expulsado del plan"
+      ],
+      answer: "El seguro cubre una parte, pero el costo para el asegurado es mayor"
+    },
+    {
+      id: 5,
+      question: "¿Qué porcentaje de coseguro es el más común en las pólizas de Gastos Médicos Mayores?",
+      options: ["50/50", "100/0", "80/20", "10/90"],
+      answer: "80/20"
+    },
+    {
+      id: 6,
+      question: "¿Cuál de los siguientes servicios suele estar cubierto al 100% por un HMO para prevenir enfermedades?",
+      options: ["Cirugía estética", "Cuidado preventivo y exámenes físicos", "Medicina alternativa", "Equipos de gimnasio"],
+      answer: "Cuidado preventivo y exámenes físicos"
+    },
+    {
+      id: 7,
+      question: "Un plan de salud que combina características de HMO y PPO se conoce como:",
+      options: ["POS (Point of Service)", "Medicare", "Medicaid", "TRICARE"],
+      answer: "POS (Point of Service)"
+    },
+    {
+      id: 8,
+      question: "En el contexto de seguros de salud, ¿qué significa 'In-Network'?",
+      options: [
+        "Proveedores que han firmado un contrato con la aseguradora",
+        "Médicos que solo atienden emergencias",
+        "Cualquier hospital del estado",
+        "Proveedores internacionales"
+      ],
+      answer: "Proveedores que han firmado un contrato con la aseguradora"
+    },
+    {
+      id: 9,
+      question: "¿Qué sucede cuando el asegurado alcanza su límite de 'Stop-Loss'?",
+      options: [
+        "La aseguradora cancela la póliza inmediatamente",
+        "La aseguradora paga el 100% de los gastos cubiertos por el resto del año de la póliza",
+        "El asegurado debe pagar el doble de deducible el próximo año",
+        "Se suspenden los beneficios por 30 días"
+      ],
+      answer: "La aseguradora paga el 100% de los gastos cubiertos por el resto del año de la póliza"
     },
     {
       id: 15,
-      question: "La cláusula de 'Coseguro' (80/20) se activa después de que:",
-      options: ["Se paga la prima anual", "Se satisface el deducible", "Termina el período de gracia", "Se aprueba el reclamo"],
-      answer: "Se satisface el deducible"
-    },
-    {
-      id: 16,
-      question: "En una PPO, si el asegurado utiliza un médico fuera de la red (Out-of-Network):",
-      options: ["La aseguradora no paga nada", "Los beneficios se reducen y los costos aumentan para el asegurado", "La aseguradora paga el 100%", "El asegurado es penalizado con una multa estatal"],
-      answer: "Los beneficios se reducen y los costos aumentan para el asegurado"
-    },
-    {
-      id: 17,
-      question: "¿Cuál de las siguientes se considera una Actividad de la Vida Diaria (ADL) para calificar beneficios de Long-Term Care?",
-      options: ["Conducir un vehículo", "Cocinar para la familia", "Bañarse o vestirse solo", "Pagar las cuentas"],
-      answer: "Bañarse o vestirse solo"
-    },
-    {
-      id: 18,
-      question: "Una póliza de discapacidad 'Non-Cancellable' garantiza que:",
-      options: ["La aseguradora puede aumentar las primas cada año", "Las primas no pueden aumentar y la póliza no puede ser cancelada hasta los 65 años", "El asegurado puede cancelar cuando quiera sin aviso", "La aseguradora puede cambiar los beneficios si el asegurado cambia de empleo"],
-      answer: "Las primas no pueden aumentar y la póliza no puede ser cancelada hasta los 65 años"
-    },
-    {
-      id: 19,
-      question: "Medicaid es un programa de salud financiado por:",
-      options: ["Solo el gobierno federal", "Solo donaciones privadas", "El gobierno federal y estatal para personas de bajos ingresos", "Solo el estado de Florida"],
-      answer: "El gobierno federal y estatal para personas de bajos ingresos"
-    },
-    {
-      id: 20,
-      question: "La definición de incapacidad más restrictiva para el asegurado es:",
-      options: ["Propia ocupación (Own Occupation)", "Cualquier ocupación (Any Occupation)", "Incapacidad parcial", "Incapacidad residual"],
-      answer: "Cualquier ocupación (Any Occupation)"
-    },
-    {
-      id: 201,
-      question: "Una póliza de salud que solo cubre una enfermedad específica, como el cáncer, se conoce como:",
-      options: ["Póliza de Gastos Médicos Mayores", "Póliza de Riesgo Limitado (Dread Disease)", "Póliza de Indemnización Hospitalaria", "Seguro Complementario de Medicare"],
-      answer: "Póliza de Riesgo Limitado (Dread Disease)"
-    },
-    {
-      id: 202,
-      question: "¿Bajo COBRA, cuántos empleados debe tener una empresa para estar obligada a ofrecer la continuación de beneficios?",
-      options: ["5 o más", "10 o más", "20 o más", "50 o más"],
-      answer: "20 o más"
-    },
-    {
-      id: 203,
-      question: "La provisión que evita que una persona cobre beneficios de dos pólizas de salud por más del 100% del gasto se llama:",
-      options: ["Coseguro", "Coordinación de Beneficios", "Subrogación", "Doble Indemnización"],
-      answer: "Coordinación de Beneficios"
-    },
-    {
-      id: 204,
-      question: "¿Cuál es el período de inscripción abierta anual de Medicare?",
-      options: ["1 de enero al 31 de marzo", "15 de octubre al 7 de diciembre", "1 de julio al 15 de septiembre", "Todo el año"],
-      answer: "15 de octubre al 7 de diciembre"
-    },
-    {
-      id: 205,
-      question: "Una póliza de 'Blanket Insurance' (Seguro de Manta) se usa comúnmente para:",
-      options: ["Individuos de alto riesgo", "Grupos que cambian constantemente, como estudiantes en un viaje", "Solo empleados gubernamentales", "Personas mayores de 80 años"],
-      answer: "Grupos que cambian constantemente, como estudiantes en un viaje"
+      question: "En Florida, ¿cuál es el propósito de la cláusula de 'Período de Prueba' (Probationary Period) en una póliza de salud grupal?",
+      options: [
+        "Permitir que el asegurado cancele la póliza sin penalización",
+        "Excluir la cobertura de enfermedades preexistentes durante un tiempo inicial",
+        "Darle tiempo a la aseguradora para investigar el fraude",
+        "Evitar reclamos inmediatos por enfermedades que el asegurado ya tenía antes de la póliza"
+      ],
+      answer: "Evitar reclamos inmediatos por enfermedades que el asegurado ya tenía antes de la póliza"
     }
   ]
 };
+
+
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') return res.status(405).send();

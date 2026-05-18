@@ -4,3 +4,8 @@ node_modules
 .DS_Store
 dist
 build
+.next
+*.mp3
+*.mp4
+agent-core/
+package-lock.json
