@@ -273,7 +273,7 @@ export default function Dashboard() {
         <div className="nav-title" style={{ color: COLORS.white, fontWeight: 'bold' }}>MANÁ ACADEMY | PREPASS FL AI</div>
       </nav>
 
-      <main className="main-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px', padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
+      <main className="main-layout" style={{ gap: '30px', padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
         
         {showSurvey && (
           <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(10,27,51,0.95)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
@@ -365,7 +365,7 @@ export default function Dashboard() {
             <h1 style={{ margin: '0 0 10px 0', color: COLORS.navy }}>{currentChapter?.title}</h1>
             <p style={{ color: COLORS.gray, marginBottom: '30px' }}>{currentChapter?.subtitle}</p>
 
-            <div className="chapter-content-grid" style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '25px' }}>
+            <div className="chapter-content-grid" style={{ gap: '25px' }}>
               <div className="subtopics-list" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {currentChapter?.subtopics.map((sub, i) => (
                   <div 
@@ -709,28 +709,43 @@ export default function Dashboard() {
           to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 1024px) {
+        .main-layout {
+          display: grid;
+          grid-template-columns: 1fr 350px;
+        }
+
+        .chapter-content-grid {
+          display: grid;
+          grid-template-columns: 280px 1fr;
+        }
+
+        @media (max-width: 1100px) {
           .main-layout {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: 1fr;
             padding: 20px !important;
-            gap: 20px !important;
-          }
-          .chapter-content-grid {
-            grid-template-columns: 1fr !important;
-            display: flex !important;
-            flex-direction: column !important;
-          }
-          .nav-bar {
-            padding: 10px 20px !important;
-          }
-          .nav-title {
-            font-size: 14px;
           }
           .sidebar-layout {
             order: 2;
           }
           .left-section {
             order: 1;
+          }
+        }
+
+        @media (max-width: 850px) {
+          .chapter-content-grid {
+            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+          }
+          .subtopics-list {
+            order: 2;
+          }
+          .video-player-wrapper {
+            order: 1;
+          }
+          .nav-bar {
+            padding: 10px 20px !important;
           }
         }
 
@@ -744,12 +759,6 @@ export default function Dashboard() {
             font-size: 12px !important;
             white-space: nowrap;
           }
-          .subtopics-list {
-            order: 2 !important;
-          }
-          .video-player-wrapper {
-            order: 1 !important;
-          }
           .exam-container {
             padding: 15px !important;
           }
@@ -758,6 +767,9 @@ export default function Dashboard() {
           }
           .nav-bar img {
             height: 40px !important;
+          }
+          .nav-title {
+            display: none;
           }
         }
       `}</style>
