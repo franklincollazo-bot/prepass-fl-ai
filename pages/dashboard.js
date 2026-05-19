@@ -71,9 +71,9 @@ const CHAPTERS_DATA = {
         summary: "Aprende a proteger el activo más importante: tu capacidad de generar ingresos. Conceptos clave: Own Occ vs Any Occ."
       },
       {
-        title: "2.2 Gastos Médicos: Básicos vs Mayores",
-        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_2",
-        summary: "Análisis de deducibles, coseguro y el límite de stop-loss."
+        title: "2.2 Gastos Médicos (Mayores y Básicos)",
+        videoUrl: "https://app.heygen.com/embeds/dda1455536c14ab8811004c41fe19cbe",
+        summary: "Descubre cómo funcionan los deducibles, el coaseguro y el Stop-Loss en la protección de tus ahorros."
       },
       {
         title: "2.3 HMO y PPO: Cuidado Administrado",
