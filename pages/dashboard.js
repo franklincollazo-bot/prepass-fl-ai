@@ -76,9 +76,9 @@ const CHAPTERS_DATA = {
         summary: "Descubre cómo funcionan los deducibles, el coaseguro y el Stop-Loss en la protección de tus ahorros."
       },
       {
-        title: "2.3 HMO y PPO: Cuidado Administrado",
-        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_3",
-        summary: "Cómo funcionan las redes, el rol del Gatekeeper y el pago por capitación."
+        title: "2.3 El Mapa de las Redes: HMO vs PPO",
+        videoUrl: "https://app.heygen.com/embeds/76a3fbb4e17d4b4fb0470642606535ae",
+        summary: "Libertad vs. Control: Aprende las diferencias fundamentales entre redes cerradas (HMO) y redes abiertas (PPO)."
       },
       {
         title: "2.4 Seguros Grupales y COBRA",
