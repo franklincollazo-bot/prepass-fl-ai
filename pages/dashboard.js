@@ -1,5 +1,6 @@
 // v2.1.0 - Stable Video Engine
 import React from 'react';
+import Head from 'next/head';
 
 const COLORS = {
   black: '#000000',
@@ -268,6 +269,10 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container" style={{ backgroundColor: COLORS.darkBg, color: COLORS.navy, minHeight: '100vh', fontFamily: 'system-ui' }}>
+      <Head>
+        <title>Dashboard | Maná Academy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+      </Head>
       <nav className="nav-bar" style={{ padding: '10px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.navy, borderBottom: `3px solid ${COLORS.gold}` }}>
         <img src={LOGO_URL} alt="Logo" style={{ height: '50px' }} />
         <div className="nav-title" style={{ color: COLORS.white, fontWeight: 'bold' }}>MANÁ ACADEMY | PREPASS FL AI</div>
@@ -495,7 +500,7 @@ export default function Dashboard() {
                                 <li><strong>La Regla de los 5 Segundos:</strong> Antes de hacer clic, lee la pregunta por segunda vez. ¿Estás respondiendo lo que preguntaron o lo que <em>creíste</em> que preguntaron?</li>
                               </ul>
       <footer style={{ padding: '20px', textAlign: 'center', borderTop: `1px solid ${COLORS.border}`, marginTop: '40px', color: COLORS.gray, fontSize: '12px' }}>
-        &copy; 2026 Maná Academy - PrePass FL AI v2.1.5 | Capítulo 1 Completo al 100%
+        &copy; 2026 Maná Academy - PrePass FL AI v2.1.6 | Optimización Móvil v2
       </footer>
     </div>
                             <p style={{ marginTop: '15px', fontSize: '13px', fontWeight: 'bold', textAlign: 'center' }}>
