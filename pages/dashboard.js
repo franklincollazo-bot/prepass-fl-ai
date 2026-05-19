@@ -52,9 +52,9 @@ const CHAPTERS_DATA = {
         summary: "Cómo las aseguradoras investigan el riesgo médico y de crédito legalmente."
       },
       {
-        title: "1.6 Ética y Leyes: Prácticas Desleales",
-        videoUrl: "https://app.heygen.com/embeds/4f78d27571724087b35f7714ce9c97ae",
-        summary: "Domina las prácticas que el examinador pone a prueba: Twisting, Churning, Sliding, Rebating y Coerción."
+        title: "1.6 Ética y Leyes: Masterclass v2",
+        videoUrl: "https://app.heygen.com/embeds/c7198b0a9b614a1c9e317e8e9fc16c83",
+        summary: "Versión mejorada con IA: Domina las prácticas que el examinador pone a prueba con enfoque en ética profesional."
       }
     ]
   },
