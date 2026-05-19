@@ -273,9 +273,9 @@ export default function Dashboard() {
         <div className="nav-title" style={{ color: COLORS.white, fontWeight: 'bold' }}>MANÁ ACADEMY | PREPASS FL AI</div>
       </nav>
 
-      <main className="main-layout">
-        <section className="left-section">
-          <div className="chapter-selector">
+      <main className="main-layout" style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', padding: '20px', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
+        <section className="left-section" style={{ flex: '1 1 700px', minWidth: '0' }}>
+          <div className="chapter-selector" style={{ display: 'flex', gap: '10px', marginBottom: '25px', overflowX: 'auto', paddingBottom: '10px', width: '100%' }}>
             {[1, 2, 3, 4, 5, 6].map(num => (
               <button 
                 key={num}
@@ -300,8 +300,8 @@ export default function Dashboard() {
             <h1 className="chapter-title" style={{ margin: '0 0 10px 0', color: COLORS.navy }}>{currentChapter?.title}</h1>
             <p className="chapter-subtitle" style={{ color: COLORS.gray, marginBottom: '30px' }}>{currentChapter?.subtitle}</p>
 
-            <div className="chapter-content-grid">
-              <div className="subtopics-list" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div className="chapter-content-grid" style={{ display: 'flex', flexWrap: 'wrap', gap: '25px', width: '100%' }}>
+              <div className="subtopics-list" style={{ flex: '0 0 280px', minWidth: '200px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {currentChapter?.subtopics.map((sub, i) => (
                   <div 
                     key={i}
@@ -388,7 +388,7 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div className="video-player-wrapper">
+              <div className="video-player-wrapper" style={{ flex: '1 1 400px', minWidth: '0' }}>
                 {!showExam ? (
                   <div className="video-container" style={{ position: 'relative', width: '100%', paddingTop: '56.25%', backgroundColor: COLORS.black, borderRadius: '12px', overflow: 'hidden' }}>
                     {dynamicText && (
@@ -519,7 +519,7 @@ export default function Dashboard() {
           </div>
         </section>
 
-        <aside className="sidebar-layout" style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+        <aside className="sidebar-layout" style={{ flex: '0 0 350px', display: 'flex', flexDirection: 'column', gap: '25px', minWidth: '300px' }}>
           <div style={{ padding: '25px', backgroundColor: COLORS.navy, borderRadius: '12px', color: COLORS.white, border: `1px solid ${COLORS.gold}`, boxShadow: '0 10px 20px rgba(10, 27, 51, 0.2)' }}>
             <h3 style={{ margin: '0 0 15px 0', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ fontSize: '20px' }}>⚖️</span> Readiness Estatal
@@ -639,104 +639,20 @@ export default function Dashboard() {
       </main>
 
        <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
-        
+        * { box-sizing: border-box; }
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-
-        .main-layout {
-          display: grid;
-          grid-template-columns: 1fr 350px;
-          gap: 30px;
-          padding: 40px;
-          max-width: 1400px;
-          margin: 0 auto;
-          width: 100%;
-        }
-
-        .chapter-selector {
-          display: flex;
-          gap: 10px;
-          margin-bottom: 25px;
-          overflow-x: auto;
-          padding-bottom: 10px;
-          width: 100%;
-        }
-
-        .chapter-content-grid {
-          display: grid;
-          grid-template-columns: 280px 1fr;
-          gap: 25px;
-          width: 100%;
-        }
-
-        @media (max-width: 1100px) {
-          .main-layout {
-            grid-template-columns: 1fr;
-            padding: 20px;
-          }
-          .sidebar-layout {
-            order: 2;
-          }
-          .left-section {
-            order: 1;
-          }
-        }
-
-        @media (max-width: 850px) {
-          .chapter-content-grid {
-            grid-template-columns: 1fr;
-            display: flex;
-            flex-direction: column;
-          }
-          .subtopics-list {
-            order: 2;
-          }
-          .video-player-wrapper {
-            order: 1;
-            width: 100%;
-          }
-          .nav-bar {
-            padding: 10px 20px !important;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .main-layout {
-            padding: 15px;
-          }
-          .chapter-main-card {
-            padding: 20px !important;
-          }
-          .chapter-selector {
-            gap: 8px;
-            margin-bottom: 15px;
-          }
-          .chapter-selector button {
-            padding: 10px 15px !important;
-            font-size: 12px !important;
-            white-space: nowrap;
-          }
-          .exam-container {
-            padding: 15px !important;
-          }
-          .chapter-title {
-            font-size: 20px !important;
-          }
-          .chapter-subtitle {
-            font-size: 13px !important;
-            margin-bottom: 20px !important;
-          }
-          .nav-bar img {
-            height: 35px !important;
-          }
-          .nav-title {
-            display: none;
-          }
+        @media (max-width: 800px) {
+          .nav-title { display: none; }
+          .nav-bar { padding: 10px 15px !important; }
+          .sidebar-layout { flex: 1 1 100% !important; }
+          .left-section { flex: 1 1 100% !important; }
+          .subtopics-list { order: 2; flex: 1 1 100% !important; }
+          .video-player-wrapper { order: 1; flex: 1 1 100% !important; }
+          .chapter-main-card { padding: 15px !important; }
+          .main-layout { padding: 10px !important; gap: 15px !important; }
         }
       `}</style>
     </div>
