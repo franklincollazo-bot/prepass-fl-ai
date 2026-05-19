@@ -273,74 +273,9 @@ export default function Dashboard() {
         <div className="nav-title" style={{ color: COLORS.white, fontWeight: 'bold' }}>MANÁ ACADEMY | PREPASS FL AI</div>
       </nav>
 
-      <main className="main-layout" style={{ gap: '30px', padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
-        
-        {showSurvey && (
-          <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(10,27,51,0.95)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-            <div style={{ backgroundColor: COLORS.white, padding: '40px', borderRadius: '15px', maxWidth: '600px', width: '100%', border: `2px solid ${COLORS.gold}` }}>
-              <div style={{ textAlign: 'center', marginBottom: '30px' }}>
-                <div style={{ fontSize: '32px', marginBottom: '10px' }}>🚀</div>
-                <h2 style={{ color: COLORS.navy, margin: 0 }}>Feedback de Vanguardia</h2>
-                <p style={{ color: COLORS.gray, fontSize: '14px' }}>Ayúdanos a mantener Maná Academy como el curso #1 de Florida.</p>
-              </div>
-
-              {surveyStep === 0 && (
-                <div>
-                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>1. ¿Qué tan clara fue la explicación técnica de este capítulo?</h3>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '30px' }}>
-                    {[1, 2, 3, 4, 5].map(n => (
-                      <button key={n} onClick={() => { setSurveyResponses({ ...surveyResponses, clarity: n }); setSurveyStep(1); }} style={{ width: '50px', height: '50px', borderRadius: '25px', border: `2px solid ${COLORS.gold}`, backgroundColor: surveyResponses.clarity === n ? COLORS.gold : 'transparent', fontWeight: 'bold', cursor: 'pointer' }}>{n}</button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {surveyStep === 1 && (
-                <div>
-                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>2. ¿Sientes que el simulador imita las "trampas" de el examinador?</h3>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}>
-                    {["Totalmente", "A veces", "Necesita más dificultad"].map(opt => (
-                      <button key={opt} onClick={() => { setSurveyResponses({ ...surveyResponses, simulation: opt }); setSurveyStep(2); }} style={{ padding: '15px', borderRadius: '10px', border: `1px solid ${COLORS.border}`, textAlign: 'left', cursor: 'pointer', backgroundColor: 'transparent' }}>{opt}</button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {surveyStep === 2 && (
-                <div>
-                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>3. ¿Qué concepto técnico te generó más confusión en este módulo?</h3>
-                  <textarea 
-                    style={{ width: '100%', height: '100px', padding: '15px', borderRadius: '10px', border: `1px solid ${COLORS.border}`, marginBottom: '20px', fontSize: '14px' }}
-                    placeholder="Escribe aquí el tema que debemos reforzar..."
-                    onBlur={(e) => setSurveyResponses({ ...surveyResponses, criticalPoint: e.target.value })}
-                  />
-                  <button 
-                    onClick={() => setSurveyStep(3)}
-                    style={{ width: '100%', padding: '15px', backgroundColor: COLORS.navy, color: COLORS.white, border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}
-                  >
-                    SIGUIENTE
-                  </button>
-                </div>
-              )}
-
-              {surveyStep === 3 && (
-                <div style={{ textAlign: 'center' }}>
-                  <h3 style={{ fontSize: '18px', marginBottom: '20px' }}>¡Gracias por ayudarnos a mejorar!</h3>
-                  <p style={{ fontSize: '14px', marginBottom: '30px' }}>Tus comentarios han sido guardados para el equipo de Maná Academy.</p>
-                  <button 
-                    onClick={() => setShowSurvey(false)}
-                    style={{ width: '100%', padding: '15px', backgroundColor: COLORS.gold, color: COLORS.black, border: 'none', borderRadius: '10px', fontWeight: 'bold', cursor: 'pointer' }}
-                  >
-                    CERRAR Y CONTINUAR
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
+      <main className="main-layout">
         <section className="left-section">
-          <div className="chapter-selector" style={{ display: 'flex', gap: '10px', marginBottom: '25px', overflowX: 'auto', paddingBottom: '10px' }}>
+          <div className="chapter-selector">
             {[1, 2, 3, 4, 5, 6].map(num => (
               <button 
                 key={num}
@@ -361,11 +296,11 @@ export default function Dashboard() {
             ))}
           </div>
 
-          <div style={{ backgroundColor: COLORS.white, padding: '30px', borderRadius: '15px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
-            <h1 style={{ margin: '0 0 10px 0', color: COLORS.navy }}>{currentChapter?.title}</h1>
-            <p style={{ color: COLORS.gray, marginBottom: '30px' }}>{currentChapter?.subtitle}</p>
+          <div className="chapter-main-card" style={{ backgroundColor: COLORS.white, padding: '30px', borderRadius: '15px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 25px rgba(0,0,0,0.05)' }}>
+            <h1 className="chapter-title" style={{ margin: '0 0 10px 0', color: COLORS.navy }}>{currentChapter?.title}</h1>
+            <p className="chapter-subtitle" style={{ color: COLORS.gray, marginBottom: '30px' }}>{currentChapter?.subtitle}</p>
 
-            <div className="chapter-content-grid" style={{ gap: '25px' }}>
+            <div className="chapter-content-grid">
               <div className="subtopics-list" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {currentChapter?.subtopics.map((sub, i) => (
                   <div 
@@ -704,6 +639,10 @@ export default function Dashboard() {
       </main>
 
        <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
+        
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
@@ -712,17 +651,33 @@ export default function Dashboard() {
         .main-layout {
           display: grid;
           grid-template-columns: 1fr 350px;
+          gap: 30px;
+          padding: 40px;
+          max-width: 1400px;
+          margin: 0 auto;
+          width: 100%;
+        }
+
+        .chapter-selector {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 25px;
+          overflow-x: auto;
+          padding-bottom: 10px;
+          width: 100%;
         }
 
         .chapter-content-grid {
           display: grid;
           grid-template-columns: 280px 1fr;
+          gap: 25px;
+          width: 100%;
         }
 
         @media (max-width: 1100px) {
           .main-layout {
             grid-template-columns: 1fr;
-            padding: 20px !important;
+            padding: 20px;
           }
           .sidebar-layout {
             order: 2;
@@ -743,6 +698,7 @@ export default function Dashboard() {
           }
           .video-player-wrapper {
             order: 1;
+            width: 100%;
           }
           .nav-bar {
             padding: 10px 20px !important;
@@ -750,9 +706,15 @@ export default function Dashboard() {
         }
 
         @media (max-width: 640px) {
+          .main-layout {
+            padding: 15px;
+          }
+          .chapter-main-card {
+            padding: 20px !important;
+          }
           .chapter-selector {
-            gap: 8px !important;
-            margin-bottom: 15px !important;
+            gap: 8px;
+            margin-bottom: 15px;
           }
           .chapter-selector button {
             padding: 10px 15px !important;
@@ -762,11 +724,15 @@ export default function Dashboard() {
           .exam-container {
             padding: 15px !important;
           }
-          h1 {
-            font-size: 22px !important;
+          .chapter-title {
+            font-size: 20px !important;
+          }
+          .chapter-subtitle {
+            font-size: 13px !important;
+            margin-bottom: 20px !important;
           }
           .nav-bar img {
-            height: 40px !important;
+            height: 35px !important;
           }
           .nav-title {
             display: none;
