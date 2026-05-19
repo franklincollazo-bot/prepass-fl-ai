@@ -268,12 +268,12 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container" style={{ backgroundColor: COLORS.darkBg, color: COLORS.navy, minHeight: '100vh', fontFamily: 'system-ui' }}>
-      <nav style={{ padding: '10px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.navy, borderBottom: `3px solid ${COLORS.gold}` }}>
+      <nav className="nav-bar" style={{ padding: '10px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: COLORS.navy, borderBottom: `3px solid ${COLORS.gold}` }}>
         <img src={LOGO_URL} alt="Logo" style={{ height: '50px' }} />
-        <div style={{ color: COLORS.white, fontWeight: 'bold' }}>MANÁ ACADEMY | PREPASS FL AI</div>
+        <div className="nav-title" style={{ color: COLORS.white, fontWeight: 'bold' }}>MANÁ ACADEMY | PREPASS FL AI</div>
       </nav>
 
-      <main style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px', padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
+      <main className="main-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 350px', gap: '30px', padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
         
         {showSurvey && (
           <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(10,27,51,0.95)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
@@ -339,8 +339,8 @@ export default function Dashboard() {
           </div>
         )}
 
-        <section>
-          <div style={{ display: 'flex', gap: '10px', marginBottom: '25px' }}>
+        <section className="left-section">
+          <div className="chapter-selector" style={{ display: 'flex', gap: '10px', marginBottom: '25px', overflowX: 'auto', paddingBottom: '10px' }}>
             {[1, 2, 3, 4, 5, 6].map(num => (
               <button 
                 key={num}
@@ -365,8 +365,8 @@ export default function Dashboard() {
             <h1 style={{ margin: '0 0 10px 0', color: COLORS.navy }}>{currentChapter?.title}</h1>
             <p style={{ color: COLORS.gray, marginBottom: '30px' }}>{currentChapter?.subtitle}</p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '25px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div className="chapter-content-grid" style={{ display: 'grid', gridTemplateColumns: '280px 1fr', gap: '25px' }}>
+              <div className="subtopics-list" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {currentChapter?.subtopics.map((sub, i) => (
                   <div 
                     key={i}
@@ -453,9 +453,9 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div>
+              <div className="video-player-wrapper">
                 {!showExam ? (
-                  <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%', backgroundColor: COLORS.black, borderRadius: '12px', overflow: 'hidden' }}>
+                  <div className="video-container" style={{ position: 'relative', width: '100%', paddingTop: '56.25%', backgroundColor: COLORS.black, borderRadius: '12px', overflow: 'hidden' }}>
                     {dynamicText && (
                       <div style={{ position: 'absolute', top: '10%', width: '100%', zIndex: 10, display: 'flex', justifyContent: 'center' }}>
                         <div style={{ color: COLORS.gold, fontSize: '32px', fontWeight: 'bold', backgroundColor: 'rgba(10, 27, 51, 0.8)', padding: '10px 30px', borderRadius: '50px', border: `2px solid ${COLORS.gold}`, animation: 'fadeInUp 0.5s' }}>
@@ -500,7 +500,7 @@ export default function Dashboard() {
                     )}
                   </div>
                 ) : (
-                  <div style={{ padding: '30px', backgroundColor: '#f8fafc', borderRadius: '12px', border: `1px solid ${COLORS.border}`, minHeight: '400px' }}>
+                  <div className="exam-container" style={{ padding: '30px', backgroundColor: '#f8fafc', borderRadius: '12px', border: `1px solid ${COLORS.border}`, minHeight: '400px' }}>
                     {!examState.results ? (
                       <>
                          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
@@ -584,7 +584,7 @@ export default function Dashboard() {
           </div>
         </section>
 
-        <aside style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+        <aside className="sidebar-layout" style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
           <div style={{ padding: '25px', backgroundColor: COLORS.navy, borderRadius: '12px', color: COLORS.white, border: `1px solid ${COLORS.gold}`, boxShadow: '0 10px 20px rgba(10, 27, 51, 0.2)' }}>
             <h3 style={{ margin: '0 0 15px 0', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{ fontSize: '20px' }}>⚖️</span> Readiness Estatal
@@ -703,10 +703,62 @@ export default function Dashboard() {
         </aside>
       </main>
 
-      <style jsx global>{`
+       <style jsx global>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1024px) {
+          .main-layout {
+            grid-template-columns: 1fr !important;
+            padding: 20px !important;
+            gap: 20px !important;
+          }
+          .chapter-content-grid {
+            grid-template-columns: 1fr !important;
+            display: flex !important;
+            flex-direction: column !important;
+          }
+          .nav-bar {
+            padding: 10px 20px !important;
+          }
+          .nav-title {
+            font-size: 14px;
+          }
+          .sidebar-layout {
+            order: 2;
+          }
+          .left-section {
+            order: 1;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .chapter-selector {
+            gap: 8px !important;
+            margin-bottom: 15px !important;
+          }
+          .chapter-selector button {
+            padding: 10px 15px !important;
+            font-size: 12px !important;
+            white-space: nowrap;
+          }
+          .subtopics-list {
+            order: 2 !important;
+          }
+          .video-player-wrapper {
+            order: 1 !important;
+          }
+          .exam-container {
+            padding: 15px !important;
+          }
+          h1 {
+            font-size: 22px !important;
+          }
+          .nav-bar img {
+            height: 40px !important;
+          }
         }
       `}</style>
     </div>
