@@ -500,7 +500,7 @@ export default function Dashboard() {
                                 <li><strong>La Regla de los 5 Segundos:</strong> Antes de hacer clic, lee la pregunta por segunda vez. ¿Estás respondiendo lo que preguntaron o lo que <em>creíste</em> que preguntaron?</li>
                               </ul>
       <footer style={{ padding: '20px', textAlign: 'center', borderTop: `1px solid ${COLORS.border}`, marginTop: '40px', color: COLORS.gray, fontSize: '12px' }}>
-        &copy; 2026 Maná Academy - PrePass FL AI v2.1.6 | Optimización Móvil v2
+        &copy; 2026 Maná Academy - PrePass FL AI v2.2.0 | Mobile First
       </footer>
     </div>
                             <p style={{ marginTop: '15px', fontSize: '13px', fontWeight: 'bold', textAlign: 'center' }}>
@@ -643,23 +643,25 @@ export default function Dashboard() {
         </aside>
       </main>
 
-       <style jsx global>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         * { box-sizing: border-box; }
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @media (max-width: 800px) {
-          .nav-title { display: none; }
+        @media (max-width: 900px) {
+          .nav-title { display: none !important; }
           .nav-bar { padding: 10px 15px !important; }
-          .sidebar-layout { flex: 1 1 100% !important; }
-          .left-section { flex: 1 1 100% !important; }
-          .subtopics-list { order: 2; flex: 1 1 100% !important; }
-          .video-player-wrapper { order: 1; flex: 1 1 100% !important; }
+          .sidebar-layout { flex: 1 1 100% !important; order: 2 !important; }
+          .left-section { flex: 1 1 100% !important; order: 1 !important; min-width: 100% !important; }
+          .subtopics-list { order: 2 !important; flex: 1 1 100% !important; }
+          .video-player-wrapper { order: 1 !important; flex: 1 1 100% !important; margin-bottom: 20px !important; }
           .chapter-main-card { padding: 15px !important; }
-          .main-layout { padding: 10px !important; gap: 15px !important; }
+          .main-layout { padding: 10px !important; gap: 20px !important; }
+          .chapter-selector { gap: 5px !important; }
+          .chapter-selector button { padding: 8px 12px !important; font-size: 11px !important; }
         }
-      `}</style>
+      `}} />
     </div>
   );
 }
