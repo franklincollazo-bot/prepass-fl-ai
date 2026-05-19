@@ -66,9 +66,9 @@ const CHAPTERS_DATA = {
     guia: "/Modulo2_Guia_Estudio.html",
     subtopics: [
       {
-        title: "2.1 Seguro de Ingreso por Discapacidad",
-        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_1",
-        summary: "Diferencia entre Own Occ y Any Occ, y la importancia de los períodos de eliminación."
+        title: "2.1 El Seguro de Incapacidad (Income Replacement)",
+        videoUrl: "https://app.heygen.com/embeds/97e8d8caddaf43cd915ec2e81d9a3db8",
+        summary: "Aprende a proteger el activo más importante: tu capacidad de generar ingresos. Conceptos clave: Own Occ vs Any Occ."
       },
       {
         title: "2.2 Gastos Médicos: Básicos vs Mayores",
