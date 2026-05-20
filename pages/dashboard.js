@@ -1,4 +1,4 @@
-// v2.1.0 - Stable Video Engine
+// v2.1.1 - Fixed Video 2.4 Integration
 import React from 'react';
 import Head from 'next/head';
 
