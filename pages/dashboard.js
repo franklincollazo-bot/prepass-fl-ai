@@ -82,7 +82,7 @@ const CHAPTERS_DATA = {
       },
       {
         title: "2.4 Seguros Grupales y COBRA",
-        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_2_4",
+        videoUrl: "https://app.heygen.com/embeds/7908fe9c1f454e318a9a48003e5b676a",
         summary: "Reglas de elegibilidad, conversión y la ley COBRA para la continuidad de cobertura."
       }
     ]

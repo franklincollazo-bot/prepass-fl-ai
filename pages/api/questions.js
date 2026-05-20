@@ -151,6 +151,76 @@ const QUESTIONS_POOL = {
       question: "El período de conversión para cambiar de un seguro grupal a uno individual sin prueba de asegurabilidad es de:",
       options: ["10 días", "30 días", "31 días", "45 días"],
       answer: "31 días"
+    },
+    {
+      id: 6,
+      topic: "Incapacidad",
+      question: "¿Cuál de las siguientes definiciones de incapacidad es la más restrictiva y difícil de calificar?",
+      options: ["Own Occupation (Propia Ocupación)", "Any Occupation (Cualquier Ocupación)", "Presumptive Disability", "Partial Disability"],
+      answer: "Any Occupation (Cualquier Ocupación)"
+    },
+    {
+      id: 7,
+      topic: "Gastos Médicos",
+      question: "En un seguro de Gastos Médicos Mayores, ¿qué sucede una vez que el asegurado alcanza su límite de 'Stop-Loss'?",
+      options: ["La póliza se cancela", "El asegurado debe pagar el 100% de los gastos", "La aseguradora comienza a pagar el 100% de los gastos cubiertos", "El deducible se duplica"],
+      answer: "La aseguradora comienza a pagar el 100% de los gastos cubiertos"
+    },
+    {
+      id: 8,
+      topic: "HMO vs PPO",
+      question: "¿Cuál es una característica principal de un PPO que lo diferencia de un HMO?",
+      options: ["Requiere un Gatekeeper", "No permite salir de la red", "Ofrece más flexibilidad para elegir proveedores fuera de la red", "Siempre es prepagado"],
+      answer: "Ofrece más flexibilidad para elegir proveedores fuera de la red"
+    },
+    {
+      id: 9,
+      topic: "Medicare",
+      question: "¿Qué parte de Medicare cubre los medicamentos recetados?",
+      options: ["Parte A", "Parte B", "Parte C", "Parte D"],
+      answer: "Parte D"
+    },
+    {
+      id: 10,
+      topic: "COBRA",
+      question: "Si un empleado muere o se divorcia, ¿cuánto tiempo pueden sus dependientes continuar la cobertura bajo COBRA?",
+      options: ["18 meses", "24 meses", "30 meses", "36 meses"],
+      answer: "36 meses"
+    },
+    {
+      id: 11,
+      topic: "Incapacidad",
+      question: "Un periodo de eliminación más largo en una póliza de incapacidad resultará en:",
+      options: ["Una prima más alta", "Una prima más baja", "Beneficios mensuales más altos", "Un periodo de beneficio más corto"],
+      answer: "Una prima más baja"
+    },
+    {
+      id: 12,
+      topic: "HMO",
+      question: "El sistema de pago donde un proveedor recibe una cantidad fija por cada miembro asignado, independientemente de los servicios prestados, se llama:",
+      options: ["Fee-for-service", "Deducible", "Capitación", "Coseguro"],
+      answer: "Capitación"
+    },
+    {
+      id: 13,
+      topic: "COBRA",
+      question: "¿Cuál es el porcentaje máximo de la prima que un individuo puede tener que pagar por la cobertura COBRA?",
+      options: ["50%", "100%", "102%", "150%"],
+      answer: "102%"
+    },
+    {
+      id: 14,
+      topic: "Medicare",
+      question: "¿A qué edad es elegible la mayoría de las personas para Medicare?",
+      options: ["60", "62", "65", "67"],
+      answer: "65"
+    },
+    {
+      id: 15,
+      topic: "Gastos Médicos",
+      question: "El reparto de gastos entre el asegurador y el asegurado (por ejemplo, 80/20) se conoce como:",
+      options: ["Deducible", "Coseguro", "Límite de Stop-Loss", "Prima"],
+      answer: "Coseguro"
     }
   ],
   3: [
