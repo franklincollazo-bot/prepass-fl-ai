@@ -24,7 +24,9 @@ export default function Inscripcion() {
     statusLegal: 'Ciudadano',
     fuente: 'Referido',
     fuenteDetalle: '',
-    yaReclutado: 'No'
+    yaReclutado: 'No',
+    buscasAgencia: 'No',
+    nombreAgencia: ''
   });
 
   const [submitted, setSubmitted] = React.useState(false);
@@ -212,6 +214,37 @@ export default function Inscripcion() {
                 </label>
               </div>
             </div>
+
+            {/* Campos condicionales de agencia */}
+            {formData.yaReclutado === 'No' && (
+              <div style={{ padding: '15px', backgroundColor: '#f8fafc', borderRadius: '10px', border: `1px solid ${COLORS.border}` }}>
+                <label style={{ display: 'block', marginBottom: '10px', fontSize: '14px', fontWeight: '600', color: COLORS.navy }}>¿Buscas una agencia para trabajar?</label>
+                <select 
+                  name="buscasAgencia"
+                  value={formData.buscasAgencia}
+                  onChange={handleChange}
+                  style={{ width: '100%', padding: '14px', borderRadius: '8px', border: `1px solid ${COLORS.border}`, backgroundColor: COLORS.white, color: COLORS.navy, fontSize: '15px' }}
+                >
+                  <option value="No">No por ahora</option>
+                  <option value="Si">Si, me gustaría recibir información</option>
+                </select>
+              </div>
+            )}
+
+            {formData.yaReclutado === 'Si' && (
+              <div>
+                <label style={{ display: 'block', marginBottom: '10px', fontSize: '14px', fontWeight: '600', color: COLORS.navy }}>Nombre de la agencia</label>
+                <input 
+                  required
+                  type="text" 
+                  name="nombreAgencia"
+                  value={formData.nombreAgencia}
+                  onChange={handleChange}
+                  placeholder="Ej: Maná Insurance Advisors" 
+                  style={{ width: '100%', padding: '14px', borderRadius: '8px', border: `1px solid ${COLORS.border}`, backgroundColor: '#fcfcfc', color: COLORS.navy, fontSize: '15px' }}
+                />
+              </div>
+            )}
 
             <button type="submit" style={{ marginTop: '15px', backgroundColor: COLORS.gold, color: COLORS.black, padding: '18px', borderRadius: '10px', fontSize: '18px', fontWeight: 'bold', border: 'none', cursor: 'pointer', transition: 'all 0.3s', boxShadow: '0 4px 15px rgba(197, 160, 89, 0.4)' }}>
               Enviar Información
