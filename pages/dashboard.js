@@ -1,4 +1,4 @@
-// v2.1.1 - Fixed Video 2.4 Integration
+// v2.1.2 - Updated Intro Video (1.0)
 import React from 'react';
 import Head from 'next/head';
 
@@ -24,7 +24,7 @@ const CHAPTERS_DATA = {
     subtopics: [
       {
         title: "1.0 Introducción: La Nueva Era de Seguros",
-        videoUrl: "https://app.heygen.com/embeds/976a82841af9490a93ff0a9f9a6f1383",
+        videoUrl: "https://app.heygen.com/embeds/417dab59ccbc4079a3620f0203a188d9",
         summary: "Bienvenido a Maná Academy. Descubre por qué PrePass FLAI es la herramienta definitiva para obtener tu licencia en tiempo récord."
       },
       {
@@ -118,6 +118,7 @@ export default function Dashboard() {
   const [query, setQuery] = React.useState('');
   const [loading, setLoading] = React.useState(false);
   const [dynamicText, setDynamicText] = React.useState(null);
+  const [isEnhanced, setIsEnhanced] = React.useState(false);
   const [examState, setExamState] = React.useState({ questions: [], currentIndex: 0, answers: [], results: null });
   const [performanceHistory, setPerformanceHistory] = React.useState([]);
   const [errorRadar, setErrorRadar] = React.useState({});
@@ -219,13 +220,40 @@ export default function Dashboard() {
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
     const time = videoRef.current.currentTime;
+    
+    // Module 1 logic
     if (activeModule === 1 && activeSubtopic === 0) {
       if (time > 2 && time < 10) setDynamicText("EL TIEMPO ES DINERO");
       else if (time > 25 && time < 35) setDynamicText("EFICIENCIA AI");
       else if (time > 45 && time < 55) setDynamicText("STARR");
       else if (time > 80 && time < 95) setDynamicText("DOBLE ALEATORIEDAD");
       else setDynamicText(null);
-    } else {
+    } 
+    // Module 2.1 logic
+    else if (activeModule === 2 && activeSubtopic === 0) {
+      if (time > 2 && time < 10) setDynamicText("INCAPACIDAD");
+      else if (time > 15 && time < 25) setDynamicText("OWN OCCUPATION");
+      else if (time > 35 && time < 45) setDynamicText("ANY OCCUPATION");
+      else if (time > 55 && time < 65) setDynamicText("TIME DEDUCTIBLE");
+      else setDynamicText(null);
+    }
+    // Module 2.3 logic
+    else if (activeModule === 2 && activeSubtopic === 2) {
+      if (time > 2 && time < 10) setDynamicText("HMO VS PPO");
+      else if (time > 15 && time < 30) setDynamicText("HMO: RED CERRADA (GATEKEEPER)");
+      else if (time > 40 && time < 55) setDynamicText("PPO: RED ABIERTA (FLEXIBILIDAD)");
+      else if (time > 65 && time < 80) setDynamicText("TRAMPA: HMO REQUIERE REFERIDO");
+      else setDynamicText(null);
+    }
+    // Module 2.4 logic
+    else if (activeModule === 2 && activeSubtopic === 3) {
+      if (time > 2 && time < 10) setDynamicText("SEGURO GRUPAL");
+      else if (time > 20 && time < 35) setDynamicText("LEY COBRA (102%)");
+      else if (time > 40 && time < 55) setDynamicText("TRAMPA PEARSON: EL PATRONO NO PAGA");
+      else if (time > 60 && time < 75) setDynamicText("CONVERSIÓN (31 DÍAS)");
+      else setDynamicText(null);
+    }
+    else {
       setDynamicText(null);
     }
   };
@@ -394,8 +422,38 @@ export default function Dashboard() {
               </div>
 
               <div className="video-player-wrapper" style={{ flex: '1 1 400px', minWidth: '0' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
+                  <button 
+                    onClick={() => setIsEnhanced(!isEnhanced)}
+                    style={{
+                      padding: '8px 16px',
+                      backgroundColor: isEnhanced ? COLORS.gold : 'transparent',
+                      color: isEnhanced ? COLORS.black : COLORS.gold,
+                      border: `1px solid ${COLORS.gold}`,
+                      borderRadius: '20px',
+                      fontSize: '12px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '5px',
+                      transition: 'all 0.3s'
+                    }}
+                  >
+                    {isEnhanced ? '✨ MODO MASTERCLASS ACTIVO' : '✨ MEJORAR CON IA'}
+                  </button>
+                </div>
                 {!showExam ? (
-                  <div className="video-container" style={{ position: 'relative', width: '100%', paddingTop: '56.25%', backgroundColor: COLORS.black, borderRadius: '12px', overflow: 'hidden' }}>
+                  <div className="video-container" style={{ 
+                    position: 'relative', 
+                    width: '100%', 
+                    paddingTop: '56.25%', 
+                    backgroundColor: COLORS.black, 
+                    borderRadius: '12px', 
+                    overflow: 'hidden',
+                    border: isEnhanced ? `3px solid ${COLORS.gold}` : 'none',
+                    boxShadow: isEnhanced ? `0 0 20px ${COLORS.gold}44` : 'none'
+                  }}>
                     {dynamicText && (
                       <div style={{ position: 'absolute', top: '10%', width: '100%', zIndex: 10, display: 'flex', justifyContent: 'center' }}>
                         <div style={{ color: COLORS.gold, fontSize: '32px', fontWeight: 'bold', backgroundColor: 'rgba(10, 27, 51, 0.8)', padding: '10px 30px', borderRadius: '50px', border: `2px solid ${COLORS.gold}`, animation: 'fadeInUp 0.5s' }}>
