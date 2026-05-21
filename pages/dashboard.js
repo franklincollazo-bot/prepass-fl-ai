@@ -1,4 +1,4 @@
-// v2.1.2 - Updated Intro Video (1.0)
+// v2.1.3 - Fixed Intro Video visibility
 import React from 'react';
 import Head from 'next/head';
 
@@ -24,7 +24,7 @@ const CHAPTERS_DATA = {
     subtopics: [
       {
         title: "1.0 Introducción: La Nueva Era de Seguros",
-        videoUrl: "/heygen_intro.mp4",
+        videoUrl: "https://app.heygen.com/embeds/417dab59ccbc4079a3620f0203a188d9",
         summary: "Bienvenido a Maná Academy. Descubre por qué PrePass FLAI es la herramienta definitiva para obtener tu licencia en tiempo récord."
       },
       {
