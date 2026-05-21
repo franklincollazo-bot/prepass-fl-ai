@@ -1,4 +1,4 @@
-// v2.1.3 - Fixed Intro Video visibility
+// v2.1.4 - Integrated "Intro Editado 2" and latest Chapter 1 videos
 import React from 'react';
 import Head from 'next/head';
 
@@ -29,7 +29,7 @@ const CHAPTERS_DATA = {
       },
       {
         title: "1.1 Conceptos de Seguro y Riesgo (STARR)",
-        videoUrl: "https://app.heygen.com/embeds/cf8b4c9ddeda4705ad5e3b0e26c7217c",
+        videoUrl: "https://app.heygen.com/embeds/15e40e5af6694a0598ed91f0973a46e6",
         summary: "Aprende a identificar los riesgos y cómo las aseguradoras los gestionan a través del acrónimo STARR."
       },
       {
@@ -54,7 +54,7 @@ const CHAPTERS_DATA = {
       },
       {
         title: "1.6 Ética y Leyes: Masterclass v2",
-        videoUrl: "https://app.heygen.com/embeds/c7198b0a9b614a1c9e317e8e9fc16c83",
+        videoUrl: "https://app.heygen.com/embeds/2efc4ebf30d94ad19d602ec7b7b4668d",
         summary: "Versión mejorada con IA: Domina las prácticas que el examinador pone a prueba con enfoque en ética profesional."
       }
     ]
