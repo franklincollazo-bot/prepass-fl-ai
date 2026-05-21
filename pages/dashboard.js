@@ -401,7 +401,7 @@ export default function Dashboard() {
                 {currentChapter?.subtopics.map((sub, i) => (
                   <div 
                     key={i}
-                    onClick={() => { setActiveSubtopic(i); setShowExam(false); }}
+                    onClick={() => { setActiveSubtopic(i); setShowExam(false); setActiveOverlay(null); }}
                     style={{
                       padding: '15px',
                       backgroundColor: activeSubtopic === i ? COLORS.navy : '#f8fafc',
@@ -416,6 +416,35 @@ export default function Dashboard() {
                     {sub.title}
                   </div>
                 ))}
+
+                {isEnhanced && (
+                  <div style={{ marginTop: '20px', borderTop: `1px solid ${COLORS.gold}`, paddingTop: '20px' }}>
+                    <h4 style={{ fontSize: '12px', color: COLORS.gold, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Conceptos Masterclass</h4>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {MASTERCLASS_METADATA[currentChapter?.subtopics[activeSubtopic].title.split(' ')[0]]?.map((m, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveOverlay(activeOverlay?.title === m.title ? null : m)}
+                          style={{
+                            padding: '8px 12px',
+                            backgroundColor: activeOverlay?.title === m.title ? COLORS.gold : 'transparent',
+                            color: activeOverlay?.title === m.title ? COLORS.black : COLORS.navy,
+                            border: `1px solid ${COLORS.gold}`,
+                            borderRadius: '6px',
+                            fontSize: '11px',
+                            textAlign: 'left',
+                            cursor: 'pointer',
+                            fontWeight: '600',
+                            transition: 'all 0.2s',
+                            boxShadow: activeOverlay?.title === m.title ? '0 4px 10px rgba(197, 160, 89, 0.3)' : 'none'
+                          }}
+                        >
+                          {m.type === 'trap' ? '⚠️ ' : (m.type === 'word' ? '🔤 ' : '💎 ')} {m.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div style={{ marginTop: '20px', borderTop: `1px solid ${COLORS.border}`, paddingTop: '20px' }}>
                   <h4 style={{ fontSize: '12px', color: COLORS.gray, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Material de Apoyo</h4>
@@ -518,20 +547,36 @@ export default function Dashboard() {
                     boxShadow: isEnhanced ? `0 0 20px ${COLORS.gold}44` : 'none'
                   }}>
                     {activeOverlay && (
-                      <div style={{ 
-                        position: 'absolute', 
-                        top: 0, 
-                        left: 0, 
-                        width: '100%', 
-                        height: '100%', 
-                        zIndex: 10, 
-                        pointerEvents: 'none',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '40px'
+                      <div style={{
+                        position: 'absolute',
+                        top: '20px',
+                        right: '20px',
+                        zIndex: 1000,
+                        width: '280px',
+                        pointerEvents: 'auto'
                       }}>
+                        <button 
+                          onClick={() => setActiveOverlay(null)}
+                          style={{
+                            position: 'absolute',
+                            top: '-10px',
+                            right: '-10px',
+                            width: '24px',
+                            height: '24px',
+                            borderRadius: '12px',
+                            backgroundColor: COLORS.black,
+                            color: 'white',
+                            border: '2px solid white',
+                            cursor: 'pointer',
+                            fontSize: '12px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+                          }}
+                        >
+                          ✕
+                        </button>
                         {activeOverlay.type === 'word' && (
                           <div style={{ 
                             color: COLORS.gold, 
