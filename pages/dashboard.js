@@ -24,7 +24,7 @@ const CHAPTERS_DATA = {
     subtopics: [
       {
         title: "1.0 Introducción: La Nueva Era de Seguros",
-        videoUrl: "https://app.heygen.com/embeds/417dab59ccbc4079a3620f0203a188d9",
+        videoUrl: "/heygen_intro.mp4",
         summary: "Bienvenido a Maná Academy. Descubre por qué PrePass FLAI es la herramienta definitiva para obtener tu licencia en tiempo récord."
       },
       {
