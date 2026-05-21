@@ -90,19 +90,37 @@ const CHAPTERS_DATA = {
   },
   3: {
     title: "Capítulo 3: Provisiones y Cláusulas",
-    subtitle: "Reglas Obligatorias y Derechos del Asegurado",
+    subtitle: "La Columna Vertebral de la Póliza",
     manual: "/Modulo3_Manual_Completo.html",
     guia: "/Modulo3_Guia_Estudio.html",
     subtopics: [
       {
-        title: "3.1 Provisiones Obligatorias NAIC",
-        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_3_1",
-        summary: "Período de gracia, reincorporación y los límites de tiempo para reclamos."
+        title: "3.1 Provisiones Obligatorias (20-15-90)",
+        videoUrl: "https://app.heygen.com/embeds/659a01deb2d34a97a2cba24c6660b319",
+        summary: "Domina los plazos legales: 20 días para aviso, 15 para formularios y 90 para la prueba de pérdida."
       },
       {
-        title: "3.2 Derechos de Renovabilidad",
+        title: "3.2 Renovabilidad y Cláusulas",
         videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_3_2",
-        summary: "Diferencias entre pólizas No Cancelables, Garantizadas y Opcionales."
+        summary: "Diferencias entre No Cancelable y Renovación Garantizada. La trampa de los 10 días."
+      }
+    ]
+  },
+  4: {
+    title: "Capítulo 4: Seguros Sociales",
+    subtitle: "Medicare, Medicaid y Seguridad Social",
+    manual: "/Modulo4_Manual_Completo.html",
+    guia: "/Modulo4_Guia_Estudio.html",
+    subtopics: [
+      {
+        title: "4.1 Medicare: El Sistema Federal",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_4_1",
+        summary: "Partes A, B, C y D. Quién califica y cómo se financia el programa de salud más grande de EE.UU."
+      },
+      {
+        title: "4.2 Medicaid y Seguridad Social",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_4_2",
+        summary: "Diferencias clave entre Medicaid (necesidad) y Seguro Social (derecho por trabajo)."
       }
     ]
   }
@@ -151,6 +169,24 @@ const MASTERCLASS_METADATA = {
   '2.4': [
     { start: 5, end: 15, type: 'word', title: 'GRUPALES' },
     { start: 20, end: 40, type: 'concept', title: 'COBRA', text: 'Continuidad de cobertura por 18 o 36 meses. El empleado paga el 102%.' }
+  ],
+  '3.1': [
+    { start: 5, end: 15, type: 'word', title: 'OBLIGATORIAS' },
+    { start: 20, end: 40, type: 'concept', title: 'REGLA 20-15-90', text: 'Aviso (20d), Formularios (15d), Prueba de Pérdida (90d).' },
+    { start: 50, end: 70, type: 'trap', title: 'GRACIA 7-10-31', text: '7d (Semanal), 10d (Mensual), 31d (Resto).' }
+  ],
+  '3.2': [
+    { start: 10, end: 25, type: 'concept', title: 'RENOVABILIDAD', text: 'No Cancelable es la mejor para el cliente (Garantiza Prima y Cobertura).' },
+    { start: 30, end: 50, type: 'trap', title: 'REINCORPORACIÓN', text: 'Accidentes cubiertos INMEDIATAMENTE. Enfermedades esperan 10 DÍAS.' }
+  ],
+  '4.1': [
+    { start: 5, end: 15, type: 'word', title: 'MEDICARE' },
+    { start: 20, end: 40, type: 'concept', title: 'PARTES A & B', text: 'Parte A: Hospital (Gratis). Parte B: Médica (Pagada).' },
+    { start: 50, end: 70, type: 'trap', title: 'ELEGIBILIDAD', text: '65+ años O insuficiencia renal (ESRD) O 24 meses de discapacidad SS.' }
+  ],
+  '4.2': [
+    { start: 10, end: 25, type: 'concept', title: 'MEDICAID', text: 'Pagador de último recurso. Basado exclusivamente en Pobreza/Necesidad.' },
+    { start: 35, end: 55, type: 'trap', title: 'ESPERA SS', text: 'Discapacidad del SS tiene una espera de 5 MESES. Cobras al mes 6.' }
   ]
 };
 
@@ -158,7 +194,7 @@ export default function Dashboard() {
   const [activeModule, setActiveModule] = React.useState(1);
   const [activeSubtopic, setActiveSubtopic] = React.useState(0);
   const [showExam, setShowExam] = React.useState(false);
-  const [unlockedChapters, setUnlockedChapters] = React.useState([1, 2]);
+  const [unlockedChapters, setUnlockedChapters] = React.useState([1, 2, 3, 4, 5]);
   const [chat, setChat] = React.useState([
     { role: 'ai', text: '¡Hola! Soy tu tutor de Maná Academy. ¿En qué puedo ayudarte hoy?' }
   ]);

@@ -7,7 +7,7 @@
       "enabled": true,
       "deleteAfterRun": false,
       "createdAtMs": 1779142467093,
-      "updatedAtMs": 1779289335355,
+      "updatedAtMs": 1779376180892,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * 1,2,3,4,5"
@@ -18,10 +18,10 @@
         "agent": "DID-DB9653-81DB9653U1778692-8233-A6D672"
       },
       "state": {
-        "nextRunAtMs": 1779372000000,
-        "lastRunAtMs": 1779289331895,
+        "nextRunAtMs": 1779458400000,
+        "lastRunAtMs": 1779376180069,
         "lastStatus": "ok",
-        "lastDurationMs": 417
+        "lastDurationMs": 11889
       },
       "target": {
         "type": "agent_sticky",
@@ -35,14 +35,14 @@
     {
       "id": "cron-1779160358890-ai773mvu",
       "name": "Mobile Health Check - PrePass FL AI",
-      "description": "Verificación automática de salud móvil (iPhone/Android) cada 12 horas para PrePass FL AI.",
+      "description": "Verificación automática de salud móvil (iPhone/Android) cada 24 horas para PrePass FL AI.",
       "enabled": true,
       "deleteAfterRun": false,
       "createdAtMs": 1779160358890,
-      "updatedAtMs": 1779292810938,
+      "updatedAtMs": 1779379421496,
       "schedule": {
         "kind": "cron",
-        "expr": "0 */12 * * *",
+        "expr": "0 0 * * *",
         "tz": "America/New_York"
       },
       "payload": {
@@ -51,10 +51,10 @@
         "agent": "general"
       },
       "state": {
-        "nextRunAtMs": 1779336000000,
-        "lastRunAtMs": 1779292810928,
+        "nextRunAtMs": 1779422400000,
+        "lastRunAtMs": 1779379200371,
         "lastStatus": "ok",
-        "lastDurationMs": 10892
+        "lastDurationMs": 298
       },
       "target": {
         "type": "conversation",

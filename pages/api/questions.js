@@ -258,6 +258,78 @@ const QUESTIONS_POOL = {
       question: "¿Cuál de las siguientes cláusulas de renovación ofrece la mayor protección al asegurado (no se puede cancelar ni cambiar la prima)?",
       options: ["Cancelable", "Opcionalmente Renovable", "Renovable Garantizada", "No Cancelable"],
       answer: "No Cancelable"
+    },
+    {
+      id: 6,
+      topic: "Provisiones Obligatorias",
+      question: "Si un asegurado no proporciona el formulario de prueba de pérdida dentro de los 15 días, ¿qué puede hacer?",
+      options: ["Perder el derecho al reclamo", "Presentar una queja al DFS", "Presentar la prueba en cualquier forma escrita", "Esperar a que el agente lo visite"],
+      answer: "Presentar la prueba en cualquier forma escrita"
+    },
+    {
+      id: 7,
+      topic: "Período de Gracia",
+      question: "¿Cuál es el período de gracia estándar para una póliza de salud con prima pagada mensualmente?",
+      options: ["7 días", "10 días", "31 días", "45 días"],
+      answer: "10 días"
+    },
+    {
+      id: 8,
+      topic: "Reincorporación",
+      question: "Tras la reincorporación de una póliza, ¿cuánto tiempo debe esperar el asegurado para que las enfermedades (sickness) estén cubiertas?",
+      options: ["Inmediatamente", "3 días", "10 días", "30 días"],
+      answer: "10 días"
+    },
+    {
+      id: 9,
+      topic: "Acciones Legales",
+      question: "¿Cuánto tiempo debe esperar un asegurado después de presentar la prueba de pérdida antes de poder iniciar una acción legal contra la aseguradora?",
+      options: ["20 días", "60 días", "90 días", "1 año"],
+      answer: "60 días"
+    },
+    {
+      id: 10,
+      topic: "Cambio de Ocupación",
+      question: "Bajo la provisión opcional de 'Cambio de Ocupación', si un asegurado cambia a una ocupación más riesgosa, el asegurador puede:",
+      options: ["Cancelar la póliza", "Aumentar la prima retroactivamente", "Reducir los beneficios proporcionalmente", "No hacer nada"],
+      answer: "Reducir los beneficios proporcionalmente"
+    }
+  ],
+  4: [
+    {
+      id: 401,
+      topic: "Medicare",
+      question: "¿Cuál de las siguientes partes de Medicare cubre los servicios de hospitalización?",
+      options: ["Parte A", "Parte B", "Parte C", "Parte D"],
+      answer: "Parte A"
+    },
+    {
+      id: 402,
+      topic: "Medicare",
+      question: "¿A qué edad es elegible una persona para Medicare sin necesidad de una discapacidad?",
+      options: ["60 años", "62 años", "65 años", "70 años"],
+      answer: "65 años"
+    },
+    {
+      id: 403,
+      topic: "Medicaid",
+      question: "¿Qué programa de salud es administrado por el estado y financiado conjuntamente por el gobierno estatal y federal?",
+      options: ["Medicare", "Medicaid", "Seguridad Social", "HMO"],
+      answer: "Medicaid"
+    },
+    {
+      id: 404,
+      topic: "Seguridad Social",
+      question: "¿Cuál es el periodo de espera antes de que comiencen los pagos de beneficios por discapacidad del Seguro Social?",
+      options: ["3 meses", "5 meses", "6 meses", "12 meses"],
+      answer: "5 meses"
+    },
+    {
+      id: 405,
+      topic: "Medigap",
+      question: "¿Cuál es el periodo de 'Free Look' (Libre Examen) obligatorio para las pólizas de Suplemento de Medicare?",
+      options: ["10 días", "15 días", "20 días", "30 días"],
+      answer: "30 días"
     }
   ]
 };
