@@ -123,6 +123,24 @@ const CHAPTERS_DATA = {
         summary: "Diferencias clave entre Medicaid (necesidad) y Seguro Social (derecho por trabajo)."
       }
     ]
+  },
+  5: {
+    title: "Capítulo 5: Otros Conceptos y Fiscalidad",
+    subtitle: "Impuestos, ACA y Managed Care",
+    manual: "/Modulo5_Manual_Completo.html",
+    guia: "/Modulo5_Guia_Estudio.html",
+    subtopics: [
+      {
+        title: "5.1 Impuestos y Derechos",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_5_1",
+        summary: "Deducibilidad de primas y fiscalidad de los beneficios de salud."
+      },
+      {
+        title: "5.2 ACA y Cuidado Manejado",
+        videoUrl: "https://app.heygen.com/embeds/PLACEHOLDER_5_2",
+        summary: "Ley de Cuidados de Salud Asequible y modelos de control de costos."
+      }
+    ]
   }
 };
 
@@ -187,6 +205,14 @@ const MASTERCLASS_METADATA = {
   '4.2': [
     { start: 10, end: 25, type: 'concept', title: 'MEDICAID', text: 'Pagador de último recurso. Basado exclusivamente en Pobreza/Necesidad.' },
     { start: 35, end: 55, type: 'trap', title: 'ESPERA SS', text: 'Discapacidad del SS tiene una espera de 5 MESES. Cobras al mes 6.' }
+  ],
+  '5.1': [
+    { start: 5, end: 15, type: 'concept', title: 'FISCALIDAD', text: 'Gastos médicos deducibles si superan el 7.5% del AGI.' },
+    { start: 20, end: 40, type: 'trap', title: 'BENEFICIARIOS', text: 'Irrevocable requiere permiso escrito del beneficiario para cambios.' }
+  ],
+  '5.2': [
+    { start: 10, end: 25, type: 'concept', title: 'ACA (PPACA)', text: 'Dependientes hasta los 26 años. No exclusión por preexistentes.' },
+    { start: 30, end: 50, type: 'word', title: 'MANAGED CARE', text: 'HMO, PPO, POS. Foco en prevención y control de costos.' }
   ]
 };
 
