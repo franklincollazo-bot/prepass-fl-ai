@@ -203,6 +203,8 @@ export default function Dashboard() {
   const [dynamicText, setDynamicText] = React.useState(null);
   const [isEnhanced, setIsEnhanced] = React.useState(false);
   const [activeOverlay, setActiveOverlay] = React.useState(null); // { type: 'word' | 'concept' | 'trap', title, text }
+  const [virtualTime, setVirtualTime] = React.useState(0);
+  const [isPlaying, setIsPlaying] = React.useState(false);
   const [examState, setExamState] = React.useState({ questions: [], currentIndex: 0, answers: [], results: null });
   const [performanceHistory, setPerformanceHistory] = React.useState([]);
   const [errorRadar, setErrorRadar] = React.useState({});
@@ -214,14 +216,50 @@ export default function Dashboard() {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setMounted(true);
-    const savedHistory = localStorage.getItem('performanceHistory');
-    if (savedHistory) setPerformanceHistory(JSON.parse(savedHistory));
-    const savedRadar = localStorage.getItem('errorRadar');
-    if (savedRadar) setErrorRadar(JSON.parse(savedRadar));
-    const savedReg = localStorage.getItem('userRegistration');
-    if (savedReg) setUserReg(JSON.parse(savedReg));
-  }, []);
+    let interval;
+    if (isPlaying && isEnhanced) {
+      interval = setInterval(() => {
+        setVirtualTime(prev => {
+          const newTime = prev + 1;
+          const lessonId = currentChapter?.subtopics[activeSubtopic].title.split(' ')[0];
+          const metadata = MASTERCLASS_METADATA[lessonId];
+          if (metadata) {
+            const active = metadata.find(m => newTime >= m.start && newTime <= m.end);
+            setActiveOverlay(active || null);
+          }
+          return newTime;
+        });
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isPlaying, isEnhanced, activeModule, activeSubtopic]);
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+    if (!isPlaying) {
+      // Si empezamos a reproducir, nos aseguramos que el overlay manual se limpie
+      setActiveOverlay(null);
+    }
+  };
+
+  const handleModuleChange = (num) => {
+    setActiveModule(num);
+    setActiveSubtopic(0);
+    setShowExam(false);
+    setIsPlaying(false);
+    setVirtualTime(0);
+    setActiveOverlay(null);
+  };
+
+  const handleSubtopicChange = (idx) => {
+    setActiveSubtopic(idx);
+    setShowExam(false);
+    setIsPlaying(false);
+    setVirtualTime(0);
+    setActiveOverlay(null);
+  };
 
   const startExam = async () => {
     setLoading(true);
@@ -304,7 +342,17 @@ export default function Dashboard() {
   const handleTimeUpdate = () => {
     if (!videoRef.current || !isEnhanced) return;
     const time = videoRef.current.currentTime;
-    const currentChapter = CHAPTERS_DATA[activeModule];
+  React.useEffect(() => {
+    setMounted(true);
+    const savedHistory = localStorage.getItem('performanceHistory');
+    if (savedHistory) setPerformanceHistory(JSON.parse(savedHistory));
+    const savedRadar = localStorage.getItem('errorRadar');
+    if (savedRadar) setErrorRadar(JSON.parse(savedRadar));
+    const savedReg = localStorage.getItem('userRegistration');
+    if (savedReg) setUserReg(JSON.parse(savedReg));
+  }, []);
+
+  const currentChapter = CHAPTERS_DATA[activeModule];
     if (!currentChapter) return;
     
     const lessonTitle = currentChapter.subtopics[activeSubtopic].title;
@@ -375,16 +423,17 @@ export default function Dashboard() {
             {[1, 2, 3, 4, 5, 6].map(num => (
               <button 
                 key={num}
-                onClick={() => { setActiveModule(num); setActiveSubtopic(0); setShowExam(false); }}
+                onClick={() => handleModuleChange(num)}
                 style={{
                   padding: '12px 20px',
                   backgroundColor: activeModule === num ? COLORS.gold : (unlockedChapters.includes(num) ? COLORS.white : '#e2e8f0'),
                   color: activeModule === num ? COLORS.black : COLORS.navy,
                   border: `1px solid ${COLORS.border}`,
-                  borderRadius: '8px',
+                  borderRadius: '10px',
                   fontWeight: 'bold',
                   cursor: unlockedChapters.includes(num) ? 'pointer' : 'not-allowed',
-                  opacity: unlockedChapters.includes(num) ? 1 : 0.6
+                  opacity: unlockedChapters.includes(num) ? 1 : 0.6,
+                  whiteSpace: 'nowrap'
                 }}
               >
                 Cap. {num}
@@ -401,7 +450,7 @@ export default function Dashboard() {
                 {currentChapter?.subtopics.map((sub, i) => (
                   <div 
                     key={i}
-                    onClick={() => { setActiveSubtopic(i); setShowExam(false); setActiveOverlay(null); }}
+                    onClick={() => handleSubtopicChange(i)}
                     style={{
                       padding: '15px',
                       backgroundColor: activeSubtopic === i ? COLORS.navy : '#f8fafc',
@@ -416,35 +465,6 @@ export default function Dashboard() {
                     {sub.title}
                   </div>
                 ))}
-
-                {isEnhanced && (
-                  <div style={{ marginTop: '20px', borderTop: `1px solid ${COLORS.gold}`, paddingTop: '20px' }}>
-                    <h4 style={{ fontSize: '12px', color: COLORS.gold, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Conceptos Masterclass</h4>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                      {MASTERCLASS_METADATA[currentChapter?.subtopics[activeSubtopic].title.split(' ')[0]]?.map((m, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setActiveOverlay(activeOverlay?.title === m.title ? null : m)}
-                          style={{
-                            padding: '8px 12px',
-                            backgroundColor: activeOverlay?.title === m.title ? COLORS.gold : 'transparent',
-                            color: activeOverlay?.title === m.title ? COLORS.black : COLORS.navy,
-                            border: `1px solid ${COLORS.gold}`,
-                            borderRadius: '6px',
-                            fontSize: '11px',
-                            textAlign: 'left',
-                            cursor: 'pointer',
-                            fontWeight: '600',
-                            transition: 'all 0.2s',
-                            boxShadow: activeOverlay?.title === m.title ? '0 4px 10px rgba(197, 160, 89, 0.3)' : 'none'
-                          }}
-                        >
-                          {m.type === 'trap' ? '⚠️ ' : (m.type === 'word' ? '🔤 ' : '💎 ')} {m.title}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
 
                 <div style={{ marginTop: '20px', borderTop: `1px solid ${COLORS.border}`, paddingTop: '20px' }}>
                   <h4 style={{ fontSize: '12px', color: COLORS.gray, marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Material de Apoyo</h4>
@@ -546,6 +566,31 @@ export default function Dashboard() {
                     border: isEnhanced ? `3px solid ${COLORS.gold}` : 'none',
                     boxShadow: isEnhanced ? `0 0 20px ${COLORS.gold}44` : 'none'
                   }}>
+                    {isEnhanced && (
+                      <button 
+                        onClick={togglePlay}
+                        style={{
+                          position: 'absolute',
+                          top: '15px',
+                          left: '15px',
+                          zIndex: 50,
+                          backgroundColor: isPlaying ? 'rgba(0,0,0,0.5)' : COLORS.gold,
+                          color: isPlaying ? 'white' : COLORS.black,
+                          border: 'none',
+                          padding: '10px 20px',
+                          borderRadius: '30px',
+                          cursor: 'pointer',
+                          fontWeight: 'bold',
+                          fontSize: '14px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          boxShadow: '0 4px 15px rgba(0,0,0,0.2)'
+                        }}
+                      >
+                        {isPlaying ? '⏸️ PAUSAR VIRTUAL SYNC' : '▶️ PLAY MASTERCLASS'}
+                      </button>
+                    )}
                     {activeOverlay && (
                       <div style={{
                         position: 'absolute',
