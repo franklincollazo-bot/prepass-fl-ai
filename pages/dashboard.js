@@ -241,13 +241,29 @@ export default function Dashboard() {
   const videoRef = React.useRef(null);
   const [mounted, setMounted] = React.useState(false);
 
+  // Definición central para evitar ReferenceErrors
+  const currentChapter = CHAPTERS_DATA[activeModule];
+
+  React.useEffect(() => {
+    setMounted(true);
+    const savedHistory = localStorage.getItem('performanceHistory');
+    if (savedHistory) setPerformanceHistory(JSON.parse(savedHistory));
+    const savedRadar = localStorage.getItem('errorRadar');
+    if (savedRadar) setErrorRadar(JSON.parse(savedRadar));
+    const savedReg = localStorage.getItem('userRegistration');
+    if (savedReg) setUserReg(JSON.parse(savedReg));
+  }, []);
+
   React.useEffect(() => {
     let interval;
     if (isPlaying && isEnhanced) {
       interval = setInterval(() => {
         setVirtualTime(prev => {
           const newTime = prev + 1;
-          const lessonId = currentChapter?.subtopics[activeSubtopic].title.split(' ')[0];
+          const currentSub = currentChapter?.subtopics[activeSubtopic];
+          if (!currentSub) return newTime;
+          
+          const lessonId = currentSub.title.split(' ')[0];
           const metadata = MASTERCLASS_METADATA[lessonId];
           if (metadata) {
             const active = metadata.find(m => newTime >= m.start && newTime <= m.end);
@@ -265,7 +281,6 @@ export default function Dashboard() {
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
     if (!isPlaying) {
-      // Si empezamos a reproducir, nos aseguramos que el overlay manual se limpie
       setActiveOverlay(null);
     }
   };
@@ -287,64 +302,8 @@ export default function Dashboard() {
     setActiveOverlay(null);
   };
 
-  const startExam = async () => {
-    setLoading(true);
-    try {
-      const res = await fetch(`/api/questions?chapterId=${activeModule}`);
-      const data = await res.json();
-      setExamState({ questions: data, currentIndex: 0, answers: [], results: null });
-      setShowExam(true);
-    } catch (e) {
-      console.error(e);
-    }
-    setLoading(false);
-  };
-
-  const handleAnswer = (option) => {
-    const currentQ = examState.questions[examState.currentIndex];
-    const newAnswers = [...examState.answers, option];
-    
-    // Track errors for the Radar
-    if (option !== currentQ.answer) {
-      const newRadar = { ...errorRadar };
-      newRadar[currentQ.topic] = (newRadar[currentQ.topic] || 0) + 1;
-      setErrorRadar(newRadar);
-      localStorage.setItem('errorRadar', JSON.stringify(newRadar));
-    }
-
-    if (examState.currentIndex < examState.questions.length - 1) {
-      setExamState({ ...examState, currentIndex: examState.currentIndex + 1, answers: newAnswers });
-    } else {
-      // Finish Exam
-      let score = 0;
-      examState.questions.forEach((q, i) => {
-        if (q.answer === newAnswers[i]) score++;
-      });
-      const finalScore = (score / examState.questions.length) * 100;
-      const resultEntry = { date: new Date().toISOString(), chapter: activeModule, score: finalScore };
-      const newHistory = [...performanceHistory, resultEntry];
-      setPerformanceHistory(newHistory);
-      localStorage.setItem('performanceHistory', JSON.stringify(newHistory));
-      setExamState({ ...examState, answers: newAnswers, results: { score: finalScore, correct: score, total: examState.questions.length } });
-      
-      if (finalScore >= 80 && !unlockedChapters.includes(activeModule + 1)) {
-        setUnlockedChapters([...unlockedChapters, activeModule + 1]);
-        setShowSurvey(true);
-      }
-    }
-  };
-
-  const handleSurveySubmit = (e) => {
-    e.preventDefault();
-    console.log("Feedback Recibido:", surveyResponses);
-    setShowSurvey(false);
-    setSurveyStep(0);
-    // In a real app, send to API here
-  };
-
   const getReadinessInfo = () => {
-    if (performanceHistory.length === 0) return { percent: 0, advice: "Aún no has tomado exámenes. ¡Comienza uno para medir tu nivel!", status: "N/A" };
-    
+    if (performanceHistory.length === 0) return { percent: 0, advice: "Aún no has tomado exámenes. ¡Comienza uno para medir tu nivel!", status: "PENDIENTE" };
     const avgScore = performanceHistory.reduce((acc, curr) => acc + curr.score, 0) / performanceHistory.length;
     let advice = "";
     let status = "";
@@ -368,30 +327,15 @@ export default function Dashboard() {
   const handleTimeUpdate = () => {
     if (!videoRef.current || !isEnhanced) return;
     const time = videoRef.current.currentTime;
-  React.useEffect(() => {
-    setMounted(true);
-    const savedHistory = localStorage.getItem('performanceHistory');
-    if (savedHistory) setPerformanceHistory(JSON.parse(savedHistory));
-    const savedRadar = localStorage.getItem('errorRadar');
-    if (savedRadar) setErrorRadar(JSON.parse(savedRadar));
-    const savedReg = localStorage.getItem('userRegistration');
-    if (savedReg) setUserReg(JSON.parse(savedReg));
-  }, []);
+    
+    const lessonTitle = currentChapter?.subtopics[activeSubtopic]?.title;
+    if (!lessonTitle) return;
 
-  const currentChapter = CHAPTERS_DATA[activeModule];
-    if (!currentChapter) return;
-    
-    const lessonTitle = currentChapter.subtopics[activeSubtopic].title;
-    const lessonId = lessonTitle.split(' ')[0]; // Extract "1.0", "1.1", etc.
-    
+    const lessonId = lessonTitle.split(' ')[0];
     const metadata = MASTERCLASS_METADATA[lessonId];
     if (metadata) {
       const active = metadata.find(m => time >= m.start && time <= m.end);
-      if (active) {
-        setActiveOverlay(active);
-      } else {
-        setActiveOverlay(null);
-      }
+      setActiveOverlay(active || null);
     }
   };
 
@@ -428,9 +372,22 @@ export default function Dashboard() {
     }
   };
 
-  if (!mounted) return null;
+  const startExam = () => {
+    const questions = QUESTIONS_POOL[activeModule] || [];
+    if (questions.length === 0) {
+      alert("Próximamente: Examen para este capítulo.");
+      return;
+    }
+    setExamState({
+      questions: [...questions].sort(() => Math.random() - 0.5).slice(0, 10),
+      currentIndex: 0,
+      answers: [],
+      results: null
+    });
+    setShowExam(true);
+  };
 
-  const currentChapter = CHAPTERS_DATA[activeModule];
+  if (!mounted) return null;
 
   return (
     <div className="dashboard-container" style={{ backgroundColor: COLORS.darkBg, color: COLORS.navy, minHeight: '100vh', fontFamily: 'system-ui' }}>
