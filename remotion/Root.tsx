@@ -2,33 +2,34 @@ import { Composition } from 'remotion';
 import { IntroLesson } from './IntroLesson';
 import { Chapter2Lesson } from './Chapter2Lesson';
 import { Lesson1_6_Enhanced } from './Lesson1_6_Enhanced';
+import { Chapter2_Enhanced } from './Chapter2_Enhanced';
+import { Chapter1_Enhanced } from './Chapter1_Enhanced';
 
 export const RemotionRoot = () => {
   return (
     <>
       <Composition
-        id="IntroLesson"
-        component={IntroLesson}
-        durationInFrames={5400} // 3 minutos aprox
+        id="Chapter1-Enhanced"
+        component={Chapter1_Enhanced}
+        durationInFrames={3600}
         fps={30}
         width={1920}
         height={1080}
         defaultProps={{
-          videoUrl: "/videos/heygen_intro.mp4",
-          bg: "#F5E6CC",
+          lessonId: "1.0",
+          videoUrl: "", 
         }}
       />
       <Composition
-        id="Chapter2-1"
-        component={Chapter2Lesson}
-        durationInFrames={5400} // 3 minutos aprox
+        id="Chapter2-Enhanced"
+        component={Chapter2_Enhanced}
+        durationInFrames={3600} // 2 minutos
         fps={30}
         width={1920}
         height={1080}
         defaultProps={{
-          chapter: "Capítulo 2",
-          title: "Gastos Médicos Mayores",
-          bg: "#F5E6CC",
+          lessonId: "2.1",
+          videoUrl: "", // Proporcionar mp4
         }}
       />
       <Composition

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html, body { margin: 0; padding: 0; }
+    body {
+      width: 720pt; height: 405pt;
+      box-sizing: border-box;
+      padding: 40pt;
+      display: flex;
+      flex-direction: column;
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: 'Helvetica', Arial, sans-serif;
+      overflow: hidden;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20pt;
+    }
+    .header-accent {
+      width: 6pt;
+      height: 40pt;
+      background-color: #C5A059;
+      margin-right: 15pt;
+    }
+    h1 {
+      color: #C5A059;
+      font-size: 32pt;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20pt;
+      flex: 1;
+      min-height: 0;
+    }
+    .card {
+      background-color: #1A1A1A;
+      border: 1pt solid #C5A059;
+      padding: 15pt;
+      border-radius: 8pt;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .card-title {
+      color: #C5A059;
+      font-size: 18pt;
+      font-weight: bold;
+      margin: 0 0 5pt 0;
+    }
+    .card-val {
+      font-size: 24pt;
+      font-weight: bold;
+      margin: 0;
+    }
+    .total-footer {
+      margin-top: 20pt;
+      font-size: 24pt;
+      font-weight: bold;
+      text-align: right;
+      color: #C5A059;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-accent"></div>
+    <h1>Equipo de 10 Agentes (Producción Real)</h1>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <p class="card-title">Productores Top (2)</p>
+      <p class="card-val">50 Pólizas/Mes</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Productores Sólidos (3)</p>
+      <p class="card-val">54 Pólizas/Mes</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Part-Time (3)</p>
+      <p class="card-val">36 Pólizas/Mes</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Inconsistentes (2)</p>
+      <p class="card-val">14 Pólizas/Mes</p>
+    </div>
+  </div>
+  <p class="total-footer">Total Equipo: 154 Pólizas / Mes</p>
+</body>
+</html>

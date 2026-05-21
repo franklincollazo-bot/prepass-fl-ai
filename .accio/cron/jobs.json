@@ -1,0 +1,71 @@
+{
+  "version": 2,
+  "jobs": [
+    {
+      "id": "cron-1779142467093-kie6bscu",
+      "name": "Vigilancia de competencia",
+      "enabled": true,
+      "deleteAfterRun": false,
+      "createdAtMs": 1779142467093,
+      "updatedAtMs": 1779289335355,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * 1,2,3,4,5"
+      },
+      "payload": {
+        "kind": "agent",
+        "message": "Busca en la web las últimas noticias, actualizaciones de agencias de seguros, en cuanto a lo que ofrecen a sus agentes y sobre todo a lo que les esta funcionando en views y compartidos en redes sociales  de competidores en mi sector. Compáralo con lo ya anotado en memoria y destaca lo nuevo o relevante.",
+        "agent": "DID-DB9653-81DB9653U1778692-8233-A6D672"
+      },
+      "state": {
+        "nextRunAtMs": 1779372000000,
+        "lastRunAtMs": 1779289331895,
+        "lastStatus": "ok",
+        "lastDurationMs": 417
+      },
+      "target": {
+        "type": "agent_sticky",
+        "agentId": "DID-DB9653-81DB9653U1778692-8233-A6D672"
+      },
+      "workspacePath": "/Users/franklincollazo/.accio/accounts/1764454324/agents/DID-DB9653-81DB9653U1778692-8233-A6D672/project",
+      "createdBy": {
+        "source": "ui"
+      }
+    },
+    {
+      "id": "cron-1779160358890-ai773mvu",
+      "name": "Mobile Health Check - PrePass FL AI",
+      "description": "Verificación automática de salud móvil (iPhone/Android) cada 12 horas para PrePass FL AI.",
+      "enabled": true,
+      "deleteAfterRun": false,
+      "createdAtMs": 1779160358890,
+      "updatedAtMs": 1779292810938,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 */12 * * *",
+        "tz": "America/New_York"
+      },
+      "payload": {
+        "kind": "agent",
+        "message": "Ejecuta la verificación de salud móvil para https://prepass-fl-ai.vercel.app/dashboard usando el skill 'mobile-health-checker'. Si encuentras algún error, notifícame de inmediato con un screenshot. Si todo está bien, simplemente deja un log de éxito.",
+        "agent": "general"
+      },
+      "state": {
+        "nextRunAtMs": 1779336000000,
+        "lastRunAtMs": 1779292810928,
+        "lastStatus": "ok",
+        "lastDurationMs": 10892
+      },
+      "target": {
+        "type": "conversation",
+        "conversationId": "CID-43454324U1778693-FBA57E-0999-49E8CE"
+      },
+      "workspacePath": "/Users/franklincollazo/.accio/accounts/1764454324/agents/DID-DB9653-81DB9653U1778692-8233-A6D672/project",
+      "createdBy": {
+        "source": "agent",
+        "actorId": "DID-DB9653-81DB9653U1778692-8233-A6D672"
+      },
+      "sessionTarget": "main"
+    }
+  ]
+}

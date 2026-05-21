@@ -24,7 +24,7 @@ const CHAPTERS_DATA = {
     subtopics: [
       {
         title: "1.0 Introducción: La Nueva Era de Seguros",
-        videoUrl: "https://app.heygen.com/embeds/417dab59ccbc4079a3620f0203a188d9",
+        videoUrl: "/heygen_intro.mp4",
         summary: "Bienvenido a Maná Academy. Descubre por qué PrePass FLAI es la herramienta definitiva para obtener tu licencia en tiempo récord."
       },
       {
@@ -107,6 +107,52 @@ const CHAPTERS_DATA = {
   }
 };
 
+const MASTERCLASS_METADATA = {
+  '1.0': [
+    { start: 2, end: 8, type: 'word', title: 'LA NUEVA ERA' },
+    { start: 15, end: 25, type: 'concept', title: 'TIEMPO ES DINERO', text: 'PrePass FL AI está diseñado para que apruebes en el menor tiempo posible.' }
+  ],
+  '1.1': [
+    { start: 5, end: 12, type: 'word', title: 'STARR' },
+    { start: 15, end: 35, type: 'concept', title: 'GESTIÓN DE RIESGO', text: 'Sharing, Transfer, Avoidance, Retention, Reduction.' }
+  ],
+  '1.2': [
+    { start: 5, end: 15, type: 'word', title: 'PODERES' },
+    { start: 20, end: 40, type: 'concept', title: 'AUTORIDAD DEL AGENTE', text: 'Expresa (Contrato), Implícita (Normal), Aparente (Terceros).' }
+  ],
+  '1.3': [
+    { start: 5, end: 15, type: 'word', title: 'ALCAL' },
+    { start: 20, end: 40, type: 'concept', title: 'ELEMENTOS LEGALES', text: 'Acuerdo, Legalidad, Consideración, Capacidad.' }
+  ],
+  '1.4': [
+    { start: 10, end: 25, type: 'word', title: 'ADHESIÓN' },
+    { start: 30, end: 45, type: 'word', title: 'ALEATORIO' },
+    { start: 50, end: 65, type: 'trap', title: 'TRAMPA DE AMBIGÜEDAD', text: 'Cualquier error en el contrato favorece SIEMPRE al cliente (Adhesión).' }
+  ],
+  '1.5': [
+    { start: 10, end: 30, type: 'concept', title: 'LEY FCRA', text: 'Protege la privacidad del consumidor en informes de crédito y salud.' }
+  ],
+  '1.6': [
+    { start: 5, end: 15, type: 'word', title: 'ÉTICA' },
+    { start: 20, end: 40, type: 'trap', title: 'TWISTING vs CHURNING', text: 'Twisting: Reemplazo externo engañoso. Churning: Reemplazo interno innecesario.' }
+  ],
+  '2.1': [
+    { start: 5, end: 15, type: 'word', title: 'INCAPACIDAD' },
+    { start: 20, end: 40, type: 'concept', title: 'OWN OCC vs ANY OCC', text: 'Own Occ paga si no puedes hacer TU trabajo. Any Occ es más difícil de cobrar.' }
+  ],
+  '2.2': [
+    { start: 10, end: 25, type: 'concept', title: 'STOP-LOSS', text: 'El límite máximo que el asegurado pagará de su bolsillo al año.' }
+  ],
+  '2.3': [
+    { start: 5, end: 15, type: 'word', title: 'REDES' },
+    { start: 20, end: 40, type: 'concept', title: 'HMO vs PPO', text: 'HMO: Gatekeeper, Barata. PPO: Flexibilidad, Cara.' }
+  ],
+  '2.4': [
+    { start: 5, end: 15, type: 'word', title: 'GRUPALES' },
+    { start: 20, end: 40, type: 'concept', title: 'COBRA', text: 'Continuidad de cobertura por 18 o 36 meses. El empleado paga el 102%.' }
+  ]
+};
+
 export default function Dashboard() {
   const [activeModule, setActiveModule] = React.useState(1);
   const [activeSubtopic, setActiveSubtopic] = React.useState(0);
@@ -119,6 +165,7 @@ export default function Dashboard() {
   const [loading, setLoading] = React.useState(false);
   const [dynamicText, setDynamicText] = React.useState(null);
   const [isEnhanced, setIsEnhanced] = React.useState(false);
+  const [activeOverlay, setActiveOverlay] = React.useState(null); // { type: 'word' | 'concept' | 'trap', title, text }
   const [examState, setExamState] = React.useState({ questions: [], currentIndex: 0, answers: [], results: null });
   const [performanceHistory, setPerformanceHistory] = React.useState([]);
   const [errorRadar, setErrorRadar] = React.useState({});
@@ -218,43 +265,22 @@ export default function Dashboard() {
   const readiness = getReadinessInfo();
 
   const handleTimeUpdate = () => {
-    if (!videoRef.current) return;
+    if (!videoRef.current || !isEnhanced) return;
     const time = videoRef.current.currentTime;
+    const currentChapter = CHAPTERS_DATA[activeModule];
+    if (!currentChapter) return;
     
-    // Module 1 logic
-    if (activeModule === 1 && activeSubtopic === 0) {
-      if (time > 2 && time < 10) setDynamicText("EL TIEMPO ES DINERO");
-      else if (time > 25 && time < 35) setDynamicText("EFICIENCIA AI");
-      else if (time > 45 && time < 55) setDynamicText("STARR");
-      else if (time > 80 && time < 95) setDynamicText("DOBLE ALEATORIEDAD");
-      else setDynamicText(null);
-    } 
-    // Module 2.1 logic
-    else if (activeModule === 2 && activeSubtopic === 0) {
-      if (time > 2 && time < 10) setDynamicText("INCAPACIDAD");
-      else if (time > 15 && time < 25) setDynamicText("OWN OCCUPATION");
-      else if (time > 35 && time < 45) setDynamicText("ANY OCCUPATION");
-      else if (time > 55 && time < 65) setDynamicText("TIME DEDUCTIBLE");
-      else setDynamicText(null);
-    }
-    // Module 2.3 logic
-    else if (activeModule === 2 && activeSubtopic === 2) {
-      if (time > 2 && time < 10) setDynamicText("HMO VS PPO");
-      else if (time > 15 && time < 30) setDynamicText("HMO: RED CERRADA (GATEKEEPER)");
-      else if (time > 40 && time < 55) setDynamicText("PPO: RED ABIERTA (FLEXIBILIDAD)");
-      else if (time > 65 && time < 80) setDynamicText("TRAMPA: HMO REQUIERE REFERIDO");
-      else setDynamicText(null);
-    }
-    // Module 2.4 logic
-    else if (activeModule === 2 && activeSubtopic === 3) {
-      if (time > 2 && time < 10) setDynamicText("SEGURO GRUPAL");
-      else if (time > 20 && time < 35) setDynamicText("LEY COBRA (102%)");
-      else if (time > 40 && time < 55) setDynamicText("TRAMPA PEARSON: EL PATRONO NO PAGA");
-      else if (time > 60 && time < 75) setDynamicText("CONVERSIÓN (31 DÍAS)");
-      else setDynamicText(null);
-    }
-    else {
-      setDynamicText(null);
+    const lessonTitle = currentChapter.subtopics[activeSubtopic].title;
+    const lessonId = lessonTitle.split(' ')[0]; // Extract "1.0", "1.1", etc.
+    
+    const metadata = MASTERCLASS_METADATA[lessonId];
+    if (metadata) {
+      const active = metadata.find(m => time >= m.start && time <= m.end);
+      if (active) {
+        setActiveOverlay(active);
+      } else {
+        setActiveOverlay(null);
+      }
     }
   };
 
@@ -454,11 +480,75 @@ export default function Dashboard() {
                     border: isEnhanced ? `3px solid ${COLORS.gold}` : 'none',
                     boxShadow: isEnhanced ? `0 0 20px ${COLORS.gold}44` : 'none'
                   }}>
-                    {dynamicText && (
-                      <div style={{ position: 'absolute', top: '10%', width: '100%', zIndex: 10, display: 'flex', justifyContent: 'center' }}>
-                        <div style={{ color: COLORS.gold, fontSize: '32px', fontWeight: 'bold', backgroundColor: 'rgba(10, 27, 51, 0.8)', padding: '10px 30px', borderRadius: '50px', border: `2px solid ${COLORS.gold}`, animation: 'fadeInUp 0.5s' }}>
-                          {dynamicText}
-                        </div>
+                    {activeOverlay && (
+                      <div style={{ 
+                        position: 'absolute', 
+                        top: 0, 
+                        left: 0, 
+                        width: '100%', 
+                        height: '100%', 
+                        zIndex: 10, 
+                        pointerEvents: 'none',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '40px'
+                      }}>
+                        {activeOverlay.type === 'word' && (
+                          <div style={{ 
+                            color: COLORS.gold, 
+                            fontSize: '48px', 
+                            fontWeight: 'bold', 
+                            backgroundColor: 'rgba(10, 27, 51, 0.9)', 
+                            padding: '20px 50px', 
+                            borderRadius: '15px', 
+                            border: `4px solid ${COLORS.gold}`, 
+                            boxShadow: '0 0 30px rgba(0,0,0,0.5)',
+                            animation: 'scaleIn 0.3s ease-out'
+                          }}>
+                            {activeOverlay.title}
+                          </div>
+                        )}
+                        {activeOverlay.type === 'concept' && (
+                          <div style={{ 
+                            position: 'absolute',
+                            bottom: '10%',
+                            left: '10%',
+                            right: '10%',
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+                            padding: '25px', 
+                            borderRadius: '12px', 
+                            borderLeft: `10px solid ${COLORS.gold}`, 
+                            boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
+                            animation: 'slideInLeft 0.5s ease-out'
+                          }}>
+                            <h4 style={{ margin: 0, color: COLORS.navy, fontSize: '24px' }}>{activeOverlay.title}</h4>
+                            <p style={{ margin: '10px 0 0 0', color: COLORS.gray, fontSize: '18px', lineHeight: '1.4' }}>{activeOverlay.text}</p>
+                          </div>
+                        )}
+                        {activeOverlay.type === 'trap' && (
+                          <div style={{ 
+                            position: 'absolute',
+                            top: '15%',
+                            right: '5%',
+                            width: '320px',
+                            backgroundColor: '#fee2e2', 
+                            padding: '20px', 
+                            borderRadius: '15px', 
+                            border: '3px solid #ef4444', 
+                            boxShadow: '0 10px 30px rgba(239, 68, 68, 0.2)',
+                            animation: 'bounceIn 0.5s'
+                          }}>
+                            <h4 style={{ margin: 0, color: '#991b1b', fontSize: '20px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                              ⚠️ TRAMPA PEARSON
+                            </h4>
+                            <p style={{ margin: '10px 0', color: '#b91c1c', fontSize: '16px', fontWeight: 'bold' }}>{activeOverlay.title}</p>
+                            <div style={{ backgroundColor: 'white', padding: '12px', borderRadius: '8px', color: COLORS.navy, fontSize: '14px' }}>
+                              <strong>Solución:</strong> {activeOverlay.text}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     )}
                     {currentChapter?.subtopics[activeSubtopic].videoUrl.includes('PLACEHOLDER') ? (
@@ -703,10 +793,25 @@ export default function Dashboard() {
 
       <style dangerouslySetInnerHTML={{ __html: `
         * { box-sizing: border-box; }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+          }
+          @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+          }
+          @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+          }
+
         @media (max-width: 900px) {
           .nav-title { display: none !important; }
           .nav-bar { padding: 10px 15px !important; }
