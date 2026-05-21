@@ -91,18 +91,19 @@ export default function DemoMasterclass() {
           <iframe 
             src="https://app.heygen.com/embeds/659a01deb2d34a97a2cba24c6660b319"
             style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-            allow="fullscreen; encrypted-media; picture-in-picture"
-            allowFullScreen
+            allow="encrypted-media; picture-in-picture"
           />
 
           {activeOverlay && (
             <div style={{
               position: 'absolute',
-              top: '20px',
-              right: '20px',
+              top: '5%',
+              right: '5%',
               zIndex: 1000,
-              width: '280px',
-              animation: 'fadeIn 0.5s'
+              width: '35%',
+              maxWidth: '300px',
+              animation: 'fadeIn 0.5s',
+              pointerEvents: 'none'
             }}>
               <div style={{
                 backgroundColor: activeOverlay.type === 'trap' ? '#fee2e2' : COLORS.white,

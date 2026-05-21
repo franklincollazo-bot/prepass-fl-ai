@@ -701,8 +701,7 @@ export default function Dashboard() {
                         key={currentChapter?.subtopics[activeSubtopic].videoUrl}
                         src={currentChapter?.subtopics[activeSubtopic].videoUrl}
                         style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-                        allow="fullscreen; encrypted-media; picture-in-picture"
-                        allowFullScreen
+                        allow="encrypted-media; picture-in-picture"
                       />
                     ) : (
                       <video 
