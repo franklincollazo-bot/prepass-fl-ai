@@ -1,4 +1,4 @@
-// v2.1.4 - Integrated "Intro Editado 2" and latest Chapter 1 videos
+// v2.1.5 - Updated Video 1.2 to latest HeyGen version
 import React from 'react';
 import Head from 'next/head';
 
@@ -33,10 +33,11 @@ const CHAPTERS_DATA = {
         summary: "Aprende a identificar los riesgos y cómo las aseguradoras los gestionan a través del acrónimo STARR."
       },
       {
-        title: "1.2 El Agente: Poderes y Autoridad",
-        videoUrl: "https://app.heygen.com/embeds/816ae97e0ee845f8973190d466a39ba6",
-        summary: "Domina los conceptos de Autoridad Expresa, Implícita y Aparente del agente de seguros."
+        title: "1.2 Autoridad del Agente y Poderes",
+        videoUrl: "https://app.heygen.com/embeds/e9f6a9dce7f0409e83bbbcdab25ad135",
+        summary: "Diferencia entre autoridad expresa, implícita y aparente para evitar problemas legales en tu carrera."
       },
+
       {
         title: "1.3 Elementos Legales (ALCAL)",
         videoUrl: "https://app.heygen.com/embeds/01b891eff6c44b83b9ac98d514418cc5",
