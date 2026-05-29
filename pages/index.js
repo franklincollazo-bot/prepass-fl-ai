@@ -1,38 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
-
-const COLORS = {
-  black: '#000000',
-  darkBg: '#F5E6CC', // Beige más cálido y definido
-  navy: '#0A1B33',
-  gold: '#C5A059',
-  goldDark: '#9A7B2C',
-  white: '#FFFFFF',
-  gray: '#64748b',
-  border: '#D9CBB0' // Borde cálido para el beige
-};
-
-const LOGO_URL = "https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png";
+import { COLORS, LOGO_URL } from '../lib/courseData';
 
 export default function LandingPage() {
-  const [dynamicText, setDynamicText] = React.useState(null);
-  const videoRef = React.useRef(null);
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
-
-  const handleTimeUpdate = () => {
-    if (!videoRef.current) return;
-    const time = videoRef.current.currentTime;
-    // Sincronización Masterclass para la Intro
-    if (time > 2 && time < 10) setDynamicText("EL TIEMPO ES DINERO");
-    else if (time > 25 && time < 35) setDynamicText("EFICIENCIA AI");
-    else if (time > 45 && time < 55) setDynamicText("STARR");
-    else if (time > 80 && time < 95) setDynamicText("DOBLE ALEATORIEDAD");
-    else setDynamicText(null);
-  };
 
   if (!mounted) return null;
 
@@ -41,35 +16,22 @@ export default function LandingPage() {
       backgroundColor: COLORS.darkBg, 
       color: COLORS.navy, 
       minHeight: '100vh', 
-      fontFamily: 'system-ui, -apple-system, sans-serif' 
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+      overflowX: 'hidden'
     }}>
       <style jsx global>{`
-        .hero-title {
-          font-size: 42px;
-          color: ${COLORS.gold};
-          margin-bottom: 20px;
+        .hero-title { font-size: 56px; font-weight: 900; color: white; line-height: 1.1; margin-bottom: 25px; }
+        .hero-accent { color: ${COLORS.gold}; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .btn-platinum { 
+          background: linear-gradient(135deg, ${COLORS.gold} 0%, ${COLORS.goldDark} 100%); 
+          color: black; padding: 20px 45px; border-radius: 50px; font-size: 20px; 
+          font-weight: 800; text-decoration: none; display: inline-block; 
+          box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4); transition: all 0.3s ease;
           letter-spacing: 1px;
         }
-        .hero-subtitle {
-          color: ${COLORS.white};
-          font-size: 32px;
-        }
-        .features-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 40px;
-        }
-        @media (max-width: 600px) {
-          .hero-title {
-            font-size: 28px;
-          }
-          .hero-subtitle {
-            font-size: 20px;
-          }
-          .hero-section {
-            padding: 40px 15px !important;
-          }
-        }
+        .btn-platinum:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(197, 160, 89, 0.5); }
+        @media (max-width: 768px) { .hero-title { font-size: 36px; } }
       `}</style>
       <Head>
         <title>PrePass FL AI | Maná Academy</title>
@@ -78,123 +40,94 @@ export default function LandingPage() {
       </Head>
 
       {/* Hero Section */}
-      <section className="hero-section" style={{ 
-        padding: '60px 20px', 
-        textAlign: 'center', 
-        backgroundColor: COLORS.navy,
-        borderBottom: `3px solid ${COLORS.gold}`
+      <section style={{ 
+        padding: '100px 20px', textAlign: 'center', backgroundColor: COLORS.navy,
+        backgroundImage: 'radial-gradient(circle at top, #1a2a44 0%, #0A1B33 100%)',
+        borderBottom: `5px solid ${COLORS.gold}`, position: 'relative', overflow: 'hidden'
       }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <img src={LOGO_URL} alt="Maná Academy Logo" style={{ width: '150px', maxWidth: '100%', marginBottom: '20px' }} />
+        {/* Background elements */}
+        <div style={{ position: 'absolute', top: -50, right: -50, width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(197, 160, 89, 0.05)', filter: 'blur(50px)' }}></div>
+        
+        <div style={{ maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+          <img src={LOGO_URL} alt="Logo" style={{ width: '180px', marginBottom: '40px' }} />
           <h1 className="hero-title">
-            PASIÓN POR TU ÉXITO <br/>
-            <span className="hero-subtitle">PrePass FL AI (2-40)</span>
+            TU LICENCIA DE SEGUROS <br/>
+            EN <span className="hero-accent">TIEMPO RÉCORD</span>
           </h1>
-          <p style={{ fontSize: '18px', color: COLORS.white, marginBottom: '40px', opacity: 0.8 }}>
-            No estudies más, estudia mejor. Destilamos el contenido del examen estatal de Florida para que apruebes a la primera y empieces a producir dinero de inmediato.
+          <p style={{ fontSize: '20px', color: 'white', marginBottom: '50px', opacity: 0.9, maxWidth: '700px', margin: '0 auto 50px auto', lineHeight: '1.6' }}>
+            La primera plataforma con <strong>Ingeniería de Protección</strong>. Masterclass interactivas con IA que garantizan tu aprobado en el examen estatal 2-40 de Florida.
           </p>
           
-          {/* Welcome Video Masterclass */}
-          <div style={{ 
-            maxWidth: '700px', 
-            margin: '0 auto 40px auto',
-            position: 'relative', 
-            paddingTop: '56.25%', 
-            backgroundColor: COLORS.black, 
-            borderRadius: '12px', 
-            overflow: 'hidden',
-            border: `2px solid ${COLORS.gold}`,
-            boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
-          }}>
-            {/* Overlay Dinámico Masterclass */}
-            {dynamicText && (
-              <div style={{
-                position: 'absolute',
-                top: '15%',
-                width: '100%',
-                zIndex: 10,
-                display: 'flex',
-                justifyContent: 'center',
-                pointerEvents: 'none',
-                animation: 'fadeInUp 0.5s ease-out'
-              }}>
-                <div style={{
-                  color: COLORS.gold,
-                  fontSize: '28px',
-                  fontWeight: 'bold',
-                  textShadow: '0 4px 10px rgba(0,0,0,0.5)',
-                  backgroundColor: 'rgba(10, 27, 51, 0.8)',
-                  padding: '10px 25px',
-                  borderRadius: '50px',
-                  border: `2px solid ${COLORS.gold}`
-                }}>
-                  {dynamicText}
-                </div>
-              </div>
-            )}
-
-            {/* HeyGen Embed Masterclass */}
-            <iframe 
-              src="https://app.heygen.com/embeds/976a82841af9490a93ff0a9f9a6f1383"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                border: 'none'
-              }}
-              allow="fullscreen; encrypted-media; picture-in-picture"
-              allowFullScreen
-            />
+          <div style={{ maxWidth: '850px', margin: '0 auto 60px auto', position: 'relative' }}>
+             <div style={{ 
+               position: 'absolute', top: '15%', right: '5%', zIndex: 10,
+               background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)',
+               padding: '15px 25px', borderRadius: '15px', border: `1px solid ${COLORS.gold}`,
+               boxShadow: '0 10px 30px rgba(0,0,0,0.3)', color: 'white', textAlign: 'left',
+               animation: 'float 4s ease-in-out infinite'
+             }}>
+                <div style={{ fontSize: '10px', color: COLORS.gold, fontWeight: 'bold', marginBottom: '5px' }}>✨ IA MASTERCLASS</div>
+                <div style={{ fontWeight: 'bold' }}>Regla 20-15-90</div>
+                <div style={{ fontSize: '11px', opacity: 0.8 }}>Identificada automáticamente.</div>
+             </div>
+             
+             <div style={{ padding: '4px', background: `linear-gradient(135deg, ${COLORS.gold}, transparent)`, borderRadius: '24px' }}>
+               <div style={{ position: 'relative', paddingTop: '56.25%', borderRadius: '20px', overflow: 'hidden', backgroundColor: 'black', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
+                <iframe 
+                  src="https://app.heygen.com/embeds/976a82841af9490a93ff0a9f9a6f1383"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                  allow="fullscreen; encrypted-media; picture-in-picture"
+                />
+               </div>
+             </div>
           </div>
 
-          <a href="/inscripcion" style={{ 
-            backgroundColor: COLORS.gold, 
-            color: COLORS.black, 
-            padding: '16px 32px', 
-            borderRadius: '8px', 
-            fontSize: '18px', 
-            fontWeight: 'bold', 
-            textDecoration: 'none',
-            display: 'inline-block',
-            boxShadow: '0 4px 15px rgba(197, 160, 89, 0.4)'
-          }}>
-            Registrarme e Inscribirme - $49
-          </a>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+            <a href="/inscripcion" className="btn-platinum">INICIAR MI ENTRENAMIENTO — $49</a>
+            <p style={{ color: 'white', fontSize: '12px', opacity: 0.6 }}>Acceso inmediato a los 10 módulos y simulador final.</p>
+          </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ color: COLORS.navy, fontSize: '32px' }}>¿Por qué Maná Academy?</h2>
-        </div>
+      {/* Value Proposition */}
+      <section style={{ padding: '100px 20px', maxWidth: '1200px', margin: '0 auto' }}>
         <div className="features-grid">
-          <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-            <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🚀 Eficiencia Total</h3>
-            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Eliminamos el relleno. Solo lo que el Estado de Florida evalúa. Ahora con el <strong>Capítulo 2 (HMO/PPO)</strong> blindado técnicamente.</p>
+          <div style={{ padding: '40px', background: 'white', borderRadius: '24px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
+            <div style={{ fontSize: '40px', marginBottom: '20px' }}>🧠</div>
+            <h3 style={{ fontSize: '24px', marginBottom: '15px', color: COLORS.navy }}>Neuro-Aprendizaje AI</h3>
+            <p style={{ color: COLORS.gray, lineHeight: '1.7' }}>
+              Nuestras Masterclass con Frank Avatar detectan los puntos clave y te los muestran en pantalla justo cuando los necesitas. No tomas notas, absorbes el conocimiento.
+            </p>
           </div>
-          <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-            <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🤖 Doble Aleatoriedad</h3>
-            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Nuestro motor mezcla preguntas y opciones. No memorizas posiciones, dominas conceptos bajo el modelo de el examinador.</p>
+          <div style={{ padding: '40px', background: 'white', borderRadius: '24px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
+            <div style={{ fontSize: '40px', marginBottom: '20px' }}>⚖️</div>
+            <h3 style={{ fontSize: '24px', marginBottom: '15px', color: COLORS.navy }}>Readiness Estatal</h3>
+            <p style={{ color: COLORS.gray, lineHeight: '1.7' }}>
+              El simulador analiza tus fallos y te dice exactamente cuándo estás listo para el examen oficial de Florida. Cero incertidumbre, 100% confianza.
+            </p>
           </div>
-          <div style={{ padding: '40px', backgroundColor: COLORS.white, borderRadius: '16px', border: `1px solid ${COLORS.border}`, boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
-            <h3 style={{ color: COLORS.navy, fontSize: '24px', marginBottom: '15px' }}>🎥 Dinamismo Masterclass</h3>
-            <p style={{ color: COLORS.gray, lineHeight: '1.6' }}>Videos con overlays en tiempo real que resaltan los términos clave justo cuando el mentor los menciona.</p>
+          <div style={{ padding: '40px', background: 'white', borderRadius: '24px', border: `1px solid ${COLORS.border}`, boxShadow: '0 10px 30px rgba(0,0,0,0.03)' }}>
+            <div style={{ fontSize: '40px', marginBottom: '20px' }}>💰</div>
+            <h3 style={{ fontSize: '24px', marginBottom: '15px', color: COLORS.navy }}>Inversión Rentable</h3>
+            <p style={{ color: COLORS.gray, lineHeight: '1.7' }}>
+              Por solo $49 obtienes la metodología que ha ayudado a cientos de agentes a certificarse en menos de 10 días. El tiempo es dinero, empieza hoy.
+            </p>
           </div>
         </div>
       </section>
 
-      <footer style={{ padding: '60px 40px', textAlign: 'center', color: COLORS.gray, fontSize: '14px', backgroundColor: COLORS.white, borderTop: `1px solid ${COLORS.border}` }}>
-        <img src={LOGO_URL} alt="Logo" style={{ height: '30px', opacity: 0.5, marginBottom: '10px' }} /><br/>
-        © 2026 Maná Academy | Una iniciativa de <a href="https://www.manainsuranceadvisors.com" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.navy, textDecoration: 'none', fontWeight: 'bold' }}>Maná Insurance Advisors</a>
+      <footer style={{ padding: '80px 40px', textAlign: 'center', backgroundColor: 'white', borderTop: `1px solid ${COLORS.border}` }}>
+        <img src={LOGO_URL} alt="Logo" style={{ height: '40px', marginBottom: '30px' }} />
+        <p style={{ color: COLORS.gray, maxWidth: '600px', margin: '0 auto 30px auto', fontSize: '14px', lineHeight: '1.6' }}>
+          PrePass FL AI es una plataforma de Maná Academy diseñada para la excelencia profesional en el sector de seguros de Florida.
+        </p>
+        <div style={{ fontSize: '12px', fontWeight: 'bold', color: COLORS.navy }}>© 2026 MANÁ INSURANCE ADVISORS. TODOS LOS DERECHOS RESERVADOS.</div>
       </footer>
 
-      <style jsx global>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
         }
       `}</style>
     </div>

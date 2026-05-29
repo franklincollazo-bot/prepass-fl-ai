@@ -4,105 +4,127 @@
     <meta charset="UTF-8">
     <title>Manual Maestro Módulo 5 - Maná Academy</title>
     <style>
-        :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
-        body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Arial, sans-serif; }
-        .printable-page { width: 215.9mm; height: 279.4mm; padding: 25.4mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; position: relative; display: flex; flex-direction: column; }
-        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-30deg); font-size: 80px; color: rgba(197, 160, 89, 0.05); pointer-events: none; font-weight: bold; }
-        .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
+        :root { 
+            --gold: #C5A059; 
+            --navy: #0A1B33; 
+            --black: #000000;
+        }
+        
+        body { 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 20px;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        .printable-page {
+            width: 215.9mm;
+            height: 279.4mm;
+            padding: 25.4mm;
+            margin: 0 auto 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: var(--navy);
+            color: var(--gold);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+            margin-bottom: 25px;
+        }
+
         .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
-        .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
-        h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        p, li { font-size: 12px; line-height: 1.5; color: #333; }
-        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
-        .highlight-box { background: #f0f4f8; border-left: 4px solid var(--navy); padding: 10px; margin: 10px 0; font-size: 11px; }
-        .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+
+        .section-title {
+            background: var(--navy);
+            color: var(--gold);
+            padding: 8px 12px;
+            font-weight: bold;
+            margin-top: 15px;
+            border-left: 4px solid var(--gold);
+            font-size: 14px;
+        }
+
+        h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
+        p, li { font-size: 12px; line-height: 1.5; color: #333; margin-bottom: 5px; }
+        
+        .pro-tip {
+            background: #fffdf0;
+            border: 1px solid var(--gold);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .footer {
+            margin-top: auto;
+            text-align: center;
+            font-size: 10px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
     </style>
 </head>
 <body>
+
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="header">
-                <h1>Manual Maestro - Módulo 5</h1>
-                <div style="color: white; font-size: 11px;">Impuestos, ACA y Conceptos Misceláneos de Salud</div>
-            </div>
-
-            <div class="section-title">PILAR 1: DERECHOS DEL DUEÑO Y BENEFICIARIOS</div>
-            <p>El dueño de la póliza (Policyowner) tiene derechos exclusivos, incluyendo cambiar al beneficiario (si es revocable) y ceder la póliza.</p>
-            <ul>
-                <li><strong>Beneficiario Revocable:</strong> Se puede cambiar en cualquier momento sin permiso.</li>
-                <li><strong>Beneficiario Irrevocable:</strong> Requiere permiso escrito del beneficiario para cambios en la póliza.</li>
-            </ul>
-
-            <div class="section-title">PILAR 2: COORDINACIÓN DE BENEFICIOS (COB)</div>
-            <p>Evita que un asegurado reciba más del 100% del costo de una pérdida cuando tiene dos seguros (ej. el suyo y el de su cónyuge).</p>
-            <ul>
-                <li><strong>Plan Primario:</strong> Paga primero hasta su límite.</li>
-                <li><strong>Plan Secundario:</strong> Paga el balance restante (lo que el primario no cubrió).</li>
-                <li><strong>Regla del Cumpleaños:</strong> En hijos con padres con seguros separados, el plan del padre cuyo cumpleaños ocurra primero en el año calendario es el Primario.</li>
-            </ul>
-
-            <div class="section-title">PILAR 3: TRATAMIENTO DE IMPUESTOS (TAXATION)</div>
-            <div class="highlight-box">
-                <b>RESUMEN FISCAL DE SALUD:</b>
-                <ul>
-                    <li><strong>Gastos Médicos Individuales:</strong> Deducibles solo si exceden el <strong>7.5%</strong> del Ingreso Bruto Ajustado (AGI).</li>
-                    <li><strong>Seguro de Incapacidad (Individual):</strong> Primas NO deducibles; beneficios recibidos son LIBRES de impuestos.</li>
-                    <li><strong>Seguro de Incapacidad (Grupal):</strong> Si el empleador paga la prima, el beneficio es GRAVABLE (paga impuestos).</li>
-                </ul>
-            </div>
+        <div class="header">
+            <h1>Manual Maestro - Módulo 5</h1>
+            <div style="color: white; font-size: 11px;">Conceptos Misceláneos y Fiscalidad • Florida 2-40</div>
         </div>
-        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
+
+        <div class="section-title">PILAR 1: DERECHOS DEL DUEÑO Y BENEFICIARIOS</div>
+        <ul>
+            <li><strong>Dueño (Policyowner):</strong> Tiene el derecho de cambiar beneficiarios, asignar la póliza y recibir beneficios.</li>
+            <li><strong>Beneficiario Revocable:</strong> Puede ser cambiado en cualquier momento por el dueño.</li>
+            <li><strong>Beneficiario Irrevocable:</strong> Requiere el consentimiento escrito del beneficiario para ser cambiado.</li>
+        </ul>
+
+        <div class="section-title">PILAR 2: COORDINACIÓN DE BENEFICIOS (COB)</div>
+        <p>Evita que un asegurado reciba más del 100% de los gastos médicos reales cuando tiene dos pólizas.</p>
+        <ul>
+            <li><strong>Póliza Primaria:</strong> La que paga primero (ej: el plan del propio empleo).</li>
+            <li><strong>Póliza Secundaria:</strong> Paga el exceso no cubierto por la primaria.</li>
+            <li><strong>Regla del Cumpleaños:</strong> En hijos dependientes, el plan del padre cuyo cumpleaños ocurre primero en el año calendario es el primario.</li>
+        </ul>
+
+        <div class="section-title">PILAR 3: TRATAMIENTO FISCAL (TAXATION)</div>
+        <ul>
+            <li><strong>Seguro Individual:</strong> Primas (No deducibles), Beneficios (No gravables).</li>
+            <li><strong>Seguro de Grupo:</strong> Primas pagadas por el empleador (Deducibles para la empresa / No ingreso para el empleado). Beneficios (No gravables).</li>
+            <li><strong>Incapacidad (Disability):</strong> Si el empleador paga la prima, los beneficios son gravables para el empleado. Si el empleado paga con dinero después de impuestos, los beneficios son libres de impuestos.</li>
+        </ul>
     </div>
 
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="section-title">PILAR 4: LEY DE CUIDADOS DE SALUD ASEQUIBLE (ACA / PPACA)</div>
-            <p>Firmada en 2010, cambió radicalmente el mercado de seguros médicos.</p>
-            <ul>
-                <li><strong>Condiciones Preexistentes:</strong> Las aseguradoras NO pueden negar cobertura ni cobrar más por condiciones previas.</li>
-                <li><strong>Dependientes:</strong> Cobertura obligatoria hasta los <strong>26 años</strong>.</li>
-                <li><strong>Servicios Preventivos:</strong> Deben cubrirse al 100% (sin deducible ni copago).</li>
-                <li><strong>Niveles de Metal:</strong> Bronce (60%), Plata (70%), Oro (80%), Platino (90%).</li>
-            </ul>
+        <div class="section-title">PILAR 4: MANAGED CARE Y UTILIZACIÓN</div>
+        <p>Estrategias para controlar costos y asegurar la calidad del cuidado.</p>
+        <ul>
+            <li><strong>Revisión Prospectiva:</strong> Autorización antes del tratamiento.</li>
+            <li><strong>Revisión Concurrente:</strong> Monitoreo durante el tratamiento (ej: estancia hospitalaria).</li>
+            <li><strong>Administrador de Casos (Case Management):</strong> Coordina cuidados para casos complejos.</li>
+        </ul>
 
-            <div class="section-title">PILAR 5: SEGUROS DE DISCAPACIDAD PARA NEGOCIOS</div>
-            <table>
-                <tr>
-                    <th>Tipo</th>
-                    <th>¿Primas Deducibles?</th>
-                    <th>¿Beneficio Gravable?</th>
-                </tr>
-                <tr>
-                    <td><strong>Gastos de Operación (BOE)</strong></td>
-                    <td>Sí (Gasto de negocio)</td>
-                    <td>Sí (Ingreso de negocio)</td>
-                </tr>
-                <tr>
-                    <td><strong>Compra-Venta (Buy-Sell)</strong></td>
-                    <td>No</td>
-                    <td>No</td>
-                </tr>
-                <tr>
-                    <td><strong>Persona Clave (Key Person)</strong></td>
-                    <td>No</td>
-                    <td>No</td>
-                </tr>
-            </table>
+        <div class="section-title">PILAR 5: CUENTAS TAX-ADVANTAGED</div>
+        <ul>
+            <li><strong>HSA (Health Savings Account):</strong> Para planes con alto deducible (HDHP). Contribuciones deducibles y crecimiento libre de impuestos.</li>
+            <li><strong>FSA (Flexible Spending Account):</strong> Cuenta de "úsalo o piérdelo" financiada por el empleado.</li>
+            <li><strong>HRA (Health Reimbursement Account):</strong> Financiada 100% por el empleador.</li>
+        </ul>
 
-            <div class="pro-tip">
-                <b>💡 TRAMPA DE EXAMEN:</b> En el seguro de Persona Clave, la empresa es la dueña, pagadora y beneficiaria. Las primas NO son deducibles porque el beneficio llegará libre de impuestos.
-            </div>
-
-            <div class="section-title">PILAR 6: CUIDADO MANEJADO (MANAGED CARE)</div>
-            <ul>
-                <li>Se enfoca en la prevención y el control de costos.</li>
-                <li>Incluye HMOs, PPOs y Planes de Punto de Servicio (POS).</li>
-                <li>Utiliza revisión de utilización y manejo de casos.</li>
-            </ul>
-        </div>
+        <div class="pro-tip"><b>REGLA FISCAL:</b> Para que los gastos médicos sean deducibles individualmente, deben superar el <b>7.5%</b> del ingreso bruto ajustado (AGI).</div>
+        
         <div class="footer">© 2026 Maná Academy. Página 2/2</div>
     </div>
+
 </body>
 </html>

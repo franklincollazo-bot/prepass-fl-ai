@@ -39,10 +39,18 @@ export default function Inscripcion() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Validación de seguridad para evitar registros vacíos
+    if (!formData.nombre || !formData.email || !formData.telefono) {
+      alert("Por favor, completa los campos obligatorios antes de continuar.");
+      return;
+    }
+
     console.log('Formulario enviado:', formData);
     localStorage.setItem('userRegistration', JSON.stringify(formData));
     setSubmitted(true);
-    // Redirigir automáticamente después de 2 segundos
+    
+    // Redirigir automáticamente después de 2.5 segundos
     setTimeout(() => {
       router.push('/dashboard');
     }, 2500);

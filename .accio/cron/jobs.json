@@ -7,7 +7,7 @@
       "enabled": true,
       "deleteAfterRun": false,
       "createdAtMs": 1779142467093,
-      "updatedAtMs": 1779376180892,
+      "updatedAtMs": 1780063200378,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * 1,2,3,4,5"
@@ -18,10 +18,10 @@
         "agent": "DID-DB9653-81DB9653U1778692-8233-A6D672"
       },
       "state": {
-        "nextRunAtMs": 1779458400000,
-        "lastRunAtMs": 1779376180069,
+        "nextRunAtMs": 1780322400000,
+        "lastRunAtMs": 1780063200334,
         "lastStatus": "ok",
-        "lastDurationMs": 11889
+        "lastDurationMs": 248
       },
       "target": {
         "type": "agent_sticky",
@@ -39,7 +39,7 @@
       "enabled": true,
       "deleteAfterRun": false,
       "createdAtMs": 1779160358890,
-      "updatedAtMs": 1779379421496,
+      "updatedAtMs": 1780059421604,
       "schedule": {
         "kind": "cron",
         "expr": "0 0 * * *",
@@ -51,10 +51,10 @@
         "agent": "general"
       },
       "state": {
-        "nextRunAtMs": 1779422400000,
-        "lastRunAtMs": 1779379200371,
+        "nextRunAtMs": 1780113600000,
+        "lastRunAtMs": 1780059411943,
         "lastStatus": "ok",
-        "lastDurationMs": 298
+        "lastDurationMs": 1006
       },
       "target": {
         "type": "conversation",

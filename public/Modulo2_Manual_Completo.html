@@ -31,24 +31,6 @@
             flex-direction: column;
         }
 
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            font-size: 80px;
-            color: rgba(197, 160, 89, 0.05);
-            pointer-events: none;
-            white-space: nowrap;
-            font-weight: bold;
-            z-index: 0;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-
         .header {
             background-color: var(--navy);
             color: var(--gold);
@@ -59,7 +41,6 @@
         }
 
         .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
-        .logo-small { width: 60px; margin-bottom: 10px; }
 
         .section-title {
             background: var(--navy);
@@ -91,103 +72,58 @@
             border-top: 1px solid #eee;
             padding-top: 10px;
         }
-
-        @media print {
-            body { background: none; padding: 0; }
-            .printable-page { margin: 0; box-shadow: none; page-break-after: always; width: 100%; height: 100%; }
-            .no-print { display: none; }
-        }
-
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--gold);
-            color: black;
-            padding: 15px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 100;
-            border: none;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
 
-    <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR / DESCARGAR PDF</button>
-
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="header">
-                <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
-                <h1>Manual Maestro - Módulo 2</h1>
-                <div style="color: white; font-size: 11px;">PrePass FL AI • Tipos de Pólizas de Salud</div>
-            </div>
-
-            <h2>Seguros de Incapacidad y Gastos Médicos</h2>
-            <div class="section-title">PILAR 1: SEGURO DE INGRESO POR INCAPACIDAD</div>
-            <ul>
-                <li><strong>Propósito:</strong> Reemplaza ingresos perdidos por incapacidad; no paga gastos médicos.</li>
-                <li><strong>Own Occ vs Any Occ:</strong> 
-                    <ul>
-                        <li><i>Own Occ (Propia):</i> Incapaz de realizar las tareas de SU ocupación específica. Más liberal.</li>
-                        <li><i>Any Occ (Cualquier):</i> Incapaz de realizar CUALQUIER trabajo para el que esté calificado por educación/experiencia. Más estricta.</li>
-                    </ul>
-                </li>
-                <li><strong>Período de Eliminación:</strong> Período de espera desde el inicio de la incapacidad hasta el primer pago (Deducible de tiempo).</li>
-                <li><strong>Período de Beneficio:</strong> Cuánto tiempo durarán los pagos (ej: 2 años, 5 años, hasta los 65).</li>
-            </ul>
-
-            <div class="section-title">PILAR 2: GASTOS MÉDICOS MAYORES</div>
-            <ul>
-                <li><strong>Deducible:</strong> Monto anual que el asegurado paga de su bolsillo antes de que la póliza responda.</li>
-                <li><strong>Coseguro (Coinsurance):</strong> Reparto de gastos después del deducible (usualmente 80% asegurador / 20% asegurado).</li>
-                <li><strong>Stop-Loss:</strong> Límite máximo que el asegurado pagará en coseguro. Una vez alcanzado, la compañía paga el 100%.</li>
-            </ul>
-
-            <div class="section-title">PILAR 3: HMO vs PPO</div>
-            <ul>
-                <li><strong>HMO (Health Maintenance Organization):</strong> Red cerrada. Requiere <strong>Gatekeeper</strong> (Médico de Cuidado Primario). Énfasis en prevención. Pagos por <strong>Capitación</strong>.</li>
-                <li><strong>PPO (Preferred Provider Organization):</strong> Red abierta. No requiere Gatekeeper. Mayores beneficios si se usan proveedores de la red (In-Network).</li>
-            </ul>
+        <div class="header">
+            <h1>Manual Maestro - Módulo 2</h1>
+            <div style="color: white; font-size: 11px;">Tipos de Pólizas de Salud • Florida 2-40</div>
         </div>
-        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
+
+        <div class="section-title">PILAR 1: SEGURO DE INCAPACIDAD (INCOME)</div>
+        <p>Diseñado para reemplazar los ingresos perdidos cuando el asegurado no puede trabajar por enfermedad o accidente.</p>
+        <ul>
+            <li><strong>Own Occupation:</strong> No puede realizar las tareas de su propia ocupación. (Más caro).</li>
+            <li><strong>Any Occupation:</strong> No puede realizar tareas de cualquier ocupación para la que esté calificado por educación o experiencia.</li>
+            <li><strong>Periodo de Eliminación:</strong> Tiempo de espera antes de recibir beneficios (ej: 30 días).</li>
+            <li><strong>Periodo de Beneficio:</strong> Cuánto tiempo se paga el beneficio (ej: 2 años, 5 años, hasta los 65).</li>
+        </ul>
+
+        <div class="section-title">PILAR 2: GASTOS MÉDICOS Y REDES</div>
+        <ul>
+            <li><strong>Gastos Médicos Mayores:</strong> Cobertura para gastos catastróficos con deducibles y coaseguro.</li>
+            <li><strong>HMO (Health Maintenance Organization):</strong> Enfoque preventivo. Requiere un PCP (Médico de Cabecera) y referidos. Solo red interna.</li>
+            <li><strong>PPO (Preferred Provider Organization):</strong> Mayor flexibilidad. No requiere PCP ni referidos. Cobertura fuera de la red (con mayor costo).</li>
+        </ul>
+
+        <div class="section-title">PILAR 3: SEGURO DE GRUPO Y COBRA</div>
+        <p>Cobertura proporcionada a través de un empleador o asociación.</p>
+        <ul>
+            <li><strong>Master Policy:</strong> La póliza maestra es para el dueño del grupo; los miembros reciben certificados.</li>
+            <li><strong>COBRA:</strong> Permite continuar la cobertura tras dejar el empleo (hasta 18 meses). Aplica a grupos de 20+ empleados.</li>
+        </ul>
     </div>
 
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="section-title">PILAR 4: SEGUROS GRUPALES Y COBRA</div>
-            <ul>
-                <li><strong>Contrato Maestro:</strong> El dueño es el empleador. Los empleados reciben un <strong>Certificado</strong>.</li>
-                <li><strong>Conversión Grupal:</strong> Derecho a convertir a póliza individual en <strong>31 días</strong> sin examen médico tras dejar el empleo.</li>
-                <li><strong>COBRA:</strong> Continuación de cobertura grupal (20+ empleados).
-                    <ul>
-                        <li><i>18 meses:</i> Despido o reducción de horas.</li>
-                        <li><i>36 meses:</i> Muerte del empleado, divorcio o dependencia que cumple la edad límite.</li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="section-title">PILAR 4: CUIDADOS A LARGO PLAZO (LTC)</div>
+        <p>Asistencia para personas que no pueden realizar ADLs (Actividades de la Vida Diaria).</p>
+        <ul>
+            <li><strong>ADLs (6):</strong> Bañarse, vestirse, comer, movilidad, continencia y usar el baño.</li>
+            <li><strong>Niveles de Cuidado:</strong> Especializado (Skilled), Intermedio y de Custodia.</li>
+            <li><strong>Regla de Florida:</strong> 30 días de Free Look y debe ser renovable garantizada.</li>
+        </ul>
 
-            <div class="section-title">PILAR 5: PROGRAMAS DEL GOBIERNO</div>
-            <ul>
-                <li><strong>Medicare:</strong> Federal. Para 65+ años o insuficiencia renal.
-                    <ul>
-                        <li>Parte A: Hospital.</li>
-                        <li>Parte B: Médicos (Opcional, requiere prima).</li>
-                        <li>Parte C: Advantage (HMO/PPO privados).</li>
-                        <li>Parte D: Medicamentos recetados.</li>
-                    </ul>
-                </li>
-                <li><strong>Medicaid:</strong> Estatal y Federal. Basado en la necesidad financiera (bajos ingresos).</li>
-            </ul>
+        <div class="section-title">PILAR 5: PLANES DENTALES Y LIMITADOS</div>
+        <ul>
+            <li><strong>Dental:</strong> Preventivo (100%), Básico (80/20) y Mayor (50/50).</li>
+            <li><strong>Blanket (Cobija):</strong> Cubre grupos cambiantes (estudiantes, equipos) sin emitir certificados.</li>
+            <li><strong>Cáncer / Indemnización:</strong> Pagan una cantidad fija por el riesgo específico.</li>
+        </ul>
 
-            <div class="pro-tip"><b>OJO AL EXAMEN:</b> En una póliza de <b>Incapacidad</b>, el Período de Eliminación más largo resulta en una prima más baja. El Periodo de Beneficio más largo resulta en una prima más alta.</div>
-        </div>
+        <div class="pro-tip"><b>OJO AL EXAMEN:</b> Los seguros de <b>Blanket</b> son los únicos de grupo que NO emiten certificados individuales.</div>
+        
         <div class="footer">© 2026 Maná Academy. Página 2/2</div>
     </div>
 
