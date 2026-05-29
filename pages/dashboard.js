@@ -32,9 +32,16 @@ export default function Dashboard() {
     if (lastProgress) {
       try {
         const { module, subtopic } = JSON.parse(lastProgress);
-        setActiveModule(module);
-        setActiveSubtopic(subtopic);
-        console.log(`[Resume] Restaurado: Cap ${module}, Lección ${subtopic}`);
+        // Validar que el módulo y subtema existan en la nueva estructura de 7 capítulos
+        if (CHAPTERS_DATA[module] && CHAPTERS_DATA[module].subtopics[subtopic]) {
+          setActiveModule(module);
+          setActiveSubtopic(subtopic);
+          console.log(`[Resume] Restaurado: Cap ${module}, Lección ${subtopic}`);
+        } else {
+          setActiveModule(1);
+          setActiveSubtopic(0);
+          console.log(`[Resume] Reset: El progreso anterior no es compatible con la estructura de 7 capítulos.`);
+        }
       } catch (e) {
         console.error("Error al restaurar progreso:", e);
       }
@@ -71,10 +78,6 @@ export default function Dashboard() {
     setActiveSubtopic(0);
   };
 
-  const handleSubtopicChange = (idx) => {
-    setActiveSubtopic(idx);
-  };
-
   const handleSubtopicChange = (index) => {
     setActiveSubtopic(index);
     setVirtualTime(0);
@@ -82,32 +85,8 @@ export default function Dashboard() {
     localStorage.setItem('mana_last_progress', JSON.stringify({ module: activeModule, subtopic: index }));
   };
 
-  const toggleTheaterMode = () => setIsTheaterMode(!isTheaterMode);
-  const togglePlay = () => setIsPlaying(!isPlaying);
-
-  // Virtual Sync Loop
-  React.useEffect(() => {
-    let interval;
-    if (isPlaying && isEnhanced) {
-      interval = setInterval(() => {
-        setVirtualTime(prev => {
-          const newTime = prev + 1;
-          const lessonTitle = CHAPTERS_DATA[activeModule]?.subtopics[activeSubtopic]?.title;
-          const lessonId = lessonTitle?.split(' ')[0];
-          const metadata = MASTERCLASS_METADATA[lessonId];
-          
-          if (metadata) {
-            const active = metadata.find(m => newTime >= m.start && newTime <= m.end);
-            setActiveOverlay(active || null);
-          }
-          return newTime;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, isEnhanced, activeModule, activeSubtopic]);
-
-  const currentChapter = CHAPTERS_DATA[activeModule];
+  const currentChapter = CHAPTERS_DATA[activeModule] || CHAPTERS_DATA[1];
+  const currentSubtopic = currentChapter.subtopics[activeSubtopic] || currentChapter.subtopics[0];
 
   const getReadinessInfo = () => {
     if (performanceHistory.length === 0) return { percent: 0, advice: "Aún no has tomado exámenes. ¡Comienza uno para medir tu nivel!" };
@@ -646,7 +625,7 @@ export default function Dashboard() {
                       </div>
 
                       {/* Video / Content */}
-                      {currentChapter?.subtopics[activeSubtopic].videoUrl.includes('PLACEHOLDER') ? (
+                      {currentSubtopic?.videoUrl?.includes('PLACEHOLDER') ? (
                         <div className="placeholder-screen">
                             <div style={{ fontSize: '60px', marginBottom: '20px' }}>🎬</div>
                             <h3 style={{ fontSize: '24px', margin: '0 0 10px 0' }}>Lección en Producción</h3>
@@ -655,10 +634,10 @@ export default function Dashboard() {
                         </div>
                       ) : (
                         <iframe 
-                          key={currentChapter?.subtopics[activeSubtopic].videoUrl}
-                          src={currentChapter?.subtopics[activeSubtopic].videoUrl}
+                          key={currentSubtopic?.videoUrl}
+                          src={currentSubtopic?.videoUrl}
                           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-                          allow="encrypted-media; picture-in-picture"
+                          allow="fullscreen; encrypted-media; picture-in-picture"
                         />
                       )}
 
