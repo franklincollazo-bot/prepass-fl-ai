@@ -76,7 +76,200 @@ export default function Dashboard() {
     if (!unlockedChapters.includes(num)) return;
     setActiveModule(num);
     setActiveSubtopic(0);
+    setShowExam(false);
+    setIsPlaying(false);
+    setIsTheaterMode(false);
+    setVirtualTime(0);
+    setActiveOverlay(null);
   };
+
+  const handleSubtopicChange = (index) => {
+    setActiveSubtopic(index);
+    setShowExam(false);
+    setIsPlaying(false);
+    setIsTheaterMode(false);
+    setVirtualTime(0);
+    setActiveOverlay(null);
+    localStorage.setItem('mana_last_progress', JSON.stringify({ module: activeModule, subtopic: index }));
+  };
+
+  const currentChapter = CHAPTERS_DATA[activeModule] || CHAPTERS_DATA[1];
+  const currentSubtopic = currentChapter.subtopics[activeSubtopic] || currentChapter.subtopics[0];
+
+  const getReadinessInfo = () => {
+    if (performanceHistory.length === 0) return { percent: 0, advice: "Aún no has tomado exámenes. ¡Comienza uno para medir tu nivel!", status: "PENDIENTE" };
+    const avgScore = performanceHistory.reduce((acc, curr) => acc + curr.score, 0) / performanceHistory.length;
+    let advice = "";
+    let status = "";
+    
+    if (avgScore >= 85) {
+      advice = "¡Dominio Total! Estás listo para el examen estatal. Tu consistencia es clave.";
+      status = "LISTO";
+    } else if (avgScore >= 70) {
+      advice = "Buen camino. Revisa las preguntas falladas en el Capítulo " + activeModule + " para llegar al 90%.";
+      status = "CERCA";
+    } else {
+      advice = "Necesitas reforzar fundamentos. Lee el Manual Maestro y enfócate en los 'Exam Traps'.";
+      status = "EN PROCESO";
+    }
+    
+    return { percent: Math.round(avgScore), advice, status };
+  };
+
+  const readiness = getReadinessInfo();
+
+  const toggleTheaterMode = () => {
+    setIsTheaterMode(!isTheaterMode);
+  };
+
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  const startExam = () => {
+    const questions = QUESTIONS_POOL[activeModule] || [];
+    if (questions.length === 0) {
+      alert("Examen no disponible para este capítulo aún.");
+      return;
+    }
+    setExamState({
+      questions: questions.sort(() => 0.5 - Math.random()).slice(0, 10),
+      currentIndex: 0,
+      answers: [],
+      results: null
+    });
+    setShowExam(true);
+  };
+
+  const handleAnswer = (answer) => {
+    const currentQ = examState.questions[examState.currentIndex];
+    const isCorrect = answer === currentQ.answer;
+    const newAnswers = [...examState.answers, { question: currentQ.question, answer, correct: isCorrect }];
+    
+    if (examState.currentIndex < examState.questions.length - 1) {
+      setExamState({ ...examState, currentIndex: examState.currentIndex + 1, answers: newAnswers });
+    } else {
+      const correctCount = newAnswers.filter(a => a.correct).length;
+      const score = Math.round((correctCount / examState.questions.length) * 100);
+      setExamState({ ...examState, results: { score, correct: correctCount, total: examState.questions.length }, answers: newAnswers });
+      
+      const newHistory = [...performanceHistory, { date: new Date().toISOString(), score, module: activeModule }];
+      setPerformanceHistory(newHistory);
+      localStorage.setItem('mana_performance', JSON.stringify(newHistory));
+    }
+  };
+
+  const renderOverlay = (overlay) => {
+    if (!overlay) return null;
+    if (overlay.type === 'word') {
+      return (
+        <div style={{ backgroundColor: 'rgba(10, 27, 51, 0.95)', padding: '20px', borderRadius: '15px', border: `3px solid ${COLORS.gold}`, textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+          <h2 style={{ color: COLORS.gold, margin: 0, fontSize: '32px' }}>{overlay.title}</h2>
+        </div>
+      );
+    }
+    if (overlay.type === 'concept') {
+      return (
+        <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '15px', borderLeft: `8px solid ${COLORS.gold}`, boxShadow: '0 10px 40px rgba(0,0,0,0.6)' }}>
+          <h4 style={{ margin: 0, color: COLORS.navy, fontSize: '20px' }}>{overlay.title}</h4>
+          <p style={{ margin: '10px 0 0 0', color: COLORS.gray, fontSize: '15px', lineHeight: '1.4' }}>{overlay.text}</p>
+        </div>
+      );
+    }
+    if (overlay.type === 'trap') {
+      return (
+        <div style={{ backgroundColor: '#fee2e2', padding: '20px', borderRadius: '15px', border: '3px solid #ef4444', boxShadow: '0 10px 40px rgba(239, 68, 68, 0.4)' }}>
+          <h4 style={{ margin: 0, color: '#991b1b', fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>⚠️ EXAM TRAP</h4>
+          <p style={{ margin: '10px 0', color: '#b91c1c', fontSize: '16px', fontWeight: 'bold' }}>{overlay.title}</p>
+          <div style={{ backgroundColor: 'white', padding: '12px', borderRadius: '8px', color: COLORS.navy, fontSize: '13px' }}>{overlay.text}</div>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const renderExam = () => {
+    if (examState.results) {
+       return (
+         <div style={{ textAlign: 'center', padding: '40px' }}>
+            <div style={{ fontSize: '64px', marginBottom: '20px' }}>{examState.results.score >= 80 ? '🎯' : '📚'}</div>
+            <h2 style={{ fontSize: '32px', color: COLORS.navy }}>Resultado: {examState.results.score}%</h2>
+            <p style={{ color: COLORS.gray, fontSize: '18px' }}>Has acertado {examState.results.correct} de {examState.results.total} preguntas.</p>
+            <button onClick={() => setShowExam(false)} className="exam-btn">VOLVER A LA CLASE</button>
+         </div>
+       );
+    }
+    return (
+      <div style={{ padding: '40px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+           <span style={{ fontWeight: 'bold', color: COLORS.navy }}>Pregunta {examState.currentIndex + 1} de {examState.questions.length}</span>
+           <button onClick={() => setShowExam(false)} style={{ background: 'none', border: 'none', color: COLORS.gray, cursor: 'pointer', fontSize: '12px' }}>✕ CANCELAR</button>
+        </div>
+        <h2 style={{ marginBottom: '30px', fontSize: '22px' }}>{examState.questions[examState.currentIndex]?.question}</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          {examState.questions[examState.currentIndex]?.options.map((opt, i) => (
+            <button key={i} onClick={() => handleAnswer(opt)} className="option-btn">{opt}</button>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  const askTutor = async () => {
+    if (!query) return;
+    const userMessage = { role: 'user', text: query };
+    setChat([...chat, userMessage]);
+    setLoading(true);
+    const currentQuery = query;
+    setQuery('');
+
+    try {
+      const response = await fetch('/api/tutor-ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: currentQuery })
+      });
+
+      const data = await response.json();
+      
+      if (data.reply) {
+        setChat(prev => [...prev, { role: 'ai', text: data.reply }]);
+      } else {
+        throw new Error(data.error || 'Error en la respuesta del tutor');
+      }
+    } catch (err) {
+      console.error("Tutor Error:", err);
+      setChat(prev => [...prev, { role: 'ai', text: 'Lo siento, tuve un problema técnico. ¿Puedes repetir la pregunta?' }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Cinema Mode handler
+  React.useEffect(() => {
+    if (isTheaterMode) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isTheaterMode]);
+
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const time = videoRef.current.currentTime;
+    setVirtualTime(Math.floor(time));
+    
+    const lessonTitle = currentSubtopic?.title;
+    if (!lessonTitle) return;
+
+    const lessonId = lessonTitle.split(' ')[0];
+    const metadata = MASTERCLASS_METADATA[lessonId];
+    if (metadata) {
+      const active = metadata.find(m => time >= m.start && time <= m.end);
+      setActiveOverlay(active || null);
+    }
+  };
+
 
   const handleSubtopicChange = (index) => {
     setActiveSubtopic(index);
