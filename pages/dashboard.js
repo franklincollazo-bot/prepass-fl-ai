@@ -6,7 +6,7 @@ import { COLORS, LOGO_URL, CHAPTERS_DATA, MASTERCLASS_METADATA } from '../lib/co
 export default function Dashboard() {
   const [activeModule, setActiveModule] = React.useState(1);
   const [activeSubtopic, setActiveSubtopic] = React.useState(0);
-  const [unlockedChapters, setUnlockedChapters] = React.useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [unlockedChapters, setUnlockedChapters] = React.useState([1, 2, 3, 4, 5, 6, 7]);
   const [showExam, setShowExam] = React.useState(false);
   const [examState, setExamState] = React.useState({ questions: [], currentIndex: 0, answers: [], results: null });
   const [isEnhanced, setIsEnhanced] = React.useState(true);
@@ -527,7 +527,7 @@ export default function Dashboard() {
             
             {/* --- CHAPTER SELECTOR --- */}
             <div className="chapter-selector" style={{ display: 'flex', gap: '10px', marginBottom: '25px', overflowX: 'auto', paddingBottom: '10px', width: '100%' }}>
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
+              {[1, 2, 3, 4, 5, 6, 7].map(num => (
                 <button 
                   key={num}
                   onClick={() => handleModuleChange(num)}
