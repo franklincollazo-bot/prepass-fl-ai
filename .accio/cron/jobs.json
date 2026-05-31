@@ -39,7 +39,7 @@
       "enabled": true,
       "deleteAfterRun": false,
       "createdAtMs": 1779160358890,
-      "updatedAtMs": 1780059421604,
+      "updatedAtMs": 1780243902104,
       "schedule": {
         "kind": "cron",
         "expr": "0 0 * * *",
@@ -51,10 +51,10 @@
         "agent": "general"
       },
       "state": {
-        "nextRunAtMs": 1780113600000,
-        "lastRunAtMs": 1780059411943,
+        "nextRunAtMs": 1780286400000,
+        "lastRunAtMs": 1780243901453,
         "lastStatus": "ok",
-        "lastDurationMs": 1006
+        "lastDurationMs": 1274
       },
       "target": {
         "type": "conversation",
