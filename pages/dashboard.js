@@ -497,19 +497,25 @@ export default function Dashboard() {
              </div>
           </div>
 
-          {/* --- RIGHT HAND SIDEBAR: TRACKING & AI TUTOR --- */}
-          <aside className="sidebar-plat">
-              <div className="sidebar-card-plat">
-                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                    <h3 style={{ margin: 0, fontSize: '14px', opacity: 0.8 }}>READINESS ESTATAL</h3>
-                    <span style={{ fontSize: '20px' }}>⚖️</span>
-                 </div>
-                 <div className="readiness-score-plat">{readiness.percent}%</div>
-                 <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden', margin: '15px 0' }}>
-                    <div style={{ width: `${readiness.percent}%`, height: '100%', backgroundColor: COLORS.gold, boxShadow: `0 0 15px ${COLORS.gold}` }}></div>
-                 </div>
-                 <p className="readiness-text-plat">{readiness.advice}</p>
-              </div>
+           {/* --- RIGHT HAND SIDEBAR: TRACKING & AI TUTOR --- */}
+           <aside className="sidebar-plat">
+               <div className="sidebar-card-plat">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                     <h3 style={{ margin: 0, fontSize: '14px', opacity: 0.8 }}>READINESS ESTATAL</h3>
+                     <span style={{ fontSize: '20px' }}>⚖️</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px', marginBottom: '5px' }}>
+                     <span className="readiness-score-plat">{readiness.percent}%</span>
+                     <span style={{ fontSize: '12px', opacity: 0.8 }}>Puntaje Promedio</span>
+                  </div>
+                  <div style={{ width: '100%', height: '8px', backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden', margin: '15px 0' }}>
+                     <div style={{ width: `${readiness.percent}%`, height: '100%', backgroundColor: COLORS.gold, boxShadow: `0 0 15px ${COLORS.gold}` }}></div>
+                  </div>
+                  <div className="mentor-box-plat">
+                     <strong>Consejo del Mentor:</strong><br/>
+                     {readiness.advice}
+                  </div>
+               </div>
 
               <div className="tutor-card-plat">
                  <div style={{ padding: '20px', borderBottom: `1px solid ${COLORS.border}`, display: 'flex', alignItems: 'center', gap: '12px' }}>
@@ -646,8 +652,18 @@ export default function Dashboard() {
           box-shadow: 0 15px 35px rgba(10, 27, 51, 0.3);
           box-sizing: border-box;
         }
-        .readiness-score-plat { font-size: 56px; font-weight: 900; color: ${COLORS.gold}; text-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
-        .readiness-text-plat { font-size: 14px; opacity: 0.9; line-height: 1.6; }
+        .readiness-score-plat { font-size: 56px; font-weight: 900; color: ${COLORS.gold}; text-shadow: 0 0 20px rgba(197, 160, 89, 0.3); margin: 0; }
+        .mentor-box-plat {
+          font-size: 13px;
+          line-height: 1.5;
+          padding: 12px;
+          background-color: rgba(255,255,255,0.05);
+          border-radius: 8px;
+          border-left: 3px solid ${COLORS.gold};
+          color: white;
+          text-align: left;
+          margin-top: 10px;
+        }
 
         .tutor-card-plat { 
           background: white; 
