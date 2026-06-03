@@ -314,6 +314,7 @@ export default function Dashboard() {
     }}>
       <Head>
         <title>Dashboard | Maná Academy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
       </Head>
 
       {/* --- PREMIUM NAVBAR --- */}
@@ -430,7 +431,7 @@ export default function Dashboard() {
                  </div>
 
                  {/* --- PLAYER / EXAM --- */}
-                 <div className="main-display" style={{ minWidth: 0, width: '100%' }}>
+                 <div className="main-display">
                    {!showExam ? (
                      <div style={{ position: 'relative', width: '100%', maxWidth: '100%', borderRadius: '20px', overflow: 'hidden', backgroundColor: '#000', border: `3px solid ${COLORS.navy}`, boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
                        <div style={{ paddingTop: '56.25%' }}></div>
@@ -707,15 +708,17 @@ export default function Dashboard() {
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 1024px) {
-          .navbar-plat { padding: 15px 20px; }
-          .navbar-logo { height: 35px; }
-          .navbar-main-title { font-size: 14px; }
-          .navbar-subtitle { font-size: 9px; }
+          .navbar-plat { padding: 15px 20px !important; }
+          .navbar-logo { height: 35px !important; }
+          .navbar-main-title { font-size: 14px !important; }
+          .navbar-subtitle { font-size: 9px !important; }
 
-          .main-content { flex-direction: column; }
-          .sidebar-plat { flex: none; width: 100%; }
-          .layout-grid { grid-template-columns: 1fr; }
-          .dashboard-main { padding: 20px; }
+          .main-content { flex-direction: column !important; }
+          .sidebar-plat { flex: none !important; width: 100% !important; max-width: 100% !important; }
+          .layout-grid { display: block !important; width: 100% !important; }
+          .main-display { width: 100% !important; margin-top: 20px; }
+          .subtopics-list { width: 100% !important; margin-bottom: 20px; }
+          .dashboard-main { padding: 15px !important; }
         }
 
         @media (max-width: 768px) {
