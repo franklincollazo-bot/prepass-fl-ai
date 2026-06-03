@@ -559,27 +559,27 @@ export default function Dashboard() {
 
       {/* --- PLATINUM CLASS STYLING --- */}
       <style jsx>{`
-        .dashboard-main { padding: 40px; maxWidth: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; }
+        .dashboard-main { padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; }
         .main-content { display: flex; gap: 40px; width: 100%; }
         .left-column { flex: 1; min-width: 0; }
-        .chapter-selector { display: flex; gap: 10px; marginBottom: 25px; overflow-X: auto; paddingBottom: 10px; width: 100%; }
+        .chapter-selector { display: flex; gap: 10px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; width: 100%; }
         
         .course-card { 
-          backgroundColor: ${COLORS.white}; 
-          borderRadius: 20px; 
+          background-color: ${COLORS.white}; 
+          border-radius: 20px; 
           padding: 35px; 
-          boxShadow: 0 10px 30px rgba(0,0,0,0.05); 
+          box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
           border: 1px solid ${COLORS.border || '#e2e8f0'}; 
           width: 100%;
           box-sizing: border-box;
         }
         .course-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
-        .chapter-title { margin: 0 0 8px 0; color: ${COLORS.navy}; fontSize: 32px; fontWeight: 800; }
-        .chapter-subtitle { color: ${COLORS.gray}; margin: 0; fontSize: 18px; }
-        .status-badge { backgroundColor: #f0f4f8; padding: 10px 20px; borderRadius: 30px; border: 1px solid ${COLORS.border || '#e2e8f0'}; white-space: nowrap; }
+        .chapter-title { margin: 0 0 8px 0; color: ${COLORS.navy}; font-size: 32px; font-weight: 800; }
+        .chapter-subtitle { color: ${COLORS.gray}; margin: 0; font-size: 18px; }
+        .status-badge { background-color: #f0f4f8; padding: 10px 20px; border-radius: 30px; border: 1px solid ${COLORS.border || '#e2e8f0'}; white-space: nowrap; }
 
-        .layout-grid { display: grid; gridTemplateColumns: 300px 1fr; gap: 40px; width: 100%; }
-        .subtopics-list { display: flex; flexDirection: column; gap: 12px; }
+        .layout-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; width: 100%; }
+        .subtopics-list { display: flex; flex-direction: column; gap: 12px; }
 
         .support-btn-plat { 
           display: flex; 
@@ -641,7 +641,7 @@ export default function Dashboard() {
 
         .placeholder-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: ${COLORS.navy}; color: white; text-align: center; padding: 40px; }
         
-        .sidebar-plat { flex: 0 0 380px; width: 380px; }
+        .sidebar-plat { flex: 0 0 380px; width: 380px; max-width: 100%; }
         .sidebar-card-plat { 
           padding: 30px; 
           background: linear-gradient(135deg, ${COLORS.navy} 0%, #1a2a44 100%); 
@@ -688,7 +688,7 @@ export default function Dashboard() {
         .chat-input-plat button { padding: 10px 20px; background: ${COLORS.navy}; color: ${COLORS.gold}; border: none; border-radius: 10px; cursor: pointer; font-weight: 800; font-size: 11px; letter-spacing: 1px; }
 
         .join-agency-card { 
-          margin-top: 20px; padding: 20px; backgroundColor: ${COLORS.navy}; borderRadius: 15px; color: white; display: flex; align-items: center; gap: 15px; border: 1px solid ${COLORS.gold}; 
+          margin-top: 20px; padding: 20px; background-color: ${COLORS.navy}; border-radius: 15px; color: white; display: flex; align-items: center; gap: 15px; border: 1px solid ${COLORS.gold}; 
         }
 
         /* --- MOBILE RESPONSIVENESS --- */
@@ -709,7 +709,7 @@ export default function Dashboard() {
       `}</style>
 
       <style jsx global>{`
-        body { margin: 0; background-color: ${COLORS.darkBg}; }
+        body { margin: 0; background-color: ${COLORS.darkBg}; overflow-x: hidden; max-width: 100vw; }
         @keyframes fadeInRight {
           from { opacity: 0; transform: translateX(40px); }
           to { opacity: 1; transform: translateX(0); }
