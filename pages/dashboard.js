@@ -307,27 +307,25 @@ export default function Dashboard() {
       color: COLORS.navy, 
       minHeight: '100vh', 
       fontFamily: 'system-ui',
-      position: 'relative'
+      position: 'relative',
+      width: '100%',
+      maxWidth: '100vw',
+      overflowX: 'hidden'
     }}>
       <Head>
         <title>Dashboard | Maná Academy</title>
       </Head>
 
       {/* --- PREMIUM NAVBAR --- */}
-      <nav style={{ 
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
-        padding: '20px 40px', backgroundColor: COLORS.navy, 
-        borderBottom: `4px solid ${COLORS.gold}`,
-        boxShadow: '0 4px 20px rgba(0,0,0,0.2)'
-      }}>
-         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            <img src={LOGO_URL} alt="Maná Insurance Logo" style={{ height: '50px' }} />
-            <div>
-               <div style={{ color: '#fff', fontWeight: '900', fontSize: '18px', letterSpacing: '1px' }}>MANÁ ACADEMY</div>
-               <div style={{ color: COLORS.gold, fontSize: '11px', fontWeight: 'bold', letterSpacing: '2px' }}>PREPASS FL AI | PLATINUM</div>
+      <nav className="navbar-plat">
+         <div className="navbar-brand">
+            <img src={LOGO_URL} alt="Maná Insurance Logo" className="navbar-logo" />
+            <div className="navbar-titles">
+               <div className="navbar-main-title">MANÁ ACADEMY</div>
+               <div className="navbar-subtitle">PREPASS FL AI | PLATINUM</div>
             </div>
          </div>
-         <button onClick={() => { localStorage.clear(); window.location.reload(); }} className="plat-control-btn" style={{ borderColor: COLORS.gold, color: COLORS.gold }}>
+         <button onClick={() => { localStorage.clear(); window.location.reload(); }} className="plat-control-btn reset-btn">
            REINICIAR APP
          </button>
       </nav>
@@ -432,9 +430,9 @@ export default function Dashboard() {
                  </div>
 
                  {/* --- PLAYER / EXAM --- */}
-                 <div className="main-display">
+                 <div className="main-display" style={{ minWidth: 0, width: '100%' }}>
                    {!showExam ? (
-                     <div style={{ position: 'relative', width: '100%', borderRadius: '20px', overflow: 'hidden', backgroundColor: '#000', border: `3px solid ${COLORS.navy}`, boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
+                     <div style={{ position: 'relative', width: '100%', maxWidth: '100%', borderRadius: '20px', overflow: 'hidden', backgroundColor: '#000', border: `3px solid ${COLORS.navy}`, boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
                        <div style={{ paddingTop: '56.25%' }}></div>
                        
                        {/* Masterclass Toolbar */}
@@ -559,8 +557,23 @@ export default function Dashboard() {
 
       {/* --- PLATINUM CLASS STYLING --- */}
       <style jsx>{`
+        .navbar-plat {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 40px;
+          background-color: ${COLORS.navy};
+          border-bottom: 4px solid ${COLORS.gold};
+          box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        .navbar-brand { display: flex; align-items: center; gap: 15px; }
+        .navbar-logo { height: 50px; }
+        .navbar-main-title { color: #fff; font-weight: 900; font-size: 18px; letter-spacing: 1px; }
+        .navbar-subtitle { color: ${COLORS.gold}; font-size: 11px; font-weight: bold; letter-spacing: 2px; }
+        .reset-btn { border-color: ${COLORS.gold}; color: ${COLORS.gold}; }
+
         .dashboard-main { padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; }
-        .main-content { display: flex; gap: 40px; width: 100%; }
+        .main-content { display: flex; gap: 40px; width: 100%; align-items: flex-start; }
         .left-column { flex: 1; min-width: 0; }
         .chapter-selector { display: flex; gap: 10px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; width: 100%; }
         
@@ -572,14 +585,15 @@ export default function Dashboard() {
           border: 1px solid ${COLORS.border || '#e2e8f0'}; 
           width: 100%;
           box-sizing: border-box;
+          overflow: hidden;
         }
-        .course-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
-        .chapter-title { margin: 0 0 8px 0; color: ${COLORS.navy}; font-size: 32px; font-weight: 800; }
+        .course-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; gap: 20px; }
+        .chapter-title { margin: 0 0 8px 0; color: ${COLORS.navy}; font-size: 32px; font-weight: 800; line-height: 1.2; }
         .chapter-subtitle { color: ${COLORS.gray}; margin: 0; font-size: 18px; }
         .status-badge { background-color: #f0f4f8; padding: 10px 20px; border-radius: 30px; border: 1px solid ${COLORS.border || '#e2e8f0'}; white-space: nowrap; }
 
         .layout-grid { display: grid; grid-template-columns: 300px 1fr; gap: 40px; width: 100%; }
-        .subtopics-list { display: flex; flex-direction: column; gap: 12px; }
+        .subtopics-list { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 
         .support-btn-plat { 
           display: flex; 
@@ -641,7 +655,7 @@ export default function Dashboard() {
 
         .placeholder-screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: ${COLORS.navy}; color: white; text-align: center; padding: 40px; }
         
-        .sidebar-plat { flex: 0 0 380px; width: 380px; max-width: 100%; }
+        .sidebar-plat { flex: 0 0 380px; width: 380px; max-width: 100%; min-width: 0; }
         .sidebar-card-plat { 
           padding: 30px; 
           background: linear-gradient(135deg, ${COLORS.navy} 0%, #1a2a44 100%); 
@@ -693,6 +707,11 @@ export default function Dashboard() {
 
         /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 1024px) {
+          .navbar-plat { padding: 15px 20px; }
+          .navbar-logo { height: 35px; }
+          .navbar-main-title { font-size: 14px; }
+          .navbar-subtitle { font-size: 9px; }
+
           .main-content { flex-direction: column; }
           .sidebar-plat { flex: none; width: 100%; }
           .layout-grid { grid-template-columns: 1fr; }
