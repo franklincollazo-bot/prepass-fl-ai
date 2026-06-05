@@ -573,10 +573,10 @@ export default function Dashboard() {
         .navbar-subtitle { color: ${COLORS.gold}; font-size: 11px; font-weight: bold; letter-spacing: 2px; }
         .reset-btn { border-color: ${COLORS.gold}; color: ${COLORS.gold}; }
 
-        .dashboard-main { padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; }
-        .main-content { display: flex; gap: 40px; width: 100%; align-items: flex-start; }
-        .left-column { flex: 1; min-width: 0; }
-        .chapter-selector { display: flex; gap: 10px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; width: 100%; }
+        .dashboard-main { padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; overflow: hidden; }
+        .main-content { display: flex; gap: 40px; width: 100%; align-items: flex-start; max-width: 100%; }
+        .left-column { flex: 1; min-width: 0; max-width: 100%; }
+        .chapter-selector { display: flex; gap: 10px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; width: 100%; max-width: 100%; white-space: nowrap; }
         
         .course-card { 
           background-color: ${COLORS.white}; 
@@ -585,6 +585,7 @@ export default function Dashboard() {
           box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
           border: 1px solid ${COLORS.border || '#e2e8f0'}; 
           width: 100%;
+          max-width: 100%;
           box-sizing: border-box;
           overflow: hidden;
         }
@@ -715,9 +716,9 @@ export default function Dashboard() {
 
           .main-content { flex-direction: column !important; }
           .sidebar-plat { flex: none !important; width: 100% !important; max-width: 100% !important; }
-          .layout-grid { display: block !important; width: 100% !important; }
-          .main-display { width: 100% !important; margin-top: 20px; }
-          .subtopics-list { width: 100% !important; margin-bottom: 20px; }
+          .layout-grid { display: block !important; width: 100% !important; max-width: 100% !important; }
+          .main-display { width: 100% !important; max-width: 100% !important; margin-top: 20px; }
+          .subtopics-list { width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
           .dashboard-main { padding: 15px !important; }
         }
 
