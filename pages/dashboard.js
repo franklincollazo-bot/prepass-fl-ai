@@ -714,12 +714,14 @@ export default function Dashboard() {
           .navbar-main-title { font-size: 14px !important; }
           .navbar-subtitle { font-size: 9px !important; }
 
-          .main-content { flex-direction: column !important; }
+          .main-content { flex-direction: column !important; width: 100% !important; max-width: 100% !important; }
+          .left-column { width: 100% !important; max-width: 100% !important; flex: none !important; }
+          .course-card { width: 100% !important; max-width: 100% !important; padding: 20px !important; box-sizing: border-box !important; }
           .sidebar-plat { flex: none !important; width: 100% !important; max-width: 100% !important; }
           .layout-grid { display: block !important; width: 100% !important; max-width: 100% !important; }
           .main-display { width: 100% !important; max-width: 100% !important; margin-top: 20px; }
           .subtopics-list { width: 100% !important; max-width: 100% !important; margin-bottom: 20px; }
-          .dashboard-main { padding: 15px !important; }
+          .dashboard-main { padding: 15px !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
         }
 
         @media (max-width: 768px) {
