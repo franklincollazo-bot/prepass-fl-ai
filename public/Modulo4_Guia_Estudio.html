@@ -10,8 +10,15 @@
         .header { border: 2px solid var(--navy); padding: 15px; text-align: center; margin-bottom: 20px; }
         .header h1 { margin: 0; font-size: 20px; color: var(--navy); }
         .study-box { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; background-color: #fafafa; }
-        .question { font-weight: bold; font-size: 13px; color: var(--navy); margin-bottom: 5px; }
-        .answer { font-size: 13px; color: #555; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 10px; }
+        .question { font-weight: bold; font-size: 13px; color: var(--navy); margin-bottom: 8px; }
+        .answer { font-size: 13px; color: #555; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 15px; }
+        
+        .options-list { margin-bottom: 12px; padding-left: 10px; }
+        .opt { font-size: 13px; color: #666; margin-bottom: 4px; }
+        .opt.highlight { color: var(--navy); font-weight: 800; text-transform: uppercase; background-color: #fff9e6; border: 1px dashed var(--gold); padding: 2px 5px; }
+        
+        .answer-note { font-size: 11px; font-style: italic; color: #888; border-top: 1px solid #eee; padding-top: 5px; margin-bottom: 15px; }
+
         .key-concept { background-color: var(--navy); color: var(--gold); padding: 5px 10px; font-weight: bold; display: inline-block; margin-bottom: 10px; font-size: 12px; }
         .footer { text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; margin-top: 20px; }
     </style>
@@ -52,33 +59,65 @@
         <div class="study-box">
             <div class="key-concept">MEDIGAP, DISCAPACIDAD Y LTC</div>
             <div class="question">11. Todas las siguientes son partes de Medicare, EXCEPTO:</div>
-            <div class="answer">Parte E.</div>
+            <div class="options-list">
+                <div class="opt">• Parte A (Hospital)</div>
+                <div class="opt">• Parte B (Médico)</div>
+                <div class="opt highlight">• PARTE E (NO EXISTE)</div>
+                <div class="opt">• Parte D (Medicinas)</div>
+            </div>
+            <div class="answer-note">Pearson VUE: Medicare solo tiene las partes A, B, C y D.</div>
+
             <div class="question">12. ¿Qué parte de Medicare se conoce como Medicare Advantage?</div>
             <div class="answer">Parte C.</div>
+
             <div class="question">13. Una póliza de Suplemento de Medicare NO puede duplicar los beneficios de:</div>
             <div class="answer">Medicare.</div>
+
             <div class="question">14. Todos los siguientes son ADLs (Actividades Diarias) para calificar para LTC, EXCEPTO:</div>
-            <div class="answer">Conducir.</div>
+            <div class="options-list">
+                <div class="opt">• Comer</div>
+                <div class="opt">• Bañarse</div>
+                <div class="opt highlight">• CONDUCIR UN VEHÍCULO</div>
+                <div class="opt">• Vestirse</div>
+            </div>
+            <div class="answer-note">Pearson VUE: Las 6 ADLs son: Bañarse, Vestirse, Usar el baño, Transferencia (movilidad), Continencia y Alimentación.</div>
+
             <div class="question">15. El periodo de inscripción inicial para Medicare Parte B dura:</div>
             <div class="answer">7 meses.</div>
+
             <div class="question">16. La Parte A de Medicare es financiada principalmente por:</div>
             <div class="answer">Impuestos de nómina FICA.</div>
+
             <div class="question">17. ¿Cuál es el deducible de la Parte B de Medicare?</div>
             <div class="answer">Un monto fijo anual.</div>
+
             <div class="question">18. El Seguro Social define la incapacidad total como la incapacidad de realizar:</div>
             <div class="answer">Cualquier ocupación sustancialmente lucrativa.</div>
+
             <div class="question">19. El periodo de inscripción abierta para Medigap comienza cuando el individuo:</div>
             <div class="answer">Se inscribe en Medicare Parte B y tiene 65 años o más.</div>
+
             <div class="question">20. Medicaid es un programa de bienestar social administrado por:</div>
             <div class="answer">El Estado.</div>
+
             <div class="question">21. El beneficio de LTC que ayuda a los cuidadores familiares a tomar un descanso se llama:</div>
             <div class="answer">Respite Care.</div>
+
             <div class="question">22. Si un individuo no se inscribe en la Parte D cuando es elegible, puede enfrentar una multa de:</div>
             <div class="answer">1% mensual de por vida.</div>
+
             <div class="question">23. Una póliza de LTC proporciona cobertura por un periodo mínimo de:</div>
             <div class="answer">12 meses.</div>
+
             <div class="question">24. La Parte B de Medicare cubre todos los siguientes, EXCEPTO:</div>
-            <div class="answer">Servicios de hospitalización.</div>
+            <div class="options-list">
+                <div class="opt">• Servicios médicos</div>
+                <div class="opt">• Exámenes de diagnóstico</div>
+                <div class="opt highlight">• SERVICIOS DE HOSPITALIZACIÓN (PARTE A)</div>
+                <div class="opt">• Cuidado ambulatorio</div>
+            </div>
+            <div class="answer-note">Pearson VUE: Es vital distinguir que la Parte A es para Hospital y la Parte B para Médicos.</div>
+
             <div class="question">25. El nivel de cuidado de LTC que requiere asistencia médica las 24 horas por profesionales licenciados es:</div>
             <div class="answer">Cuidado Especializado (Skilled Nursing Care).</div>
         </div>

@@ -10,8 +10,15 @@
         .header { border: 2px solid var(--navy); padding: 15px; text-align: center; margin-bottom: 20px; }
         .header h1 { margin: 0; font-size: 20px; color: var(--navy); }
         .study-box { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; background-color: #fafafa; }
-        .question { font-weight: bold; font-size: 13px; color: var(--navy); margin-bottom: 5px; }
-        .answer { font-size: 13px; color: #555; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 10px; }
+        .question { font-weight: bold; font-size: 13px; color: var(--navy); margin-bottom: 8px; }
+        .answer { font-size: 13px; color: #555; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 15px; }
+        
+        .options-list { margin-bottom: 12px; padding-left: 10px; }
+        .opt { font-size: 13px; color: #666; margin-bottom: 4px; }
+        .opt.highlight { color: var(--navy); font-weight: 800; text-transform: uppercase; background-color: #fff9e6; border: 1px dashed var(--gold); padding: 2px 5px; }
+        
+        .answer-note { font-size: 11px; font-style: italic; color: #888; border-top: 1px solid #eee; padding-top: 5px; margin-bottom: 15px; }
+
         .key-concept { background-color: var(--navy); color: var(--gold); padding: 5px 10px; font-weight: bold; display: inline-block; margin-bottom: 10px; font-size: 12px; }
         .footer { text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; margin-top: 20px; }
     </style>
@@ -52,33 +59,77 @@
         <div class="study-box">
             <div class="key-concept">ÉTICA Y PROCEDIMIENTOS</div>
             <div class="question">11. Todos los siguientes son ejemplos de prácticas comerciales desleales, EXCEPTO:</div>
-            <div class="answer">Rebating (cuando está aprobado y se publica la escala).</div>
+            <div class="options-list">
+                <div class="opt">• Coacción</div>
+                <div class="opt">• Boicot</div>
+                <div class="opt highlight">• REBATING (CUANDO ESTÁ APROBADO Y PUBLICADO)</div>
+                <div class="opt">• Difamación</div>
+            </div>
+            <div class="answer-note">Pearson VUE: El Rebating es legal en Florida SOLO SI el agente publica una escala de reembolsos y la ofrece a todos los clientes por igual.</div>
+
             <div class="question">12. La licencia de un agente que no está debidamente nombrada por una aseguradora se considera:</div>
             <div class="answer">Inactiva.</div>
+
             <div class="question">13. Un agente tiene una responsabilidad fiduciaria hacia:</div>
             <div class="answer">Tanto el cliente como la aseguradora.</div>
+
             <div class="question">14. Si el CFO descubre que un agente ha cometido fraude, puede imponer todas las siguientes, EXCEPTO:</div>
-            <div class="answer">Pena de muerte.</div>
+            <div class="options-list">
+                <div class="opt">• Multas administrativas</div>
+                <div class="opt">• Suspensión de licencia</div>
+                <div class="opt highlight">• PENA DE MUERTE</div>
+                <div class="opt">• Revocación de licencia</div>
+            </div>
+            <div class="answer-note">Pearson VUE: El CFO tiene autoridad administrativa (multas, suspensiones), no autoridad penal para sentencias capitales.</div>
+
             <div class="question">15. El Financial Services Commission en Florida está compuesto por todos los siguientes, EXCEPTO:</div>
-            <div class="answer">El Comisionado de Seguros.</div>
+            <div class="options-list">
+                <div class="opt">• El Gobernador</div>
+                <div class="opt highlight">• EL COMISIONADO DE SEGUROS</div>
+                <div class="opt">• El CFO</div>
+                <div class="opt">• El Comisionado de Agricultura</div>
+            </div>
+            <div class="answer-note">Pearson VUE: El Comisionado de Seguros es nombrado por la Comisión, pero NO es miembro de la misma.</div>
+
             <div class="question">16. Ofrecer algo de valor al prospecto que no está especificado en el contrato para inducir la compra es:</div>
             <div class="answer">Rebating.</div>
+
             <div class="question">17. Un agente 'No Residente' en Florida es aquel que:</div>
             <div class="answer">Vive en otro estado pero tiene licencia para vender en Florida.</div>
+
             <div class="question">18. El propósito de la Office of Insurance Regulation (OIR) es:</div>
             <div class="answer">Supervisar la solvencia y las tarifas de las aseguradoras.</div>
+
             <div class="question">19. Los registros de los agentes en Florida deben estar disponibles para inspección por parte del DFS:</div>
             <div class="answer">En cualquier momento razonable.</div>
+
             <div class="question">20. Para obtener una licencia de agente en Florida, el solicitante debe cumplir con todos los siguientes, EXCEPTO:</div>
-            <div class="answer">Ser ciudadano estadounidense únicamente (se permite residencia legal).</div>
+            <div class="options-list">
+                <div class="opt">• Tener al menos 18 años</div>
+                <div class="opt highlight">• SER CIUDADANO ESTADOUNIDENSE ÚNICAMENTE</div>
+                <div class="opt">• Tener buen carácter moral</div>
+                <div class="opt">• Completar el curso educativo requerido</div>
+            </div>
+            <div class="answer-note">Pearson VUE: La residencia legal (Green Card) o permiso de trabajo es suficiente para obtener la licencia.</div>
+
             <div class="question">21. La práctica de usar declaraciones engañosas para convencer a un asegurado de comprar una póliza de la misma compañía es:</div>
             <div class="answer">Churning.</div>
+
             <div class="question">22. Todas las pólizas de reemplazo deben ser notificadas a la aseguradora:</div>
             <div class="answer">Existente y nueva.</div>
+
             <div class="question">23. El CFO supervisa todas las siguientes divisiones, EXCEPTO:</div>
-            <div class="answer">División de Pesca y Vida Silvestre.</div>
+            <div class="options-list">
+                <div class="opt">• División de Agentes y Agencias</div>
+                <div class="opt">• División de Fraude</div>
+                <div class="opt highlight">• DIVISIÓN DE PESCA Y VIDA SILVESTRE</div>
+                <div class="opt">• División de Servicios al Consumidor</div>
+            </div>
+            <div class="answer-note">Pearson VUE: El CFO maneja finanzas y servicios financieros. La pesca y vida silvestre es una entidad estatal distinta.</div>
+
             <div class="question">24. Coerción se define como:</div>
             <div class="answer">Usar fuerza o amenazas para restringir el comercio de seguros.</div>
+
             <div class="question">25. ¿Cuánto dura el nombramiento de un agente con una aseguradora en Florida?</div>
             <div class="answer">24 meses (2 años).</div>
         </div>
