@@ -5,148 +5,84 @@
     <title>Guía de Estudio Módulo 1 - Maná Academy</title>
     <style>
         :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
-        body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Arial, sans-serif; }
-        .printable-page {
-            width: 215.9mm;
-            height: 279.4mm;
-            padding: 20mm 25.4mm;
-            margin: 0 auto 20px auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-        .header { background: var(--navy); color: var(--gold); padding: 15px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 10px; }
-        .logo-small { width: 50px; }
-        .q-box { border: 1px solid #eee; padding: 10px; margin-bottom: 8px; border-left: 4px solid var(--gold); page-break-inside: avoid; }
-        .question { font-weight: bold; color: var(--navy); font-size: 12px; }
-        .answer { font-size: 12px; color: #444; margin-top: 3px; }
-        .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; padding-top: 10px; border-top: 1px solid #eee; }
-        @media print { body { background: none; padding: 0; } .printable-page { margin: 0; box-shadow: none; page-break-after: always; width: 100%; height: 100%; } .no-print { display: none; } }
-        .print-btn { position: fixed; bottom: 30px; right: 30px; background-color: var(--gold); color: black; padding: 15px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; z-index: 100; border: none; cursor: pointer; }
+        body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 20mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; }
+        .header { border: 2px solid var(--navy); padding: 15px; text-align: center; margin-bottom: 20px; }
+        .header h1 { margin: 0; font-size: 20px; color: var(--navy); }
+        .study-box { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; background-color: #fafafa; }
+        .question { font-weight: bold; font-size: 13px; color: var(--navy); margin-bottom: 5px; }
+        .answer { font-size: 13px; color: #555; border-left: 3px solid var(--gold); padding-left: 10px; margin-bottom: 10px; }
+        .key-concept { background-color: var(--navy); color: var(--gold); padding: 5px 10px; font-weight: bold; display: inline-block; margin-bottom: 10px; font-size: 12px; }
+        .footer { text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR GUÍA DE PREGUNTAS</button>
-    
     <div class="printable-page">
         <div class="header">
-            <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
-            <h1 style="margin:5px 0; font-size:18px;">TOP 25 PREGUNTAS CLAVE - MÓDULO 1</h1>
-            <div style="color:white; font-size:10px;">Prepárate para el Examen Estatal (2-40)</div>
+            <h1>Guía de Estudio Rápida: Módulo 1</h1>
+            <p>25 Preguntas Clave: Conceptos Básicos y Suscripción</p>
         </div>
-        
-        <div class="q-box">
-            <div class="question">1. ¿Qué es el Medical Information Bureau (MIB)?</div>
-            <div class="answer">Una organización sin fines de lucro de aseguradoras que comparte info médica para detectar fraude y omisiones.</div>
+
+        <div class="study-box">
+            <div class="key-concept">RIESGO Y CONTRATOS</div>
+            <div class="question">1. El método STARR de manejo de riesgos incluye todos los siguientes, EXCEPTO:</div>
+            <div class="answer">Speculation (Especulación).</div>
+            <div class="question">2. ¿Cuál de los siguientes NO es un elemento necesario para un contrato legal?</div>
+            <div class="answer">Autoridad Aparente.</div>
+            <div class="question">3. La organización que recopila información sobre el historial médico de los solicitantes es:</div>
+            <div class="answer">MIB (Medical Information Bureau).</div>
+            <div class="question">4. Un contrato de seguro es 'Aleatorio' porque:</div>
+            <div class="answer">El intercambio de valores es desigual.</div>
+            <div class="question">5. ¿Cuál de las siguientes es una autoridad que no está escrita pero es necesaria para realizar el trabajo?</div>
+            <div class="answer">Autoridad Implícita.</div>
+            <div class="question">6. Un riesgo que ofrece la posibilidad de ganar o perder se llama:</div>
+            <div class="answer">Riesgo Especulativo.</div>
+            <div class="question">7. El concepto de que el asegurado tiene derecho a lo que una persona razonable esperaría de la póliza es:</div>
+            <div class="answer">Expectativas Razonables.</div>
+            <div class="question">8. La omisión intencional de un hecho material en una solicitud de seguro se llama:</div>
+            <div class="answer">Ocultamiento (Concealment).</div>
+            <div class="question">9. La ley federal que protege la privacidad de la información crediticia del consumidor es:</div>
+            <div class="answer">FCRA (Fair Credit Reporting Act).</div>
+            <div class="question">10. Un contrato de 'Adhesión' significa que:</div>
+            <div class="answer">El asegurador redacta el contrato y el asegurado lo acepta "tal cual".</div>
         </div>
-        <div class="q-box">
-            <div class="question">2. ¿Puede una aseguradora rechazar a alguien basándose únicamente en el reporte del MIB?</div>
-            <div class="answer">No. El MIB sirve como alerta para investigar más, pero no puede ser la única base para el rechazo.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">3. ¿Qué constituye la "Consideración" por parte del asegurado?</div>
-            <div class="answer">El pago de la prima inicial y las declaraciones hechas en la solicitud.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">4. ¿Qué característica del contrato indica que la aseguradora lo prepara y el cliente solo lo acepta?</div>
-            <div class="answer">Contrato de Adhesión (Adhesion).</div>
-        </div>
-        <div class="q-box">
-            <div class="question">5. ¿Qué diferencia hay entre Riesgo Puro y Riesgo Especulativo?</div>
-            <div class="answer">El Puro solo implica pérdida (asegurable); el Especulativo implica ganancia o pérdida (ej: apuestas, no asegurable).</div>
-        </div>
-        <div class="q-box">
-            <div class="question">6. ¿Qué es un Peligro (Peril)?</div>
-            <div class="answer">Es la causa específica de una pérdida (ejemplo: un accidente o una enfermedad).</div>
-        </div>
-        <div class="q-box">
-            <div class="question">7. ¿Qué es un Riesgo Físico (Physical Hazard)?</div>
-            <div class="answer">Una característica física que aumenta la probabilidad de pérdida (ej: cables sueltos o fumar).</div>
-        </div>
-        <div class="q-box">
-            <div class="question">8. ¿En qué momento debe existir el Interés Asegurable en un seguro de salud?</div>
-            <div class="answer">En el momento de la solicitud de la póliza.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">9. ¿Qué es el Twisting?</div>
-            <div class="answer">Mentir sobre una póliza ajena para inducir al cliente a cancelar su seguro y cambiarse contigo.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">10. ¿Qué es el Churning?</div>
-            <div class="answer">Reemplazo interno innecesario de pólizas dentro de la misma empresa para generar comisiones.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">11. ¿Qué es el Sliding (Deslizamiento)?</div>
-            <div class="answer">Añadir coberturas adicionales sin el consentimiento del cliente o decir que son obligatorias cuando no lo son.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">12. ¿Qué es la Selección Adversa?</div>
-            <div class="answer">La tendencia de personas con más riesgos de salud a buscar seguro antes que las personas sanas.</div>
-        </div>
-        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
     </div>
 
     <div class="printable-page">
-        <div class="q-box">
-            <div class="question">13. ¿Qué ley protege la privacidad del historial crediticio del consumidor?</div>
-            <div class="answer">La Ley de Informes Justos de Crédito (Fair Credit Reporting Act - FCRA).</div>
+        <div class="study-box">
+            <div class="key-concept">AGENCIA Y SUSCRIPCIÓN</div>
+            <div class="question">11. Todos los siguientes son ejemplos de 'Hazards' (Peligros Indirectos), EXCEPTO:</div>
+            <div class="answer">Un incendio en la vivienda.</div>
+            <div class="question">12. El Agente representa a la aseguradora, por lo tanto, el conocimiento del agente es:</div>
+            <div class="answer">Conocimiento de la aseguradora.</div>
+            <div class="question">13. Un contrato en el que solo una de las partes está legalmente obligada a cumplir sus promesas es:</div>
+            <div class="answer">Unilateral.</div>
+            <div class="question">14. Al completar la solicitud, ¿quién debe firmar para validar el documento?</div>
+            <div class="answer">El Agente y el Solicitante.</div>
+            <div class="question">15. ¿Cuál de los siguientes NO es un método de transferencia de riesgo?</div>
+            <div class="answer">La retención de fondos.</div>
+            <div class="question">16. Las declaraciones hechas por el solicitante en la aplicación que se consideran verdaderas son:</div>
+            <div class="answer">Representations (Representaciones).</div>
+            <div class="question">17. El Medical Information Bureau (MIB) obtiene su información de:</div>
+            <div class="answer">Las solicitudes enviadas a otras aseguradoras.</div>
+            <div class="question">18. La renuncia voluntaria de un derecho legal conocido se llama:</div>
+            <div class="answer">Waiver.</div>
+            <div class="question">19. Un informe del consumidor que incluye entrevistas con amigos y vecinos se llama:</div>
+            <div class="answer">Investigative Consumer Report.</div>
+            <div class="question">20. En un contrato de seguro, la 'Consideración' del asegurado consiste en:</div>
+            <div class="answer">El pago de la prima y las declaraciones en la solicitud.</div>
+            <div class="question">21. Si la prima no se pagó con la solicitud, la cobertura comienza cuando:</div>
+            <div class="answer">Se entrega la póliza y se cobra la prima inicial.</div>
+            <div class="question">22. Un riesgo que es 'Asegurable' debe cumplir con todos los siguientes, EXCEPTO:</div>
+            <div class="answer">Debe ser catastrófico para la aseguradora.</div>
+            <div class="question">23. Si un asegurado firma una aplicación con información falsa para obtener una póliza, ha cometido:</div>
+            <div class="answer">Fraude.</div>
+            <div class="question">24. El propósito principal del MIB es:</div>
+            <div class="answer">Ayudar a las aseguradoras a detectar fraude y prevenir la selección adversa.</div>
+            <div class="question">25. Un prospecto que presenta un nivel de riesgo superior al promedio se clasifica como:</div>
+            <div class="answer">Substandard.</div>
         </div>
-        <div class="q-box">
-            <div class="question">14. ¿Qué es el Reporte del Agente y es parte del contrato?</div>
-            <div class="answer">Es un reporte con observaciones del agente sobre el cliente; NO es parte del contrato.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">15. ¿Qué significa que un contrato sea Unilateral?</div>
-            <div class="answer">Que solo la aseguradora está obligada legalmente a cumplir su promesa.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">16. ¿Qué es la Declaración de Buena Salud?</div>
-            <div class="answer">Un documento que firma el cliente al recibir la póliza si no pagó la prima al momento de solicitarla.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">17. ¿Qué es el APS (Attending Physician's Statement)?</div>
-            <div class="answer">Un reporte solicitado por la aseguradora al médico personal del solicitante para verificar su salud.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">18. ¿Para qué sirve el Recibo Condicional?</div>
-            <div class="answer">Provee cobertura desde la fecha de solicitud si el cliente es asegurable bajo las normas normales.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">19. ¿Qué es el Rebating (Rebajas)?</div>
-            <div class="answer">Devolver parte de la comisión o dar incentivos ilegales para cerrar una venta. Prohibido en Florida.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">20. ¿Qué es la Difamación?</div>
-            <div class="answer">Hacer declaraciones falsas o maliciosas sobre la solvencia financiera de un competidor.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">21. ¿Cuál es la diferencia entre Representación y Garantía (Warranty)?</div>
-            <div class="answer">Representación es verdad según el conocimiento del cliente; Garantía es una verdad absoluta garantizada.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">22. ¿Quiénes deben firmar la solicitud de seguro?</div>
-            <div class="answer">El Agente, el Solicitante y el dueño de la póliza (si es distinto).</div>
-        </div>
-        <div class="q-box">
-            <div class="question">23. ¿Qué período de tiempo tiene el Free Look en salud en Florida?</div>
-            <div class="answer">Generalmente 10 días desde la entrega física de la póliza.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">24. ¿Qué es la Coacción (Coercion)?</div>
-            <div class="answer">Uso de fuerza o amenazas para obligar a alguien a comprar un seguro.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">25. ¿Qué es la Misrepresentation (Tergiversación)?</div>
-            <div class="answer">Hacer declaraciones falsas o engañosas sobre los beneficios, términos o dividendos de una póliza.</div>
-        </div>
-        <div class="q-box">
-            <div class="question">26. ¿Qué es el Contrato Aleatorio?</div>
-            <div class="answer">Un contrato donde el intercambio de valores es desigual (poca prima vs gran beneficio).</div>
-        </div>
-        <div class="footer">© 2026 Maná Academy. Página 2/2</div>
+        <div class="footer">© 2026 Maná Academy. Material de repaso exclusivo v3.0.7</div>
     </div>
 </body>
 </html>
