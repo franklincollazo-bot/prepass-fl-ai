@@ -6,16 +6,18 @@
     <style>
         :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
         body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
-        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 25mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 20mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
         .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
-        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
         .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
         h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
-        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 5px; }
-        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
+        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 8px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 12px; margin: 15px 0; border-radius: 6px; font-size: 11px; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #007bff; padding: 12px; margin: 15px 0; font-size: 11px; }
+        .example-title { font-weight: bold; color: #0056b3; margin-bottom: 5px; text-transform: uppercase; display: block; }
         .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
-        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 11px; }
-        th, td { border: 1px solid #eee; padding: 8px; text-align: left; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11px; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; }
         th { background-color: var(--navy); color: var(--gold); }
     </style>
 </head>
@@ -23,71 +25,79 @@
     <div class="printable-page">
         <div class="header">
             <h1>Manual Maestro - Módulo 4</h1>
-            <div style="color: white; font-size: 11px;">Seguros Sociales y Medicare • Guía Platinum</div>
+            <div style="color: white; font-size: 11px;">Medicare, Seguros Sociales y Cuidados Especializados • Nivel Platinum</div>
         </div>
 
-        <div class="section-title">PILAR 1: MEDICARE (EL SISTEMA DE SALUD FEDERAL)</div>
-        <p>Programa de salud para personas de 65 años o más, o menores de 65 con ciertas discapacidades (ESRD o 24 meses en SS).</p>
+        <div class="section-title">PILAR 1: MEDICARE (LA SALUD PARA LOS MAYORES)</div>
+        <p>Medicare es un programa federal de salud para personas de 65 años o más, o menores de 65 con insuficiencia renal crónica (ESRD) o que han cobrado Seguro Social por discapacidad durante 24 meses.</p>
         
-        <h2>Las 4 Partes de Medicare</h2>
-        <ul>
-            <li><strong>Parte A (Hospital):</strong> Gratuita si has trabajado 40 trimestres (10 años).
-                <ul>
-                    <li>Cubre: Hospitalización (cuarto semi-privado), enfermería especializada, cuidados paliativos (Hospice) y cuidado de salud en el hogar.</li>
-                </ul>
-            </li>
-            <li><strong>Parte B (Médico):</strong> Voluntaria y pagada (Prima mensual).
-                <ul>
-                    <li>Cubre: Visitas al doctor, equipo médico duradero (sillas de ruedas), laboratorios y servicios preventivos.</li>
-                    <li>Estructura: Deducible anual + 20% de coaseguro (Medicare paga el 80% y tú el 20%).</li>
-                </ul>
-            </li>
-            <li><strong>Parte C (Medicare Advantage):</strong> Un plan privado "todo en uno" que reemplaza a A y B.
-                <ul>
-                    <li>Debe proporcionar los mismos beneficios que A y B, pero a menudo incluye extras como dental o visión.</li>
-                </ul>
-            </li>
-            <li><strong>Parte D (Medicinas):</strong> Proporcionado por aseguradoras privadas. Tiene una multa si no te inscribes cuando eres elegible por primera vez.</li>
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parte</th>
+                    <th>¿Qué cubre?</th>
+                    <th>¿Cómo se paga?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Parte A</strong></td>
+                    <td>Hospital, enfermería especializada, hospice.</td>
+                    <td>Gratis (pagado con impuestos FICA).</td>
+                </tr>
+                <tr>
+                    <td><strong>Parte B</strong></td>
+                    <td>Visitas al médico, equipo médico, laboratorios.</td>
+                    <td>Opcional (prima mensual deducida del cheque).</td>
+                </tr>
+                <tr>
+                    <td><strong>Parte C</strong></td>
+                    <td>Medicare Advantage (Planes privados).</td>
+                    <td>Combinación de A, B y a veces D.</td>
+                </tr>
+                <tr>
+                    <td><strong>Parte D</strong></td>
+                    <td>Medicinas recetadas.</td>
+                    <td>Aseguradoras privadas con prima mensual.</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <div class="pro-tip"><b>💡 REGLA DE INSCRIPCIÓN:</b> El periodo inicial (IEP) dura 7 meses (3 meses antes del cumpleaños 65, el mes del cumpleaños y 3 meses después).</div>
+        <div class="pro-tip"><b>💡 REGLA DE EXAMEN:</b> La Parte B tiene un coaseguro del <b>80/20</b>. Medicare paga el 80% y el asegurado el 20%. Los <b>Suplementos de Medicare (Medigap)</b> se compran para pagar ese 20% faltante.</div>
 
-        <div class="section-title">PILAR 2: SUPLEMENTOS DE MEDICARE (MEDIGAP)</div>
-        <p>Pólizas privadas para pagar los deducibles y el 20% del coaseguro que Medicare no paga.</p>
+        <div class="section-title">PILAR 2: MEDICAID (APOYO SOCIAL)</div>
+        <p>A diferencia de Medicare, Medicaid es una "ayuda" (Aid) basada en la necesidad financiera. Es un programa financiado conjuntamente por el Gobierno Federal y el Estado (Florida).</p>
         <ul>
-            <li>Existen planes estandarizados (A al N). El Plan A es el básico ("Core Benefits").</li>
-            <li><strong>Free Look:</strong> En Florida tienes <strong>30 días</strong> para revisar y devolver el plan Medigap.</li>
-            <li>No se puede vender un Medigap a alguien que tiene Medicare Advantage (Parte C).</li>
+            <li>Es el pagador de "último recurso" (solo paga después de todos los otros seguros).</li>
+            <li>Califican personas de bajos ingresos, ciegos o incapacitados con recursos limitados.</li>
         </ul>
     </div>
 
     <div class="printable-page">
-        <div class="section-title">PILAR 3: MEDICAID (ASISTENCIA BASADA EN RECURSOS)</div>
-        <p>Programa conjunto estatal y federal para personas con bajos ingresos y activos limitados.</p>
+        <div class="section-title">PILAR 3: SEGURO SOCIAL POR DISCAPACIDAD (OASDI)</div>
+        <p>El Seguro Social no solo es para jubilación. También protege en caso de incapacidad total.</p>
         <ul>
-            <li>A menudo paga por lo que Medicare no cubre (como asilos de ancianos permanentes).</li>
-            <li>Es el pagador de "Último Recurso".</li>
-            <li>Califican familias pobres, ciegos, incapacitados y ancianos con recursos limitados.</li>
+            <li><strong>Periodo de Espera:</strong> Debes estar incapacitado por <b>5 meses</b> antes de cobrar. Los beneficios empiezan en el mes 6.</li>
+            <li><strong>Definición de Incapacidad:</strong> La más estricta de todas. Debes ser incapaz de realizar <b>CUALQUIER TRABAJO LUCRATIVO</b> y la condición debe durar al menos 12 meses o terminar en muerte.</li>
+            <li><strong>Créditos:</strong> Se necesitan generalmente 40 créditos (10 años de trabajo) para estar "Totalmente Asegurado".</li>
         </ul>
 
-        <div class="section-title">PILAR 4: SEGURO SOCIAL POR DISCAPACIDAD (OASDI)</div>
-        <p>Para calificar, debes ser considerado "Totalmente Asegurado" (40 créditos de trabajo).</p>
+        <div class="section-title">PILAR 4: CUIDADOS A LARGO PLAZO (LTC)</div>
+        <p>Las pólizas de LTC deben proporcionar cobertura por al menos <b>12 meses</b> consecutivos.</p>
         <ul>
-            <li><strong>Definición de Incapacidad:</strong> Debes ser incapaz de realizar <strong>CUALQUIER</strong> ocupación remunerada.</li>
-            <li><strong>Duración:</strong> La condición debe durar al menos 12 meses o terminar en muerte.</li>
-            <li><strong>Periodo de Espera:</strong> 5 meses. Los pagos comienzan en el mes 6.</li>
+            <li><strong>Partnership Program (Florida):</strong> Un programa especial donde, si compras una póliza privada de LTC, el estado te permite proteger tus activos (dinero, casas) para calificar para Medicaid sin tener que quedar en la pobreza.</li>
+            <li><strong>Exclusiones Comunes:</strong> Guerra, actos criminales, alcoholismo e intentos de suicidio. El Alzheimer <b>NO</b> puede ser excluido.</li>
         </ul>
 
-        <div class="pro-tip"><b>⚠️ TRAMPA DE EXAMEN:</b> Medicare es para los "viejitos" (Care), Medicaid es una "ayuda" (Aid) para los que tienen pocos recursos. No los confundas.</div>
+        <div class="example-box">
+            <span class="example-title">Escenario de Medicare</span>
+            Un cliente tiene Medicare Parte A y B, pero tiene miedo de los altos copagos del hospital. ¿Qué debe comprar?<br>
+            <b>Respuesta:</b> Una póliza de <b>Suplemento de Medicare (Medigap)</b> o inscribirse en <b>Medicare Advantage (Parte C)</b>. Nunca ambas al mismo tiempo.
+        </div>
 
-        <div class="section-title">PILAR 5: LEYES DE FLORIDA SOBRE MEDICARE</div>
-        <ul>
-            <li><strong>Disclosure:</strong> Es obligatorio entregar una "Guía del Comprador" y el "Esquema de Cobertura" antes de la aplicación.</li>
-            <li><strong>Examen Libre:</strong> 30 días en Florida para Medigap y LTC.</li>
-            <li><strong>Preexistentes:</strong> No se pueden excluir por más de 6 meses si la persona tenía cobertura acreditable previa.</li>
-        </ul>
+        <div class="pro-tip"><b>⚠️ TRAMPA DE TIEMPO:</b> En Florida, el periodo de <b>Examen Libre (Free Look)</b> para Medicare Supplement y LTC es de <b>30 días</b>. No lo confundas con los 10 días de las pólizas normales.</div>
         
-        <div class="footer">© 2026 Maná Academy. Material Platinum v3.0.7 • Página 2/2</div>
+        <div class="footer">© 2026 Maná Academy. Material de Estudio Maestro v3.0.7 • Página 2/2</div>
     </div>
 </body>
 </html>

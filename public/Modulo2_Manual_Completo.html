@@ -6,17 +6,18 @@
     <style>
         :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
         body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
-        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 25mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
-        .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
-        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 20mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 20px; }
+        .header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
         .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
         h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
-        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 5px; }
-        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
-        .scenario { background: #f0f4f8; border-left: 4px solid #3b82f6; padding: 10px; margin: 10px 0; font-size: 11px; font-style: italic; }
+        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 8px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 12px; margin: 15px 0; border-radius: 6px; font-size: 11px; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #007bff; padding: 12px; margin: 15px 0; font-size: 11px; }
+        .example-title { font-weight: bold; color: #0056b3; margin-bottom: 5px; text-transform: uppercase; display: block; }
         .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
-        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 11px; }
-        th, td { border: 1px solid #eee; padding: 8px; text-align: left; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11px; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; }
         th { background-color: var(--navy); color: var(--gold); }
     </style>
 </head>
@@ -24,97 +25,110 @@
     <div class="printable-page">
         <div class="header">
             <h1>Manual Maestro - Módulo 2</h1>
-            <div style="color: white; font-size: 11px;">Seguro de Incapacidad y Gastos Médicos • Guía Platinum</div>
+            <div style="color: white; font-size: 11px;">Pólizas de Salud, Incapacidad y Gastos Médicos • Nivel Platinum</div>
         </div>
 
-        <div class="section-title">PILAR 1: SEGURO DE INCAPACIDAD (INCOME REPLACEMENT)</div>
-        <p>El propósito es reemplazar los ingresos cuando el asegurado no puede trabajar. Es "el seguro para tu cheque".</p>
+        <div class="section-title">PILAR 1: SEGURO DE INGRESO POR INCAPACIDAD</div>
+        <p>Este seguro está diseñado para proteger el activo más valioso de una persona: su capacidad de generar ingresos. No paga gastos médicos, paga <b>efectivo</b> al asegurado para cubrir sus gastos de vida.</p>
         
-        <h2>Definiciones de Incapacidad (Crucial para el examen)</h2>
+        <h2>Definiciones Críticas de Incapacidad</h2>
         <ul>
-            <li><strong>Own Occupation (Ocupación Propia):</strong> El asegurado califica si no puede realizar las tareas de su trabajo actual, aunque pueda hacer otro. Es la definición más favorable para el asegurado.</li>
-            <li><strong>Any Occupation (Cualquier Ocupación):</strong> Solo califica si no puede realizar ningún trabajo para el cual esté capacitado por educación, entrenamiento o experiencia. Es más restrictiva.</li>
-            <li><strong>Presuntiva:</strong> Pérdida total y permanente de la vista, el habla, el oído o dos extremidades. Califica automáticamente para el beneficio total.</li>
+            <li><strong>Own Occupation (Ocupación Propia):</strong> Es la definición más amplia y favorable. Califica si no puede realizar las tareas específicas de SU trabajo. Ideal para profesionales (cirujanos, abogados).</li>
+            <li><strong>Any Occupation (Cualquier Ocupación):</strong> Más restrictiva. Solo paga si el asegurado no puede realizar ningún trabajo acorde a su educación o experiencia.</li>
+            <li><strong>Incapacidad Presuntiva:</strong> Calificación automática por pérdida de: vista en ambos ojos, audición, habla o pérdida de dos extremidades.</li>
         </ul>
 
-        <div class="scenario">
-            <b>ESCENARIO:</b> Un cirujano pierde un dedo. Bajo "Own Occ", recibe beneficios porque no puede operar. Bajo "Any Occ", el asegurador podría decir que puede dar clases, por lo que no cobraría.
+        <div class="example-box">
+            <span class="example-title">Escenario de Aplicación</span>
+            Un asegurado tiene un periodo de eliminación de 30 días y un beneficio de $2,000/mes. Si se accidenta el 1 de enero y vuelve a trabajar el 1 de marzo:<br>
+            - No cobra nada los primeros 30 días (Enero).<br>
+            - Cobra $2,000 por los siguientes 30 días (Febrero).
         </div>
 
         <h2>Provisiones Técnicas</h2>
         <ul>
-            <li><strong>Periodo de Eliminación:</strong> Es el deducible de tiempo. El tiempo de espera (ej. 30, 60 días) tras la lesión antes de que se pague el primer centavo. A mayor periodo, menor prima.</li>
-            <li><strong>Periodo de Beneficio:</strong> La duración del pago (6 meses, 2 años, hasta los 65).</li>
-            <li><strong>Incapacidad Recurrente:</strong> Si la misma lesión vuelve en un tiempo corto (ej. 6 meses), no hay que repetir el periodo de eliminación.</li>
+            <li><strong>Periodo de Eliminación:</strong> Es el "deducible de tiempo". A mayor espera, menor la prima.</li>
+            <li><strong>Periodo de Beneficio:</strong> Cuánto tiempo dura el pago (ej. 2 años, hasta los 65).</li>
+            <li><strong>Incapacidad Parcial:</strong> Paga generalmente el 50% del beneficio si el asegurado puede realizar solo algunas tareas de su trabajo.</li>
+            <li><strong>Residual:</strong> Paga un porcentaje proporcional a la pérdida de ingresos sufrida.</li>
         </ul>
 
-        <div class="section-title">PILAR 2: PLANES DE GASTOS MÉDICOS (HMO vs PPO)</div>
+        <div class="section-title">PILAR 2: SISTEMAS DE SALUD (HMO, PPO, POS)</div>
         <table>
             <thead>
                 <tr>
                     <th>Característica</th>
-                    <th>HMO (Mantenimiento)</th>
-                    <th>PPO (Preferencial)</th>
+                    <th>HMO (Health Maintenance Org)</th>
+                    <th>PPO (Preferred Provider Org)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Enfoque</strong></td>
-                    <td>Preventivo (Wellness)</td>
-                    <td>Cuidado de Salud Tradicional</td>
+                    <td><strong>Estructura</strong></td>
+                    <td>Prepago y Medicina Preventiva.</td>
+                    <td>Pago por servicio con descuentos.</td>
                 </tr>
                 <tr>
                     <td><strong>PCP (Gatekeeper)</strong></td>
-                    <td>Obligatorio (Referidos)</td>
-                    <td>No requerido</td>
+                    <td>Obligatorio para especialistas.</td>
+                    <td>No requerido.</td>
                 </tr>
                 <tr>
                     <td><strong>Red de Médicos</strong></td>
-                    <td>Solo Red Interna (Cerrada)</td>
-                    <td>Flexibilidad (Fuera de red = más caro)</td>
+                    <td>Cerrada. No cubre fuera de red.</td>
+                    <td>Abierta. Paga menos fuera de red.</td>
                 </tr>
                 <tr>
-                    <td><strong>Costo</strong></td>
-                    <td>Prepago (Capitación)</td>
-                    <td>Tarifas negociadas (Fee-for-service)</td>
+                    <td><strong>Beneficio</strong></td>
+                    <td>Copagos bajos y fijos.</td>
+                    <td>Deducibles y coaseguro comunes.</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
     <div class="printable-page">
-        <div class="section-title">PILAR 3: GASTOS MÉDICOS MAYORES (MAJOR MEDICAL)</div>
-        <p>Diseñados para gastos catastróficos. Tienen límites altos (ej. $1 millón).</p>
-        <ul>
-            <li><strong>Deducible de Corredor (Corridor):</strong> Un deducible que se aplica entre una póliza básica de hospital y una de gastos médicos mayores.</li>
-            <li><strong>Coaseguro (Coinsurance):</strong> Reparto de costos (ej. 80/20). La aseguradora paga el 80% y el asegurado el 20%.</li>
-            <li><strong>Stop-Loss (Límite de Gasto de Bolsillo):</strong> El monto máximo que el asegurado pagará en un año. Una vez alcanzado (ej. $5,000), la aseguradora paga el 100%.</li>
-        </ul>
+        <div class="section-title">PILAR 3: GASTOS MÉDICOS MAYORES (EL CÁLCULO)</div>
+        <p>Pearson VUE suele poner ejercicios matemáticos sobre este tema. Debes entender el orden de los pagos:</p>
+        
+        <div class="example-box">
+            <span class="example-title">CÁLCULO DE UN RECLAMO REAL</span>
+            Un cliente tiene una factura de $10,000. Deducible: $1,000. Coaseguro: 80/20. Stop-Loss: $3,000.<br>
+            1. <b>El cliente paga el Deducible:</b> $1,000 (Quedan $9,000).<br>
+            2. <b>Se aplica el Coaseguro:</b> El cliente paga el 20% de $9,000 = $1,800.<br>
+            3. <b>Total pagado por el cliente:</b> $1,000 + $1,800 = $2,800.<br>
+            4. Como no llegó a su <b>Stop-Loss</b> de $3,000, el cálculo se queda así.
+        </div>
 
         <div class="section-title">PILAR 4: CUIDADOS A LARGO PLAZO (LTC)</div>
-        <p>Proporciona cuidado para personas con enfermedades crónicas o ancianos.</p>
+        <p>Cubre el cuidado crónico que no es pagado por Medicare. Para calificar, el asegurado debe fallar en al menos 2 ADLs (Actividades de la Vida Diaria).</p>
         <ul>
             <li><strong>Niveles de Cuidado:</strong>
-                <ul>
-                    <li><strong>Skilled (Especializado):</strong> 24h, por profesionales licenciados.</li>
-                    <li><strong>Intermedio:</strong> Asistencia médica pero no constante.</li>
-                    <li><strong>Custodia:</strong> Ayuda con las ADLs (comer, bañarse). No requiere personal médico.</li>
-                </ul>
+                <ol>
+                    <li><strong>Skilled Care:</strong> Atención médica 24/7 por doctores/enfermeros licenciados.</li>
+                    <li><strong>Intermediate Care:</strong> Cuidado médico ocasional (ej. terapia 3 veces por semana).</li>
+                    <li><strong>Custodial Care:</strong> Ayuda con comida, vestido o aseo. No requiere personal médico.</li>
+                </ol>
             </li>
-            <li><strong>Periodo de Examen Libre (Florida):</strong> 30 días para devolverla.</li>
+            <li><strong>Respite Care:</strong> Paga para que un enfermero cuide al paciente y el cuidador familiar pueda descansar.</li>
         </ul>
 
         <div class="section-title">PILAR 5: SEGURO DE GRUPO Y COBRA</div>
-        <p>Aplica para grupos naturales (empleadores) de 2 o más personas.</p>
+        <p>El seguro de grupo se suscribe basándose en la salud del grupo entero, no del individuo.</p>
         <ul>
-            <li><strong>Póliza Maestra:</strong> El empleador la tiene. El empleado tiene un <strong>Certificado</strong>.</li>
-            <li><strong>COBRA (Federal):</strong> Para grupos de 20+ empleados. Continuación de salud por terminación (18 meses) o eventos familiares (36 meses).</li>
-            <li><strong>Mini-COBRA (Florida):</strong> Para grupos de menos de 20 empleados.</li>
+            <li><strong>COBRA (Federal):</strong> Aplica a empresas con <b>20 o más empleados</b>.
+                <ul>
+                    <li>18 meses de continuación por pérdida de empleo.</li>
+                    <li>36 meses para dependientes por muerte o divorcio del empleado.</li>
+                    <li>El cliente paga el 102% de la prima.</li>
+                </ul>
+            </li>
+            <li><strong>Mini-COBRA (Florida):</strong> Para empresas con menos de 20 empleados.</li>
         </ul>
 
-        <div class="pro-tip"><b>TRAMPA DE EXAMEN:</b> En COBRA, el empleador puede cobrar el 102% de la prima (100% de la prima + 2% administrativo).</div>
+        <div class="pro-tip"><b>TRAMPA ESTATAL:</b> En Florida, un plan de salud de <b>Grupo Pequeño</b> se define como una empresa con entre <b>1 y 50 empleados</b>. ¡Atención al número 50!</div>
         
-        <div class="footer">© 2026 Maná Academy. Material Platinum v3.0.7 • Página 2/2</div>
+        <div class="footer">© 2026 Maná Academy. Material de Estudio Maestro v3.0.7 • Página 2/2</div>
     </div>
 </body>
 </html>

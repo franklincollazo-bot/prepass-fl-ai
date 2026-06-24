@@ -4,189 +4,129 @@
     <meta charset="UTF-8">
     <title>Manual Maestro Módulo 1 - Maná Academy</title>
     <style>
-        :root { 
-            --gold: #C5A059; 
-            --navy: #0A1B33; 
-            --black: #000000;
-        }
-        
-        body { 
-            background-color: #f4f4f4; 
-            margin: 0; 
-            padding: 20px;
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-        }
-
-        .printable-page {
-            width: 215.9mm;
-            height: 279.4mm;
-            padding: 25.4mm;
-            margin: 0 auto 20px auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            font-size: 80px;
-            color: rgba(197, 160, 89, 0.05);
-            pointer-events: none;
-            white-space: nowrap;
-            font-weight: bold;
-            z-index: 0;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            background-color: var(--navy);
-            color: var(--gold);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--gold);
-            margin-bottom: 25px;
-        }
-
-        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
-        .logo-small { width: 60px; margin-bottom: 10px; }
-
-        .section-title {
-            background: var(--navy);
-            color: var(--gold);
-            padding: 8px 12px;
-            font-weight: bold;
-            margin-top: 15px;
-            border-left: 4px solid var(--gold);
-            font-size: 14px;
-        }
-
+        :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
+        body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 20mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 20px; }
+        .header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
+        .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
         h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
-        p, li { font-size: 12px; line-height: 1.5; color: #333; margin-bottom: 5px; }
-        
-        .pro-tip {
-            background: #fffdf0;
-            border: 1px solid var(--gold);
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            font-size: 11px;
-        }
-
-        .footer {
-            margin-top: auto;
-            text-align: center;
-            font-size: 10px;
-            color: #999;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-        }
-
-        @media print {
-            body { background: none; padding: 0; }
-            .printable-page { margin: 0; box-shadow: none; page-break-after: always; width: 100%; height: 100%; }
-            .no-print { display: none; }
-        }
-
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--gold);
-            color: black;
-            padding: 15px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 100;
-            border: none;
-            cursor: pointer;
-        }
+        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 8px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 12px; margin: 15px 0; border-radius: 6px; font-size: 11px; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #007bff; padding: 12px; margin: 15px 0; font-size: 11px; }
+        .example-title { font-weight: bold; color: #0056b3; margin-bottom: 5px; text-transform: uppercase; display: block; }
+        .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11px; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; }
+        th { background-color: var(--navy); color: var(--gold); }
     </style>
 </head>
 <body>
-
-    <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR / DESCARGAR PDF</button>
-
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="header">
-                <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
-                <h1>Manual Maestro - Módulo 1</h1>
-                <div style="color: white; font-size: 11px;">PrePass FL AI • Florida Health (2-40)</div>
-            </div>
-
-            <h2>Conceptos de Riesgo y Contratos</h2>
-            <div class="section-title">PILAR 1: FUNDAMENTOS DEL RIESGO</div>
-            <ul>
-                <li><strong>Riesgo Puro vs Especulativo:</strong> El seguro solo cubre Riesgo Puro (solo pérdida). El Especulativo (apuestas) no es asegurable.</li>
-                <li><strong>Peligro (Peril) vs Riesgo (Hazard):</strong> Peril es la *causa* de la pérdida (ej: enfermedad). Hazard es lo que *aumenta* la probabilidad (ej: fumar).</li>
-                <li><strong>Selección Adversa:</strong> Tendencia de personas con alto riesgo a buscar seguro. El agente debe prevenirlo.</li>
-            </ul>
-
-            <div class="section-title">PILAR 2: ELEMENTOS DEL CONTRATO LEGAL (ALCAL)</div>
-            <ul>
-                <li><strong>Acuerdo (Oferta y Aceptación):</strong> Oferta = Solicitud + Prima. Aceptación = Emisión de póliza.</li>
-                <li><strong>Consideración:</strong> Intercambio de valores (Prima/Declaraciones vs Promesa de pago).</li>
-                <li><strong>Partes Competentes:</strong> 18+ años, salud mental, sobriedad.</li>
-                <li><strong>Propósito Legal:</strong> Debe existir Interés Asegurable al momento de la solicitud.</li>
-            </ul>
-
-            <div class="section-title">PILAR 3: CARACTERÍSTICAS TÉCNICAS</div>
-            <ul>
-                <li><strong>Contrato de Adhesión:</strong> Escrito por la aseguradora; ambigüedades favorecen al cliente.</li>
-                <li><strong>Contrato Aleatorio:</strong> Valores intercambiados desiguales.</li>
-                <li><strong>Unilateral:</strong> Solo la aseguradora está legalmente obligada.</li>
-                <li><strong>Condicional:</strong> El pago depende de que ocurra el evento cubierto.</li>
-            </ul>
+        <div class="header">
+            <h1>Manual Maestro - Módulo 1</h1>
+            <div style="color: white; font-size: 11px;">Fundamentos de Riesgo, Contratos y Ley de Agencia • Nivel Platinum</div>
         </div>
-        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
+
+        <div class="section-title">PILAR 1: NATURALEZA DEL RIESGO Y SU MANEJO</div>
+        <p>El seguro es el mecanismo mediante el cual se transfiere el riesgo de una pérdida financiera de un individuo a una compañía de seguros. Para entender el examen, debemos dominar el vocabulario técnico del examinador.</p>
+        
+        <ul>
+            <li><strong>Riesgo:</strong> La incertidumbre respecto a la ocurrencia de una pérdida.
+                <ul>
+                    <li><strong>Puro:</strong> Solo existe la posibilidad de pérdida (ej. enfermedad). Es el único asegurable.</li>
+                    <li><strong>Especulativo:</strong> Existe posibilidad de ganancia o pérdida (ej. apuestas). No es asegurable.</li>
+                </ul>
+            </li>
+            <li><strong>Peligro (Peril) vs. Riesgo (Hazard):</strong> El <i>Peril</i> es la causa de la pérdida (incendio, ataque cardíaco). El <i>Hazard</i> es una condición que aumenta la probabilidad de que ocurra el peligro.</li>
+        </ul>
+
+        <div class="example-box">
+            <span class="example-title">EJEMPLO PRÁCTICO: LOS 3 TIPOS DE HAZARDS</span>
+            <strong>1. Físico:</strong> Un cable pelado en la oficina o una condición cardíaca congénita.<br>
+            <strong>2. Moral:</strong> Una persona deshonesta que miente en la solicitud o quema su casa para cobrar.<br>
+            <strong>3. Morale:</strong> Indiferencia o descuido. "No me importa si dejo la puerta abierta, para eso tengo seguro".
+        </div>
+
+        <h2>El Método STARR (Manejo de Riesgos)</h2>
+        <p>El examinador preguntará cómo reacciona un individuo ante el riesgo:</p>
+        <ul>
+            <li><strong>Sharing (Compartir):</strong> Varias personas asumen el riesgo juntas.</li>
+            <li><strong>Transfer (Transferir):</strong> El seguro. Pasar el riesgo a la compañía a cambio de una prima.</li>
+            <li><strong>Avoidance (Evitar):</strong> Eliminar el riesgo por completo (ej. no conducir para no chocar).</li>
+            <li><strong>Reduction (Reducción):</strong> Bajar la probabilidad de pérdida (ej. poner alarmas de humo).</li>
+            <li><strong>Retention (Retención):</strong> Asumir el riesgo uno mismo (ej. pagar el deducible).</li>
+        </ul>
+
+        <div class="section-title">PILAR 2: ELEMENTOS DE UN CONTRATO LEGAL (ALCAL)</div>
+        <p>Para que un contrato de seguros sea válido en Florida, debe cumplir con estos 4 requisitos fundamentales:</p>
+        <ol>
+            <li><strong>Acuerdo (Agreement):</strong> Se compone de la <i>Oferta</i> y la <i>Aceptación</i>.
+                <div class="example-box">
+                    <span class="example-title">Escenario de Examen</span>
+                    Si el cliente entrega la solicitud y paga la prima, está haciendo la <b>Oferta</b>. Si la compañía emite la póliza, es la <b>Aceptación</b>.
+                </div>
+            </li>
+            <li><strong>Consideración (Consideration):</strong> El intercambio de algo de valor. 
+                <ul>
+                    <li>El asegurado da: La prima + declaraciones en la solicitud.</li>
+                    <li>La aseguradora da: La promesa de pagar beneficios futuros.</li>
+                </ul>
+            </li>
+            <li><strong>Partes Competentes:</strong> Ambas partes deben tener capacidad legal (18+ años, salud mental y no estar bajo influencia de sustancias).</li>
+            <li><strong>Propósito Legal:</strong> El contrato debe tener un fin legal y debe existir <b>Interés Asegurable</b> (posibilidad de sufrir pérdida económica por la muerte o enfermedad del asegurado).</li>
+        </ol>
     </div>
 
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="section-title">PILAR 4: SUSCRIPCIÓN Y FUENTES DE INFORMACIÓN</div>
-            <p>El proceso donde se evalúa si el riesgo es aceptable:</p>
-            <ul>
-                <li><strong>Medical Information Bureau (MIB):</strong> Organización sin fines de lucro propiedad de las aseguradoras que mantiene información médica confidencial de solicitantes anteriores. Ayuda a detectar fraude y mentiras en la solicitud.</li>
-                <li><strong>Reporte del Agente:</strong> Observaciones personales del agente sobre el solicitante. No es parte del contrato.</li>
-                <li><strong>Reporte de Investigación del Consumidor:</strong> Información sobre el carácter, reputación y estilo de vida (Ley FCRA).</li>
-                <li><strong>Examen Médico / APS:</strong> Informe del médico tratante (Attending Physician's Statement) para profundizar en el historial.</li>
-            </ul>
+        <div class="section-title">PILAR 3: CARACTERÍSTICAS ÚNICAS DEL CONTRATO DE SEGURO</div>
+        <ul>
+            <li><strong>Contrato de Adhesión:</strong> La compañía escribe el contrato y el cliente "se adhiere" a él sin negociar. <i>Regla de Oro:</i> Cualquier ambigüedad en el texto se resolverá a favor del asegurado en una corte.</li>
+            <li><strong>Contrato Aleatorio (Aleatory):</strong> El intercambio de valores es desigual. Una persona puede pagar $100 y recibir un beneficio de $100,000, o pagar años y nunca recibir nada.</li>
+            <li><strong>Unilateral:</strong> Solo la aseguradora hace una promesa legalmente vinculante. El cliente puede dejar de pagar en cualquier momento.</li>
+            <li><strong>Condicional:</strong> Los beneficios solo se pagan si se cumplen ciertas condiciones (como presentar la prueba de pérdida).</li>
+        </ul>
 
-             <div class="section-title">PILAR 5: LEYES DE FLORIDA Y PRÁCTICAS DESLEALES</div>
-             <ul>
-                 <li><strong>Twisting:</strong> Declaración falsa o incompleta para inducir el reemplazo de una póliza de OTRA compañía.</li>
-                 <li><strong>Churning:</strong> Reemplazo interno injustificado dentro de la MISMA compañía para generar nuevas comisiones.</li>
-                 <li><strong>Misrepresentation:</strong> Mentir sobre beneficios, términos o dividendos de una póliza propia o ajena.</li>
-                 <li><strong>Sliding:</strong> Decir que una cobertura extra es obligatoria, o agregarla sin consentimiento del cliente.</li>
-                 <li><strong>Rebating:</strong> Ofrecer incentivos (dinero, regalos) no estipulados en la póliza para inducir la venta.</li>
-                 <li><strong>Coerción:</strong> Uso de presión o fuerza para restringir el comercio o forzar una compra.</li>
-                 <li><strong>Difamación:</strong> Hacer declaraciones falsas o maliciosas sobre la situación financiera de un competidor.</li>
-                 <li><strong>Free Look (Examen Libre):</strong> 10 días para devolver la póliza y recibir reembolso total (30 días en Medicare).</li>
-             </ul>
+        <div class="section-title">PILAR 4: LA LEY DE AGENCIA Y AUTORIDADES</div>
+        <p>En Florida, el agente representa a la aseguradora. Los actos del agente son los actos de la compañía.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Autoridad</th>
+                    <th>Definición</th>
+                    <th>Ejemplo Real</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Expresa</strong></td>
+                    <td>Escrita en el contrato del agente.</td>
+                    <td>El poder de cobrar primas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Implícita</strong></td>
+                    <td>No está escrita pero es necesaria para trabajar.</td>
+                    <td>Hacer publicidad local con el logo de la marca.</td>
+                </tr>
+                <tr>
+                    <td><strong>Aparente</strong></td>
+                    <td>Lo que el público cree basado en las acciones.</td>
+                    <td>Si la compañía deja que el agente use sus aplicaciones, el cliente asume que tiene autoridad.</td>
+                </tr>
+            </tbody>
+        </table>
 
-             <div class="pro-tip"><b>OJO AL EXAMEN:</b> En Florida, el <b>Free Look</b> comienza en el momento en que la póliza es <b>ENTREGADA</b> físicamente o por correo al dueño de la póliza.</div>
+        <div class="section-title">PILAR 5: SUSCRIPCIÓN Y FUENTES DE INFORMACIÓN</div>
+        <p>Es el proceso de clasificar y seleccionar riesgos para evitar la <b>Selección Adversa</b> (que solo se aseguren los enfermos).</p>
+        <ul>
+            <li><strong>FCRA (Fair Credit Reporting Act):</strong> Ley federal que protege la privacidad del consumidor. Si la compañía pide un reporte de crédito, debe notificar al cliente.</li>
+            <li><strong>MIB (Medical Information Bureau):</strong> Base de datos compartida entre aseguradoras. Detecta si el cliente mintió a otra compañía antes.</li>
+            <li><strong>Reporte de Investigación:</strong> Entrevistas con vecinos y amigos sobre el estilo de vida del cliente.</li>
+        </ul>
 
-            
-            <div class="section-title">ENTREGA DE PÓLIZA</div>
-            <p>Si la prima no se pagó al solicitar: Cobrar prima + <strong>Declaración de Buena Salud</strong>.</p>
-        </div>
-        <div class="footer">© 2026 Maná Academy. Página 2/2</div>
+        <div class="pro-tip"><b>TRAMPA DE EXAMEN:</b> Si un cliente hace una declaración falsa pero cree que es verdad, es una <b>Representación</b>. Si la compañía descubre que mintió en un "hecho material" (importante), puede cancelar la póliza. Si el cliente garantiza que algo será verdad al 100%, es una <b>Garantía (Warranty)</b>.</div>
+        
+        <div class="footer">© 2026 Maná Academy. Material de Estudio Maestro v3.0.7 • Página 2/2</div>
     </div>
-
 </body>
 </html>

@@ -6,78 +6,82 @@
     <style>
         :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
         body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
-        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 25mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 20mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
         .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
-        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
         .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
         h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
-        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 5px; }
-        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
+        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 8px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 12px; margin: 15px 0; border-radius: 6px; font-size: 11px; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #007bff; padding: 12px; margin: 15px 0; font-size: 11px; }
+        .example-title { font-weight: bold; color: #0056b3; margin-bottom: 5px; text-transform: uppercase; display: block; }
         .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11px; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; }
+        th { background-color: var(--navy); color: var(--gold); }
     </style>
 </head>
 <body>
     <div class="printable-page">
         <div class="header">
             <h1>Manual Maestro - Módulo 6</h1>
-            <div style="color: white; font-size: 11px;">Estatutos de Florida (Generales) • Guía Platinum</div>
+            <div style="color: white; font-size: 11px;">Estatutos de Florida (Comunes a todas las líneas) • Nivel Platinum</div>
         </div>
 
-        <div class="section-title">PILAR 1: AUTORIDADES REGULADORAS DE FLORIDA</div>
-        <p>El sistema regulador de Florida es una estructura de 3 pilares bajo la Comisión de Servicios Financieros.</p>
+        <div class="section-title">PILAR 1: EL SISTEMA REGULADOR DE FLORIDA</div>
+        <p>En Florida, el sistema se divide en tres cabezas principales para garantizar un mercado justo:</p>
         
         <ul>
-            <li><strong>CFO (Chief Financial Officer):</strong> Oficial electo del gabinete. Supervisa el Departamento de Servicios Financieros (DFS).</li>
-            <li><strong>DFS (Departamento de Servicios Financieros):</strong>
-                <ul>
-                    <li>Maneja las **Licencias** y los **Nombramientos** (Appointments).</li>
-                    <li>Investiga fraudes y quejas del consumidor.</li>
-                    <li>Supervisa la educación continua de los agentes.</li>
-                </ul>
-            </li>
-            <li><strong>OIR (Office of Insurance Regulation):</strong>
-                <ul>
-                    <li>Supervisa la **Solvencia Financiera** de las aseguradoras (que tengan dinero para pagar).</li>
-                    <li>Aprueba las pólizas y las tarifas de primas.</li>
-                    <li>Emite el "Certificate of Authority" a las aseguradoras.</li>
-                </ul>
-            </li>
+            <li><strong>CFO (Director Financiero):</strong> Oficial electo del gabinete. Supervisa el Departamento de Servicios Financieros (DFS).</li>
+            <li><strong>DFS (Departamento de Servicios Financieros):</strong> Maneja la cara "humana". Licencia a los agentes, investiga fraudes, maneja quejas de consumidores y supervisa nombramientos.</li>
+            <li><strong>OIR (Office of Insurance Regulation):</strong> Maneja la cara "empresarial". Supervisa la <b>Solvencia Financiera</b> de las aseguradoras, aprueba tarifas de primas y formularios de pólizas.</li>
         </ul>
 
-        <div class="section-title">PILAR 2: REQUISITOS DE LICENCIA Y MANTENIMIENTO</div>
+        <div class="section-title">PILAR 2: LICENCIA Y MANTENIMIENTO</div>
         <ul>
-            <li><strong>Licencia Residentes:</strong> Debes tener al menos 18 años, ser ciudadano o residente legal y pasar el examen estatal.</li>
-            <li><strong>Nombramiento (Appointment):</strong> Una vez que tienes la licencia, una aseguradora debe "nombrarte" para que puedas vender. Si pasas **48 meses** sin un nombramiento activo, tu licencia caduca.</li>
-            <li><strong>Educación Continua (CE):</strong> Debes completar 24 horas cada 2 años (incluye 5 horas de leyes/ética).</li>
-            <li><strong>Cambio de Datos:</strong> Debes notificar al DFS dentro de los **30 días** si cambias de dirección personal, de oficina o de correo electrónico.</li>
-            <li><strong>Registros:</strong> Debes conservar los registros de tus pólizas por al menos **3 años**.</li>
+            <li><strong>Requisitos de Edad:</strong> Mínimo 18 años.</li>
+            <li><strong>Nombramiento (Appointment):</strong> Una vez que tienes tu licencia, una aseguradora debe "nombrarte". La licencia caduca si pasas <b>48 meses</b> sin un nombramiento activo.</li>
+            <li><strong>Educación Continua (CE):</strong> 24 horas cada 2 años (incluye 5 horas obligatorias de leyes y ética).</li>
+            <li><strong>Cambio de Datos:</strong> Debes notificar al DFS de cualquier cambio de dirección física o email dentro de <b>30 días</b>. No hacerlo acarrea multas de hasta $250.</li>
+            <li><strong>Registros:</strong> Debes conservar los expedientes de tus clientes por <b>3 años</b>.</li>
         </ul>
 
-        <div class="pro-tip"><b>OJO AL EXAMEN:</b> El Agente tiene una **Responsabilidad Fiduciaria**. Cualquier dinero de primas que recibas debe ser enviado a la compañía de inmediato. Mezclar este dinero con el tuyo es un delito llamado **Commingling**.</div>
+        <div class="pro-tip"><b>OJO AL EXAMEN:</b> El Agente tiene una <b>Responsabilidad Fiduciaria</b>. Cualquier dinero de primas que recibas debe ser enviado a la compañía de inmediato. Mezclar este dinero con el tuyo es un delito llamado <b>Commingling</b>.</div>
     </div>
 
     <div class="printable-page">
         <div class="section-title">PILAR 3: PRÁCTICAS COMERCIALES DESLEALES (DELITOS ÉTICOS)</div>
         <p>Pearson VUE te pondrá ejemplos de situaciones para que identifiques el delito. Estúdialos bien:</p>
-        <ul>
-            <li><strong>Sliding:</strong> Decirle al cliente que una cobertura es obligatoria por ley cuando no lo es, o meterla en la póliza sin que el cliente sepa.</li>
-            <li><strong>Twisting:</strong> Convencer a un cliente de cancelar su póliza actual para comprar una nueva contigo usando mentiras o información incompleta sobre la otra compañía.</li>
-            <li><strong>Churning:</strong> Convencer al cliente de usar el valor acumulado de su póliza vieja para comprar una nueva con la **misma compañía** solo para que el agente gane comisión.</li>
-            <li><strong>Rebating (Rebaja):</strong> Darle parte de tu comisión al cliente para que te compre. En Florida es ilegal SALVO que el agente publique una escala de rebajas y se la de a TODO EL MUNDO por igual.</li>
-            <li><strong>Difamación:</strong> Decir mentiras sobre la situación financiera de un competidor para dañarlo.</li>
-            <li><strong>Coerción/Boicot:</strong> Usar la fuerza o amenazas para obligar a alguien a comprar un seguro.</li>
-        </ul>
-
-        <div class="section-title">PILAR 4: SANCIONES DEL CFO / DFS</div>
-        <ul>
-            <li>El CFO tiene poder para emitir citaciones, realizar audiencias y administrar multas.</li>
-            <li>Las multas por infracciones intencionales pueden llegar hasta los **$250,000**.</li>
-            <li>Cometer fraude de seguros es un delito grave (Felony) en Florida.</li>
-        </ul>
-
-        <div class="pro-tip"><b>TRAMPA DE EXAMEN:</b> La licencia le pertenece al **Agente**, pero el Nombramiento le pertenece a la **Aseguradora**. Tienes que tener AMBOS para poder cobrar comisiones.</div>
         
-        <div class="footer">© 2026 Maná Academy. Material Platinum v3.0.7 • Página 2/2</div>
+        <div class="example-box">
+            <span class="example-title">Twisting vs Churning</span>
+            - <b>Twisting:</b> Mentir para que el cliente cancele con la competencia y compre contigo.<br>
+            - <b>Churning:</b> Engañar para que el cliente use el dinero de su póliza vieja para comprar una nueva con la <b>MISMA</b> compañía (solo para ganar comisión tú).
+        </div>
+
+        <ul>
+            <li><strong>Sliding (Deslizar):</strong> Decirle al cliente que una cobertura extra (ej. seguro de vida para el préstamo) es <b>obligatoria por ley</b> cuando no lo es, o meterla en la póliza sin avisar.</li>
+            <li><strong>Rebating (Rebaja):</strong> Ofrecer parte de tu comisión al cliente como incentivo. Es legal en Florida SOLO SI publicas una escala de rebajas y se la das a todos por igual.</li>
+            <li><strong>Difamación:</strong> Hacer comentarios falsos o maliciosos sobre la situación financiera de otra aseguradora.</li>
+            <li><strong>Coerción/Boicot:</strong> Usar fuerza o amenazas para obligar a alguien a comprar un seguro.</li>
+        </ul>
+
+        <div class="section-title">PILAR 4: SANCIONES Y PODERES</div>
+        <ul>
+            <li>El DFS tiene el poder de emitir citaciones, realizar audiencias y administrar multas de hasta <b>$250,000</b> por actos intencionales.</li>
+            <li>Cometer fraude de seguros en Florida es una <b>Felonía</b> (Delito Grave).</li>
+            <li>Apropiación de fondos (primas) de más de $100,000 es una Felonía de Primer Grado.</li>
+        </ul>
+
+        <div class="example-box">
+            <span class="example-title">Caso Real de Ética</span>
+            Un agente le dice a un cliente: "Para que el banco le apruebe el crédito, es obligatorio por ley que compre este seguro dental adicional".<br>
+            <b>Respuesta:</b> Esto es <b>SLIDING</b>.
+        </div>
+
+        <div class="pro-tip"><b>⚠️ TRAMPA DE EXAMEN:</b> La licencia le pertenece al <b>Agente</b>, pero el Nombramiento le pertenece a la <b>Aseguradora</b>. Tienes que tener AMBOS para poder vender legalmente.</div>
+        
+        <div class="footer">© 2026 Maná Academy. Material de Estudio Maestro v3.0.7 • Página 2/2</div>
     </div>
 </body>
 </html>

@@ -6,80 +6,93 @@
     <style>
         :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
         body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
-        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 25mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 20mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
         .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
-        .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
         .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
         h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
-        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 5px; }
-        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
+        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 8px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 12px; margin: 15px 0; border-radius: 6px; font-size: 11px; }
+        .example-box { background: #f0f7ff; border-left: 4px solid #007bff; padding: 12px; margin: 15px 0; font-size: 11px; }
+        .example-title { font-weight: bold; color: #0056b3; margin-bottom: 5px; text-transform: uppercase; display: block; }
         .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11px; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; }
+        th { background-color: var(--navy); color: var(--gold); }
     </style>
 </head>
 <body>
     <div class="printable-page">
         <div class="header">
             <h1>Manual Maestro - Módulo 7</h1>
-            <div style="color: white; font-size: 11px;">Estatutos de Salud en Florida • Guía Platinum</div>
+            <div style="color: white; font-size: 11px;">Estatutos de Salud en Florida • Nivel Platinum</div>
         </div>
 
         <div class="section-title">PILAR 1: REGLAS DE SEGURO DE SALUD EN FLORIDA</div>
-        <p>Florida tiene leyes que obligan a las aseguradoras a proporcionar ciertos niveles de protección mínima.</p>
+        <p>Florida impone reglas específicas que todas las aseguradoras deben seguir para poder vender pólizas en el estado.</p>
         
         <ul>
             <li><strong>Periodo de Gracia Florida:</strong>
                 <ul>
-                    <li>Primas Semanales: 7 días.</li>
-                    <li>Primas Mensuales: **10 días**.</li>
-                    <li>Otras (Anual): 31 días.</li>
+                    <li>Primas Mensuales: <b>10 días</b>.</li>
+                    <li>Primas Semanales: <b>7 días</b>.</li>
+                    <li>Resto (Anual): 31 días.</li>
                 </ul>
             </li>
-            <li><strong>Maternidad Obligatoria:</strong> Las aseguradoras NO pueden excluir la maternidad si cubren otras condiciones. Deben permitir una estancia mínima en el hospital de:
+            <li><strong>Maternidad:</strong> No se puede excluir de las pólizas de salud. Estancia mínima:
                 <ul>
-                    <li>Parto Natural: **48 horas**.</li>
-                    <li>Cesárea: **96 horas**.</li>
+                    <li>Parto Natural: 48 horas.</li>
+                    <li>Cesárea: 96 horas.</li>
                 </ul>
             </li>
-            <li><strong>Cobertura de Recién Nacidos:</strong> La cobertura comienza **automáticamente** desde el momento del nacimiento. El dueño tiene **31 días** (en algunos casos hasta 60) para notificar a la aseguradora y pagar la prima para continuarla.</li>
-            <li><strong>Hijos Incapacitados:</strong> Un hijo que depende de sus padres por discapacidad física o mental puede quedarse en la póliza de salud de sus padres **indefinidamente** (más allá de los 26 años).</li>
+            <li><strong>Recién Nacidos:</strong> Cobertura automática desde el nacimiento (lesiones y enfermedades). El dueño tiene <b>31 días</b> para notificar a la compañía y pagar la prima extra.</li>
+            <li><strong>Hijos Incapacitados:</strong> Un hijo que depende económicamente de sus padres por discapacidad puede permanecer en la póliza <b>indefinidamente</b>.</li>
         </ul>
 
-        <div class="section-title">PILAR 2: EL PEQUEÑO EMPLEADOR (SMALL GROUP)</div>
-        <p>Definición: En Florida, es un negocio que emplea entre **1 y 50 empleados** elegibles.</p>
+        <div class="example-box">
+            <span class="example-title">Trampa de Tiempo</span>
+            Un cliente tiene un plan de salud individual con prima mensual. ¿Cuál es su periodo de gracia legal?<br>
+            <b>Respuesta:</b> 10 días (regla específica de Florida para salud individual).
+        </div>
+
+        <div class="section-title">PILAR 2: SEGURO DE GRUPO PEQUEÑO (SMALL GROUP)</div>
+        <p>Florida protege a las pequeñas empresas obligando a las aseguradoras a ofrecer planes sin discriminación.</p>
         <ul>
-            <li><strong>Garantía de Emisión:</strong> Las aseguradoras deben ofrecer cobertura a todo pequeño empleador que la solicite (no pueden rechazarlos por salud del grupo).</li>
-            <li><strong>Elegibilidad:</strong> El empleado debe trabajar al menos **25 horas** a la semana para ser considerado a tiempo completo y calificar para el seguro de grupo.</li>
-            <li><strong>Mini-COBRA Florida:</strong> Aplica para empresas de menos de 20 empleados. El empleado tiene **18 meses** de continuación de cobertura tras dejar el empleo.</li>
+            <li><strong>Definición:</strong> Empresa con entre <b>1 y 50 empleados</b> elegibles.</li>
+            <li><strong>Elegibilidad:</strong> El empleado debe trabajar al menos <b>25 horas</b> a la semana.</li>
+            <li><strong>Garantía de Emisión:</strong> Una aseguradora debe ofrecer todos sus planes de grupo pequeño a cualquier pequeña empresa que los solicite.</li>
+            <li><strong>Mini-COBRA Florida:</strong> Para grupos de menos de 20 empleados. Continuación de salud por <b>18 meses</b>. La notificación debe enviarse al empleado dentro de los 14 días tras la terminación.</li>
         </ul>
     </div>
 
     <div class="printable-page">
-        <div class="section-title">PILAR 3: COBERTURAS OBLIGATORIAS ESTATALES</div>
-        <p>Florida exige que toda póliza de salud cubra:</p>
+        <div class="section-title">PILAR 3: COBERTURAS OBLIGATORIAS POR LEY</div>
+        <p>En Florida, toda póliza de salud DEBE cubrir:</p>
         <ul>
-            <li><strong>Diabetes:</strong> Equipos, suministros y educación sobre automanejo si son recetados por un médico.</li>
-            <li><strong>Mamografías:</strong> Cobertura obligatoria para detección de cáncer de mama.</li>
-            <li><strong>Cuidado Quiropráctico:</strong> Debe estar disponible si el plan cubre otros servicios médicos.</li>
-            <li><strong>Hendidura Palatina (Cleft Lip):</strong> Cobertura para niños.</li>
+            <li><strong>Diabetes:</strong> Equipos, suministros y educación de automanejo si es recetada por un médico.</li>
+            <li><strong>Detección de Cáncer:</strong> Mamografías obligatorias.</li>
+            <li><strong>Cuidado Quiropráctico:</strong> Debe estar disponible si la póliza cubre otros servicios médicos.</li>
+            <li><strong>Hendidura Palatina (Cleft Lip):</strong> Cobertura pediátrica.</li>
         </ul>
 
         <div class="section-title">PILAR 4: PUBLICIDAD Y DIVULGACIÓN (ADVERTISING)</div>
+        <p>Para evitar que el público sea engañado, Florida tiene reglas estrictas de publicidad:</p>
         <ul>
-            <li>La **Aseguradora** es la responsable legal última de toda la publicidad, aunque el agente la cree.</li>
-            <li>**Outline of Coverage:** Es un resumen de la póliza que debe entregarse al cliente para que no tenga que leer todo el contrato legal para entender sus beneficios.</li>
-            <li>Está prohibido usar palabras como "Garantizado" o "Solo" de forma engañosa que exageren los beneficios.</li>
+            <li>La <b>Aseguradora</b> es la responsable legal última de todo anuncio, folleto o comercial, aunque el agente lo haya hecho solo.</li>
+            <li><strong>Outline of Coverage:</strong> Resumen obligatorio que debe entregarse al cliente antes o durante la entrega de la póliza.</li>
+            <li>Está prohibido usar palabras exageradas como "Solo", "Ahorro total" o "Garantizado" de forma que oculte los deducibles o exclusiones.</li>
         </ul>
 
-        <div class="section-title">PILAR 5: REGLAS DE MEDICARE SUPPLEMENT Y LTC EN FLORIDA</div>
+        <div class="section-title">PILAR 5: REGLAS DE MEDICARE SUPPLEMENT Y LTC</div>
         <ul>
-            <li><strong>Free Look (Examen Libre):</strong> 30 días para ambas.</li>
-            <li>**Guía del Comprador:** Debe entregarse antes de la aplicación.</li>
-            <li>**Renovabilidad:** Las pólizas LTC en Florida deben ser **Garantizadas Renovables**.</li>
+            <li><strong>Free Look (Examen Libre):</strong> 30 días para ambos en Florida.</li>
+            <li><strong>Guía del Comprador:</strong> Debe entregarse <b>al momento de la aplicación</b>.</li>
+            <li><strong>Divulgación de Pérdida (Loss Ratio):</strong> Las pólizas individuales de LTC deben tener un ratio de pérdida de al menos el 60%.</li>
         </ul>
 
-        <div class="pro-tip"><b>OJO AL EXAMEN:</b> En Florida, un Agente tiene prohibido referirse a sí mismo como un "Asesor Financiero" o "Consultor de Inversiones" si solo tiene licencia de seguros para vender pólizas de salud.</div>
+        <div class="pro-tip"><b>OJO AL EXAMEN:</b> En Florida, un agente no puede llamarse a sí mismo "Planificador Financiero" si solo vende seguros de salud. Debe tener las licencias financieras correspondientes.</div>
         
-        <div class="footer">© 2026 Maná Academy. Material Platinum v3.0.7 • Página 2/2</div>
+        <div class="footer">© 2026 Maná Academy. Material de Estudio Maestro v3.0.7 • Página 2/2</div>
     </div>
 </body>
 </html>
