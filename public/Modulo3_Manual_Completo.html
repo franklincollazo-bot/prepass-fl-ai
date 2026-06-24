@@ -4,269 +4,111 @@
     <meta charset="UTF-8">
     <title>Manual Maestro Módulo 3 - Maná Academy</title>
     <style>
-        :root { 
-            --gold: #C5A059; 
-            --navy: #0A1B33; 
-            --black: #000000;
-        }
-        
-        body { 
-            background-color: #f4f4f4; 
-            margin: 0; 
-            padding: 20px;
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-        }
-
-        .printable-page {
-            width: 215.9mm;
-            height: 279.4mm;
-            padding: 25.4mm;
-            margin: 0 auto 20px auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            font-size: 80px;
-            color: rgba(197, 160, 89, 0.05);
-            pointer-events: none;
-            white-space: nowrap;
-            font-weight: bold;
-            z-index: 0;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .header {
-            background-color: var(--navy);
-            color: var(--gold);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--gold);
-            margin-bottom: 25px;
-        }
-
+        :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
+        body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 25mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
         .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
-        .logo-small { width: 60px; margin-bottom: 10px; }
-
-        .section-title {
-            background: var(--navy);
-            color: var(--gold);
-            padding: 8px 12px;
-            font-weight: bold;
-            margin-top: 15px;
-            border-left: 4px solid var(--gold);
-            font-size: 14px;
-        }
-
+        .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
         h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
-        p, li { font-size: 12px; line-height: 1.5; color: #333; margin-bottom: 5px; }
-        
-        .pro-tip {
-            background: #fffdf0;
-            border: 1px solid var(--gold);
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            font-size: 11px;
-        }
-
-        .highlight-box {
-            background: #f0f4f8;
-            border-left: 4px solid var(--navy);
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 11px;
-        }
-
-        .footer {
-            margin-top: auto;
-            text-align: center;
-            font-size: 10px;
-            color: #999;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-        }
-
-        @media print {
-            body { background: none; padding: 0; }
-            .printable-page { margin: 0; box-shadow: none; page-break-after: always; width: 100%; height: 100%; }
-            .no-print { display: none; }
-        }
-
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--gold);
-            color: black;
-            padding: 15px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 100;
-            border: none;
-            cursor: pointer;
-        }
-
+        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 5px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
+        .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
         table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 11px; }
         th, td { border: 1px solid #eee; padding: 8px; text-align: left; }
         th { background-color: var(--navy); color: var(--gold); }
     </style>
 </head>
 <body>
-
-    <button class="print-btn no-print" onclick="window.print()">🖨️ IMPRIMIR / DESCARGAR PDF</button>
-
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="header">
-                <img src="https://sc01.alicdn.com/kf/Af5c3d3a85ba44d069606268e530cafc8D.png" class="logo-small">
-                <h1>Manual Maestro - Módulo 3</h1>
-                <div style="color: white; font-size: 11px;">PrePass FL AI • Provisiones y Cláusulas Legales</div>
-            </div>
+        <div class="header">
+            <h1>Manual Maestro - Módulo 3</h1>
+            <div style="color: white; font-size: 11px;">Provisiones, Cláusulas y Endosos • Guía Platinum</div>
+        </div>
 
-            <h2>Provisiones de Pólizas de Salud Uniformes</h2>
-            <div class="section-title">PILAR 1: LAS 12 PROVISIONES OBLIGATORIAS (NAIC)</div>
-            <p>Estas provisiones están diseñadas para proteger al asegurado y deben incluirse en toda póliza.</p>
-            <ul>
-                <li><strong>Contrato Completo:</strong> La póliza, los endosos y la solicitud adjunta constituyen el contrato total. Nada fuera de esto es vinculante.</li>
-                <li><strong>Incontestabilidad (Límite de tiempo):</strong> Después de 2 años, no se pueden negar reclamos por declaraciones erróneas en la solicitud (salvo fraude).</li>
-                <li><strong>Período de Gracia:</strong> Tiempo extra para pagar la prima sin que la póliza caduque.
-                    <ul>
-                        <li>Semanal: 7 días.</li>
-                        <li>Mensual: 10 días.</li>
-                        <li>Anual/Otros: 31 días.</li>
-                    </ul>
-                </li>
-                <li><strong>Reincorporación (Reinstatement):</strong> Si no hay respuesta del asegurador en 45 días, la póliza se reincorpora automáticamente. Cobertura inmediata para accidentes; 10 días de espera para enfermedades.</li>
-                <li><strong>Aviso de Reclamo:</strong> El asegurado debe notificar al asegurador dentro de los <strong>20 días</strong> del siniestro.</li>
-                <li><strong>Formularios de Reclamo:</strong> El asegurador debe enviarlos en <strong>15 días</strong> tras recibir el aviso.</li>
-                <li><strong>Prueba de Pérdida:</strong> Debe entregarse dentro de los <strong>90 días</strong> (máximo 1 año salvo incapacidad legal).</li>
-            </ul>
-
-            <div class="highlight-box">
-                <strong>CRONOLOGÍA CRÍTICA DE RECLAMOS (Regla 20-15-90):</strong>
+        <div class="section-title">PILAR 1: LAS 12 PROVISIONES OBLIGATORIAS (PROTECCIÓN AL ASEGURADO)</div>
+        <p>Establecidas por la NAIC para estandarizar los contratos. Son inalterables (salvo que sea para favorecer al asegurado).</p>
+        <ul>
+            <li><strong>Contrato Completo:</strong> Póliza + Aplicación + Endosos. Ningún documento externo vale. Solo un oficial de la compañía (no el agente) puede cambiar el contrato.</li>
+            <li><strong>Incontestabilidad (Límite de tiempo):</strong> Pasados 2 años, el asegurador no puede negar el reclamo basándose en errores de la aplicación (excepto fraude).</li>
+            <li><strong>Periodo de Gracia:</strong>
                 <ul>
-                    <li><strong>20 DÍAS:</strong> Aviso de Reclamo (Asegurado al Asegurador).</li>
-                    <li><strong>15 DÍAS:</strong> Envío de Formularios (Asegurador al Asegurado).</li>
-                    <li><strong>90 DÍAS:</strong> Prueba de Pérdida (Asegurado al Asegurador).</li>
+                    <li>Semanal: 7 días.</li>
+                    <li>Mensual: 10 días.</li>
+                    <li>Resto (Anual/Semestral): 31 días.</li>
                 </ul>
-            </div>
+            </li>
+            <li><strong>Reincorporación:</strong> Si la póliza caduca, se puede pedir volver. Si el asegurador no responde en 45 días, es automática. Accidentes: cobertura inmediata. Enfermedad: 10 días de espera.</li>
+            <li><strong>Aviso de Reclamo:</strong> 20 días para avisar a la compañía.</li>
+            <li><strong>Formularios de Reclamo:</strong> La compañía tiene 15 días para enviártelos tras tu aviso.</li>
+            <li><strong>Prueba de Pérdida:</strong> Tienes 90 días para entregarla.</li>
+            <li><strong>Pago de Reclamos:</strong> Se pagan inmediatamente al beneficiario (o patrimonio).</li>
+        </ul>
 
-            <div class="pro-tip">
-                <b>💡 HACK DE MEMORIA (7-10-31):</b> Período de Gracia.
-                7 días (Semanal), 10 días (Mensual), 31 días (Demás). ¡No los confundas!
-            </div>
+        <div class="pro-tip"><b>💡 REGLA DE ORO (20-15-90):</b>
+            <ul>
+                <li>20 días para el Aviso.</li>
+                <li>15 días para recibir los Formularios.</li>
+                <li>90 días para entregar la Prueba de Pérdida.</li>
+            </ul>
         </div>
-        <div class="footer">© 2026 Maná Academy. Página 1/2</div>
+
+        <div class="section-title">PILAR 2: LAS 11 PROVISIONES OPCIONALES (PROTECCIÓN AL ASEGURADOR)</div>
+        <ul>
+            <li><strong>Cambio de Ocupación:</strong> Si vas a un trabajo más peligroso, el beneficio se reduce. Si vas a uno menos peligroso, la prima baja.</li>
+            <li><strong>Declaración Incorrecta de Edad:</strong> El beneficio se ajusta a lo que la prima habría comprado a la edad real. ¡La póliza NO se cancela!</li>
+            <li><strong>Otras Pólizas en la misma compañía:</strong> Evita el sobre-seguro.</li>
+            <li><strong>Seguro con otros aseguradores:</strong> Se paga prorrata (proporcionalmente).</li>
+            <li><strong>Ocupación Ilegal:</strong> No se pagan reclamos por delitos graves.</li>
+            <li><strong>Intoxicantes y Narcóticos:</strong> No se pagan reclamos bajo influencia de alcohol o drogas ilegales.</li>
+        </ul>
     </div>
 
     <div class="printable-page">
-        <div class="watermark">MANÁ ACADEMY</div>
-        <div class="content">
-            <div class="section-title">PILAR 2: PROVISIONES OPCIONALES (EL ASEGURADOR ELIGE)</div>
-            <ul>
-                <li><strong>Cambio de Ocupación:</strong> 
-                    <ul>
-                        <li>Más Riesgosa: Beneficios ↓ (se reducen).</li>
-                        <li>Menos Riesgosa: Prima ↓ (se reduce/reembolsa).</li>
-                    </ul>
-                </li>
-                <li><strong>Declaración Incorrecta de Edad:</strong> El beneficio se ajusta. <b>OJO:</b> La póliza NO se cancela, solo se ajusta el dinero.</li>
-                <li><strong>Ilegalidad:</strong> El asegurador no paga si la pérdida ocurrió mientras el asegurado cometía un delito grave o participaba en una ocupación ilegal.</li>
-                <li><strong>Intoxicantes y Narcóticos:</strong> El asegurador no es responsable de pérdidas bajo la influencia de alcohol o drogas no recetadas.</li>
-            </ul>
+        <div class="section-title">PILAR 3: CLÁUSULAS DE RENOVABILIDAD</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cláusula</th>
+                    <th>¿Puede subir la prima?</th>
+                    <th>¿Puede cancelar la aseguradora?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>No Cancelable</strong></td>
+                    <td>No</td>
+                    <td>No (mientras se pague)</td>
+                </tr>
+                <tr>
+                    <td><strong>Garantizada Renovable</strong></td>
+                    <td>Sí (solo por clase)</td>
+                    <td>No (mientras se pague)</td>
+                </tr>
+                <tr>
+                    <td><strong>Condicionalmente Renovable</strong></td>
+                    <td>Sí</td>
+                    <td>Solo si se cumplen condiciones de la póliza</td>
+                </tr>
+                <tr>
+                    <td><strong>Opcionalmente Renovable</strong></td>
+                    <td>Sí</td>
+                    <td>Sí (en la fecha de aniversario)</td>
+                </tr>
+            </tbody>
+        </table>
 
-            <div class="section-title">PILAR 3: CLÁUSULAS DE RENOVABILIDAD (SÚPER IMPORTANTE)</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cláusula</th>
-                        <th>¿Puede Cancelar?</th>
-                        <th>¿Puede Subir Prima?</th>
-                        <th>Nivel de Protección</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>No Cancelable</strong></td>
-                        <td>No</td>
-                        <td>No</td>
-                        <td>⭐⭐⭐⭐⭐ (Máximo)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Renovación Garantizada</strong></td>
-                        <td>No</td>
-                        <td>Sí (Solo por clase)</td>
-                        <td>⭐⭐⭐⭐</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Condicionalmente Renovable</strong></td>
-                        <td>Sí (Bajo condiciones)</td>
-                        <td>Sí</td>
-                        <td>⭐⭐⭐</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Opcionalmente Renovable</strong></td>
-                        <td>Sí (Aniversario)</td>
-                        <td>Sí</td>
-                        <td>⭐⭐</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cancelable</strong></td>
-                        <td>Sí (En cualquier momento)</td>
-                        <td>Sí</td>
-                        <td>⭐ (Mínimo)</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="section-title">PILAR 4: OTRAS CLÁUSULAS CRÍTICAS</div>
+        <ul>
+            <li><strong>Cláusula de Aseguramiento (Insuring Clause):</strong> Es el corazón del contrato. Promesa de pago y definición del riesgo.</li>
+            <li><strong>Cláusula de Consideración:</strong> Valor intercambiado. Asegurado: Prima + Aplicación. Asegurador: Promesa de pago.</li>
+            <li><strong>Examen Libre (Free Look):</strong> 10 días para salud general. 30 días para Medicare y LTC. Permite devolver la póliza y recibir reembolso total.</li>
+            <li><strong>Acciones Legales:</strong> Debes esperar al menos 60 días tras la prueba de pérdida para demandar. Tienes un máximo de 5 años en Florida.</li>
+        </ul>
 
-            <div class="highlight-box">
-                <b>TRAMPA DE EXAMEN (REINCORPORACIÓN):</b> 
-                Si reincorporas una póliza, los <b>ACCIDENTES</b> se cubren de inmediato. Las <b>ENFERMEDADES</b> tienen una espera de <b>10 DÍAS</b> para evitar que la gente compre el seguro cuando ya está enferma.
-            </div>
-
-            <div class="section-title">PILAR 4: PROVISIONES DIVERSAS</div>
-            <ul>
-                <li><strong>Derecho a Examinar (Free Look):</strong> 
-                    <ul>
-                        <li>Salud General: 10 días.</li>
-                        <li>Medicare / Long Term Care: 30 días.</li>
-                    </ul>
-                </li>
-                <li><strong>Cláusula de Aseguramiento (Insuring Clause):</strong> La "Cara de la Póliza". Contiene la promesa de pago y define el alcance de la cobertura.</li>
-                <li><strong>Cláusula de Consideración:</strong> Indica que el intercambio de valor (Prima + Solicitud) es lo que activa el contrato.</li>
-            </ul>
-            <div class="section-title">PILAR 5: LEYES ESPECÍFICAS DE FLORIDA (DFS)</div>
-            <ul>
-                <li><strong>Período de Gracia (Florida):</strong> Aunque la NAIC sugiere mínimos, Florida exige que sean claramente visibles. <b>10 días para primas mensuales</b> es el estándar que verás en el examen.</li>
-                <li><strong>Límite de Tiempo en Ciertas Defensas:</strong> Florida establece <b>2 años</b>. Después de esto, solo el fraude probado puede anular un reclamo.</li>
-                <li><strong>Outline of Coverage:</strong> En Florida, es obligatorio entregar un "Resumen de Cobertura" al solicitante para que pueda comparar pólizas fácilmente.</li>
-                <li><strong>Acciones Legales:</strong> El tiempo máximo para demandar en Florida tras presentar la prueba de pérdida es de <b>5 años</b> (Estatuto de Limitaciones).</li>
-            </ul>
-
-            <div class="highlight-box" style="border-color: #ff4d4d; background: #fff5f5;">
-                <b>⚠️ ÚLTIMO REPASO ANTES DEL TEST:</b>
-                Si te preguntan por <b>"Contrato Completo"</b>, recuerda que el agente NUNCA puede cambiar la póliza. Solo un oficial de la compañía puede.
-            </div>
-        </div>
-        <div class="footer">© 2026 Maná Academy. Página 2/2</div>
+        <div class="pro-tip"><b>⚠️ TRAMPA PEARSON VUE:</b> Si te preguntan quién firma los cambios del contrato, busca siempre: <b>OFICIAL DE LA COMPAÑÍA</b>. El agente nunca tiene autoridad para cambiar lo escrito en el contrato (Contrato de Adhesión).</div>
+        
+        <div class="footer">© 2026 Maná Academy. Material Platinum v3.0.7 • Página 2/2</div>
     </div>
-
 </body>
 </html>

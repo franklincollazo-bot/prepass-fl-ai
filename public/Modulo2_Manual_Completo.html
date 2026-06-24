@@ -4,128 +4,117 @@
     <meta charset="UTF-8">
     <title>Manual Maestro Módulo 2 - Maná Academy</title>
     <style>
-        :root { 
-            --gold: #C5A059; 
-            --navy: #0A1B33; 
-            --black: #000000;
-        }
-        
-        body { 
-            background-color: #f4f4f4; 
-            margin: 0; 
-            padding: 20px;
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
-        }
-
-        .printable-page {
-            width: 215.9mm;
-            height: 279.4mm;
-            padding: 25.4mm;
-            margin: 0 auto 20px auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header {
-            background-color: var(--navy);
-            color: var(--gold);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--gold);
-            margin-bottom: 25px;
-        }
-
+        :root { --gold: #C5A059; --navy: #0A1B33; --black: #000000; }
+        body { background-color: #f4f4f4; margin: 0; padding: 20px; font-family: 'Segoe UI', Helvetica, Arial, sans-serif; }
+        .printable-page { width: 215.9mm; min-height: 279.4mm; padding: 25mm; margin: 0 auto 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); box-sizing: border-box; display: flex; flex-direction: column; }
+        .header { background-color: var(--navy); color: var(--gold); padding: 20px; text-align: center; border-bottom: 4px solid var(--gold); margin-bottom: 25px; }
         .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; }
-
-        .section-title {
-            background: var(--navy);
-            color: var(--gold);
-            padding: 8px 12px;
-            font-weight: bold;
-            margin-top: 15px;
-            border-left: 4px solid var(--gold);
-            font-size: 14px;
-        }
-
+        .section-title { background: var(--navy); color: var(--gold); padding: 8px 12px; font-weight: bold; margin-top: 15px; border-left: 4px solid var(--gold); font-size: 14px; }
         h2 { color: var(--navy); font-size: 16px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 10px; }
-        p, li { font-size: 12px; line-height: 1.5; color: #333; margin-bottom: 5px; }
-        
-        .pro-tip {
-            background: #fffdf0;
-            border: 1px solid var(--gold);
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            font-size: 11px;
-        }
-
-        .footer {
-            margin-top: auto;
-            text-align: center;
-            font-size: 10px;
-            color: #999;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-        }
+        p, li { font-size: 12px; line-height: 1.6; color: #333; margin-bottom: 5px; }
+        .pro-tip { background: #fffdf0; border: 1px solid var(--gold); padding: 10px; margin: 10px 0; border-radius: 4px; font-size: 11px; }
+        .scenario { background: #f0f4f8; border-left: 4px solid #3b82f6; padding: 10px; margin: 10px 0; font-size: 11px; font-style: italic; }
+        .footer { margin-top: auto; text-align: center; font-size: 10px; color: #999; border-top: 1px solid #eee; padding-top: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 11px; }
+        th, td { border: 1px solid #eee; padding: 8px; text-align: left; }
+        th { background-color: var(--navy); color: var(--gold); }
     </style>
 </head>
 <body>
-
     <div class="printable-page">
         <div class="header">
             <h1>Manual Maestro - Módulo 2</h1>
-            <div style="color: white; font-size: 11px;">Tipos de Pólizas de Salud • Florida 2-40</div>
+            <div style="color: white; font-size: 11px;">Seguro de Incapacidad y Gastos Médicos • Guía Platinum</div>
         </div>
 
-        <div class="section-title">PILAR 1: SEGURO DE INCAPACIDAD (INCOME)</div>
-        <p>Diseñado para reemplazar los ingresos perdidos cuando el asegurado no puede trabajar por enfermedad o accidente.</p>
+        <div class="section-title">PILAR 1: SEGURO DE INCAPACIDAD (INCOME REPLACEMENT)</div>
+        <p>El propósito es reemplazar los ingresos cuando el asegurado no puede trabajar. Es "el seguro para tu cheque".</p>
+        
+        <h2>Definiciones de Incapacidad (Crucial para el examen)</h2>
         <ul>
-            <li><strong>Own Occupation:</strong> No puede realizar las tareas de su propia ocupación. (Más caro).</li>
-            <li><strong>Any Occupation:</strong> No puede realizar tareas de cualquier ocupación para la que esté calificado por educación o experiencia.</li>
-            <li><strong>Periodo de Eliminación:</strong> Tiempo de espera antes de recibir beneficios (ej: 30 días).</li>
-            <li><strong>Periodo de Beneficio:</strong> Cuánto tiempo se paga el beneficio (ej: 2 años, 5 años, hasta los 65).</li>
+            <li><strong>Own Occupation (Ocupación Propia):</strong> El asegurado califica si no puede realizar las tareas de su trabajo actual, aunque pueda hacer otro. Es la definición más favorable para el asegurado.</li>
+            <li><strong>Any Occupation (Cualquier Ocupación):</strong> Solo califica si no puede realizar ningún trabajo para el cual esté capacitado por educación, entrenamiento o experiencia. Es más restrictiva.</li>
+            <li><strong>Presuntiva:</strong> Pérdida total y permanente de la vista, el habla, el oído o dos extremidades. Califica automáticamente para el beneficio total.</li>
         </ul>
 
-        <div class="section-title">PILAR 2: GASTOS MÉDICOS Y REDES</div>
+        <div class="scenario">
+            <b>ESCENARIO:</b> Un cirujano pierde un dedo. Bajo "Own Occ", recibe beneficios porque no puede operar. Bajo "Any Occ", el asegurador podría decir que puede dar clases, por lo que no cobraría.
+        </div>
+
+        <h2>Provisiones Técnicas</h2>
         <ul>
-            <li><strong>Gastos Médicos Mayores:</strong> Cobertura para gastos catastróficos con deducibles y coaseguro.</li>
-            <li><strong>HMO (Health Maintenance Organization):</strong> Enfoque preventivo. Requiere un PCP (Médico de Cabecera) y referidos. Solo red interna.</li>
-            <li><strong>PPO (Preferred Provider Organization):</strong> Mayor flexibilidad. No requiere PCP ni referidos. Cobertura fuera de la red (con mayor costo).</li>
+            <li><strong>Periodo de Eliminación:</strong> Es el deducible de tiempo. El tiempo de espera (ej. 30, 60 días) tras la lesión antes de que se pague el primer centavo. A mayor periodo, menor prima.</li>
+            <li><strong>Periodo de Beneficio:</strong> La duración del pago (6 meses, 2 años, hasta los 65).</li>
+            <li><strong>Incapacidad Recurrente:</strong> Si la misma lesión vuelve en un tiempo corto (ej. 6 meses), no hay que repetir el periodo de eliminación.</li>
         </ul>
 
-        <div class="section-title">PILAR 3: SEGURO DE GRUPO Y COBRA</div>
-        <p>Cobertura proporcionada a través de un empleador o asociación.</p>
-        <ul>
-            <li><strong>Master Policy:</strong> La póliza maestra es para el dueño del grupo; los miembros reciben certificados.</li>
-            <li><strong>COBRA:</strong> Permite continuar la cobertura tras dejar el empleo (hasta 18 meses). Aplica a grupos de 20+ empleados.</li>
-        </ul>
+        <div class="section-title">PILAR 2: PLANES DE GASTOS MÉDICOS (HMO vs PPO)</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>HMO (Mantenimiento)</th>
+                    <th>PPO (Preferencial)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Enfoque</strong></td>
+                    <td>Preventivo (Wellness)</td>
+                    <td>Cuidado de Salud Tradicional</td>
+                </tr>
+                <tr>
+                    <td><strong>PCP (Gatekeeper)</strong></td>
+                    <td>Obligatorio (Referidos)</td>
+                    <td>No requerido</td>
+                </tr>
+                <tr>
+                    <td><strong>Red de Médicos</strong></td>
+                    <td>Solo Red Interna (Cerrada)</td>
+                    <td>Flexibilidad (Fuera de red = más caro)</td>
+                </tr>
+                <tr>
+                    <td><strong>Costo</strong></td>
+                    <td>Prepago (Capitación)</td>
+                    <td>Tarifas negociadas (Fee-for-service)</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div class="printable-page">
+        <div class="section-title">PILAR 3: GASTOS MÉDICOS MAYORES (MAJOR MEDICAL)</div>
+        <p>Diseñados para gastos catastróficos. Tienen límites altos (ej. $1 millón).</p>
+        <ul>
+            <li><strong>Deducible de Corredor (Corridor):</strong> Un deducible que se aplica entre una póliza básica de hospital y una de gastos médicos mayores.</li>
+            <li><strong>Coaseguro (Coinsurance):</strong> Reparto de costos (ej. 80/20). La aseguradora paga el 80% y el asegurado el 20%.</li>
+            <li><strong>Stop-Loss (Límite de Gasto de Bolsillo):</strong> El monto máximo que el asegurado pagará en un año. Una vez alcanzado (ej. $5,000), la aseguradora paga el 100%.</li>
+        </ul>
+
         <div class="section-title">PILAR 4: CUIDADOS A LARGO PLAZO (LTC)</div>
-        <p>Asistencia para personas que no pueden realizar ADLs (Actividades de la Vida Diaria).</p>
+        <p>Proporciona cuidado para personas con enfermedades crónicas o ancianos.</p>
         <ul>
-            <li><strong>ADLs (6):</strong> Bañarse, vestirse, comer, movilidad, continencia y usar el baño.</li>
-            <li><strong>Niveles de Cuidado:</strong> Especializado (Skilled), Intermedio y de Custodia.</li>
-            <li><strong>Regla de Florida:</strong> 30 días de Free Look y debe ser renovable garantizada.</li>
+            <li><strong>Niveles de Cuidado:</strong>
+                <ul>
+                    <li><strong>Skilled (Especializado):</strong> 24h, por profesionales licenciados.</li>
+                    <li><strong>Intermedio:</strong> Asistencia médica pero no constante.</li>
+                    <li><strong>Custodia:</strong> Ayuda con las ADLs (comer, bañarse). No requiere personal médico.</li>
+                </ul>
+            </li>
+            <li><strong>Periodo de Examen Libre (Florida):</strong> 30 días para devolverla.</li>
         </ul>
 
-        <div class="section-title">PILAR 5: PLANES DENTALES Y LIMITADOS</div>
+        <div class="section-title">PILAR 5: SEGURO DE GRUPO Y COBRA</div>
+        <p>Aplica para grupos naturales (empleadores) de 2 o más personas.</p>
         <ul>
-            <li><strong>Dental:</strong> Preventivo (100%), Básico (80/20) y Mayor (50/50).</li>
-            <li><strong>Blanket (Cobija):</strong> Cubre grupos cambiantes (estudiantes, equipos) sin emitir certificados.</li>
-            <li><strong>Cáncer / Indemnización:</strong> Pagan una cantidad fija por el riesgo específico.</li>
+            <li><strong>Póliza Maestra:</strong> El empleador la tiene. El empleado tiene un <strong>Certificado</strong>.</li>
+            <li><strong>COBRA (Federal):</strong> Para grupos de 20+ empleados. Continuación de salud por terminación (18 meses) o eventos familiares (36 meses).</li>
+            <li><strong>Mini-COBRA (Florida):</strong> Para grupos de menos de 20 empleados.</li>
         </ul>
 
-        <div class="pro-tip"><b>OJO AL EXAMEN:</b> Los seguros de <b>Blanket</b> son los únicos de grupo que NO emiten certificados individuales.</div>
+        <div class="pro-tip"><b>TRAMPA DE EXAMEN:</b> En COBRA, el empleador puede cobrar el 102% de la prima (100% de la prima + 2% administrativo).</div>
         
-        <div class="footer">© 2026 Maná Academy. Página 2/2</div>
+        <div class="footer">© 2026 Maná Academy. Material Platinum v3.0.7 • Página 2/2</div>
     </div>
-
 </body>
 </html>
