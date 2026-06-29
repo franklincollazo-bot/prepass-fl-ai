@@ -544,13 +544,15 @@ export default function Dashboard() {
                  </div>
               </div>
 
-              <div className="join-agency-card">
-                 <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: COLORS.gold, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' }}>👑</div>
-                 <div>
-                    <div style={{ fontWeight: 'bold', fontSize: '14px' }}>¿BUSCAS UNA AGENCIA?</div>
-                    <div style={{ fontSize: '11px', opacity: 0.8 }}>Únete a Maná Insurance Advisors</div>
-                 </div>
-              </div>
+               <div className="join-agency-card">
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', border: `1px solid ${COLORS.gold}` }}>
+                     <img src={LOGO_URL} alt="Maná Logo" style={{ width: '80%', height: 'auto' }} />
+                  </div>
+                  <div>
+                     <div style={{ fontWeight: 'bold', fontSize: '14px' }}>¿BUSCAS UNA AGENCIA?</div>
+                     <div style={{ fontSize: '11px', opacity: 0.8 }}>Únete a Maná Insurance Advisors</div>
+                  </div>
+               </div>
           </aside>
 
         </section>
