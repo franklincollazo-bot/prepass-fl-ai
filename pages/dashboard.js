@@ -468,9 +468,9 @@ export default function Dashboard() {
                        ) : (
                          <iframe 
                            key={currentSubtopic?.videoUrl}
-                           src={`${currentSubtopic?.videoUrl}?captions=1&subtitles=true&show_captions=1`}
+                           src={`${currentSubtopic?.videoUrl}?captions=1&cc_load_policy=1&hl=es&controls=1`}
                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-                           allow="fullscreen; encrypted-media; picture-in-picture"
+                           allow="fullscreen; encrypted-media; picture-in-picture; autoplay"
                          />
                        )}
 
