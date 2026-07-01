@@ -309,12 +309,11 @@ export default function Dashboard() {
       fontFamily: 'system-ui',
       position: 'relative',
       width: '100%',
-      maxWidth: '100vw',
-      overflowX: 'hidden'
+      maxWidth: '100vw'
     }}>
       <Head>
         <title>Dashboard | Maná Academy</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
 
       {/* --- PREMIUM NAVBAR --- */}
@@ -468,9 +467,11 @@ export default function Dashboard() {
                        ) : (
                          <iframe 
                            key={currentSubtopic?.videoUrl}
-                           src={`${currentSubtopic?.videoUrl}?captions=1&cc_load_policy=1&hl=es&controls=1`}
+                           src={currentSubtopic?.videoUrl}
+                           title="HeyGen Video Player"
                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-                           allow="fullscreen; encrypted-media; picture-in-picture; autoplay"
+                           allow="autoplay; fullscreen; encrypted-media; picture-in-picture; microphone; clipboard-write"
+                           allowFullScreen
                          />
                        )}
 
@@ -575,7 +576,7 @@ export default function Dashboard() {
         .navbar-subtitle { color: ${COLORS.gold}; font-size: 11px; font-weight: bold; letter-spacing: 2px; }
         .reset-btn { border-color: ${COLORS.gold}; color: ${COLORS.gold}; }
 
-        .dashboard-main { padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; overflow: hidden; }
+        .dashboard-main { padding: 40px; max-width: 1400px; margin: 0 auto; width: 100%; box-sizing: border-box; }
         .main-content { display: flex; gap: 40px; width: 100%; align-items: flex-start; max-width: 100%; }
         .left-column { flex: 1; min-width: 0; max-width: 100%; }
         .chapter-selector { display: flex; gap: 10px; margin-bottom: 25px; overflow-x: auto; padding-bottom: 10px; width: 100%; max-width: 100%; white-space: nowrap; }
@@ -589,7 +590,6 @@ export default function Dashboard() {
           width: 100%;
           max-width: 100%;
           box-sizing: border-box;
-          overflow: hidden;
         }
         .course-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; gap: 20px; }
         .chapter-title { margin: 0 0 8px 0; color: ${COLORS.navy}; font-size: 32px; font-weight: 800; line-height: 1.2; }
